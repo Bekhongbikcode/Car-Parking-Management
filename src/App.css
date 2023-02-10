@@ -782,12 +782,28 @@ input[type='radio']:checked:after {
   text-align: center;
 }
 
-.step-reservation div{
-  width: 100px;
-  height: 100px;
+.step-reservation .circle div {
+  width: 80px;
+  height: 80px;
+  background-color: #e7e6e6;
+  margin-top: 30px;
+  margin-left: 10px;
+  margin-right: 10px;
+  margin-bottom: 20px;
+  text-align:'center';
+  cursor: pointer;
+}
+
+.step-reservation div:active{
   background-color: black;
 }
 
+.step-reservation .circle div span{
+  display: block;
+  margin-top: 30%;
+  font-size: 20px;
+  color: #fff;
+}
 
 @keyframes App-logo-spin {
   from {
