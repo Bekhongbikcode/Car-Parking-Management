@@ -26,12 +26,12 @@ const Login = () => {
     useEffect(() => {
 
         usernameupdate(username)
-    }, [username])
+    }, [username]);
 
     useEffect(() => {
 
         passwordupdate(password)
-    }, [password])
+    }, [password]);
 
     const ProceedLogin = (e) => {
         e.preventDefault();
@@ -54,6 +54,7 @@ const Login = () => {
             }).then((res) => {
                 console.log(res.json)
                 return res.json();
+                
             }).then((resp) => {
                 console.log(resp)
                 if (Object.keys(resp).length === 0) {

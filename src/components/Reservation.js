@@ -9,6 +9,8 @@ import Slider from "./Slider"
 import Header from "./Header";
 import Footer from "./Footer";
 import ReservationDetail from "./ReservationDetail";
+import PaymentInformation from "./PaymentInformation";
+import ReservationComplete from "./ReservationComplete";
 
 const EMAIL_REGEX = /^[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[A-Za-z]+$/;
 const PHONE_REGEX = /^[0-9]{10,12}$/;
@@ -63,11 +65,11 @@ const Reservation = () => {
         setValidPhone(result);
     })
 
-    useEffect (() =>{
+    useEffect(() => {
         setTypeOfVehicle(typeOfVehicle)
     }, [typeOfVehicle])
 
-    useEffect (() =>{
+    useEffect(() => {
         setSlot(slot)
     }, [slot])
 
@@ -95,12 +97,7 @@ const Reservation = () => {
             return isproceed;
     }
 
-    const handleSubmit = async (e) => {
-        e.preventDefault();
-        const obj = {startDate, endDate, startTime, endTime, zone, typeOfVehicle, slot, fullName, email, phone }
-        if (IsValidate)
-        console.log(obj);
-    }
+   
 
 
 
@@ -109,7 +106,9 @@ const Reservation = () => {
             <Header></Header>
             <Slider></Slider>
             <ReservationDetail></ReservationDetail>
-            
+
+
+
             <Footer></Footer>
         </div>
     )

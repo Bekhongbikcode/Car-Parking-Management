@@ -9,9 +9,10 @@ import ForgottenPwd from './components/Forgotten-pwd';
 import Header from './components/Header';
 import Reservation from './components/Reservation';
 import PaymentInformation from './components/PaymentInformation';
-import Account_Header from './components/accountHeader';
-import Account_Footer from './components/accountFooter.jS';
-import Account_Body from './components/accountBody';
+import Banking from './components/Banking';
+import ReservationComplete from './components/ReservationComplete';
+import ZoneDetai from './components/ZoneDetail';
+import ZoneDetail from './components/ZoneDetail';
 
 
 function App() {
@@ -19,20 +20,20 @@ function App() {
     <div className="App">
       <ToastContainer theme='colored' position='top-right'></ToastContainer>
       <BrowserRouter>
-        <Routes>
-          <Route path='/' element={<Home />}></Route>
-          <Route path='/login' element={<Login />}></Route>
-          <Route path='/register' element={<Register />}></Route>
-          <Route path='/Forgotten-pwd' element={<ForgottenPwd />}></Route>
-          <Route path='/Reservation' element={<Reservation />}></Route>
-          <Route path='/PaymentInformation' element={<PaymentInformation></PaymentInformation>} ></Route>
-          <Account_Header></Account_Header>
-          <Account_Body></Account_Body>
-          <Account_Footer></Account_Footer>
-        </Routes>
-
+      <Routes>
+        <Route path='/' element={<Home/>}></Route>
+        <Route path='/login' element={<Login/>}></Route>
+        <Route path='/register' element={<Register/>}></Route>
+        <Route path='/Forgotten-pwd' element={<ForgottenPwd/>}></Route>
+        <Route path='/Reservation' element={<Reservation/>}></Route>
+        <Route path='/PaymentInformation' element={<PaymentInformation/>}></Route>
+        <Route path='/Banking' element={<Banking></Banking>}></Route>
+        <Route path='/ReservationComplete' element={<ReservationComplete/>}></Route>
+        <Route path='/ZoneDetail/:index' element={<ZoneDetail/>}></Route>
+      </Routes>
+      
       </BrowserRouter>
-
+      
     </div>
   );
 }
