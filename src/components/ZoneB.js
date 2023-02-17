@@ -1,5 +1,5 @@
-import { useParams, useState, useEffect } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import {  useState, useEffect } from "react";
+import { Link} from "react-router-dom";
 function ZoneB() {
     const [shells, setShells] = useState([]);
 
@@ -59,7 +59,7 @@ function ZoneB() {
                                 <tr class="border">
 
                                     {residentSlot.slice(0, 10).map(shell => (
-                                        <td className="border" key={shell.id} style={{ backgroundColor: shell.status == 1 ? 'rgba(250, 104, 104, 0.874)' : 'white' }}>
+                                        <td className="border" key={shell.id} style={{ backgroundColor: shell.status === 1 ? 'rgba(250, 104, 104, 0.874)' : 'white' }}>
 
                                             {shell.id_slot}
                                         </td>
@@ -68,7 +68,7 @@ function ZoneB() {
                                 <tr class="border">
 
                                     {residentSlot.slice(10, 20).map(shell => (
-                                        <td className="border" key={shell.id} style={{ backgroundColor: shell.status == 1 ? 'rgba(250, 104, 104, 0.874)' : 'white' }}>
+                                        <td className="border" key={shell.id} style={{ backgroundColor: shell.status === 1 ? 'rgba(250, 104, 104, 0.874)' : 'white' }}>
 
                                             {shell.id_slot}
                                         </td>
@@ -95,7 +95,7 @@ function ZoneB() {
                                 <tr class="border">
 
                                     {customerSlot.slice(0, 10).map(shell => (
-                                        <td className="border" key={shell.id} style={{ backgroundColor: shell.status == 1 ? 'rgba(250, 104, 104, 0.874)' : 'white' }}>
+                                        <td className="border" key={shell.id} style={{ backgroundColor: shell.status === 1 ? 'rgba(250, 104, 104, 0.874)' : 'white' }}>
 
                                             {shell.id_slot}
                                         </td>
@@ -104,7 +104,7 @@ function ZoneB() {
                                 <tr class="border">
 
                                     {customerSlot.slice(10, 20).map(shell => (
-                                        <td className="border" key={shell.id} style={{ backgroundColor: shell.status == 1 ? 'rgba(250, 104, 104, 0.874)' : 'white' }}>
+                                        <td className="border" key={shell.id} style={{ backgroundColor: shell.status === 1 ? 'rgba(250, 104, 104, 0.874)' : 'white' }}>
 
                                             {shell.id_slot}
                                         </td>

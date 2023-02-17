@@ -1,10 +1,8 @@
 import { useEffect, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { toast } from "react-toastify";
-import Helmet from "react-helmet";
-import { HelmetProvider } from "react-helmet-async";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCheck, faTimes, faInfoCircle, faUser, faClock, faArrowRight } from "@fortawesome/free-solid-svg-icons";
+import {faArrowRight } from "@fortawesome/free-solid-svg-icons";
 
 const EMAIL_REGEX = /^[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[A-Za-z]+$/;
 const PHONE_REGEX = /^[0-9]{10,12}$/;
@@ -267,7 +265,7 @@ const ReservationDetail = () => {
                             <option>23:00</option>
                         </select>
                     </div>
-                    
+
                     <div className=" col-lg-6 class-input">
                         <label>Zone *</label>
                         <br />
@@ -353,7 +351,7 @@ const ReservationDetail = () => {
                         <tr class="border">
 
                             {residentSlot.slice(1, 10).map(shell => (
-                                <td className="border" key={shell.id} style={{ backgroundColor: shell.status_Slots == true ? 'rgba(250, 104, 104, 0.874)' : 'white' }}>
+                                <td className="border" key={shell.id} style={{ backgroundColor: shell.status_Slots === true ? 'rgba(250, 104, 104, 0.874)' : 'white' }}>
 
                                     {shell.id_C_Slot}
                                 </td>
@@ -362,7 +360,7 @@ const ReservationDetail = () => {
                         <tr class="border">
 
                             {residentSlot.slice(10, 20).map(shell => (
-                                <td className="border" key={shell.id} style={{ backgroundColor: shell.status_Slots == true ? 'rgba(250, 104, 104, 0.874)' : 'white' }}>
+                                <td className="border" key={shell.id} style={{ backgroundColor: shell.status_Slots === true ? 'rgba(250, 104, 104, 0.874)' : 'white' }}>
 
                                     {shell.id_C_Slot}
                                 </td>
@@ -378,7 +376,7 @@ const ReservationDetail = () => {
                         <tr class="border">
 
                             {customerSlot.slice(0, 10).map(shell => (
-                                <td className="border" key={shell.id} style={{ backgroundColor: shell.status_Slots == true ? 'rgba(250, 104, 104, 0.874)' : 'white' }}>
+                                <td className="border" key={shell.id} style={{ backgroundColor: shell.status_Slots === true ? 'rgba(250, 104, 104, 0.874)' : 'white' }}>
 
                                     {shell.id_C_Slot}
                                 </td>
@@ -387,7 +385,7 @@ const ReservationDetail = () => {
                         <tr class="border">
 
                             {customerSlot.slice(10, 20).map(shell => (
-                                <td className="border" key={shell.id} style={{ backgroundColor: shell.status_Slots == true ? 'rgba(250, 104, 104, 0.874)' : 'white' }}>
+                                <td className="border" key={shell.id} style={{ backgroundColor: shell.status_Slots === true ? 'rgba(250, 104, 104, 0.874)' : 'white' }}>
 
                                     {shell.id_C_Slot}
                                 </td>

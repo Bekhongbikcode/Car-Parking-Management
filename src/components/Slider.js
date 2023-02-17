@@ -1,18 +1,12 @@
 
-import { useEffect, useState, useRef } from "react";
-import { Link, useNavigate } from "react-router-dom";
-import Helmet from "react-helmet";
-import { HelmetProvider } from "react-helmet-async";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCheck, faTimes, faInfoCircle, faUser } from "@fortawesome/free-solid-svg-icons";
+import { useEffect, useState} from "react";
+
 
 const Slider = () => {
     const [startDate, setStartDate] = useState();
     const [endDate, setEndDate] = useState();
     const [startTime, setStartTime] = useState('');
     const [endTime, setEndTime] = useState('');
-    const userRef = useRef();
-    const errRef = useRef();
 
     useEffect(() => {
         setStartDate(startDate);

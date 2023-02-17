@@ -1,15 +1,11 @@
-import { useEffect, useState } from "react";
-import { Link, useNavigate, useParams } from "react-router-dom";
-import { toast } from "react-toastify";
-import Helmet from "react-helmet";
-import { HelmetProvider } from "react-helmet-async";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
+import { useParams } from "react-router-dom";
 //  import visa from "D:/WorkSpace/React_projects/SWP/ParkingManagement/public/assets/img/visa"
-import { faCheck, faTimes, faInfoCircle, faUser, faClock, faArrowRight, faCashRegister, } from "@fortawesome/free-solid-svg-icons";
+
 import Slider from "./Slider"
 import Header from "./Header";
 import Footer from "./Footer";
-import ReservationDetail from "./ReservationDetail";
+
 import ZoneA from "./ZoneA";
 import ZoneB from "./ZoneB";
 import ZoneC from "./ZoneC";
