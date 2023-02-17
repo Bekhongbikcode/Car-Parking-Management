@@ -65,720 +65,614 @@
     }
   ],
   "zoneA": [
-    
     {
       "id_building": "A",
       "id_slot": "C1",
       "status": "1"
     },
     {
-
       "id_building": "A",
-      "id_slot":"C2",
-      "status" : "1"
+      "id_slot": "C2",
+      "status": "1"
     },
     {
-
       "id_building": "A",
-      "id_slot":"C3",
-      "status" : "0"
+      "id_slot": "C3",
+      "status": "0"
     },
     {
-
       "id_building": "A",
-      "id_slot":"C4",
-      "status" : "0"
+      "id_slot": "C4",
+      "status": "0"
     },
     {
-
       "id_building": "A",
-      "id_slot":"C5",
-      "status" : "1"
+      "id_slot": "C5",
+      "status": "1"
     },
     {
-
       "id_building": "A",
-      "id_slot":"C6",
-      "status" : "0"
+      "id_slot": "C6",
+      "status": "0"
     },
     {
-
       "id_building": "A",
-      "id_slot":"C7",
-      "status" : "1"
+      "id_slot": "C7",
+      "status": "1"
     },
     {
-
       "id_building": "A",
-      "id_slot":"C1",
-      "status" : "0"
+      "id_slot": "C8",
+      "status": "0"
     },
     {
-
       "id_building": "A",
-      "id_slot":"C1",
-      "status" : "1"
+      "id_slot": "C9",
+      "status": "1"
     },
     {
-
       "id_building": "A",
-      "id_slot":"C1",
-      "status" : "1"
+      "id_slot": "C10",
+      "status": "1"
     },
     {
-
       "id_building": "A",
-      "id_slot":"C1",
-      "status" : "0"
+      "id_slot": "C11",
+      "status": "0"
     },
     {
-
       "id_building": "A",
-      "id_slot":"C1",
-      "status" : "0"
+      "id_slot": "C12",
+      "status": "0"
     },
     {
-
       "id_building": "A",
-      "id_slot":"C1",
-      "status" : "0"
+      "id_slot": "C13",
+      "status": "0"
     },
     {
-
       "id_building": "A",
-      "id_slot":"C1",
-      "status" : "0"
+      "id_slot": "C14",
+      "status": "0"
     },
     {
-
       "id_building": "A",
-      "id_slot":"C1",
-      "status" : "1"
+      "id_slot": "C15",
+      "status": "1"
     },
     {
-
       "id_building": "A",
-      "id_slot":"C1",
-      "status" : "0"
+      "id_slot": "C16",
+      "status": "0"
     },
     {
-
       "id_building": "A",
-      "id_slot":"C1",
-      "status" : "1"
+      "id_slot": "C17",
+      "status": "1"
     },
     {
-
       "id_building": "A",
-      "id_slot":"C1",
-      "status" : "0"
+      "id_slot": "C18",
+      "status": "0"
     },
     {
-
       "id_building": "A",
-      "id_slot":"C1",
-      "status" : "0"
+      "id_slot": "C19",
+      "status": "0"
     },
     {
-
-      "id_building": "A",
-      "id_slot":"R1",
-      "status" : "0"
-    },{
       "id_building": "A",
       "id_slot": "R1",
-      "status": "0"    },
-    {
-
-      "id_building": "A",
-      "id_slot":"R2",
-      "status" : "1"
+      "status": "0"
     },
     {
-
       "id_building": "A",
-      "id_slot":"R3",
-      "status" : "1"
+      "id_slot": "R1",
+      "status": "0"
     },
     {
-
       "id_building": "A",
-      "id_slot":"R4",
-      "status" : "1"
+      "id_slot": "R2",
+      "status": "1"
     },
     {
-
       "id_building": "A",
-      "id_slot":"R5",
-      "status" : "1"
+      "id_slot": "R3",
+      "status": "1"
     },
     {
-
       "id_building": "A",
-      "id_slot":"R6",
-      "status" : "0"
+      "id_slot": "R4",
+      "status": "1"
     },
     {
-
       "id_building": "A",
-      "id_slot":"R7",
-      "status" : "0"
+      "id_slot": "R5",
+      "status": "1"
     },
     {
-
       "id_building": "A",
-      "id_slot":"C1",
-      "status" : "0"
+      "id_slot": "R6",
+      "status": "0"
     },
     {
-
       "id_building": "A",
-      "id_slot":"R1",
-      "status" : "0"
+      "id_slot": "R7",
+      "status": "0"
     },
     {
-
       "id_building": "A",
-      "id_slot":"R1",
-      "status" : "1"
+      "id_slot": "C1",
+      "status": "0"
     },
     {
-
       "id_building": "A",
-      "id_slot":"R1",
-      "status" : "0"
+      "id_slot": "R1",
+      "status": "0"
     },
     {
-
       "id_building": "A",
-      "id_slot":"R1",
-      "status" : "1"
+      "id_slot": "R1",
+      "status": "1"
     },
     {
-
       "id_building": "A",
-      "id_slot":"R1",
-      "status" : "1"
+      "id_slot": "R1",
+      "status": "0"
     },
     {
-
       "id_building": "A",
-      "id_slot":"R1",
-      "status" : "0"
+      "id_slot": "R1",
+      "status": "1"
     },
     {
-
       "id_building": "A",
-      "id_slot":"R1",
-      "status" : "0"
+      "id_slot": "R1",
+      "status": "1"
     },
     {
-
       "id_building": "A",
-      "id_slot":"R1",
-      "status" : "0"
+      "id_slot": "R1",
+      "status": "0"
     },
     {
-
       "id_building": "A",
-      "id_slot":"R1",
-      "status" : "0"
+      "id_slot": "R1",
+      "status": "0"
     },
     {
-
       "id_building": "A",
-      "id_slot":"R1",
-      "status" : "1"
+      "id_slot": "R1",
+      "status": "0"
     },
     {
-
       "id_building": "A",
-      "id_slot":"R1",
-      "status" : "1"
+      "id_slot": "R1",
+      "status": "0"
     },
     {
-
       "id_building": "A",
-      "id_slot":"R1",
-      "status" : "1"
+      "id_slot": "R1",
+      "status": "1"
+    },
+    {
+      "id_building": "A",
+      "id_slot": "R1",
+      "status": "1"
+    },
+    {
+      "id_building": "A",
+      "id_slot": "R1",
+      "status": "1"
     }
   ],
   "zoneB": [
-    
     {
       "id_building": "B",
       "id_slot": "C1",
       "status": "0"
     },
     {
-
       "id_building": "B",
-      "id_slot":"C2",
-      "status" : "1"
+      "id_slot": "C2",
+      "status": "1"
     },
     {
-
       "id_building": "B",
-      "id_slot":"C3",
-      "status" : "0"
+      "id_slot": "C3",
+      "status": "0"
     },
     {
-
       "id_building": "B",
-      "id_slot":"C4",
-      "status" : "1"
+      "id_slot": "C4",
+      "status": "1"
     },
     {
-
       "id_building": "B",
-      "id_slot":"C5",
-      "status" : "1"
+      "id_slot": "C5",
+      "status": "1"
     },
     {
-
       "id_building": "B",
-      "id_slot":"C6",
-      "status" : "1"
+      "id_slot": "C6",
+      "status": "1"
     },
     {
-
       "id_building": "B",
-      "id_slot":"C7",
-      "status" : "0"
+      "id_slot": "C7",
+      "status": "0"
     },
     {
-
       "id_building": "B",
-      "id_slot":"C1",
-      "status" : "0"
+      "id_slot": "C1",
+      "status": "0"
     },
     {
-
       "id_building": "B",
-      "id_slot":"C1",
-      "status" : "0"
+      "id_slot": "C1",
+      "status": "0"
     },
     {
-
       "id_building": "B",
-      "id_slot":"C1",
-      "status" : "0"
+      "id_slot": "C1",
+      "status": "0"
     },
     {
-
       "id_building": "B",
-      "id_slot":"C1",
-      "status" : "1"
+      "id_slot": "C1",
+      "status": "1"
     },
     {
-
       "id_building": "B",
-      "id_slot":"C1",
-      "status" : "1"
+      "id_slot": "C1",
+      "status": "1"
     },
     {
-
       "id_building": "B",
-      "id_slot":"C1",
-      "status" : "0"
+      "id_slot": "C1",
+      "status": "0"
     },
     {
-
       "id_building": "B",
-      "id_slot":"C1",
-      "status" : "1"
+      "id_slot": "C1",
+      "status": "1"
     },
     {
-
       "id_building": "B",
-      "id_slot":"C1",
-      "status" : "0"
+      "id_slot": "C1",
+      "status": "0"
     },
     {
-
       "id_building": "B",
-      "id_slot":"C1",
-      "status" : "1"
+      "id_slot": "C1",
+      "status": "1"
     },
     {
-
       "id_building": "B",
-      "id_slot":"C1",
-      "status" : "1"
+      "id_slot": "C1",
+      "status": "1"
     },
     {
-
       "id_building": "B",
-      "id_slot":"C1",
-      "status" : "0"
+      "id_slot": "C1",
+      "status": "0"
     },
     {
-
       "id_building": "B",
-      "id_slot":"C1",
-      "status" : "0"
+      "id_slot": "C1",
+      "status": "0"
     },
     {
-
-      "id_building": "B",
-      "id_slot":"R1",
-      "status" : "1"
-    },{
       "id_building": "B",
       "id_slot": "R1",
-      "status": "0"    },
-    {
-
-      "id_building": "B",
-      "id_slot":"R2",
-      "status" : "1"
+      "status": "1"
     },
     {
-
       "id_building": "B",
-      "id_slot":"R3",
-      "status" : "1"
+      "id_slot": "R1",
+      "status": "0"
     },
     {
-
       "id_building": "B",
-      "id_slot":"R4",
-      "status" : "1"
+      "id_slot": "R2",
+      "status": "1"
     },
     {
-
       "id_building": "B",
-      "id_slot":"R5",
-      "status" : "0"
+      "id_slot": "R3",
+      "status": "1"
     },
     {
-
       "id_building": "B",
-      "id_slot":"R6",
-      "status" : "1"
+      "id_slot": "R4",
+      "status": "1"
     },
     {
-
       "id_building": "B",
-      "id_slot":"R7",
-      "status" : "1"
+      "id_slot": "R5",
+      "status": "0"
     },
     {
-
       "id_building": "B",
-      "id_slot":"C1",
-      "status" : "0"
+      "id_slot": "R6",
+      "status": "1"
     },
     {
-
       "id_building": "B",
-      "id_slot":"R1",
-      "status" : "1"
+      "id_slot": "R7",
+      "status": "1"
     },
     {
-
       "id_building": "B",
-      "id_slot":"R1",
-      "status" : "1"
+      "id_slot": "C1",
+      "status": "0"
     },
     {
-
       "id_building": "B",
-      "id_slot":"R1",
-      "status" : "1"
+      "id_slot": "R1",
+      "status": "1"
     },
     {
-
       "id_building": "B",
-      "id_slot":"R1",
-      "status" : "1"
+      "id_slot": "R1",
+      "status": "1"
     },
     {
-
       "id_building": "B",
-      "id_slot":"R1",
-      "status" : "1"
+      "id_slot": "R1",
+      "status": "1"
     },
     {
-
       "id_building": "B",
-      "id_slot":"R1",
-      "status" : "1"
+      "id_slot": "R1",
+      "status": "1"
     },
     {
-
       "id_building": "B",
-      "id_slot":"R1",
-      "status" : "1"
+      "id_slot": "R1",
+      "status": "1"
     },
     {
-
       "id_building": "B",
-      "id_slot":"R1",
-      "status" : "0"
+      "id_slot": "R1",
+      "status": "1"
     },
     {
-
       "id_building": "B",
-      "id_slot":"R1",
-      "status" : "1"
+      "id_slot": "R1",
+      "status": "1"
     },
     {
-
       "id_building": "B",
-      "id_slot":"R1",
-      "status" : "0"
+      "id_slot": "R1",
+      "status": "0"
     },
     {
-
       "id_building": "B",
-      "id_slot":"R1",
-      "status" : "1"
+      "id_slot": "R1",
+      "status": "1"
     },
     {
-
       "id_building": "B",
-      "id_slot":"R1",
-      "status" : "1"
+      "id_slot": "R1",
+      "status": "0"
+    },
+    {
+      "id_building": "B",
+      "id_slot": "R1",
+      "status": "1"
+    },
+    {
+      "id_building": "B",
+      "id_slot": "R1",
+      "status": "1"
     }
   ],
   "zoneC": [
-    
     {
       "id_building": "A",
       "id_slot": "C1",
       "status": "1"
     },
     {
-
       "id_building": "A",
-      "id_slot":"C2",
-      "status" : "1"
+      "id_slot": "C2",
+      "status": "1"
     },
     {
-
       "id_building": "A",
-      "id_slot":"C3",
-      "status" : "0"
+      "id_slot": "C3",
+      "status": "0"
     },
     {
-
       "id_building": "A",
-      "id_slot":"C4",
-      "status" : "0"
+      "id_slot": "C4",
+      "status": "0"
     },
     {
-
       "id_building": "A",
-      "id_slot":"C5",
-      "status" : "1"
+      "id_slot": "C5",
+      "status": "1"
     },
     {
-
       "id_building": "A",
-      "id_slot":"C6",
-      "status" : "0"
+      "id_slot": "C6",
+      "status": "0"
     },
     {
-
       "id_building": "A",
-      "id_slot":"C7",
-      "status" : "1"
+      "id_slot": "C7",
+      "status": "1"
     },
     {
-
       "id_building": "A",
-      "id_slot":"C1",
-      "status" : "0"
+      "id_slot": "C1",
+      "status": "0"
     },
     {
-
       "id_building": "A",
-      "id_slot":"C1",
-      "status" : "1"
+      "id_slot": "C1",
+      "status": "1"
     },
     {
-
       "id_building": "A",
-      "id_slot":"C1",
-      "status" : "1"
+      "id_slot": "C1",
+      "status": "1"
     },
     {
-
       "id_building": "A",
-      "id_slot":"C1",
-      "status" : "0"
+      "id_slot": "C1",
+      "status": "0"
     },
     {
-
       "id_building": "A",
-      "id_slot":"C1",
-      "status" : "0"
+      "id_slot": "C1",
+      "status": "0"
     },
     {
-
       "id_building": "A",
-      "id_slot":"C1",
-      "status" : "0"
+      "id_slot": "C1",
+      "status": "0"
     },
     {
-
       "id_building": "A",
-      "id_slot":"C1",
-      "status" : "0"
+      "id_slot": "C1",
+      "status": "0"
     },
     {
-
       "id_building": "A",
-      "id_slot":"C1",
-      "status" : "1"
+      "id_slot": "C1",
+      "status": "1"
     },
     {
-
       "id_building": "A",
-      "id_slot":"C1",
-      "status" : "0"
+      "id_slot": "C1",
+      "status": "0"
     },
     {
-
       "id_building": "A",
-      "id_slot":"C1",
-      "status" : "1"
+      "id_slot": "C1",
+      "status": "1"
     },
     {
-
       "id_building": "A",
-      "id_slot":"C1",
-      "status" : "0"
+      "id_slot": "C1",
+      "status": "0"
     },
     {
-
       "id_building": "A",
-      "id_slot":"C1",
-      "status" : "0"
+      "id_slot": "C1",
+      "status": "0"
     },
     {
-
-      "id_building": "A",
-      "id_slot":"R1",
-      "status" : "0"
-    },{
       "id_building": "A",
       "id_slot": "R1",
-      "status": "0"    },
-    {
-
-      "id_building": "A",
-      "id_slot":"R2",
-      "status" : "1"
+      "status": "0"
     },
     {
-
       "id_building": "A",
-      "id_slot":"R3",
-      "status" : "1"
+      "id_slot": "R1",
+      "status": "0"
     },
     {
-
       "id_building": "A",
-      "id_slot":"R4",
-      "status" : "1"
+      "id_slot": "R2",
+      "status": "1"
     },
     {
-
       "id_building": "A",
-      "id_slot":"R5",
-      "status" : "1"
+      "id_slot": "R3",
+      "status": "1"
     },
     {
-
       "id_building": "A",
-      "id_slot":"R6",
-      "status" : "0"
+      "id_slot": "R4",
+      "status": "1"
     },
     {
-
       "id_building": "A",
-      "id_slot":"R7",
-      "status" : "0"
+      "id_slot": "R5",
+      "status": "1"
     },
     {
-
       "id_building": "A",
-      "id_slot":"C1",
-      "status" : "0"
+      "id_slot": "R6",
+      "status": "0"
     },
     {
-
       "id_building": "A",
-      "id_slot":"R1",
-      "status" : "0"
+      "id_slot": "R7",
+      "status": "0"
     },
     {
-
       "id_building": "A",
-      "id_slot":"R1",
-      "status" : "1"
+      "id_slot": "C1",
+      "status": "0"
     },
     {
-
       "id_building": "A",
-      "id_slot":"R1",
-      "status" : "0"
+      "id_slot": "R1",
+      "status": "0"
     },
     {
-
       "id_building": "A",
-      "id_slot":"R1",
-      "status" : "1"
+      "id_slot": "R1",
+      "status": "1"
     },
     {
-
       "id_building": "A",
-      "id_slot":"R1",
-      "status" : "1"
+      "id_slot": "R1",
+      "status": "0"
     },
     {
-
       "id_building": "A",
-      "id_slot":"R1",
-      "status" : "0"
+      "id_slot": "R1",
+      "status": "1"
     },
     {
-
       "id_building": "A",
-      "id_slot":"R1",
-      "status" : "0"
+      "id_slot": "R1",
+      "status": "1"
     },
     {
-
       "id_building": "A",
-      "id_slot":"R1",
-      "status" : "0"
+      "id_slot": "R1",
+      "status": "0"
     },
     {
-
       "id_building": "A",
-      "id_slot":"R1",
-      "status" : "0"
+      "id_slot": "R1",
+      "status": "0"
     },
     {
-
       "id_building": "A",
-      "id_slot":"R1",
-      "status" : "1"
+      "id_slot": "R1",
+      "status": "0"
     },
     {
-
       "id_building": "A",
-      "id_slot":"R1",
-      "status" : "1"
+      "id_slot": "R1",
+      "status": "0"
     },
     {
-
       "id_building": "A",
-      "id_slot":"R1",
-      "status" : "1"
+      "id_slot": "R1",
+      "status": "1"
+    },
+    {
+      "id_building": "A",
+      "id_slot": "R1",
+      "status": "1"
+    },
+    {
+      "id_building": "A",
+      "id_slot": "R1",
+      "status": "1"
+    }
+  ],
+  "booking": [
+    {
+      "id": 1
     }
   ]
 }

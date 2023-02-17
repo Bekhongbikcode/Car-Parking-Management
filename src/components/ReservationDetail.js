@@ -8,6 +8,7 @@ import { faCheck, faTimes, faInfoCircle, faUser, faClock, faArrowRight } from "@
 import Slider from "./Slider"
 import Header from "./Header";
 import Footer from "./Footer";
+import { type } from "@testing-library/user-event/dist/type";
 
 const EMAIL_REGEX = /^[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[A-Za-z]+$/;
 const PHONE_REGEX = /^[0-9]{10,12}$/;
@@ -17,13 +18,15 @@ const ReservationDetail = () => {
     const [startTime, setStartTime] = useState(sessionStorage.getItem("startTime"));
     const [endTime, setEndTime] = useState(sessionStorage.getItem("endTime"));
     const [zone, setZone] = useState('A')
-    const [fullName, setFullName] = useState('');
-    const [email, setEmail] = useState('')
+    const [fullName, setFullName] = useState(sessionStorage.getItem("fullname"));
+    const [email, setEmail] = useState(sessionStorage.getItem("email"))
     const [validEmail, setValidEmail] = useState(false);
-    const [phone, setPhone] = useState('')
+    const [phone, setPhone] = useState(sessionStorage.getItem("phone"))
     const [validPhone, setValidPhone] = useState(false);
     const [typeOfVehicle, setTypeOfVehicle] = useState('Moto');
     const [slot, setSlot] = useState('R2');
+
+
 
     useEffect(() => {
         setStartDate(startDate);
@@ -76,34 +79,34 @@ const ReservationDetail = () => {
 
     useEffect(() => {
         if (zone === 'A') {
-            fetch('http://localhost:5000/zoneA')
+            fetch('https://corsproxy-pms.herokuapp.com/https://demo-spring-heroku-app.herokuapp.com/present_slot/findAll/C')
                 .then(response => response.json())
                 .then((data) => {
                     setShells(data)
-                   
+
                 })
                 .catch(error => console.error(error));
         } else if (zone === 'B') {
-            fetch('http://localhost:5000/zoneB')
+            fetch('https://corsproxy-pms.herokuapp.com/https://demo-spring-heroku-app.herokuapp.com/present_slot/findAll/C')
                 .then(response => response.json())
                 .then((data) => {
                     setShells(data)
-                    
+
                 })
                 .catch(error => console.error(error));
         } else if (zone === 'C') {
-            fetch('http://localhost:5000/zoneC')
+            fetch('https://corsproxy-pms.herokuapp.com/https://demo-spring-heroku-app.herokuapp.com/present_slot/findAll/C')
                 .then(response => response.json())
                 .then((data) => {
                     setShells(data)
-                    
+
                 })
                 .catch(error => console.error(error));
         }
-    },[]);
+    }, []);
 
-    const residentSlot = shells.filter(slot => slot.id_slot.startsWith('R'));
-    const customerSlot = shells.filter(slot => slot.id_slot.startsWith('C'));
+    const residentSlot = shells.filter(slot => slot.id_C_Slot.startsWith('R'));
+    const customerSlot = shells.filter(slot => slot.id_C_Slot.startsWith('C'));
 
 
 
@@ -136,29 +139,20 @@ const ReservationDetail = () => {
         const type_Of_Vehicle = typeOfVehicle;
         const id_C_Slot = slot;
         const fullname = fullName;
-        const idUser= "user8";
+        const idUser = sessionStorage.getItem("id");
 
-        const obj = {idUser ,startDate, endDate, startTime, endTime, id_Building, type_Of_Vehicle, id_C_Slot, fullname, email, phone }
-        
-        fetch('https://demo-spring-heroku-app.herokuapp.com/bookingCustomer/save', {
-            // mode: 'no-cors',
-            // cache: 'no-cache',
+        const obj = { idUser, startDate, endDate, startTime, endTime, id_Building, type_Of_Vehicle, id_C_Slot, fullname, email, phone }
+
+        fetch('https://corsproxy-pms.herokuapp.com/https://demo-spring-heroku-app.herokuapp.com/bookingCustomer/save', {
+
             method: 'POST',
             header: {
-                // 'Accept': '*/*',   
-                // 'Accept': 'application/json', 
-                // 'Content-Type': 'application/json',
+
                 "Accept": "*/*",
-                "Content-Type": "application/text",
+                "Content-Type": "application/json",
                 "X-Requested-With": "XMLHttpRequest",
-                // "Connection": "close",
                 "Cache-Control": "no-cache",
-                // withCredentials: true, 
-                // crossorigin: true,
-                // credentials: "same-origin",
-                
-                // 'Accept-Encoding': 'gzip, deflate, br',
-                // 'accept' : '/'
+
             },
 
             body: JSON.stringify(obj)
@@ -166,20 +160,26 @@ const ReservationDetail = () => {
 
         }).then((res) => {
 
-            console.log(JSON.stringify(obj))
+            console.log(obj)
+            sessionStorage.setItem("obj", JSON.stringify(obj));
+            const currentDate = new Date(Date.now());
+            const formattedDate = currentDate.toISOString().substr(0, 10);
+            const now = new Date();
+            const hours = now.getHours();
+            const minutes = now.getMinutes();
+            const seconds = now.getSeconds();
+            const currentTime = `${hours}:${minutes}:${seconds}`;
+            sessionStorage.setItem("datebook", formattedDate);
+            sessionStorage.setItem("timebook", currentTime);
+            window.location.href = '/PaymentInformation'
             console.log(res);
 
         }).catch((err) => {
-            toast.error('Failed: ' + err.message);
+            console.log(err.massage())
         });
-        if (IsValidate) {
-            console.log(JSON.stringify(obj));
-            console.log(obj)
-            sessionStorage.setItem("reservation", JSON.stringify(obj));
-            // 
 
 
-        }
+
     }
 
 
@@ -189,24 +189,24 @@ const ReservationDetail = () => {
 
 
             <h2 style={{ textAlign: 'center', paddingTop: '30px', color: '#BA3925' }}>Processing...</h2>
-            <div class="step-reservation container d-flex align-items-center justify-content-center">
+            <div className="step-reservation container d-flex align-items-center justify-content-center">
 
                 <div className="circle">
-                    <div class="col-lg-3 rounded-circle" style={{ backgroundColor: 'black' }}><span>1</span></div>
+                    <div className="col-lg-3 rounded-circle" style={{ backgroundColor: 'black' }}><span>1</span></div>
                     <h6 style={{ display: 'block', width: '80px', textAlign: 'center', marginLeft: '10px' }}>Reservation Details</h6>
                 </div>
 
                 <FontAwesomeIcon style={{ fontSize: '25px', marginTop: '-30px' }} icon={faArrowRight}></FontAwesomeIcon>
                 <Link style={{ textDecoration: 'none' }} to={'/PaymentInformation'}>
                     <div className="circle">
-                        <div class="col-lg-3 rounded-circle"><span>2</span></div>
+                        <div className="col-lg-3 rounded-circle"><span>2</span></div>
                         <h6 style={{ display: 'block', width: '80px', textAlign: 'center', marginLeft: '10px' }}>Payment Accuracy</h6>
                     </div>
                 </Link>
                 <FontAwesomeIcon style={{ fontSize: '25px', marginTop: '-30px' }} icon={faArrowRight}></FontAwesomeIcon>
                 <Link style={{ textDecoration: 'none' }} to={'/ReservationComplete'}>
                     <div className="circle">
-                        <div class="col-lg-3 rounded-circle" ><span>3</span></div>
+                        <div className="col-lg-3 rounded-circle" ><span>3</span></div>
                         <h6 style={{ display: 'block', width: '80px', textAlign: 'center', marginLeft: '10px' }}>Reservation Completed</h6>
                     </div>
                 </Link>
@@ -233,7 +233,7 @@ const ReservationDetail = () => {
                     <div className="col-lg-6 class-input">
                         <label>Start time *</label>
                         <br />
-                        <select class="form-select" onChange={(e) => setStartTime(e.target.value)} value={startTime}>
+                        <select className="form-select" onChange={(e) => setStartTime(e.target.value)} value={startTime}>
                             <option>00:00</option>
                             <option>01:00</option>
                             <option>02:00</option>
@@ -266,7 +266,7 @@ const ReservationDetail = () => {
                     <div className=" col-lg-6 class-input">
                         <label>End time *</label>
                         <br />
-                        <select class="form-select" onChange={(e) => setEndTime(e.target.value)} value={endTime}>
+                        <select className="form-select" onChange={(e) => setEndTime(e.target.value)} value={endTime}>
                             <option>00:00</option>
                             <option>01:00</option>
                             <option>02:00</option>
@@ -297,7 +297,7 @@ const ReservationDetail = () => {
                     <div className=" col-lg-6 class-input">
                         <label>Zone *</label>
                         <br />
-                        <select class="form-select" onChange={(e) => setZone(e.target.value)} >
+                        <select className="form-select" onChange={(e) => setZone(e.target.value)} value={zone} >
                             <option>A</option>
                             <option>B</option>
                             <option>C</option>
@@ -307,7 +307,7 @@ const ReservationDetail = () => {
                     <div className="col-lg-6 class-input">
                         <label>Type of vehicle *</label>
                         <br />
-                        <select class="form-select" onChange={(e) => setTypeOfVehicle(e.target.value)}>
+                        <select className="form-select" onChange={(e) => setTypeOfVehicle(e.target.value)}>
                             <option>Car</option>
                             <option>Moto</option>
                             <option>Bicycle</option>
@@ -318,13 +318,13 @@ const ReservationDetail = () => {
                     <div className=" col-lg-6 class-input">
                         <label>Slot *</label>
                         <br />
-                        <select class="form-select" onChange={(e) => setSlot(e.target.value)} >
+                        <select className="form-select" onChange={(e) => setSlot(e.target.value)} >
                             {shells.map(shell => {
-                                    if(shell.status == 0){
-                                        return <option>{shell.id_slot}</option>
-                                    }
+                                if (shell.status_Slots == false) {
+                                    return <option>{shell.id_C_Slot}</option>
+                                }
 
-                                
+
 
                             })}
 
@@ -341,7 +341,7 @@ const ReservationDetail = () => {
                         <label>Full name *</label>
                         <br />
                         <div>
-                            <input type={'text'} placeholder="" style={{ width: '100%', position: 'relative' }} onChange={(e) => setFullName(e.target.value)}  ></input>
+                            <input type={'text'} placeholder="" style={{ width: '100%', position: 'relative' }} onChange={(e) => setFullName(e.target.value)} value={fullName}  ></input>
 
                         </div>
                     </div>
@@ -350,7 +350,7 @@ const ReservationDetail = () => {
                         <label>Email *</label>
                         <br />
                         <div>
-                            <input type={'text'} placeholder="" style={{ width: '100%', position: 'relative' }} onChange={(e) => setEmail(e.target.value)}  ></input>
+                            <input type={'text'} placeholder="" style={{ width: '100%', position: 'relative' }} onChange={(e) => setEmail(e.target.value)} value={email} ></input>
 
                         </div>
                     </div>
@@ -358,7 +358,7 @@ const ReservationDetail = () => {
                         <label>Phone *</label>
                         <br />
                         <div>
-                            <input type={'text'} placeholder="" style={{ width: '100%', position: 'relative' }} onChange={(e) => setPhone(e.target.value)}></input>
+                            <input type={'text'} placeholder="" style={{ width: '100%', position: 'relative' }} onChange={(e) => setPhone(e.target.value)} value={phone}></input>
 
                         </div>
                     </div>
@@ -377,29 +377,41 @@ const ReservationDetail = () => {
                 </div>
             </div>
 
-            <div class="table-responsive  align-items-center justify-content-center zone-reservation">
+            <div className="table-responsive  align-items-center justify-content-center zone-reservation">
                 <h5>AVAILABILITY</h5>
                 <div style={{ marginTop: '50px' }}>Resident Area</div>
-                <table class="table border">
+                <table className="table border">
                     <tbody>
                         <tr class="border">
-                            {residentSlot.slice(0, 10).map(shell => (
-                                <td className="border" key={shell.id} style={{ backgroundColor: shell.status == 1 ? 'rgba(250, 104, 104, 0.874)' : 'white' }}>
 
-                                    {shell.id_slot}
+                            {residentSlot.slice(0, 10).map(shell => (
+                                <td className="border" key={shell.id} style={{ backgroundColor: shell.status_Slots == true ? 'rgba(250, 104, 104, 0.874)' : 'white' }}>
+
+                                    {shell.id_C_Slot}
                                 </td>
                             ))}
                         </tr>
                         <tr class="border">
 
                             {residentSlot.slice(10, 20).map(shell => (
-                                <td className="border" key={shell.id} style={{ backgroundColor: shell.status == 1 ? 'rgba(250, 104, 104, 0.874)' : 'white' }}>
+                                <td className="border" key={shell.id} style={{ backgroundColor: shell.status_Slots == true ? 'rgba(250, 104, 104, 0.874)' : 'white' }}>
 
-                                    {shell.id_slot}
+                                    {shell.id_C_Slot}
                                 </td>
                             ))}
                         </tr>
-
+                        {/* <tr>
+<td class="border">R11</td>
+<td class="border">R12</td>
+<td class="border">R13</td>
+<td class="border">R14</td>
+<td class="border">R15</td>
+<td class="border">R16</td>
+<td class="border">R17</td>
+<td class="border">R18</td>
+<td class="border">R19</td>
+<td class="border">R20</td>
+</tr> */}
                     </tbody>
 
                 </table>
@@ -407,19 +419,20 @@ const ReservationDetail = () => {
                 <table class="table border">
                     <tbody>
                         <tr class="border">
-                            {customerSlot.slice(0, 10).map(shell => (
-                                <td className="border" key={shell.id} style={{ backgroundColor: shell.status == 1 ? 'rgba(250, 104, 104, 0.874)' : 'white' }}>
 
-                                    {shell.id_slot}
+                            {customerSlot.slice(0, 10).map(shell => (
+                                <td className="border" key={shell.id} style={{ backgroundColor: shell.status_Slots == true ? 'rgba(250, 104, 104, 0.874)' : 'white' }}>
+
+                                    {shell.id_C_Slot}
                                 </td>
                             ))}
                         </tr>
                         <tr class="border">
 
                             {customerSlot.slice(10, 20).map(shell => (
-                                <td className="border" key={shell.id} style={{ backgroundColor: shell.status == 1 ? 'rgba(250, 104, 104, 0.874)' : 'white' }}>
+                                <td className="border" key={shell.id} style={{ backgroundColor: shell.status_Slots == true ? 'rgba(250, 104, 104, 0.874)' : 'white' }}>
 
-                                    {shell.id_slot}
+                                    {shell.id_C_Slot}
                                 </td>
                             ))}
                         </tr>

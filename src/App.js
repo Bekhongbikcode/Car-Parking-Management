@@ -30,12 +30,7 @@ function App() {
           <Route path='/Banking' element={<Banking></Banking>}></Route>
           <Route path='/ReservationComplete' element={<ReservationComplete />}></Route>
           <Route path='/ZoneDetail/:index' element={<ZoneDetail />}></Route>
-          <Route path='/' element={<Account></Account>}></Route>
-          <Route path='/Past' element={<All />}></Route>
-          <Route path='/Completed' element={<Completed />}></Route>
-          <Route path='/Cancelled' element={<Cancelled />}></Route>
         </Routes>
-
       </BrowserRouter>
 
     </div>

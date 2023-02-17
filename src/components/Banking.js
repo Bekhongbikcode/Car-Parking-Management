@@ -1,8 +1,10 @@
 import { Component, version } from "react";
 import { Helmet } from "react-helmet";
-import { useEffect, useState } from "react";
 import { HelmetProvider } from "react-helmet-async";
-import { Link } from "react-router-dom";
+import React, { useState, useEffect, useRef } from "react";
+
+import { json, Link, useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 
 const Banking = () => {
     const [name, setName] = useState('');
@@ -24,10 +26,50 @@ const Banking = () => {
 
     useEffect(() => {
         setVerification(verification);
-    }, [version]);
+    }, [verification]);
 
-    const handleSubmit = () => {
-        window.location.href = '/ReservationComplete'
+    const handleSubmit = async(e) => {
+        e.preventDefault();
+        //type of payment vs idbooking
+        const id_Booking = sessionStorage.getItem("idbooking");
+        const type_Of_Payment = sessionStorage.getItem("typePayment")
+        const regObj = { id_Booking, type_Of_Payment }
+        fetch('https://corsproxy-pms.herokuapp.com/https://demo-spring-heroku-app.herokuapp.com/payment/save', {
+
+            method: 'POST',
+            header: {
+                "Accept": "*/*",
+                "Content-Type": "application/text",
+                "X-Requested-With": "XMLHttpRequest",
+                "Cache-Control": "no-cache",
+            },
+
+            body: JSON.stringify(regObj)
+
+
+        }).then((res) => {
+            console.log(JSON.stringify(regObj));
+            console.log(JSON.stringify(regObj))
+            console.log(res);
+            sessionStorage.setItem("banking_name", name);
+            sessionStorage.setItem("banking_cardnum", cardNum);
+            sessionStorage.setItem("banking_expiry", expiry);
+            sessionStorage.setItem("banking_verification", verification);
+            const currentDate = new Date(Date.now());
+            const formattedDate = currentDate.toISOString().substr(0, 10);
+            const now = new Date();
+            const hours = now.getHours();
+            const minutes = now.getMinutes();
+            const seconds = now.getSeconds();
+            const currentTime = `${hours}:${minutes}:${seconds}`;
+            sessionStorage.setItem("datebook", formattedDate);
+            sessionStorage.setItem("timebook", currentTime)
+            window.location.href = '/ReservationComplete'
+            toast.success('Pay successfully.');
+            
+        }).catch((err) => {
+            toast.error('Failed: ' + err.message);
+        });
     }
 
 
@@ -56,7 +98,7 @@ const Banking = () => {
                     <label>Your Name *</label>
                     <br />
                     <div>
-                        <input type={'text'} placeholder="Nguyen Van A" style={{ width: '100%', position: 'relative' }} ></input>
+                        <input type={'text'} placeholder="Nguyen Van A" style={{ width: '100%', position: 'relative' }} onChange={e => setName(e.target.value)} ></input>
 
                     </div>
                 </div>
@@ -65,7 +107,7 @@ const Banking = () => {
                     <label>Card number *</label>
                     <br />
                     <div>
-                        <input type={'text'} placeholder="0000 2222 3333 4444" style={{ width: '100%', position: 'relative' }} ></input>
+                        <input type={'text'} placeholder="0000 2222 3333 4444" style={{ width: '100%', position: 'relative' }} onChange={e => setcardNum(e.target.value)} ></input>
 
                     </div>
                 </div>
@@ -74,7 +116,7 @@ const Banking = () => {
                     <label>Expiry *</label>
                     <br />
                     <div>
-                        <input type={'text'} placeholder="05/17" style={{ width: '100%', position: 'relative' }} ></input>
+                        <input type={'text'} placeholder="05/17" style={{ width: '100%', position: 'relative' }} onChange={e => setExpiry(e.target.value)} ></input>
 
                     </div>
                 </div>
@@ -83,7 +125,7 @@ const Banking = () => {
                     <label>Card verification number *</label>
                     <br />
                     <div>
-                        <input type={'text'} placeholder="425" style={{ width: '100%', position: 'relative' }} ></input>
+                        <input type={'text'} placeholder="425" style={{ width: '100%', position: 'relative' }} onChange={e => setVerification(e.target.value)} ></input>
 
                     </div>
                 </div>
@@ -91,9 +133,9 @@ const Banking = () => {
                 <form onSubmit={handleSubmit} className="col-lg-6  class-input">
 
                     <div>
-                        <Link to={'/ReservationComplete'}> 
+                        
                             <button type={'submit'} style={{ width: '100%', height: '50px', borderRadius: '5px', backgroundColor: '#2DC98A', border: '#2DC98A' }} >Submit</button>
-                        </Link>
+                        
 
                     </div>
                 </form>

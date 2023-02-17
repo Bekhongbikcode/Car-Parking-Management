@@ -4,7 +4,7 @@ function ZoneC() {
     const [shells, setShells] = useState([]);
 
     useEffect(() => {
-        fetch('http://localhost:5000/zoneC')
+        fetch('https://corsproxy-pms.herokuapp.com/https://demo-spring-heroku-app.herokuapp.com/present_slot/findAll/C')
             .then(response => response.json())
             .then((data) => {
                 setShells(data)
@@ -13,8 +13,8 @@ function ZoneC() {
             .catch(error => console.error(error));
     }, []);
 
-    const residentSlot = shells.filter(slot => slot.id_slot.startsWith('R'));
-    const customerSlot = shells.filter(slot => slot.id_slot.startsWith('C'));
+    const residentSlot = shells.filter(slot => slot.id_C_Slot.startsWith('R'));
+    const customerSlot = shells.filter(slot => slot.id_C_Slot.startsWith('C'));
 
     return (
         <div>
@@ -61,18 +61,18 @@ function ZoneC() {
                                 <tr class="border">
 
                                     {residentSlot.slice(0, 10).map(shell => (
-                                        <td className="border" key={shell.id} style={{ backgroundColor: shell.status == 1 ? 'rgba(250, 104, 104, 0.874)' : 'white' }}>
+                                        <td className="border" key={shell.id} style={{ backgroundColor: shell.status_Slots == true ? 'rgba(250, 104, 104, 0.874)' : 'white' }}>
 
-                                            {shell.id_slot}
+                                            {shell.id_C_Slot}
                                         </td>
                                     ))}
                                 </tr>
                                 <tr class="border">
 
                                     {residentSlot.slice(10, 20).map(shell => (
-                                        <td className="border" key={shell.id} style={{ backgroundColor: shell.status == 1 ? 'rgba(250, 104, 104, 0.874)' : 'white' }}>
+                                        <td className="border" key={shell.id} style={{ backgroundColor: shell.status_Slots == true ? 'rgba(250, 104, 104, 0.874)' : 'white' }}>
 
-                                            {shell.id_slot}
+                                            {shell.id_C_Slot}
                                         </td>
                                     ))}
                                 </tr>
@@ -97,18 +97,18 @@ function ZoneC() {
                                 <tr class="border">
 
                                     {customerSlot.slice(0, 10).map(shell => (
-                                        <td className="border" key={shell.id} style={{ backgroundColor: shell.status == 1 ? 'rgba(250, 104, 104, 0.874)' : 'white' }}>
+                                        <td className="border" key={shell.id} style={{ backgroundColor: shell.status_Slots == true? 'rgba(250, 104, 104, 0.874)' : 'white' }}>
 
-                                            {shell.id_slot}
+                                            {shell.id_C_Slot}
                                         </td>
                                     ))}
                                 </tr>
                                 <tr class="border">
 
                                     {customerSlot.slice(10, 20).map(shell => (
-                                        <td className="border" key={shell.id} style={{ backgroundColor: shell.status == 1 ? 'rgba(250, 104, 104, 0.874)' : 'white' }}>
+                                        <td className="border" key={shell.id} style={{ backgroundColor: shell.status_Slots == true ? 'rgba(250, 104, 104, 0.874)' : 'white' }}>
 
-                                            {shell.id_slot}
+                                            {shell.id_C_Slot}
                                         </td>
                                     ))}
                                 </tr>
