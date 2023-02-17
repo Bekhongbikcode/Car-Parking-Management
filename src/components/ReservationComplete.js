@@ -25,25 +25,8 @@ const ReservationComplete = () => {
                 setInvoice(data);
                 console.log(data)
             })
-        // .catch(error => console.error(error));
+        .catch(error => console.error(error));
     }, []);
-
-
-    // const handleSubmit = async (e) => {
-    //     e.preventDefault();
-    //     const obj = { startDate, endDate, startTime, endTime, zone, typeOfVehicle, slot, fullName, email, phone }
-    //     if (IsValidate) {
-    //         console.log(JSON.stringify(obj));
-    //         sessionStorage.setItem("reservation", JSON.stringify(obj));
-    //         window.location.href = '/PaymentInformation';
-
-    //         sessionStorage.setItem("page", "recomplete");
-    //         window.location.href = '/Reservation';
-
-    //     }
-    // }
-
-
 
     return (
         <div>
@@ -90,7 +73,7 @@ const ReservationComplete = () => {
                     <i>{invoice.startDate}, {invoice.endDate}, {invoice.startTime}, {invoice.endTime}</i>
                     <br />
                     <span>Status Invoice</span>
-                    {(invoice.status_Invoice == true) ? <i>Completed</i> : <i>Not Completed</i>}
+                    {(invoice.status_Invoice == true) ? <i style={{color:'green'}}>Completed</i> : <i style={{color:'red'}}>Not Completed</i>}
                     <br />
                     <span>Created</span>
                     <i>{sessionStorage.getItem("datebook")}, {sessionStorage.getItem("timebook")}</i>

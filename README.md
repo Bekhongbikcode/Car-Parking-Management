@@ -1,10 +1,8 @@
+# Getting Started with Create React App
+
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+
 ## Available Scripts
-
-When you want to use this ReactJS project, you must run:
-
-### `npm install`
-to add node_modules
-
 
 In the project directory, you can run:
 

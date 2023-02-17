@@ -5,10 +5,6 @@ import Helmet from "react-helmet";
 import { HelmetProvider } from "react-helmet-async";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCheck, faTimes, faInfoCircle, faUser, faClock, faArrowRight } from "@fortawesome/free-solid-svg-icons";
-import Slider from "./Slider"
-import Header from "./Header";
-import Footer from "./Footer";
-import { type } from "@testing-library/user-event/dist/type";
 
 const EMAIL_REGEX = /^[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[A-Za-z]+$/;
 const PHONE_REGEX = /^[0-9]{10,12}$/;
@@ -25,8 +21,7 @@ const ReservationDetail = () => {
     const [validPhone, setValidPhone] = useState(false);
     const [typeOfVehicle, setTypeOfVehicle] = useState('Moto');
     const [slot, setSlot] = useState('R2');
-
-
+    const [shells, setShells] = useState([]);
 
     useEffect(() => {
         setStartDate(startDate);
@@ -48,7 +43,7 @@ const ReservationDetail = () => {
     useEffect(() => {
         setZone(zone);
         console.log(zone)
-    }, [zone])
+    }, [zone]);
 
     useEffect(() => {
         setFullName(fullName)
@@ -74,8 +69,7 @@ const ReservationDetail = () => {
         setSlot(slot)
     }, [slot])
 
-
-    const [shells, setShells] = useState([]);
+  
 
     useEffect(() => {
         if (zone === 'A') {
@@ -108,8 +102,6 @@ const ReservationDetail = () => {
     const residentSlot = shells.filter(slot => slot.id_C_Slot.startsWith('R'));
     const customerSlot = shells.filter(slot => slot.id_C_Slot.startsWith('C'));
 
-
-
     const IsValidate = () => {
         let isproceed = true;
         let errormessage = 'Please enter the valid value!';
@@ -118,14 +110,10 @@ const ReservationDetail = () => {
             isproceed = false;
             errormessage = 'Phone must be 10-12 numbers.';
         }
-
         if (!EMAIL_REGEX.test(email)) {
             isproceed = false;
             errormessage = 'Please enter the valid email!';
-
         }
-
-
 
         if (!isproceed) {
             toast.warning(errormessage)
@@ -140,11 +128,9 @@ const ReservationDetail = () => {
         const id_C_Slot = slot;
         const fullname = fullName;
         const idUser = sessionStorage.getItem("id");
-
         const obj = { idUser, startDate, endDate, startTime, endTime, id_Building, type_Of_Vehicle, id_C_Slot, fullname, email, phone }
 
         fetch('https://corsproxy-pms.herokuapp.com/https://demo-spring-heroku-app.herokuapp.com/bookingCustomer/save', {
-
             method: 'POST',
             header: {
 
@@ -154,12 +140,8 @@ const ReservationDetail = () => {
                 "Cache-Control": "no-cache",
 
             },
-
             body: JSON.stringify(obj)
-
-
         }).then((res) => {
-
             console.log(obj)
             sessionStorage.setItem("obj", JSON.stringify(obj));
             const currentDate = new Date(Date.now());
@@ -177,11 +159,7 @@ const ReservationDetail = () => {
         }).catch((err) => {
             console.log(err.massage())
         });
-
-
-
     }
-
 
 
     return (
@@ -257,10 +235,7 @@ const ReservationDetail = () => {
                             <option>21:00</option>
                             <option>22:00</option>
                             <option>23:00</option>
-
-
                         </select>
-
                     </div>
 
                     <div className=" col-lg-6 class-input">
@@ -290,10 +265,9 @@ const ReservationDetail = () => {
                             <option>21:00</option>
                             <option>22:00</option>
                             <option>23:00</option>
-
-
                         </select>
                     </div>
+                    
                     <div className=" col-lg-6 class-input">
                         <label>Zone *</label>
                         <br />
@@ -301,7 +275,6 @@ const ReservationDetail = () => {
                             <option>A</option>
                             <option>B</option>
                             <option>C</option>
-
                         </select>
                     </div>
                     <div className="col-lg-6 class-input">
@@ -311,9 +284,7 @@ const ReservationDetail = () => {
                             <option>Car</option>
                             <option>Moto</option>
                             <option>Bicycle</option>
-
                         </select>
-
                     </div>
                     <div className=" col-lg-6 class-input">
                         <label>Slot *</label>
@@ -323,9 +294,6 @@ const ReservationDetail = () => {
                                 if (shell.status_Slots == false) {
                                     return <option>{shell.id_C_Slot}</option>
                                 }
-
-
-
                             })}
 
 
@@ -384,7 +352,7 @@ const ReservationDetail = () => {
                     <tbody>
                         <tr class="border">
 
-                            {residentSlot.slice(0, 10).map(shell => (
+                            {residentSlot.slice(1, 10).map(shell => (
                                 <td className="border" key={shell.id} style={{ backgroundColor: shell.status_Slots == true ? 'rgba(250, 104, 104, 0.874)' : 'white' }}>
 
                                     {shell.id_C_Slot}
@@ -400,18 +368,7 @@ const ReservationDetail = () => {
                                 </td>
                             ))}
                         </tr>
-                        {/* <tr>
-<td class="border">R11</td>
-<td class="border">R12</td>
-<td class="border">R13</td>
-<td class="border">R14</td>
-<td class="border">R15</td>
-<td class="border">R16</td>
-<td class="border">R17</td>
-<td class="border">R18</td>
-<td class="border">R19</td>
-<td class="border">R20</td>
-</tr> */}
+                        
                     </tbody>
 
                 </table>

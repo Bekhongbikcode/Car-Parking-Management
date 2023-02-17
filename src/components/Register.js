@@ -183,7 +183,6 @@ const Register = () => {
         const fullname = fullName;
         const dateofbirth = birthday;
 
-        //if button anabled with js hack
         const regObj = { id, password, fullname, dateofbirth, gender, email, phone }
         const regObj1 = {
             "id": id,
@@ -194,80 +193,18 @@ const Register = () => {
             "email": email,
             "phone": phone
         }
-        // if(IsValidate()){
-        //     const response = await axios.post(REGISTER_URL,
-        //             JSON.stringify(regObj),
-        //             {
-        //                 headers: {'Content-Type' : 'application/json'},
-        //                 withCredentials: true
-        //             }
-        //         );
-        //         console.log(response.data)
-        //         setSuccess(true);
-
-        // }
-
-        // if (IsValidate()) {
-
-        // axios.post(REGISTER_URL,
-        //     {
-        //         data:JSON.stringify(regObj),
-        //         headers: {
-        //             'Accept': 'application/json',
-        //             'Content-Type': 'application/json',
-        //             withCredentials: false,
-        //         }
-
-
-        // axios({
-        //     method: 'post',
-        //     url: REGISTER_URL,
-        //     data: JSON.stringify(regObj),
-
-        //     config: {
-        //         header: {
-        //             'Accept': 'application/json, */*',
-        //             'Content-Type': 'application/json-patch+json',
-        //             'Connection': 'keep-alive',
-        //             'Content-Encoding': 'gzip',
-        //             'Content-Encoding': 'compress',
-        //             'Content-Encoding': 'deflate',
-        //             'Content-Encoding': 'br'
-
-        //         }
-        //     }
-        // }).then((res) => {
-        //     console.log(JSON.stringify(regObj))
-        //     console.log(res);
-        //     setSuccess(true);
-        //     toast.success('Register successfully.');
-        //     navigate('/Login');
-        // }).catch((err) => {
-        //     toast.error('Failed: ' + err.message);
-        // });
+        
 
         if (IsValidate()) {
 
             fetch(REGISTER_URL, {
-                // mode: 'no-cors',
-                // cache: 'no-cache',
                 method: 'POST',
                 header: {
-                    // 'Accept': '*/*',   
-                    // 'Accept': 'application/json', 
-                    // 'Content-Type': 'application/json',
                     "Access-Control-Allow-Origin": REGISTER_URL,
                     "Accept": "*/*",
                     "Content-Type": "application/text",
                     "X-Requested-With": "XMLHttpRequest",
-                    // "Connection": "close",
                     "Cache-Control": "no-cache",
-                    // withCredentials: true, 
-                    // crossorigin: true,
-                    // credentials: "same-origin",
-                    
-                    // 'Accept-Encoding': 'gzip, deflate, br',
-                    // 'accept' : '/'
                 },
 
                 body: JSON.stringify(regObj)
