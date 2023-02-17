@@ -1,9 +1,9 @@
 ## Available Scripts
 
-## When you want to use this ReactJS project, you must run:
+When you want to use this ReactJS project, you must run:
 
 ### `npm install`
-## to add node_modules
+to add node_modules
 
 
 In the project directory, you can run:
