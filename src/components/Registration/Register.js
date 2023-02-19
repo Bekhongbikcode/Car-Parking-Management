@@ -3,11 +3,12 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCheck, faTimes, faInfoCircle, faUser } from "@fortawesome/free-solid-svg-icons";
 import { json, Link, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
-import BackgroundCommon from "./BackgroundCommon";
+import BackgroundCommon from "../Complement/BackgroundCommon";
 import { Helmet, HelmetProvider } from 'react-helmet-async';
-import axios from "../api/axios";
+import axios from "../../api/axios";
 import { isValidDateValue } from "@testing-library/user-event/dist/utils";
 import { formToJSON } from "axios";
+import './Register.css'
 
 const USER_REGEX = /^[a-zA-Z][a-zA-Z0-9-_]{3,23}$/;
 const PWD_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%]).{8,30}/;

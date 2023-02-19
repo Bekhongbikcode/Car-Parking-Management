@@ -6,6 +6,8 @@ import React, { useState, useEffect, useRef } from "react";
 import { json, Link, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 
+import './Payment.css'
+
 const Banking = () => {
     const [name, setName] = useState('');
     const [cardNum, setcardNum] = useState('');

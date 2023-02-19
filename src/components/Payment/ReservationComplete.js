@@ -6,9 +6,10 @@ import { HelmetProvider } from "react-helmet-async";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 //  import visa from "D:/WorkSpace/React_projects/SWP/ParkingManagement/public/assets/img/visa"
 import { faCheck, faTimes, faInfoCircle, faUser, faClock, faArrowRight, faCashRegister, } from "@fortawesome/free-solid-svg-icons";
-import Slider from "./Slider"
-import Header from "./Header";
-import Footer from "./Footer";
+import Slider from "../Complement/Slider"
+import Header from "../Complement/Header";
+import Footer from "../Complement/Footer";
+import './Payment.css'
 
 const EMAIL_REGEX = /^[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[A-Za-z]+$/;
 const PHONE_REGEX = /^[0-9]{10,12}$/;

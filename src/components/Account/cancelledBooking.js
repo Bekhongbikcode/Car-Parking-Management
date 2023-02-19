@@ -4,8 +4,9 @@ import { Link } from "react-router-dom";
 import AccountBody from './accountBody';
 import AccountFooter from './accountFooter';
 import AccountHeader from './accountHeader';
+import './Account.css'
 
-function Completed() {
+function Cancelled() {
     return (
         <div className=''>
             <AccountHeader />
@@ -22,4 +23,4 @@ function Completed() {
     );
 }
 
-export default Completed;
+export default Cancelled;

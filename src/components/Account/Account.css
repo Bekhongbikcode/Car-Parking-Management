@@ -1,0 +1,115 @@
+/* Account Header  */
+.Header_Account {
+    display: flex;
+    background-color: #282c34;
+  }
+  
+  .Account_Right {
+    padding: 10px 10px;
+  }
+  
+  .Account_Left {
+    margin-left: 80%;
+  }
+  
+  .Account_Left button {
+    padding: 10px 10px;
+    color: white;
+    background-color: #282c34;
+    border: 3px solid #2DC98A;
+    cursor: pointer;
+    margin: 10px 10px;
+    border-radius: 10px;
+  }
+  
+  .Account_Left a {
+    padding-left: 20px;
+    text-decoration: none;
+    color: white;
+  }
+  
+  /* Account Footer */
+  .Footer_Account {
+    text-align: center;
+    color: aliceblue;
+    background-color: #2DC98A;
+    padding: 10px ;
+  }
+  
+  /* Account Body */
+  .Body_Account {
+    text-align: left;
+    display: flex;
+    padding: 50px 10px;
+  }
+  
+  .Body_Left {
+    margin-right: 50px;
+    }
+  
+  .Linking_Page {
+    color: #929292;
+    text-decoration: none;
+    margin-left: 50px;
+  }
+  
+  .Linking_Page:focus {
+    color: black;
+    font-weight: bold;
+  }
+  
+  .Body_Right {
+    text-align: center;
+    border: 2px solid black;
+    border-radius: 20px;
+    padding: 8% 20%;
+    margin-left: 20px;
+  }
+  
+  .Body_Right text {
+    font-size: xx-large;
+  }
+  
+  .Body_Right button {
+    color: aliceblue;
+    background-color: #2DC98A;
+    border-radius: 10px;
+    border: 0px;
+    cursor: pointer;
+    padding: 15px 15px;
+    text-align: center;
+  }
+  
+  .Body_Right button:hover {
+    color: #2DC98A;
+    background-color: white;
+    border-radius: 10px;
+    border: 2px solid #2DC98A;
+    cursor: pointer;
+    padding: 15px 15px;
+    text-align: center;
+    font-weight: bold;
+  }
+  
+  /* Past Booking */
+  
+  .Past_Choice{
+    display: flex;
+    margin-left: 40%;
+  }
+  
+  .Past_Link{
+    margin-top: 5%;
+    color: black;
+    text-decoration: none;
+    padding: 10px 50px;
+    margin-right: 40px;
+  }
+  
+  .Past_Link:first-child{
+    background-color: #D9D9D9;
+    padding-top: 10px;
+  }
+  
+  /* End */
+  

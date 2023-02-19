@@ -1,5 +1,5 @@
 import React from 'react';
-
+import './Account.css'
 function AccountFooter () {
     return (
         <div className='Footer_Account'>

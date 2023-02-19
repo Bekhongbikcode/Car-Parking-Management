@@ -1,11 +1,11 @@
 import {  useState, useEffect } from "react";
 import { Link} from "react-router-dom";
-
-function ZoneA() {
+import './Zone.css'
+function ZoneB() {
     const [shells, setShells] = useState([]);
 
     useEffect(() => {
-        fetch('https://demo-spring-heroku-app.herokuapp.com/present_slot/A')
+        fetch('http://localhost:5000/zoneB')
             .then(response => response.json())
             .then((data) => {
                 setShells(data)
@@ -21,21 +21,22 @@ function ZoneA() {
         <div>
             <form onSubmit={'handleSubmit'}>
                 <div className="zone-detail">
-                    <p style={{float:'left'}}>
-                    
+                    <p style={{ float: 'left' }}>
 
-                        <h5 style={{ float: 'left', marginRight:'20px' }}>ZONE A</h5>
-                    
-                        <Link style={{float:'left', marginRight:'20px'}} to={'/ZoneDetail/B'}>
-
-                            <h5>ZONE B</h5>
+                        <Link style={{ float: 'left', marginRight: '20px' }} to={'/ZoneDetail/A'}>
+                            <h5>ZONE A</h5>
                         </Link>
 
 
-                        <Link style={{float:'left', marginRight:'20px'}} to={'/ZoneDetail/C'}>
+                        <h5 style={{ float: 'left', marginRight: '20px' }}>ZONE B</h5>
+
+
+
+                        <Link style={{ float: 'left', marginRight: '20px' }} to={'/ZoneDetail/C'}>
 
                             <h5>ZONE C</h5>
-                        </Link></p>
+                        </Link>
+                    </p>
                     <p>
                         <h5>DESCRIPTION</h5>
                         <span>P1 is the nearest zone to the terminal (100m distance).</span>
@@ -122,4 +123,4 @@ function ZoneA() {
         </div>
     );
 }
-export default ZoneA;
+export default ZoneB;

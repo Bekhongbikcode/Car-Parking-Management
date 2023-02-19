@@ -1,0 +1,178 @@
+* {
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+  }
+  
+  /* ------------------------------------zone-area-homepage---------------------------- */
+  
+  .zone-area-homepage {
+    margin-top: 4% !important;
+  }
+  
+  .zone-area-homepage .card {
+    width: 22%;
+  
+    margin-left: 3.5%;
+    margin-right: 3.5%;
+    border-radius: 0;
+  }
+  
+  .zone-area-homepage .card-header {
+    position: relative;
+    width: 100%;
+    height: 60px;
+    background-color: #fff;
+    border: none;
+  }
+  
+  .zone-area-homepage .card-header div {
+    position: absolute;
+    background-color: #2DC98A !important;
+    width: 50%;
+    height: 25px;
+    top: 0;
+    right: 0;
+    margin-right: -12px;
+    text-align: center;
+  }
+  
+  .zone-area-homepage .card-header span {
+    position: absolute;
+    bottom: 0;
+    font-weight: bold;
+    text-decoration: underline;
+  }
+  
+  .zone-area-homepage .card-body span {
+    margin-left: -48px;
+  }
+  
+  .zone-area-homepage .card-body div {
+    margin-left: -48px;
+    margin-top: 10px;
+  }
+  
+  .zone-area-homepage .card-footer {
+    background-color: #fff;
+    border: none;
+  }
+  
+  .zone-area-homepage .card-footer button {
+    height: 30px;
+    width: 55%;
+    background-color: #2DC98A !important;
+    border: 1px solid #2DC98A;
+    color: #fff;
+    margin-bottom: 15px;
+    margin-right: 20px;
+  }
+  
+  .zone-area-homepage .card-footer button:hover {
+    background-color: #3ab489 !important;
+  
+  }
+  
+  .barrier-homepage {
+    margin-top: 100px !important;
+  }
+  
+  .barrier-homepage div {
+    width: 35.5%;
+    height: 280px;
+    margin-left: 5%;
+    margin-right: 5%;
+  
+  }
+  
+  .barrier-homepage>div>span {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    margin-top: 70px;
+    border-left: 2px solid #2DC98A;
+  
+  }
+  
+  .barrier-homepage>div>span>h5 {
+    font-size: 18px;
+    font-weight: 400;
+  }
+  
+  .img-gate-homepage {
+    background-image: url('/public/assets/img/gate.jpg');
+    ;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    object-fit: fill;
+    text-align: center;
+  }
+  
+  .img-gate-homepage button {
+    height: 20%;
+    width: 30%;
+    margin-top: 20%;
+    background: linear-gradient(2deg, rgba(45, 201, 138, 0.9), rgba(45, 201, 138, 0.9), rgba(45, 201, 138, 0.9));
+    border: 1px solid #2DC98A;
+    color: #fff;
+  
+  }
+  
+  .img-gate-homepage button:hover {
+    background-color: #3ab489e0 !important;
+  
+  }
+  
+  .img-gate-homepage:hover {
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+  
+  .zone-area-homepage .card-footer button:hover {
+    background-color: #3ab489 !important;
+  
+  }
+  
+  /* -----------------------------------------------ZONE-DETAIL------------------------------- */
+
+.zone-detail {
+  width: 45%;
+  margin-left: 10%;
+  margin-top: 50px;
+  font-size: 18px;
+
+}
+
+
+.zone-detail p {
+  display: block;
+  width: 100%;
+  border-bottom: 1px solid green;
+  color: black;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.table-responsive div {
+  width: 100%;
+  background-color: #ffe250df ;
+  text-align: center;
+}
+
+.zone-detail-make {
+  position: absolute;
+  top: 100%;
+  right: 20%;
+  margin-top: 120px;
+
+}
+
+.zone-detail-make input {
+  width: 200px;
+}
+
+.zone-detail button:hover {
+  background-color: #1F8A64;
+  transition: 0.5s;
+
+}

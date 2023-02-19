@@ -1,10 +1,11 @@
-import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
-function ZoneC() {
+import {  useState, useEffect } from "react";
+import { Link} from "react-router-dom";
+import './Zone.css'
+function ZoneA() {
     const [shells, setShells] = useState([]);
 
     useEffect(() => {
-        fetch('https://corsproxy-pms.herokuapp.com/https://demo-spring-heroku-app.herokuapp.com/present_slot/findAll/C')
+        fetch('https://demo-spring-heroku-app.herokuapp.com/present_slot/A')
             .then(response => response.json())
             .then((data) => {
                 setShells(data)
@@ -13,31 +14,28 @@ function ZoneC() {
             .catch(error => console.error(error));
     }, []);
 
-    const residentSlot = shells.filter(slot => slot.id_C_Slot.startsWith('R'));
-    const customerSlot = shells.filter(slot => slot.id_C_Slot.startsWith('C'));
+    const residentSlot = shells.filter(slot => slot.id_slot.startsWith('R'));
+    const customerSlot = shells.filter(slot => slot.id_slot.startsWith('C'));
 
     return (
         <div>
             <form onSubmit={'handleSubmit'}>
                 <div className="zone-detail">
-                    <p style={{ float: 'left' }}>
-                        
-                        <Link style={{ float: 'left', marginRight:'20px' }} to={'/ZoneDetail/A'}>
+                    <p style={{float:'left'}}>
+                    
 
-                            <h5>ZONE A</h5>
-                        </Link>
-                        <Link style={{ float: 'left', marginRight:'20px' }} to={'/ZoneDetail/B'}>
+                        <h5 style={{ float: 'left', marginRight:'20px' }}>ZONE A</h5>
+                    
+                        <Link style={{float:'left', marginRight:'20px'}} to={'/ZoneDetail/B'}>
 
                             <h5>ZONE B</h5>
                         </Link>
-                        <h5 style={{ float: 'left', marginRight:'20px' }}>ZONE C</h5>
 
 
+                        <Link style={{float:'left', marginRight:'20px'}} to={'/ZoneDetail/C'}>
 
-
-
-
-                    </p>
+                            <h5>ZONE C</h5>
+                        </Link></p>
                     <p>
                         <h5>DESCRIPTION</h5>
                         <span>P1 is the nearest zone to the terminal (100m distance).</span>
@@ -61,18 +59,18 @@ function ZoneC() {
                                 <tr class="border">
 
                                     {residentSlot.slice(0, 10).map(shell => (
-                                        <td className="border" key={shell.id} style={{ backgroundColor: shell.status_Slots === true ? 'rgba(250, 104, 104, 0.874)' : 'white' }}>
+                                        <td className="border" key={shell.id} style={{ backgroundColor: shell.status === 1 ? 'rgba(250, 104, 104, 0.874)' : 'white' }}>
 
-                                            {shell.id_C_Slot}
+                                            {shell.id_slot}
                                         </td>
                                     ))}
                                 </tr>
                                 <tr class="border">
 
                                     {residentSlot.slice(10, 20).map(shell => (
-                                        <td className="border" key={shell.id} style={{ backgroundColor: shell.status_Slots === true ? 'rgba(250, 104, 104, 0.874)' : 'white' }}>
+                                        <td className="border" key={shell.id} style={{ backgroundColor: shell.status === 1 ? 'rgba(250, 104, 104, 0.874)' : 'white' }}>
 
-                                            {shell.id_C_Slot}
+                                            {shell.id_slot}
                                         </td>
                                     ))}
                                 </tr>
@@ -97,18 +95,18 @@ function ZoneC() {
                                 <tr class="border">
 
                                     {customerSlot.slice(0, 10).map(shell => (
-                                        <td className="border" key={shell.id} style={{ backgroundColor: shell.status_Slots === true? 'rgba(250, 104, 104, 0.874)' : 'white' }}>
+                                        <td className="border" key={shell.id} style={{ backgroundColor: shell.status === 1 ? 'rgba(250, 104, 104, 0.874)' : 'white' }}>
 
-                                            {shell.id_C_Slot}
+                                            {shell.id_slot}
                                         </td>
                                     ))}
                                 </tr>
                                 <tr class="border">
 
                                     {customerSlot.slice(10, 20).map(shell => (
-                                        <td className="border" key={shell.id} style={{ backgroundColor: shell.status_Slots === true ? 'rgba(250, 104, 104, 0.874)' : 'white' }}>
+                                        <td className="border" key={shell.id} style={{ backgroundColor: shell.status === 1 ? 'rgba(250, 104, 104, 0.874)' : 'white' }}>
 
-                                            {shell.id_C_Slot}
+                                            {shell.id_slot}
                                         </td>
                                     ))}
                                 </tr>
@@ -124,4 +122,4 @@ function ZoneC() {
         </div>
     );
 }
-export default ZoneC;
+export default ZoneA;

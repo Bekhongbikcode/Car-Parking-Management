@@ -1,18 +1,20 @@
 import logo from './/logo.svg';
 import './App.css';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import Home from './components/Home';
-import Login from './components/Login';
-import Register from './components/Register';
+import Home from './components/Main/Home';
+import Login from './components/Login/Login';
+import Register from './components/Registration/Register';
 import { ToastContainer } from 'react-toastify';
-import ForgottenPwd from './components/Forgotten-pwd';
-import Header from './components/Header';
-import Reservation from './components/Reservation';
-import PaymentInformation from './components/PaymentInformation';
-import Banking from './components/Banking';
-import ReservationComplete from './components/ReservationComplete';
-import ZoneDetai from './components/ZoneDetail';
-import ZoneDetail from './components/ZoneDetail';
+import ForgottenPwd from './components/Login/Forgotten-pwd';
+import Reservation from './components/Payment/Reservation';
+import PaymentInformation from './components/Payment/PaymentInformation';
+import Banking from './components/Payment/Banking';
+import ReservationComplete from './components/Payment/ReservationComplete';
+import ZoneDetail from './components/Zone/ZoneDetail';
+import Account from './components/Account/MyAccount';
+import Cancelled from './components/Account/cancelledBooking';
+import All from './components/Account/Past';
+import Completed from './components/Account/completedBooking';
 
 
 function App() {
@@ -30,6 +32,10 @@ function App() {
           <Route path='/Banking' element={<Banking></Banking>}></Route>
           <Route path='/ReservationComplete' element={<ReservationComplete />}></Route>
           <Route path='/ZoneDetail/:index' element={<ZoneDetail />}></Route>
+          <Route path='/MyAccount' element={<Account></Account>}></Route>
+          <Route path='/Past' element = {<All></All>}></Route>
+          <Route path='/Completed' element={<Completed></Completed>}></Route>
+          <Route path='/Cancelled' element={<Cancelled></Cancelled>}></Route>
         </Routes>
       </BrowserRouter>
 

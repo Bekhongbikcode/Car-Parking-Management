@@ -1,10 +1,11 @@
-import {  useState, useEffect } from "react";
-import { Link} from "react-router-dom";
-function ZoneB() {
+import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
+import './Zone.css'
+function ZoneC() {
     const [shells, setShells] = useState([]);
 
     useEffect(() => {
-        fetch('http://localhost:5000/zoneB')
+        fetch('https://corsproxy-pms.herokuapp.com/https://demo-spring-heroku-app.herokuapp.com/present_slot/findAll/C')
             .then(response => response.json())
             .then((data) => {
                 setShells(data)
@@ -13,28 +14,30 @@ function ZoneB() {
             .catch(error => console.error(error));
     }, []);
 
-    const residentSlot = shells.filter(slot => slot.id_slot.startsWith('R'));
-    const customerSlot = shells.filter(slot => slot.id_slot.startsWith('C'));
+    const residentSlot = shells.filter(slot => slot.id_C_Slot.startsWith('R'));
+    const customerSlot = shells.filter(slot => slot.id_C_Slot.startsWith('C'));
 
     return (
         <div>
             <form onSubmit={'handleSubmit'}>
                 <div className="zone-detail">
                     <p style={{ float: 'left' }}>
+                        
+                        <Link style={{ float: 'left', marginRight:'20px' }} to={'/ZoneDetail/A'}>
 
-                        <Link style={{ float: 'left', marginRight: '20px' }} to={'/ZoneDetail/A'}>
                             <h5>ZONE A</h5>
                         </Link>
+                        <Link style={{ float: 'left', marginRight:'20px' }} to={'/ZoneDetail/B'}>
 
-
-                        <h5 style={{ float: 'left', marginRight: '20px' }}>ZONE B</h5>
-
-
-
-                        <Link style={{ float: 'left', marginRight: '20px' }} to={'/ZoneDetail/C'}>
-
-                            <h5>ZONE C</h5>
+                            <h5>ZONE B</h5>
                         </Link>
+                        <h5 style={{ float: 'left', marginRight:'20px' }}>ZONE C</h5>
+
+
+
+
+
+
                     </p>
                     <p>
                         <h5>DESCRIPTION</h5>
@@ -59,18 +62,18 @@ function ZoneB() {
                                 <tr class="border">
 
                                     {residentSlot.slice(0, 10).map(shell => (
-                                        <td className="border" key={shell.id} style={{ backgroundColor: shell.status === 1 ? 'rgba(250, 104, 104, 0.874)' : 'white' }}>
+                                        <td className="border" key={shell.id} style={{ backgroundColor: shell.status_Slots === true ? 'rgba(250, 104, 104, 0.874)' : 'white' }}>
 
-                                            {shell.id_slot}
+                                            {shell.id_C_Slot}
                                         </td>
                                     ))}
                                 </tr>
                                 <tr class="border">
 
                                     {residentSlot.slice(10, 20).map(shell => (
-                                        <td className="border" key={shell.id} style={{ backgroundColor: shell.status === 1 ? 'rgba(250, 104, 104, 0.874)' : 'white' }}>
+                                        <td className="border" key={shell.id} style={{ backgroundColor: shell.status_Slots === true ? 'rgba(250, 104, 104, 0.874)' : 'white' }}>
 
-                                            {shell.id_slot}
+                                            {shell.id_C_Slot}
                                         </td>
                                     ))}
                                 </tr>
@@ -95,18 +98,18 @@ function ZoneB() {
                                 <tr class="border">
 
                                     {customerSlot.slice(0, 10).map(shell => (
-                                        <td className="border" key={shell.id} style={{ backgroundColor: shell.status === 1 ? 'rgba(250, 104, 104, 0.874)' : 'white' }}>
+                                        <td className="border" key={shell.id} style={{ backgroundColor: shell.status_Slots === true? 'rgba(250, 104, 104, 0.874)' : 'white' }}>
 
-                                            {shell.id_slot}
+                                            {shell.id_C_Slot}
                                         </td>
                                     ))}
                                 </tr>
                                 <tr class="border">
 
                                     {customerSlot.slice(10, 20).map(shell => (
-                                        <td className="border" key={shell.id} style={{ backgroundColor: shell.status === 1 ? 'rgba(250, 104, 104, 0.874)' : 'white' }}>
+                                        <td className="border" key={shell.id} style={{ backgroundColor: shell.status_Slots === true ? 'rgba(250, 104, 104, 0.874)' : 'white' }}>
 
-                                            {shell.id_slot}
+                                            {shell.id_C_Slot}
                                         </td>
                                     ))}
                                 </tr>
@@ -122,4 +125,4 @@ function ZoneB() {
         </div>
     );
 }
-export default ZoneB;
+export default ZoneC;

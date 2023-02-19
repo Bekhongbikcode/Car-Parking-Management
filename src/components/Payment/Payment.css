@@ -1,0 +1,169 @@
+* {
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+  }
+  
+
+  
+  /* --------------------------------------RESERVATION--------------------------------- */
+  
+  .step-reservation {
+    text-align: center;
+  }
+  
+  .step-reservation .circle div {
+    width: 80px;
+    height: 80px;
+    background-color: #e7e6e6;
+    margin-top: 30px;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-bottom: 20px;
+    text-align: 'center';
+    cursor: pointer;
+  }
+  
+  .step-reservation .circle div:active {
+    background-color: black;
+  }
+  
+  .step-reservation .circle div>span {
+    display: block;
+    padding-top: 30%;
+    font-size: 20px;
+    color: #fff;
+    text-decoration: none;
+  }
+  
+  .step-reservation Link {
+    text-decoration: none;
+  }
+  
+  /* --------------------------------------RESERVATION-DETAILS--------------------------------- */
+  
+  .reservation-details {
+    margin-left: 10%;
+    margin-top: 5%;
+  }
+  
+  .reservation-details .class-input {
+    width: 40%;
+    margin-left: 10%;
+  
+  }
+  
+  .personal-details {
+    margin-left: 10%;
+    margin-top: 5%;
+  }
+  
+  .personal-details .class-input {
+    width: 40%;
+    margin-left: 10%;
+  
+  }
+  
+  .personal-details button {
+    height: 180%;
+    width: 100%;
+    background: linear-gradient(2deg, rgba(45, 201, 138, 0.9), rgba(45, 201, 138, 0.9), rgba(45, 201, 138, 0.9));
+    border: 1px solid #2DC98A;
+    border-radius: 5px;
+    color: #fff;
+  
+  }
+  
+  .personal-details .class-input button:hover {
+    background-color: #3ab489e0 !important;
+  
+  }
+  
+  .zone-reservation {
+    position: absolute;
+    top: 1110px;
+    right: 10%;
+  }
+  
+  /* ----------------------------------PAYMENT-INFORMATION-------------------------------------*/
+  
+  .payment-infor {
+    margin-left: 35%;
+    margin-right: 10%;
+    margin-top: 5%;
+    margin-bottom: 5%;
+  }
+  
+  .payment-infor p {
+    color: black;
+  }
+  
+  .payment-infor button {
+    width: 35%;
+    height: 50px;
+    border-radius: 5px;
+    border: 0.5px solid #2DC98A;
+    background-color: #2DC98A;
+    margin-left: 5%;
+  }
+  
+  .payment-infor img {
+    width: 500px;
+    height: 150px;
+  }
+  
+  .payment-infor-detail {
+    margin-top: 5%;
+  }
+  
+  .payment-infor-detail span {
+    display: inline-block;
+    width: 200px;
+    margin-right: 0px;
+  }
+  
+  /* -------------------------------------------------BANKING--------------------------- */
+  
+  .header-banking-gate {
+    width: 100%;
+    height: 200px;
+    background-color: #2DC98A;
+    position: relative;
+    text-align: center;
+  }
+  
+  .header-banking-gate div {
+    font-size: 40px;
+    width: 300px;
+    text-align: center;
+    top: 20%;
+    left: 41%;
+    margin: 0 auto;
+    position: absolute;
+  }
+  
+  .input-creadit-card {
+    margin-top: 50px;
+    float: right;
+  }
+  
+  /* -----------------------------------------------RESERVATION-COMPLETE------------------ */
+  
+  .complete-infor {
+    margin-left: 35%;
+    margin-right: 10%;
+    margin-top: 5%;
+    margin-bottom: 5%;
+  }
+  
+  .complete-infor-detail {
+    margin-top: 5%;
+  }
+  
+  .complete-infor-detail span {
+    display: inline-block;
+    width: 200px;
+    margin-right: 0px;
+  }
+  
+  

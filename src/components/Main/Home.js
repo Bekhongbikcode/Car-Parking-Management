@@ -4,9 +4,10 @@ import Helmet from "react-helmet";
 import { HelmetProvider } from "react-helmet-async";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCheck, faTimes, faInfoCircle, faUser, faClock } from "@fortawesome/free-solid-svg-icons";
-import Header from "./Header";
-import Footer from "./Footer";
-import Slider from "./Slider";
+import Header from "../Complement/Header";
+import Footer from "../Complement/Footer";
+import Slider from "../Complement/Slider";
+import './Main.css'
 
 const Home = () => {
     const [zone, setZone] = useState('A');
