@@ -1,5 +1,4 @@
 import logo from './/logo.svg';
-import './App.css';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Home from './components/Main/Home';
 import Login from './components/Login/Login';
@@ -15,6 +14,7 @@ import Account from './components/Account/MyAccount';
 import Cancelled from './components/Account/cancelledBooking';
 import All from './components/Account/Past';
 import Completed from './components/Account/completedBooking';
+import AdminHomePage from './components/Admin/AdminHomepae';
 
 
 function App() {
@@ -36,6 +36,7 @@ function App() {
           <Route path='/Past' element = {<All></All>}></Route>
           <Route path='/Completed' element={<Completed></Completed>}></Route>
           <Route path='/Cancelled' element={<Cancelled></Cancelled>}></Route>
+          <Route path='/AdminHomePage' element={<AdminHomePage></AdminHomePage>}></Route>
         </Routes>
       </BrowserRouter>
 

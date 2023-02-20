@@ -74,18 +74,7 @@ function ZoneA() {
                                         </td>
                                     ))}
                                 </tr>
-                                {/* <tr>
-                                    <td class="border">R11</td>
-                                    <td class="border">R12</td>
-                                    <td class="border">R13</td>
-                                    <td class="border">R14</td>
-                                    <td class="border">R15</td>
-                                    <td class="border">R16</td>
-                                    <td class="border">R17</td>
-                                    <td class="border">R18</td>
-                                    <td class="border">R19</td>
-                                    <td class="border">R20</td>
-                                </tr> */}
+                            
                             </tbody>
 
                         </table>
