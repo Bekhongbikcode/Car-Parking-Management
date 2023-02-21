@@ -9,7 +9,7 @@ const CustomerManagement = () => {
     const [customers, setCustomers] = useState([]);
     const [filteredCustomers, setFilteredCustomers] = useState([]);
     const [id, setId] = useState('');
-
+    
     useEffect(() => {
         fetch(URL)
             .then(response => response.json())

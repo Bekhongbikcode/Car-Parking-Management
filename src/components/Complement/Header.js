@@ -6,14 +6,9 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCheck, faTimes, faInfoCircle, faUser } from "@fortawesome/free-solid-svg-icons";
 import './Complement.css'
 const Header = () => {
-   
     const usenavigate = useNavigate();
     const [customerlist, listupdate] = useState(null);
     const [displayusername, displayusernameupdate] = useState('');
-    
-
-
-
 
     return (
         
