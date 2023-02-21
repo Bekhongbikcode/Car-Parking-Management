@@ -14,7 +14,7 @@ const USER_REGEX = /^[a-zA-Z][a-zA-Z0-9-_]{3,23}$/;
 const PWD_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%]).{8,30}/;
 const EMAIL_REGEX = /^[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[A-Za-z]+$/;
 const PHONE_REGEX = /^[0-9]{10,12}$/;
-const REGISTER_URL = " https://corsproxy-pms.herokuapp.com/https://demo-spring-heroku-app.herokuapp.com/user/save";
+const REGISTER_URL = " https://corsproxy-pms.herokuapp.com/https://backend-heroku-pms.herokuapp.com/user/save";
 // const REGISTER_URL = "https://1525-27-74-221-84.ap.ngrok.io/user/save"
 // const REGISTER_URL = "http://localhost:5000/users"
 
