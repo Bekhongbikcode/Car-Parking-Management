@@ -66,7 +66,7 @@ const Login = () => {
                         sessionStorage.setItem('email', resp.email);
                         sessionStorage.setItem('phone', resp.phone);
                         sessionStorage.setItem('id', username);
-                        // window.location.href ='/Reservation'
+                        // window.location.href ='/'
                         usenavigate('/');
                     } else {
                         toast.error('Please Enter Correct Password');

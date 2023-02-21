@@ -11,6 +11,8 @@ import './Main.css'
 
 const Home = () => {
     const [zone, setZone] = useState('A');
+    const [username, setUsername] = useState(sessionStorage.getItem('username'));
+    
 
     useEffect(() => {
         setZone(zone);
@@ -32,7 +34,7 @@ const Home = () => {
             <Helmet>
                 <title>EParking</title>
             </Helmet>
-            <Header></Header>
+            <Header data ={username}></Header>
             <Slider></Slider>
 
             {/* -----------------------------zone-area-homepage----------------------- */}
