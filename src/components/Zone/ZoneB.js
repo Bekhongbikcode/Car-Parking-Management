@@ -5,7 +5,7 @@ function ZoneB() {
     const [shells, setShells] = useState([]);
 
     useEffect(() => {
-        fetch('http://localhost:5000/zoneB')
+        fetch('https://corsproxy-pms.herokuapp.com/https://backend-heroku-pms.herokuapp.com/present_slot/findAll/B')
             .then(response => response.json())
             .then((data) => {
                 setShells(data)

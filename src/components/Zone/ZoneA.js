@@ -5,7 +5,7 @@ function ZoneA() {
     const [shells, setShells] = useState([]);
 
     useEffect(() => {
-        fetch('https://demo-spring-heroku-app.herokuapp.com/present_slot/A')
+        fetch('https://corsproxy-pms.herokuapp.com/https://backend-heroku-pms.herokuapp.com/present_slot/findAll/A')
             .then(response => response.json())
             .then((data) => {
                 setShells(data)
@@ -14,8 +14,8 @@ function ZoneA() {
             .catch(error => console.error(error));
     }, []);
 
-    const residentSlot = shells.filter(slot => slot.id_slot.startsWith('R'));
-    const customerSlot = shells.filter(slot => slot.id_slot.startsWith('C'));
+    // const residentSlot = shells.filter(slot => slot.id_slot.startsWith('R'));
+    const customerSlot = shells.filter(slot => slot.id_C_Slot.startsWith('C'));
 
     return (
         <div>
@@ -58,21 +58,21 @@ function ZoneA() {
                             <tbody>
                                 <tr class="border">
 
-                                    {residentSlot.slice(0, 10).map(shell => (
+                                    {/* {residentSlot.slice(0, 10).map(shell => (
                                         <td className="border" key={shell.id} style={{ backgroundColor: shell.status === 1 ? 'rgba(250, 104, 104, 0.874)' : 'white' }}>
 
                                             {shell.id_slot}
                                         </td>
-                                    ))}
+                                    ))} */}
                                 </tr>
                                 <tr class="border">
 
-                                    {residentSlot.slice(10, 20).map(shell => (
+                                    {/* {residentSlot.slice(10, 20).map(shell => (
                                         <td className="border" key={shell.id} style={{ backgroundColor: shell.status === 1 ? 'rgba(250, 104, 104, 0.874)' : 'white' }}>
 
                                             {shell.id_slot}
                                         </td>
-                                    ))}
+                                    ))} */}
                                 </tr>
                             
                             </tbody>
@@ -84,18 +84,18 @@ function ZoneA() {
                                 <tr class="border">
 
                                     {customerSlot.slice(0, 10).map(shell => (
-                                        <td className="border" key={shell.id} style={{ backgroundColor: shell.status === 1 ? 'rgba(250, 104, 104, 0.874)' : 'white' }}>
+                                        <td className="border" key={shell.id} style={{ backgroundColor: shell.status_Slots === true ? 'rgba(250, 104, 104, 0.874)' : 'white' }}>
 
-                                            {shell.id_slot}
+                                            {shell.id_C_Slot}
                                         </td>
                                     ))}
                                 </tr>
                                 <tr class="border">
 
                                     {customerSlot.slice(10, 20).map(shell => (
-                                        <td className="border" key={shell.id} style={{ backgroundColor: shell.status === 1 ? 'rgba(250, 104, 104, 0.874)' : 'white' }}>
+                                        <td className="border" key={shell.id} style={{ backgroundColor: shell.status_Slots === true ? 'rgba(250, 104, 104, 0.874)' : 'white' }}>
 
-                                            {shell.id_slot}
+                                            {shell.id_C_Slot}
                                         </td>
                                     ))}
                                 </tr>

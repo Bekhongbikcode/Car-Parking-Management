@@ -5,7 +5,7 @@ function ZoneC() {
     const [shells, setShells] = useState([]);
 
     useEffect(() => {
-        fetch('https://corsproxy-pms.herokuapp.com/https://demo-spring-heroku-app.herokuapp.com/present_slot/findAll/C')
+        fetch('https://corsproxy-pms.herokuapp.com/https://backend-heroku-pms.herokuapp.com/present_slot/findAll/C')
             .then(response => response.json())
             .then((data) => {
                 setShells(data)
