@@ -9,7 +9,7 @@ const CustomerManagement = () => {
     const [customers, setCustomers] = useState([]);
     const [filteredCustomers, setFilteredCustomers] = useState([]);
     const [id, setId] = useState('');
-    
+
     useEffect(() => {
         fetch(URL)
             .then(response => response.json())
@@ -20,21 +20,37 @@ const CustomerManagement = () => {
             .catch(error => console.error(error));
     }, []);
 
-    const handleIdFilter = (event) => {
-        setId(event.target.value);
-        setFilteredCustomers(customers.filter(cus => cus.id === event.target.value));
-      }
+    const handleIdFilter = () => {
+        console.log(id)
+        customers.map((item) => {
+
+            if (item.id === id) {
+                console.log(item)
+                return (
+                <tr key={item.id}>
+                    <td>{item.id}</td>
+                    <td>{item.fullname}</td>
+                    <td>{item.dateofbirth}</td>
+                    <td>{item.gender ? "Male" : "Female"}</td>
+                    <td>{item.phone}</td>
+                    <td>{item.email}</td>
+                </tr>
+                )
+            } else
+                return null;
+        });
+    }
 
     return (
         <div className="admin-homepage-dashboard">
             <h5 style={{ textAlign: 'left', margin: '20px' }}>Manage Customer</h5>
             <form onSubmit={handleIdFilter}>
                 Filter by ID:
-                <input type="text"  onChange={e => setId(e.target.value)} />
+                <input type="text" onChange={e => setId(e.target.value)} />
                 <button type='submit'>Search</button>
             </form>
 
-            <Pagination data={customers}></Pagination>
+            {/* <Pagination data={customers}></Pagination> */}
 
         </div>
     );

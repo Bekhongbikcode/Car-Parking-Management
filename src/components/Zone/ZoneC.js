@@ -2,20 +2,46 @@ import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import './Zone.css'
 function ZoneC() {
-    const [shells, setShells] = useState([]);
+    const [shellsC, setShellsC] = useState([]);
+    const [shellsR, setShellsR] = useState([]);
 
     useEffect(() => {
-        fetch('https://corsproxy-pms.herokuapp.com/https://backend-heroku-pms.herokuapp.com/present_slot/findAll/C')
+        fetch('https://corsproxy-pms.herokuapp.com/https://backend-heroku-pms.herokuapp.com/present_slot/findAll/C/C')
             .then(response => response.json())
             .then((data) => {
-                setShells(data)
-                console.log(data)
+                setShellsC(data)
+                // console.log(data)
             })
             .catch(error => console.error(error));
+
+        fetch('https://corsproxy-pms.herokuapp.com/https://backend-heroku-pms.herokuapp.com/present_slot/findAll/R/C')
+            .then(response => response.json())
+            .then((data) => {
+                setShellsR(data)
+                // console.log(data)
+            })
+            .catch(error => console.error(error));
+
+
     }, []);
 
-    const residentSlot = shells.filter(slot => slot.id_C_Slot.startsWith('R'));
-    const customerSlot = shells.filter(slot => slot.id_C_Slot.startsWith('C'));
+    const sumObject = {};
+
+    for (let prop in shellsC) {
+        sumObject[prop] = shellsC[prop];
+    }
+
+    for (let prop in shellsR) {
+        if (sumObject[prop]) {
+            sumObject[prop] += shellsR[prop];
+        } else {
+            sumObject[prop] = shellsR[prop];
+        }
+    }
+    // console.log(sumObject);
+
+    const residentSlot = shellsR.filter(slot => slot.id_R_Slot.startsWith('R'));
+    const customerSlot = shellsC.filter(slot => slot.id_C_Slot.startsWith('C'));
 
     return (
         <div>
@@ -64,7 +90,7 @@ function ZoneC() {
                                     {residentSlot.slice(0, 10).map(shell => (
                                         <td className="border" key={shell.id} style={{ backgroundColor: shell.status_Slots === true ? 'rgba(250, 104, 104, 0.874)' : 'white' }}>
 
-                                            {shell.id_C_Slot}
+                                            {shell.id_R_Slot}
                                         </td>
                                     ))}
                                 </tr>
@@ -73,7 +99,7 @@ function ZoneC() {
                                     {residentSlot.slice(10, 20).map(shell => (
                                         <td className="border" key={shell.id} style={{ backgroundColor: shell.status_Slots === true ? 'rgba(250, 104, 104, 0.874)' : 'white' }}>
 
-                                            {shell.id_C_Slot}
+                                            {shell.id_R_Slot}
                                         </td>
                                     ))}
                                 </tr>
