@@ -71,32 +71,16 @@ const ReservationDetail = () => {
   
 
     useEffect(() => {
-        if (zone === 'A') {
-            fetch('https://corsproxy-pms.herokuapp.com/https://demo-spring-heroku-app.herokuapp.com/present_slot/findAll/C')
+        // if (zone === 'A') {
+            console.log(zone)
+            fetch('https://corsproxy-pms.herokuapp.com/https://backend-heroku-pms.herokuapp.com/present_slot/findAll/C/'+zone)
                 .then(response => response.json())
                 .then((data) => {
                     setShells(data)
-
+                    console.log(data)
                 })
                 .catch(error => console.error(error));
-        } else if (zone === 'B') {
-            fetch('https://corsproxy-pms.herokuapp.com/https://demo-spring-heroku-app.herokuapp.com/present_slot/findAll/C')
-                .then(response => response.json())
-                .then((data) => {
-                    setShells(data)
-
-                })
-                .catch(error => console.error(error));
-        } else if (zone === 'C') {
-            fetch('https://corsproxy-pms.herokuapp.com/https://demo-spring-heroku-app.herokuapp.com/present_slot/findAll/C')
-                .then(response => response.json())
-                .then((data) => {
-                    setShells(data)
-
-                })
-                .catch(error => console.error(error));
-        }
-    }, []);
+    }, [zone]);
 
     const residentSlot = shells.filter(slot => slot.id_C_Slot.startsWith('R'));
     const customerSlot = shells.filter(slot => slot.id_C_Slot.startsWith('C'));
@@ -129,7 +113,7 @@ const ReservationDetail = () => {
         const idUser = sessionStorage.getItem("id");
         const obj = { idUser, startDate, endDate, startTime, endTime, id_Building, type_Of_Vehicle, id_C_Slot, fullname, email, phone }
 
-        fetch('https://corsproxy-pms.herokuapp.com/https://demo-spring-heroku-app.herokuapp.com/bookingCustomer/save', {
+        fetch('https://corsproxy-pms.herokuapp.com/https://backend-heroku-pms.herokuapp.com/bookingCustomer/save', {
             method: 'POST',
             header: {
 

@@ -25,7 +25,7 @@ const PaymentInformation = () => {
     }, [type]);
 
     useEffect(() => {
-        fetch('https://corsproxy-pms.herokuapp.com/https://demo-spring-heroku-app.herokuapp.com/bookingCustomer/findBooking')
+        fetch('https://corsproxy-pms.herokuapp.com/https://backend-heroku-pms.herokuapp.com/bookingCustomer/findBooking')
             .then(response => response.json())
             .then((data) => {
                 setBookingInf(data);
@@ -49,7 +49,7 @@ const PaymentInformation = () => {
         const id_Booking = bookingInf.id_Booking;
         const type_Of_Payment = bookingInf.type;
         const regObj = { id_Booking, type_Of_Payment }
-        fetch('https://corsproxy-pms.herokuapp.com/https://demo-spring-heroku-app.herokuapp.com/payment/save', {
+        fetch('https://corsproxy-pms.herokuapp.com/https://backend-heroku-pms.herokuapp.com/payment/save', {
 
             method: 'POST',
             header: {
