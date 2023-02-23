@@ -73,7 +73,7 @@ const ReservationDetail = () => {
     useEffect(() => {
         // if (zone === 'A') {
             console.log(zone)
-            fetch('https://corsproxy-pms.herokuapp.com/https://backend-heroku-pms.herokuapp.com/present_slot/findAll/C/'+zone)
+            fetch('https://corsproxy-pms.herokuapp.com/https://backend-heroku-pms.herokuapp.com/present_slot/findAll/'+zone)
                 .then(response => response.json())
                 .then((data) => {
                     setShells(data)
@@ -82,8 +82,8 @@ const ReservationDetail = () => {
                 .catch(error => console.error(error));
     }, [zone]);
 
-    const residentSlot = shells.filter(slot => slot.id_C_Slot.startsWith('R'));
-    const customerSlot = shells.filter(slot => slot.id_C_Slot.startsWith('C'));
+    const residentSlot = shells.filter(slot => slot.id_slot.startsWith('R'));
+    const customerSlot = shells.filter(slot => slot.id_slot.startsWith('C'));
 
     const IsValidate = () => {
         let isproceed = true;
@@ -275,7 +275,7 @@ const ReservationDetail = () => {
                         <select className="form-select" onChange={(e) => setSlot(e.target.value)} >
                             {shells.map(shell => {
                                 if (shell.status_Slots == false) {
-                                    return <option>{shell.id_C_Slot}</option>
+                                    return <option>{shell.id_slot}</option>
                                 }
                             })}
 
@@ -338,7 +338,7 @@ const ReservationDetail = () => {
                             {residentSlot.slice(1, 10).map(shell => (
                                 <td className="border" key={shell.id} style={{ backgroundColor: shell.status_Slots === true ? 'rgba(250, 104, 104, 0.874)' : 'white' }}>
 
-                                    {shell.id_C_Slot}
+                                    {shell.id_slot}
                                 </td>
                             ))}
                         </tr>
@@ -347,7 +347,7 @@ const ReservationDetail = () => {
                             {residentSlot.slice(10, 20).map(shell => (
                                 <td className="border" key={shell.id} style={{ backgroundColor: shell.status_Slots === true ? 'rgba(250, 104, 104, 0.874)' : 'white' }}>
 
-                                    {shell.id_C_Slot}
+                                    {shell.id_slot}
                                 </td>
                             ))}
                         </tr>
@@ -363,7 +363,7 @@ const ReservationDetail = () => {
                             {customerSlot.slice(0, 10).map(shell => (
                                 <td className="border" key={shell.id} style={{ backgroundColor: shell.status_Slots === true ? 'rgba(250, 104, 104, 0.874)' : 'white' }}>
 
-                                    {shell.id_C_Slot}
+                                    {shell.id_slot}
                                 </td>
                             ))}
                         </tr>
@@ -372,7 +372,7 @@ const ReservationDetail = () => {
                             {customerSlot.slice(10, 20).map(shell => (
                                 <td className="border" key={shell.id} style={{ backgroundColor: shell.status_Slots === true ? 'rgba(250, 104, 104, 0.874)' : 'white' }}>
 
-                                    {shell.id_C_Slot}
+                                    {shell.id_slot}
                                 </td>
                             ))}
                         </tr>
