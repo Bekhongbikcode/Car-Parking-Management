@@ -19,7 +19,7 @@ const ReservationDetail = () => {
     const [phone, setPhone] = useState(sessionStorage.getItem("phone"))
     const [validPhone, setValidPhone] = useState(false);
     const [typeOfVehicle, setTypeOfVehicle] = useState('Moto');
-    const [slot, setSlot] = useState('R2');
+    const [slot, setSlot] = useState('');
     const [shells, setShells] = useState([]);
 
     useEffect(() => {

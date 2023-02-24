@@ -40,6 +40,7 @@ const PaymentInformation = () => {
         console.log(type)
         sessionStorage.setItem("idbooking", bookingInf.id_Booking);
         sessionStorage.setItem("typePayment", type);
+        sessionStorage.setItem("idbuilding", bookingInf.id_Building);
         window.location.href = '/Banking'
     }
 
@@ -48,8 +49,10 @@ const PaymentInformation = () => {
         //type of payment vs idbooking
         const id_Booking = bookingInf.id_Booking;
         const type_Of_Payment = bookingInf.type;
-        const regObj = { id_Booking, type_Of_Payment }
-        fetch('https://corsproxy-pms.herokuapp.com/https://backend-heroku-pms.herokuapp.com/payment/save', {
+        const id_Building = bookingInf.id_Building;
+        
+        const regObj = { id_Booking, type_Of_Payment, id_Building }
+        fetch('https://corsproxy-pms.herokuapp.com/https://backend-heroku-pms.herokuapp.com/paymentCustomer/save', {
 
             method: 'POST',
             header: {

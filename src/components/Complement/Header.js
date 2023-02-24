@@ -19,7 +19,7 @@ const Header = (props) => {
         <div className="header">
 
             <div className="logo">
-
+                <img src={'../assets/img/logo.png'}></img>
             </div>
             <ul class="nav justify-content-end nav-custom  ">
                 <li class="nav-item">

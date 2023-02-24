@@ -20,7 +20,7 @@ const ReservationComplete = () => {
 
 
     useEffect(() => {
-        fetch('https://corsproxy-pms.herokuapp.com/https://backend-heroku-pms.herokuapp.com/payment/findPayment')
+        fetch('https://corsproxy-pms.herokuapp.com/https://backend-heroku-pms.herokuapp.com/paymentCustomer/findPayment')
             .then(response => response.json())
             .then((data) => {
                 setInvoice(data);
@@ -74,7 +74,7 @@ const ReservationComplete = () => {
                     <i>{invoice.startDate}, {invoice.endDate}, {invoice.startTime}, {invoice.endTime}</i>
                     <br />
                     <span>Status Invoice</span>
-                    {(invoice.status_Invoice == true) ? <i style={{color:'green'}}>Completed</i> : <i style={{color:'red'}}>Not Completed</i>}
+                    {(invoice.status_Invoice == true) ? <i style={{color:'green'}}>Completed</i> : <i style={{color:'red'}}>Waiting to pay</i>}
                     <br />
                     <span>Created</span>
                     <i>{sessionStorage.getItem("datebook")}, {sessionStorage.getItem("timebook")}</i>

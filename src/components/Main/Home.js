@@ -12,20 +12,20 @@ import './Main.css'
 const Home = () => {
     const [zone, setZone] = useState('A');
     const [username, setUsername] = useState(sessionStorage.getItem('username'));
-    
+
 
     useEffect(() => {
         setZone(zone);
-        
+
     }, [zone]);
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        
+
         sessionStorage.setItem("zone", zone);
-        
+
         // window.location.href = '/Reservation';
-        
+
     }
 
 
@@ -34,7 +34,7 @@ const Home = () => {
             <Helmet>
                 <title>EParking</title>
             </Helmet>
-            <Header data ={username}></Header>
+            <Header data={username}></Header>
             <Slider></Slider>
 
             {/* -----------------------------zone-area-homepage----------------------- */}
@@ -57,14 +57,16 @@ const Home = () => {
                             </div>
                         </div>
                         <div className="card-footer">
-                        <form onSubmit={handleSubmit}>
+                            <form onSubmit={handleSubmit}>
 
-                            <Link to={'/ZoneDetail/A'}>
+                                <Link to={'/ZoneDetail/A'}>
 
-                                <button style={{ color: "#fff", width: '25%' }}  ><span>Details</span></button>
-                            </Link>
-                            <button style={{ color: "#fff" }}   onClick={e => setZone(e.target.value)} value='A'><span>Make Reservation</span></button>
-                        </form>
+                                    <button style={{ color: "#fff", width: '25%' }}  ><span>Details</span></button>
+                                </Link>
+                                <Link to={'/Reservation'}>
+                                    <button style={{ color: "#fff" }} onClick={e => setZone(e.target.value)} value='A'><span>Make Reservation</span></button>
+                                </Link>
+                            </form>
                         </div>
                     </div>
 
@@ -84,15 +86,17 @@ const Home = () => {
                             </div>
                         </div>
                         <div className="card-footer">
-                        <form onSubmit={handleSubmit}>
+                            <form onSubmit={handleSubmit}>
 
-                        </form>
+                            </form>
 
                             <Link to={'/ZoneDetail/B'}>
 
-                                <button style={{ color: "#fff", width: '25%' }}  onClick={() => setZone('B')} value="B"><span>Details</span></button>
+                                <button style={{ color: "#fff", width: '25%' }} onClick={() => setZone('B')} value="B"><span>Details</span></button>
                             </Link>
-                            <button style={{ color: "#fff" }}  onClick={e => setZone(e.target.value)} value='B'><span>Make Reservation</span></button>
+                            <Link to={'/Reservation'}>
+                                <button style={{ color: "#fff" }} onClick={e => setZone(e.target.value)} value='B'><span>Make Reservation</span></button>
+                            </Link>
                         </div>
                     </div>
 
@@ -112,14 +116,16 @@ const Home = () => {
                             </div>
                         </div>
                         <div className="card-footer">
-                        <form onSubmit={handleSubmit}>
+                            <form onSubmit={handleSubmit}>
 
-                        </form>
+                            </form>
                             <Link to={'/ZoneDetail/C'}>
 
-                                <button style={{ color: "#fff", width: '25%' }}  onClick={() => setZone('C')} value="C"><span>Details</span></button>
+                                <button style={{ color: "#fff", width: '25%' }} onClick={() => setZone('C')} value="C"><span>Details</span></button>
                             </Link>
-                            <button style={{ color: "#fff" }}  onClick={e => setZone(e.target.value)} value='C'><span>Make Reservation</span></button>
+                            <Link to={'/Reservation'}>
+                                <button style={{ color: "#fff" }} onClick={e => setZone(e.target.value)} value='C'><span>Make Reservation</span></button>
+                            </Link>
                         </div>
                     </div>
 

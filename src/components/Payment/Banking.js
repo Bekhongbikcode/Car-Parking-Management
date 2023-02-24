@@ -34,9 +34,10 @@ const Banking = () => {
         e.preventDefault();
         //type of payment vs idbooking
         const id_Booking = sessionStorage.getItem("idbooking");
-        const type_Of_Payment = sessionStorage.getItem("typePayment")
-        const regObj = { id_Booking, type_Of_Payment }
-        fetch('https://corsproxy-pms.herokuapp.com/https://demo-spring-heroku-app.herokuapp.com/payment/save', {
+        const type_Of_Payment = sessionStorage.getItem("typePayment");
+        const id_Building = sessionStorage.getItem("idbuilding");
+        const regObj = { id_Booking, type_Of_Payment, id_Building }
+        fetch('https://corsproxy-pms.herokuapp.com/https://backend-heroku-pms.herokuapp.com/paymentCustomer/save', {
 
             method: 'POST',
             header: {

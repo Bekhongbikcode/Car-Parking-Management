@@ -50,7 +50,7 @@ const CustomerManagement = () => {
                 <button type='submit'>Search</button>
             </form>
 
-            {/* <Pagination data={customers}></Pagination> */}
+            <Pagination data={customers}></Pagination>
 
         </div>
     );
