@@ -36,30 +36,22 @@ function Pagination(props) {
                 <td>{item.gender ? "Male" : "Female"}</td>
                 <td>{item.phone}</td>
                 <td>{item.email}</td>
+                <td style={{ color: item.status_Account === true ? '#118408' : '#E23F31', fontWeight: 'bold' }}>{item.status_Account === true ? 'Active' : 'Ban'}</td>
+                <td>
+                    <form>
+                        <button style={{border:'none', backgroundColor:'#2DC98A', color:'white', width:'55px', borderRadius:'2px'}}>Edit</button>
+                    </form>
+                </td>
             </tr>
         ));
     };
 
     return (
-        <div>
-            
-            <table className="table table-striped">
-                <thead>
-                    <tr>
-                        <th>No.</th>
-                        <th>Id</th>
-                        <th>Full name</th>
-                        <th>Date of birth</th>
-                        <th>Gender</th>
-                        <th>Phone</th>
-                        <th>Email</th>
-                    </tr>
-                </thead>
-                <tbody>{renderListItems()}</tbody>
-            </table>
+        <>
+            <tbody>{renderListItems()}</tbody>
             <tr className="pagination">{renderPageNumbers()}</tr>
-            
-        </div>
+
+        </>
     );
 }
 

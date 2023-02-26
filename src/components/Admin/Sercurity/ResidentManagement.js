@@ -3,12 +3,13 @@ import React, { useState, useEffect, useRef } from "react";
 import Pagination from '../../Complement/Pagination';
 
 
-const URL_Find_All = 'https://corsproxy-pms.herokuapp.com/https://backend-heroku-pms.herokuapp.com/MoreFeatureGet/findByIdCustomer?idCustomer=';
-// const URL = 'https://corsproxy-pms.herokuapp.com/https://backend-heroku-pms.herokuapp.com/security/ListAllCustomerFromBuilding/'
-const URL = 'https://corsproxy-pms.herokuapp.com/https://backend-heroku-pms.herokuapp.com/MoreFeatureGet/findCustomerAll'
+// const URL_Find_All = 'https://corsproxy-pms.herokuapp.com/https://backend-heroku-pms.herokuapp.com/customer/findById?IdUser=';
+const URL_Find_All = 'https://corsproxy-pms.herokuapp.com/https://backend-heroku-pms.herokuapp.com/MoreFeatureGet/findByIdResident?idResident=';
+// const URL = 'https://corsproxy-pms.herokuapp.com/https://backend-heroku-pms.herokuapp.com/security/ListAllResidentFromBuilding/'
+const URL = 'https://corsproxy-pms.herokuapp.com/https://backend-heroku-pms.herokuapp.com/MoreFeatureGet/findResidentAll'
 
-const CustomerManagement = () => {
-    const [customers, setCustomers] = useState([]);
+const ResidentManagement = () => {
+    const [residents, setResidents] = useState([]);
     const [filteredCustomers, setFilteredCustomers] = useState([]);
     const [id, setId] = useState('');
     const [idNull, setIdNull] = useState(true);
@@ -19,11 +20,13 @@ const CustomerManagement = () => {
         setId(id);
     }, [id])
 
+
+
     useEffect(() => {
         fetch(URL)
             .then(response => response.json())
             .then((data) => {
-                setCustomers(data)
+                setResidents(data)
                 console.log(data)
             })
             .catch(error => console.error(error));
@@ -42,7 +45,7 @@ const CustomerManagement = () => {
                 .then(response => response.json())
                 .then((data) => {
                     setIdNull(true);
-                    setCustomers(data)
+                    setResidents(data)
                     console.log(data)
                 })
                 .catch(error => console.error(error));
@@ -55,7 +58,7 @@ const CustomerManagement = () => {
                 .then(response => response.json())
                 .then((data) => {
                     setIdNull(false);
-                    setCustomers(data)
+                    setResidents(data)
                     console.log(data)
                 })
                 .catch(error => console.error(error));
@@ -67,9 +70,10 @@ const CustomerManagement = () => {
 
     }
 
+
     return (
         <div className="admin-homepage-dashboard">
-            <h5 style={{ textAlign: 'left', margin: '20px' }}>Manage Customer</h5>
+            <h5 style={{ textAlign: 'left', margin: '20px' }}>Manage Resident</h5>
             <ul class="nav justify-content-end nav-custom  ">
                 <li class="nav-item" onClick={() => handleSetBuilding('A')}>
                     <a class="nav-link" href="#">Zone A</a>
@@ -86,8 +90,6 @@ const CustomerManagement = () => {
                 <input type="text" onChange={e => setId(e.target.value)} />
                 <button type='submit'>Search</button>
             </form>
-
-
             <table className="table table-striped">
                 <thead>
                     <tr>
@@ -102,18 +104,18 @@ const CustomerManagement = () => {
                         <th>Action</th>
                     </tr>
                 </thead>
-                {idNull ? (<Pagination data={customers}></Pagination>)
+                {idNull ? (<Pagination data={residents}></Pagination>)
 
                     : (
                         <tbody><tr >
-                            <td>{console.log(customers)}</td>
-                            <td>{customers.id}</td>
-                            <td>{customers.fullname}</td>
-                            <td>{customers.dateofbirth}</td>
-                            <td>{customers.gender ? "Male" : "Female"}</td>
-                            <td>{customers.phone}</td>
-                            <td>{customers.email}</td>
-                            <td style={{ color: customers.status_Account === true ? '#118408' : '#E23F31', fontWeight: 'bold' }}>{customers.status_Account === true ? 'Active' : 'Ban'}</td>
+                            <td>{console.log(residents)}</td>
+                            <td>{residents.id}</td>
+                            <td>{residents.fullname}</td>
+                            <td>{residents.dateofbirth}</td>
+                            <td>{residents.gender ? "Male" : "Female"}</td>
+                            <td>{residents.phone}</td>
+                            <td>{residents.email}</td>
+                            <td style={{ color: residents.status_Account === true ? '#118408' : '#E23F31', fontWeight: 'bold' }}>{residents.status_Account === true ? 'Active' : 'Ban'}</td>
                             <td>
                                 <form>
                                     <button style={{ border: 'none', backgroundColor: '#2DC98A', color: 'white', width: '55px', borderRadius: '2px' }}>Edit</button>
@@ -128,13 +130,8 @@ const CustomerManagement = () => {
 
 
 
-
-
-
-
-
         </div>
     );
 }
 
-export default CustomerManagement;
+export default ResidentManagement;

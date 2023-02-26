@@ -15,6 +15,9 @@ import Cancelled from './components/Account/cancelledBooking';
 import All from './components/Account/Past';
 import Completed from './components/Account/completedBooking';
 import AdminHomePage from './components/Admin/AdminHomepae';
+import ResidentManagement from './components/Admin/Sercurity/ResidentManagement';
+import CustomerManagement from './components/Admin/Sercurity/CustomerManagement';
+import BookingManagement from './components/Admin/Sercurity/BookingManagement';
 
 
 function App() {
@@ -33,10 +36,13 @@ function App() {
           <Route path='/ReservationComplete' element={<ReservationComplete />}></Route>
           <Route path='/ZoneDetail/:index' element={<ZoneDetail />}></Route>
           <Route path='/MyAccount' element={<Account></Account>}></Route>
-          <Route path='/Past' element = {<All></All>}></Route>
+          <Route path='/Past' element={<All></All>}></Route>
           <Route path='/Completed' element={<Completed></Completed>}></Route>
           <Route path='/Cancelled' element={<Cancelled></Cancelled>}></Route>
           <Route path='/AdminHomePage' element={<AdminHomePage></AdminHomePage>}></Route>
+          <Route path='/ResidentManagement' element={<ResidentManagement></ResidentManagement>}></Route>
+          <Route path='/CustomerManagement' element={<CustomerManagement></CustomerManagement>}></Route>
+          <Route path='/BookingManagement' element={<BookingManagement></BookingManagement>}></Route>
         </Routes>
       </BrowserRouter>
 

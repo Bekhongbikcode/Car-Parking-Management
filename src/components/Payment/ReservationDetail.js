@@ -84,6 +84,7 @@ const ReservationDetail = () => {
 
     const residentSlot = shells.filter(slot => slot.id_slot.startsWith('R'));
     const customerSlot = shells.filter(slot => slot.id_slot.startsWith('C'));
+    console.log(customerSlot);
 
     const IsValidate = () => {
         let isproceed = true;
@@ -273,8 +274,9 @@ const ReservationDetail = () => {
                         <label>Slot *</label>
                         <br />
                         <select className="form-select" onChange={(e) => setSlot(e.target.value)} >
-                            {shells.map(shell => {
+                            {customerSlot.map(shell => {
                                 if (shell.status_Slots == false) {
+                                    
                                     return <option>{shell.id_slot}</option>
                                 }
                             })}
