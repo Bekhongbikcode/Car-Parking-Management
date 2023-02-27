@@ -5,7 +5,8 @@ import CustomerManagement from "./Sercurity/CustomerManagement";
 import { Link } from "react-router-dom";
 import React, { useState, useEffect, useRef } from "react";
 import ResidentManagement from "./Sercurity/ResidentManagement";
-import BookingManagement from "./Sercurity/BookingManagement";
+import BookingManagement from "./Sercurity/InvoiceManagement";
+import InvoiceManagement from "./Sercurity/InvoiceManagement";
 
 const AdminHomePage = () => {
     const [select, setSelect] = useState('Customer');
@@ -52,7 +53,7 @@ const AdminHomePage = () => {
                         <a class="nav-link active" href="#">Residents</a>
                     </li>
                     <li tabindex="0" class="nav-item" onClick={() => handleItemClick('Booking')}>
-                        <a class="nav-link active" href="#">Booking</a>
+                        <a class="nav-link active" href="#">Invoices</a>
                     </li>
                     <li tabindex="0" class="nav-item" onClick={() => handleItemClick('Invoice')}>
                         <a class="nav-link active" href="#">Invoice</a>
@@ -68,8 +69,8 @@ const AdminHomePage = () => {
                 
                 {select == 'Customer' ? <CustomerManagement></CustomerManagement> 
                     : select == 'Residents' ? <ResidentManagement></ResidentManagement>
-                    : select == 'Booking' ? <BookingManagement></BookingManagement>
-                    : <BookingManagement></BookingManagement>
+                    : select == 'Invoices' ? <InvoiceManagement></InvoiceManagement>
+                    : <InvoiceManagement></InvoiceManagement>
                 }
                 
                 

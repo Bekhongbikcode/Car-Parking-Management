@@ -1,13 +1,14 @@
 import '../Admin.css'
 import React, { useState, useEffect, useRef } from "react";
 import Pagination from '../../Complement/Pagination';
+import PaginationInvoice from './PaginationInvoice';
 
 
-const URL_Find_All = 'https://corsproxy-pms.herokuapp.com/https://backend-heroku-pms.herokuapp.com/customer/findById?IdUser=';
-const URL = 'https://corsproxy-pms.herokuapp.com/https://backend-heroku-pms.herokuapp.com/security/ListAllResidentFromBuilding/'
+const URL_Find_ID = 'https://corsproxy-pms.herokuapp.com/https://backend-heroku-pms.herokuapp.com/security/searchResidentInvoiceId/';
+const URL = 'https://corsproxy-pms.herokuapp.com/https://backend-heroku-pms.herokuapp.com/security/findAllResidentInvoice'
 
-const BookingManagement = () => {
-    const [residents, setResidents] = useState([]);
+const InvoiceManagement = () => {
+    const [obj, setObj] = useState([]);
     const [filteredCustomers, setFilteredCustomers] = useState([]);
     const [id, setId] = useState('');
     const [idNull, setIdNull] = useState(true);
@@ -19,22 +20,21 @@ const BookingManagement = () => {
 
 
     useEffect(() => {
-        fetch(URL+building)
+        fetch(URL)
             .then(response => response.json())
             .then((data) => {
-                setResidents(data)
+                setObj(data)
                 console.log(data)
             })
             .catch(error => console.error(error));
     }, [])
 
-    const handleSetBuilding = (item) =>{
+    const handleSetBuilding = (item) => {
         setBuilding(item)
     }
 
     const handleIdFilter = async (e) => {
-        const { name, value } = e.target;
-        setResidents({ ...residents, [name]: value });
+
         e.preventDefault();
         if (id === null || id === '') {
 
@@ -43,19 +43,19 @@ const BookingManagement = () => {
                 .then(response => response.json())
                 .then((data) => {
                     setIdNull(true);
-                    setResidents(data)
+                    setObj(data)
                     console.log(data)
                 })
                 .catch(error => console.error(error));
         }
         else {
 
-            console.log(URL_Find_All + id)
-            fetch(URL_Find_All + id)
+            console.log(URL_Find_ID + id)
+            fetch(URL_Find_ID + id)
                 .then(response => response.json())
                 .then((data) => {
                     setIdNull(false);
-                    setResidents(data)
+                    setObj(data)
                     console.log(data)
                 })
                 .catch(error => console.error(error));
@@ -89,16 +89,19 @@ const BookingManagement = () => {
                         <thead>
                             <tr>
                                 <th>No.</th>
-                                <th>Id</th>
-                                <th>Full name</th>
-                                <th>Date of birth</th>
-                                <th>Gender</th>
-                                <th>Phone</th>
-                                <th>Email</th>
+                                <th>Id_R_Invoice</th>
+                                <th>Id_Payment</th>
+                                <th>Id_Resident</th>
+                                <th>TypeOfPayment</th>
+                                <th>Time</th>
+                                <th>Total_Of_Money</th>
+                                <th>Status</th>
+                                <th>Action</th>
                             </tr>
 
                         </thead>
-                        <Pagination data={residents}></Pagination>
+                        <PaginationInvoice data={obj}></PaginationInvoice>
+                        
                     </table>
                 )
                 : (
@@ -115,15 +118,17 @@ const BookingManagement = () => {
                                 <th>Email</th>
                             </tr>
                         </thead>
-                        <tbody><tr >
-                            <td>{console.log(residents)}</td>
-                            <td>{residents.id}</td>
-                            <td>{residents.fullname}</td>
-                            <td>{residents.dateofbirth}</td>
-                            <td>{residents.gender ? "Male" : "Female"}</td>
-                            <td>{residents.phone}</td>
-                            <td>{residents.email}</td>
-                        </tr></tbody>
+                        <tbody>
+                            <tr >
+                                <td>{obj.id_R_Invoice}</td>
+                                <td>{obj.id_Payment}</td>
+                                <td>{obj.id_Resident}</td>
+                                <td>{obj.typeOfPayment}</td>
+                                <td>{obj.time}</td>
+                                <td>{obj.total_Of_Money}</td>
+                                <td>{obj.status ? "Complete" : "Not Complete"}</td>
+                            </tr>
+                        </tbody>
                     </table>
 
                 )}
@@ -135,4 +140,4 @@ const BookingManagement = () => {
     );
 }
 
-export default BookingManagement;
+export default InvoiceManagement;

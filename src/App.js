@@ -17,7 +17,7 @@ import Completed from './components/Account/completedBooking';
 import AdminHomePage from './components/Admin/AdminHomepae';
 import ResidentManagement from './components/Admin/Sercurity/ResidentManagement';
 import CustomerManagement from './components/Admin/Sercurity/CustomerManagement';
-import BookingManagement from './components/Admin/Sercurity/BookingManagement';
+import InvoiceManagement from './components/Admin/Sercurity/InvoiceManagement';
 
 
 function App() {
@@ -42,7 +42,7 @@ function App() {
           <Route path='/AdminHomePage' element={<AdminHomePage></AdminHomePage>}></Route>
           <Route path='/ResidentManagement' element={<ResidentManagement></ResidentManagement>}></Route>
           <Route path='/CustomerManagement' element={<CustomerManagement></CustomerManagement>}></Route>
-          <Route path='/BookingManagement' element={<BookingManagement></BookingManagement>}></Route>
+          <Route path='/InvoiceManagement' element={<InvoiceManagement></InvoiceManagement>}></Route>
         </Routes>
       </BrowserRouter>
 

@@ -1,11 +1,13 @@
 import '../Admin.css'
 import React, { useState, useEffect, useRef } from "react";
 import Pagination from '../../Complement/Pagination';
+import PaginationUser from './PaginationUser';
+import { toast } from "react-toastify";
 
 
 const URL_Find_All = 'https://corsproxy-pms.herokuapp.com/https://backend-heroku-pms.herokuapp.com/MoreFeatureGet/findByIdCustomer?idCustomer=';
-// const URL = 'https://corsproxy-pms.herokuapp.com/https://backend-heroku-pms.herokuapp.com/security/ListAllCustomerFromBuilding/'
-const URL = 'https://corsproxy-pms.herokuapp.com/https://backend-heroku-pms.herokuapp.com/MoreFeatureGet/findCustomerAll'
+const URL = 'https://corsproxy-pms.herokuapp.com/https://backend-heroku-pms.herokuapp.com/security/ListAllCustomerFromBuilding/'
+// const URL = 'https://corsproxy-pms.herokuapp.com/https://backend-heroku-pms.herokuapp.com/MoreFeatureGet/findCustomerAll'
 
 const CustomerManagement = () => {
     const [customers, setCustomers] = useState([]);
@@ -15,19 +17,24 @@ const CustomerManagement = () => {
     const [building, setBuilding] = useState('A');
 
 
-    useEffect(() => {
-        setId(id);
-    }, [id])
+
 
     useEffect(() => {
-        fetch(URL)
+        setBuilding(building)
+    }, [building])
+
+    useEffect(() => {
+        fetch(URL + building)
             .then(response => response.json())
             .then((data) => {
                 setCustomers(data)
-                console.log(data)
+                // console.log(data)
+                // console.log(URL+building)
             })
-            .catch(error => console.error(error));
-    }, [])
+            .catch((err) => {
+                toast.error('Failed: ' + err.message);
+            });
+    }, [building])
 
     const handleSetBuilding = (item) => {
         setBuilding(item)
@@ -37,15 +44,18 @@ const CustomerManagement = () => {
         e.preventDefault();
         if (id === null || id === '') {
 
-            console.log(URL)
+            console.log(id)
             fetch(URL + building)
                 .then(response => response.json())
                 .then((data) => {
                     setIdNull(true);
                     setCustomers(data)
-                    console.log(data)
+                    // console.log(data)
+                    // console.log(URL+building)
                 })
-                .catch(error => console.error(error));
+                .catch((err) => {
+                    toast.error('Failed: ' + err.message);
+                });
 
         }
         else {
@@ -56,9 +66,11 @@ const CustomerManagement = () => {
                 .then((data) => {
                     setIdNull(false);
                     setCustomers(data)
-                    console.log(data)
+                    // console.log(data)
                 })
-                .catch(error => console.error(error));
+                .catch((err) => {
+                    toast.error('Failed: ' + err.message);
+                });
 
 
 
@@ -102,17 +114,18 @@ const CustomerManagement = () => {
                         <th>Action</th>
                     </tr>
                 </thead>
-                {idNull ? (<Pagination data={customers}></Pagination>)
+                {idNull ? (<PaginationUser data={customers}></PaginationUser>)
 
                     : (
                         <tbody><tr >
-                            <td>{console.log(customers)}</td>
+                            <td>1</td>
                             <td>{customers.id}</td>
                             <td>{customers.fullname}</td>
                             <td>{customers.dateofbirth}</td>
                             <td>{customers.gender ? "Male" : "Female"}</td>
                             <td>{customers.phone}</td>
                             <td>{customers.email}</td>
+
                             <td style={{ color: customers.status_Account === true ? '#118408' : '#E23F31', fontWeight: 'bold' }}>{customers.status_Account === true ? 'Active' : 'Ban'}</td>
                             <td>
                                 <form>

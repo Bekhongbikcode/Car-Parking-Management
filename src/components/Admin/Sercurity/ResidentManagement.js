@@ -1,12 +1,13 @@
 import '../Admin.css'
 import React, { useState, useEffect, useRef } from "react";
 import Pagination from '../../Complement/Pagination';
+import PaginationUser from './PaginationUser';
 
 
 // const URL_Find_All = 'https://corsproxy-pms.herokuapp.com/https://backend-heroku-pms.herokuapp.com/customer/findById?IdUser=';
 const URL_Find_All = 'https://corsproxy-pms.herokuapp.com/https://backend-heroku-pms.herokuapp.com/MoreFeatureGet/findByIdResident?idResident=';
-// const URL = 'https://corsproxy-pms.herokuapp.com/https://backend-heroku-pms.herokuapp.com/security/ListAllResidentFromBuilding/'
-const URL = 'https://corsproxy-pms.herokuapp.com/https://backend-heroku-pms.herokuapp.com/MoreFeatureGet/findResidentAll'
+const URL = 'https://corsproxy-pms.herokuapp.com/https://backend-heroku-pms.herokuapp.com/security/ListAllResidentFromBuilding/'
+// const URL = 'https://corsproxy-pms.herokuapp.com/https://backend-heroku-pms.herokuapp.com/MoreFeatureGet/findResidentAll'
 
 const ResidentManagement = () => {
     const [residents, setResidents] = useState([]);
@@ -21,16 +22,19 @@ const ResidentManagement = () => {
     }, [id])
 
 
+    useEffect(() => {
+        setBuilding(building)
+    },[building])
 
     useEffect(() => {
-        fetch(URL)
+        fetch(URL+building)
             .then(response => response.json())
             .then((data) => {
                 setResidents(data)
                 console.log(data)
             })
             .catch(error => console.error(error));
-    }, [])
+    }, [building])
 
     const handleSetBuilding = (item) => {
         setBuilding(item)
@@ -41,7 +45,7 @@ const ResidentManagement = () => {
         if (id === null || id === '') {
 
             console.log(URL)
-            fetch(URL + building)
+            fetch(URL+building)
                 .then(response => response.json())
                 .then((data) => {
                     setIdNull(true);
@@ -104,10 +108,11 @@ const ResidentManagement = () => {
                         <th>Action</th>
                     </tr>
                 </thead>
-                {idNull ? (<Pagination data={residents}></Pagination>)
+                {idNull ? (<PaginationUser data={residents}></PaginationUser>)
 
                     : (
                         <tbody><tr >
+                            <td>1</td>
                             <td>{console.log(residents)}</td>
                             <td>{residents.id}</td>
                             <td>{residents.fullname}</td>
