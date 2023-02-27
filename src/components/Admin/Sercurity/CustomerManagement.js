@@ -2,12 +2,12 @@ import '../Admin.css'
 import React, { useState, useEffect, useRef } from "react";
 import Pagination from '../../Complement/Pagination';
 import PaginationUser from './PaginationUser';
-import { toast } from "react-toastify";
-
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import './SecurityDashBoard.css'
 
 const URL_Find_All = 'https://corsproxy-pms.herokuapp.com/https://backend-heroku-pms.herokuapp.com/MoreFeatureGet/findByIdCustomer?idCustomer=';
 const URL = 'https://corsproxy-pms.herokuapp.com/https://backend-heroku-pms.herokuapp.com/security/ListAllCustomerFromBuilding/'
-// const URL = 'https://corsproxy-pms.herokuapp.com/https://backend-heroku-pms.herokuapp.com/MoreFeatureGet/findCustomerAll'
 
 const CustomerManagement = () => {
     const [customers, setCustomers] = useState([]);
@@ -15,9 +15,6 @@ const CustomerManagement = () => {
     const [id, setId] = useState('');
     const [idNull, setIdNull] = useState(true);
     const [building, setBuilding] = useState('A');
-
-
-
 
     useEffect(() => {
         setBuilding(building)
@@ -28,11 +25,12 @@ const CustomerManagement = () => {
             .then(response => response.json())
             .then((data) => {
                 setCustomers(data)
-                // console.log(data)
-                // console.log(URL+building)
             })
             .catch((err) => {
+                console.log(toast);
                 toast.error('Failed: ' + err.message);
+                localStorage.setItem("msg", 'Failed: ' + err.message )
+                window.location.href = '/AdminHomePage'
             });
     }, [building])
 
@@ -43,38 +41,32 @@ const CustomerManagement = () => {
     const handleIdFilter = async (e) => {
         e.preventDefault();
         if (id === null || id === '') {
-
-            console.log(id)
             fetch(URL + building)
                 .then(response => response.json())
                 .then((data) => {
                     setIdNull(true);
                     setCustomers(data)
-                    // console.log(data)
-                    // console.log(URL+building)
                 })
                 .catch((err) => {
+                    console.log(toast);
                     toast.error('Failed: ' + err.message);
+                    localStorage.setItem("msg", 'Failed: ' + err.message )
                 });
 
         }
         else {
-
-            console.log(URL_Find_All + id)
             fetch(URL_Find_All + id)
                 .then(response => response.json())
                 .then((data) => {
                     setIdNull(false);
                     setCustomers(data)
-                    // console.log(data)
                 })
                 .catch((err) => {
+                    console.log(toast);
                     toast.error('Failed: ' + err.message);
+                    localStorage.setItem("msg", 'Failed: ' + err.message )
+                    window.location.href = '/AdminHomePage'
                 });
-
-
-
-
         }
 
     }
@@ -82,7 +74,7 @@ const CustomerManagement = () => {
     return (
         <div className="admin-homepage-dashboard">
             <h5 style={{ textAlign: 'left', margin: '20px' }}>Manage Customer</h5>
-            <ul class="nav justify-content-end nav-custom  ">
+            <ul class="nav justify-content-center nav-custom nav-custom-sercurity">
                 <li class="nav-item" onClick={() => handleSetBuilding('A')}>
                     <a class="nav-link" href="#">Zone A</a>
                 </li>
@@ -93,7 +85,7 @@ const CustomerManagement = () => {
                     <a class="nav-link" href="#">Zone C</a>
                 </li>
             </ul>
-            <form onSubmit={handleIdFilter}>
+            <form className='filter-id justify-content-center' onSubmit={handleIdFilter}>
                 Filter by ID:
                 <input type="text" onChange={e => setId(e.target.value)} />
                 <button type='submit'>Search</button>

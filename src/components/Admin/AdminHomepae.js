@@ -15,7 +15,7 @@ const AdminHomePage = () => {
         setSelect(item);
         if (select == 'Customer') {
             console.log(item)
-            return  <CustomerManagement></CustomerManagement>
+            return  <CustomerManagement ></CustomerManagement>
         }
         else if (select == 'Residents') {
             console.log(item)
@@ -30,7 +30,7 @@ const AdminHomePage = () => {
             return <BookingManagement></BookingManagement>
         }
 
-
+        
 
 
 
@@ -41,10 +41,9 @@ const AdminHomePage = () => {
             <div className="admin-role">
                 <div><h3>Sercurity Dashboard</h3></div>
             </div>
-            <div className="admin-homepage-body">
+            <div className="admin-homepage-body" style={{marginBottom:'150px'}}>
 
-
-                <ul class="nav admin-nav-custom flex-column ">
+                <ul class="nav admin-nav-custom flex-column " style={{marginTop:'100px'}}>
 
                     <li tabindex="0" class="nav-item" onClick={() => handleItemClick('Customer')}>
                         <a class="nav-link active" href="#">Customers</a>
@@ -77,8 +76,10 @@ const AdminHomePage = () => {
                 
 
             </div>
-
-            <AdminFooter></AdminFooter>
+             <div style={{width:'100%', marginTop:'50px'}}>
+             <AdminFooter></AdminFooter>
+             </div>   
+            
         </div>
     );
 }

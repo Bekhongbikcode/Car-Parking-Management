@@ -10,7 +10,7 @@ const URL_R = 'https://corsproxy-pms.herokuapp.com/https://backend-heroku-pms.he
 const URL_C = 'https://corsproxy-pms.herokuapp.com/https://backend-heroku-pms.herokuapp.com/security/findAllCustomerInvoice'
 
 
-const InvoiceManagement = () => {
+const SlotManagement = () => {
     const [obj, setObj] = useState([]);
     const [id, setId] = useState('');
     const [idNull, setIdNull] = useState(true);
@@ -21,6 +21,27 @@ const InvoiceManagement = () => {
     const handleSetBuilding = useCallback((item) => {
         setUser(item);
     }, []);
+
+    const [shells, setShells] = useState([]);
+    const [shellsR, setShellsR] = useState([]);
+
+    useEffect(() => {
+        fetch('https://corsproxy-pms.herokuapp.com/https://backend-heroku-pms.herokuapp.com/present_slot/findAll/A')
+            .then(response => response.json())
+            .then((data) => {
+                setShells(data)
+                // console.log(data)
+            })
+            .catch(error => console.error(error));
+
+
+
+    }, []);
+
+    
+
+    const residentSlot = shells.filter(slot => slot.id_slot.startsWith('R'));
+    const customerSlot = shells.filter(slot => slot.id_slot.startsWith('C'));
 
 
 
@@ -98,7 +119,7 @@ const InvoiceManagement = () => {
 
     return (
         <div className="admin-homepage-dashboard">
-            <h5 style={{ textAlign: 'left', margin: '20px', marginBottom:0 }}>Manage Invoice</h5>
+            <h5 style={{ textAlign: 'left', margin: '20px', marginBottom: 0 }}>Manage Invoice</h5>
             <ul class="nav justify-content-center nav-custom nav-custom-sercurity  ">
                 <li class="nav-item" onClick={() => handleSetBuilding('Resident')}>
                     <a class="nav-link" href="#">Resident</a>
@@ -108,56 +129,39 @@ const InvoiceManagement = () => {
                 </li>
 
             </ul>
-            <form className='filter-id justify-content-center'  onSubmit={handleIdFilter}>
+            <form className='filter-id justify-content-center' onSubmit={handleIdFilter}>
                 Filter by ID:
-                <input  type="text" onChange={e => setId(e.target.value)} />
+                <input type="text" onChange={e => setId(e.target.value)} />
                 <button type='submit'>Search</button>
             </form>
+            <div>Customer Area</div>
+            <table class="table border">
+                <tbody>
+                    <tr class="border">
 
-            <table className="table table-striped">
-                <thead>
-                    <tr>
-                        <th>No.</th>
-                        <th>Id Invoice</th>
-                        <th>Id Payment</th>
-                        <th>{user === 'Resident' ? 'Id_Resident' : 'Id_Customer'}</th>
-                        <th>Type Of Payment</th>
-                        <th>Time</th>
-                        <th>Total Of Money</th>
-                        <th>Status</th>
-                        <th>Action</th>
+                        {customerSlot.slice(0, 10).map(shell => (
+                            <td className="border" key={shell.id} style={{ backgroundColor: shell.status_Slots === true ? 'rgba(250, 104, 104, 0.874)' : 'white' }}>
+
+                                {shell.id_slot}
+                            </td>
+                        ))}
                     </tr>
+                    <tr class="border">
 
-                </thead>
-                {idNull ?
-                    (
-                        <PaginationInvoice data={obj} user={user}></PaginationInvoice>
-                    )
-                    : (
-                        <tbody>
-                            <tr >
-                                <td></td>
-                                <td>{user === 'Customer' ? obj.id_C_Invoice : obj.id_R_Invoice}</td>
-                                <td>{obj.id_Payment}</td>
-                                <td>{user === 'Customer' ? obj.id_Customer : obj.id_Resident}</td>
-                                <td>{obj.typeOfPayment}</td>
-                                <td>{obj.time}</td>
-                                <td>{obj.total_Of_Money}</td>
-                                <td>{obj.status ? "Complete" : "Not Complete"}</td>
-                                <td>
-                                    <form>
-                                        <button style={{ border: 'none', backgroundColor: '#2DC98A', color: 'white', width: '55px', borderRadius: '2px' }}>Edit</button>
-                                    </form>
-                                </td>
-                            </tr>
-                        </tbody>
+                        {customerSlot.slice(10, 20).map(shell => (
+                            <td className="border" key={shell.id} style={{ backgroundColor: shell.status_Slots === true ? 'rgba(250, 104, 104, 0.874)' : 'white' }}>
 
-
-                    )}
+                                {shell.id_slot}
+                            </td>
+                        ))}
+                    </tr>
+                </tbody>
 
             </table>
+
+
         </div>
     );
 }
 
-export default InvoiceManagement;
+export default SlotManagement;

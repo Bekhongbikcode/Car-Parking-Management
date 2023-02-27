@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 
 function PaginationInvoice(props) {
+    const user = props.user;
     const [currentPage, setCurrentPage] = useState(1);
     const pageSize = props.pageSize || 10; // default to 10 if not provided
     const totalPages = Math.ceil(props.data.length / pageSize);
@@ -9,6 +10,8 @@ function PaginationInvoice(props) {
         event.preventDefault();
         setCurrentPage(page);
     };
+
+    console.log(user)
 
     const renderPageNumbers = () => {
         const pageNumbers = [];
@@ -30,9 +33,9 @@ function PaginationInvoice(props) {
         return props.data.slice(start, end).map((item, index) => (
             <tr key={start + index}>
                 <td>{start + index + 1}</td>
-                <td>{item.id_R_Invoice}</td>
+                <td>{user === 'Customer' ? item.id_C_Invoice : item.id_R_Invoice}</td>
                 <td>{item.id_Payment}</td>
-                <td>{item.id_Resident}</td>
+                <td>{user === 'Customer' ? item.id_Customer : item.id_Resident}</td>
                 <td>{item.typeOfPayment}</td>
                 <td>{item.time}</td>
                 <td>{item.total_Of_Money}</td>
@@ -49,7 +52,7 @@ function PaginationInvoice(props) {
     return (
         <>
             <tbody>{renderListItems()}</tbody>
-            <tr className="pagination">{renderPageNumbers()}</tr>
+            <tr className="pagination" style={{position:'absolute', right:100, top:140}}>{renderPageNumbers()}</tr>
 
         </>
     );

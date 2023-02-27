@@ -1,0 +1,76 @@
+.filter-id {
+    margin-left: 25%;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.filter-id input {
+    width: 300px;
+    height: 30px;
+    border-radius: 5px 0 0 5px;
+    border: 0.5px solid #8AA4B3;
+    padding: 10px;
+    margin-left: 5px;
+
+}
+
+.filter-id input:focus {
+    border: 0.5px solid #8AA4B3;
+    outline: none !important;
+}
+
+.filter-id button{
+    height: 30.5px;
+    width: 80px;
+    border-radius: 0 5px 5px 0;
+    border: 0.5px solid #8AA4B3;
+    background-color: #2DC98A;
+    color: #ffffff;
+}
+
+.nav-custom-sercurity {
+    margin-top: 20px !important;
+    margin-bottom: 20px !important;
+}
+
+.security-add-new input{
+    width: 150px;
+    height: 30px;
+    border-radius: 0;
+}
+
+.security-add-new button{
+    background-color: #008AD3 !important;
+}
+
+input {
+    width: 300px;
+    height: 30px;
+    border-radius: 5px 0 0 5px;
+    border: 0.5px solid #8AA4B3;
+    padding: 10px;
+    margin-left: 5px;
+
+}
+
+select{
+
+    border: 0.5px solid #8AA4B3;
+    padding: 10px;
+    margin-left: 5px;
+    font-size: 10px;
+}
+
+input, section, option:focus {
+    border: 0.5px solid #8AA4B3;
+    outline: none !important;
+}
+
+button{
+    height: 30.5px;
+    width: 80px;
+    border-radius: 0 5px 5px 0;
+    border: 0.5px solid #8AA4B3;
+    background-color: #2DC98A;
+    color: #ffffff;
+}
