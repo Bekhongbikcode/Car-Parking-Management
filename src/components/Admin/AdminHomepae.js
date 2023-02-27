@@ -7,6 +7,7 @@ import React, { useState, useEffect, useRef } from "react";
 import ResidentManagement from "./Sercurity/ResidentManagement";
 import BookingManagement from "./Sercurity/InvoiceManagement";
 import InvoiceManagement from "./Sercurity/InvoiceManagement";
+import SlotManagement from "./Sercurity/SlotManagement";
 
 const AdminHomePage = () => {
     const [select, setSelect] = useState('Customer');
@@ -51,11 +52,11 @@ const AdminHomePage = () => {
                     <li tabindex="0" class="nav-item" onClick={() => handleItemClick('Residents')}>
                         <a class="nav-link active" href="#">Residents</a>
                     </li>
-                    <li tabindex="0" class="nav-item" onClick={() => handleItemClick('Booking')}>
+                    <li tabindex="0" class="nav-item" onClick={() => handleItemClick('Invoices')}>
                         <a class="nav-link active" href="#">Invoices</a>
                     </li>
-                    <li tabindex="0" class="nav-item" onClick={() => handleItemClick('Invoice')}>
-                        <a class="nav-link active" href="#">Invoice</a>
+                    <li tabindex="0" class="nav-item" onClick={() => handleItemClick('Slots')}>
+                        <a class="nav-link active" href="#">Slots</a>
                     </li>
                     <li tabindex="0" class="nav-item" onClick={() => handleItemClick('Residents')}>
                         <a class="nav-link active" href="#">Location</a>
@@ -69,7 +70,7 @@ const AdminHomePage = () => {
                 {select == 'Customer' ? <CustomerManagement></CustomerManagement> 
                     : select == 'Residents' ? <ResidentManagement></ResidentManagement>
                     : select == 'Invoices' ? <InvoiceManagement></InvoiceManagement>
-                    : <InvoiceManagement></InvoiceManagement>
+                    : <SlotManagement></SlotManagement>
                 }
                 
                 

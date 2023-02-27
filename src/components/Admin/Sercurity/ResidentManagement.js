@@ -321,7 +321,7 @@ const ResidentManagement = () => {
                             <td>{residents.gender ? "Male" : "Female"}</td>
                             <td>{residents.phone}</td>
                             <td>{residents.email}</td>
-                            <td style={{ color: residents.status_Account === true ? '#118408' : '#E23F31', fontWeight: 'bold' }}>{residents.status_Account === true ? 'Active' : 'Ban'}</td>
+                            <td style={{ color: residents.status_Account === true ? '#118408' : '#E23F31', fontWeight: 'bold' }}>{residents.status_Account === true ? 'Active' : 'Booked'}</td>
                             <td>
                                 <form>
                                     <button style={{ border: 'none', backgroundColor: '#2DC98A', color: 'white', width: '55px', borderRadius: '2px' }}>Edit</button>

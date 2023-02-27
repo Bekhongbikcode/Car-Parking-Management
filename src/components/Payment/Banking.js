@@ -13,6 +13,8 @@ const Banking = () => {
     const [cardNum, setcardNum] = useState('');
     const [expiry, setExpiry] = useState('');
     const [verification, setVerification] = useState('');
+   
+    
 
     useEffect(() => {
         setName(name);

@@ -32,7 +32,7 @@ const Header = (props) => {
                     <a class="nav-link" href="#">Slots</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Price</a>
+                    <Link to={'/Price'}><a class="nav-link" href="#">Price</a></Link>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">Location</a>
@@ -65,7 +65,7 @@ const Header = (props) => {
                                 </li>
                                 <li class="nav-item not-hover" style={{ paddingTop: '5px', textDecoration: 'none' }}>
                                     <form onSubmit={logout}>
-                                        <button type="submit" style={{border:'none', backgroundColor:'white', paddingTop:'5px'}} >Log out</button>
+                                        <button type="submit" style={{ border: 'none', backgroundColor: 'white', paddingTop: '5px' }} >Log out</button>
                                     </form>
 
                                 </li>

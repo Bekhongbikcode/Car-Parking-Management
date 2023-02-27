@@ -15,6 +15,7 @@ const PHONE_REGEX = /^[0-9]{10,12}$/;
 const ReservationComplete = () => {
 
     const [invoice, setInvoice] = useState([]);
+    const [username, setUsername] = useState(sessionStorage.getItem('username'));
 
 
 
@@ -30,7 +31,7 @@ const ReservationComplete = () => {
 
     return (
         <div>
-            <Header></Header>
+             <Header data={username}></Header>
             <Slider></Slider>
 
             <h2 style={{ textAlign: 'center', paddingTop: '30px', color: 'Green' }}>Completed</h2>

@@ -28,6 +28,7 @@ const Reservation = () => {
     const [validPhone, setValidPhone] = useState(false);
     const [typeOfVehicle, setTypeOfVehicle] = useState('');
     const [slot, setSlot] = useState('');
+    const [username, setUsername] = useState(sessionStorage.getItem('username'));
 
     useEffect(() => {
         setStartDate(startDate);
@@ -104,7 +105,7 @@ const Reservation = () => {
 
     return (
         <div>
-            <Header></Header>
+            <Header data={username}></Header>
             <Slider></Slider>
             <ReservationDetail></ReservationDetail>
 

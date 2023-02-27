@@ -18,6 +18,8 @@ import AdminHomePage from './components/Admin/AdminHomepae';
 import ResidentManagement from './components/Admin/Sercurity/ResidentManagement';
 import CustomerManagement from './components/Admin/Sercurity/CustomerManagement';
 import InvoiceManagement from './components/Admin/Sercurity/InvoiceManagement';
+import Price from './components/Screen/Price';
+import SlotManagement from './components/Admin/Sercurity/SlotManagement';
 
 
 function App() {
@@ -43,6 +45,8 @@ function App() {
           <Route path='/ResidentManagement' element={<ResidentManagement></ResidentManagement>}></Route>
           <Route path='/CustomerManagement' element={<CustomerManagement></CustomerManagement>}></Route>
           <Route path='/InvoiceManagement' element={<InvoiceManagement></InvoiceManagement>}></Route>
+          <Route path='/SlotManagement' element={<SlotManagement></SlotManagement>}></Route>
+          <Route path='/Price' element={<Price></Price>}></Route>
         </Routes>
       </BrowserRouter>
 

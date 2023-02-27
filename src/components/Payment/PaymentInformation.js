@@ -19,6 +19,8 @@ const PaymentInformation = () => {
     const obj = JSON.parse(sessionStorage.getItem("obj"));
     const [bookingInf, setBookingInf] = useState([]);
     const [type, setType] = useState('Banking');
+    const [username, setUsername] = useState(sessionStorage.getItem('username'));
+    
 
     useEffect(() => {
         setType(type);
@@ -88,7 +90,7 @@ const PaymentInformation = () => {
 
     return (
         <div>
-            <Header></Header>
+            <Header data={username}></Header>
             <Slider></Slider>
 
             <h2 style={{ textAlign: 'center', paddingTop: '30px', color: '#BA3925' }}>Processing...</h2>
