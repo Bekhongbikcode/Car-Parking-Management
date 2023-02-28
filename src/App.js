@@ -20,6 +20,17 @@ import CustomerManagement from './components/Admin/Sercurity/CustomerManagement'
 import InvoiceManagement from './components/Admin/Sercurity/InvoiceManagement';
 import Price from './components/Screen/Price';
 import SlotManagement from './components/Admin/Sercurity/SlotManagement';
+import './components/Account/Account.css';
+import HeaderAccount from './components/Account/HeaderAccount';
+import FooterAccount from './components/Account/FooterAccount';
+import HistoryBooking from './components/Account/HistoryBooking';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import BodyLink from './components/Account/BodyLinkAccount';
+import AllBooking from './components/Account/AllBooking';
+import CompletedBooking from './components/Account/CompletedBooking';
+import CancelledBooking from './components/Account/CancelBooking';
+import ProfileSetting from './components/Account/ProfileSetting';
+import AccountInformation from './components/Account/AccountInformation';
 
 
 function App() {
@@ -47,6 +58,13 @@ function App() {
           <Route path='/InvoiceManagement' element={<InvoiceManagement></InvoiceManagement>}></Route>
           <Route path='/SlotManagement' element={<SlotManagement></SlotManagement>}></Route>
           <Route path='/Price' element={<Price></Price>}></Route>
+          <Route path='/accountinformation' element={<AccountInformation />}></Route>
+          <Route path='/logout' element={<HeaderAccount />}></Route>
+          <Route path='/allbooking' element={<AllBooking />}></Route>
+          <Route path='/pastbooking' element={<HistoryBooking />}></Route>
+          <Route path='/completedbooking' element={<CompletedBooking />}></Route>
+          <Route path='/cancelledbooking' element={<CancelledBooking />}></Route>
+          <Route path='/profilesetting' element={<ProfileSetting />}></Route>
         </Routes>
       </BrowserRouter>
 
