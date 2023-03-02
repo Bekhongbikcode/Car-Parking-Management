@@ -5,7 +5,7 @@ import PaginationUser from './PaginationUser';
 import { toast } from "react-toastify";
 import { json, Link, useNavigate } from "react-router-dom";
 import './SecurityDashBoard.css'
-import PopUpEditUser from './PopUpEditUser';
+import PopUpEditUser from './Popup/PopUpEditUser';
 
 
 // const URL_Find_All = 'https://corsproxy-pms.herokuapp.com/https://backend-heroku-pms.herokuapp.com/customer/findById?IdUser=';

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import PopUpEditUser from './PopUpEditUser';
+import PopUpEditUser from './Popup/PopUpEditUser';
 function PaginationUser(props) {
     const [currentPage, setCurrentPage] = useState(1);
     const pageSize = props.pageSize || 10; // default to 10 if not provided
