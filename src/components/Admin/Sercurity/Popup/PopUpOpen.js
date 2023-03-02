@@ -6,7 +6,7 @@ const URL = 'https://corsproxy-pms.herokuapp.com/https://backend-heroku-pms.hero
 const URL_Search_Res = 'https://corsproxy-pms.herokuapp.com/https://backend-heroku-pms.herokuapp.com/user/findById?id=';
 const URL_Book = 'https://corsproxy-pms.herokuapp.com/https://backend-heroku-pms.herokuapp.com/residentslot/saveResidentSlot'
 const URL_Infor_R_Slot = 'https://corsproxy-pms.herokuapp.com/https://backend-heroku-pms.herokuapp.com/security/ResponseResidentInfoSlot?id_Building='
-
+const URL_PAYMENT = 'https://corsproxy-pms.herokuapp.com/https://backend-heroku-pms.herokuapp.com/paymentResident/save'
 
 const Popup = ({ handleClose, show}) => {
   const showHideClassName = show ? 'popup display-block' : 'popup display-none';
@@ -136,6 +136,39 @@ const Popup = ({ handleClose, show}) => {
     });
   }
 
+  const handleResidentPayment = async(e) =>{
+    e.preventDefault();
+    const idUser = idSearch;
+    const id_Building = building;
+    const typeOfPayment = 'Cash';
+    const dateOfPayment = Date.now();
+
+    const obj = { typeOfPayment, idUser, id_Building, dateOfPayment}
+
+    fetch(URL_PAYMENT, {
+      method: 'POST',
+      header: {
+        "Access-Control-Allow-Origin": URL_PAYMENT,
+        "Accept": "*/*",
+        "Content-Type": "application/text",
+        "X-Requested-With": "XMLHttpRequest",
+        "Cache-Control": "no-cache",
+      },
+      body: JSON.stringify(obj)
+
+    }).then((res) => {
+
+      console.log(JSON.stringify(obj))
+      console.log(res);
+      setSuccess(true);
+      toast.success('Payment successfully.');
+    }).catch((err) => {
+      toast.error('Failed: ' + err.message);
+    });
+
+
+  }
+
 
   return (
     <div className={showHideClassName}>
@@ -194,6 +227,9 @@ const Popup = ({ handleClose, show}) => {
         </div>
         <form onSubmit={handleSubmit} className="col-lg-6  class-input">
           <button style={{ color: "#fff", marginLeft: '48%', width: '60%' }} type="submit">Save Reservation</button>
+        </form>
+        <form onSubmit={handleResidentPayment} className="col-lg-6  class-input">
+          <button style={{ color: "#fff", marginLeft: '48%', width: '60%' }} type="submit">Payment</button>
         </form>
       </section>
     </div>

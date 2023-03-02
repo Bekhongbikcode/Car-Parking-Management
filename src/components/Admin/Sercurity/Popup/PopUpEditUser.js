@@ -11,9 +11,12 @@ const EMAIL_REGEX = /^[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[A-Za-z]+$/;
 const PHONE_REGEX = /^[0-9]{10,12}$/;
 
 const URL = 'https://corsproxy-pms.herokuapp.com/https://backend-heroku-pms.herokuapp.com/security/updateCustomer_Resident?idUser='
+const URL_USER = 'https://corsproxy-pms.herokuapp.com/https://backend-heroku-pms.herokuapp.com/user/findById?id='
+const URL_SERCURITY = 'https://corsproxy-pms.herokuapp.com/https://backend-heroku-pms.herokuapp.com/buildingManager/updateSecurity?idUser='
 
-const PopUpEditUser = ({ handleClose, show, idUser }) => {
+const PopUpEditUser = ({ handleClose, show, idUser, role }) => {
   const showHideClassName = show ? 'popup display-block' : 'popup display-none';
+  const [mainURL, setMainURL] = useState('');
 
   const userRef = useRef();
   const errRef = useRef();
@@ -48,14 +51,19 @@ const PopUpEditUser = ({ handleClose, show, idUser }) => {
   const [errMsg, setErrMsg] = useState('');
   const [success, setSuccess] = useState(false);
 
-//   useEffect(() => {
-//     fetch(URL + building)
-//         .then(response => response.json())
-//         .then((data) => {
-//             setShells(data)
-//         })
-//         .catch(error => console.error(error));
-// }, [building])
+  const [obj, setObj] = useState([]);
+
+
+
+  useEffect(() => {
+    
+    fetch(URL_USER + idUser)
+      .then(response => response.json())
+      .then((data) => {
+        setObj(data)
+      })
+      .catch(error => console.error(error));
+  }, [idUser])
 
 
 
@@ -162,11 +170,13 @@ const PopUpEditUser = ({ handleClose, show, idUser }) => {
     const dateofbirth = birthday;
 
     const regObj = { password, fullname, dateofbirth, gender, email, phone }
-    
+
+    console.log(mainURL + idUser);
 
     if (IsValidate()) {
       console.log(regObj)
-      fetch(URL + idUser, {
+      if (role === 'User') { setMainURL(URL) } else setMainURL(URL_SERCURITY)
+      fetch(mainURL + idUser, {
         method: 'PUT',
         header: {
           "Access-Control-Allow-Origin": URL,
@@ -181,7 +191,7 @@ const PopUpEditUser = ({ handleClose, show, idUser }) => {
         console.log(res);
         setSuccess(true);
         toast.success('Edit successfully.');
-        
+
       }).catch((err) => {
         toast.error('Failed: ' + err.message);
       });
@@ -202,13 +212,13 @@ const PopUpEditUser = ({ handleClose, show, idUser }) => {
           {/* -------------------FULL-NAME-------------------- */}
           <div style={{ textAlign: 'center' }}>
             <input
-              placeholder="Full Name *"
+
               type="text"
               id="fullname"
               className="col-sm-4"
               autoComplete="off"
               onChange={(e) => setFullName(e.target.value)}
-              required
+              placeHolder={obj.fullname}
 
             />
           </div>
@@ -216,19 +226,21 @@ const PopUpEditUser = ({ handleClose, show, idUser }) => {
 
           <div >
             <input
-              placeholder="Password *"
+
               type="password"
               onChange={(e) => setPwd(e.target.value)}
+              placeHolder={obj.password}
             />
           </div>
 
           {/* -------------------BIRTHDAY-------------------- */}
           <div>
             <input
-              placeholder="Birth Day"
+
               type="date"
               autoComplete="off"
               onChange={(e) => setBirthDay(e.target.value)}
+              placeHolder={obj.dateofbirth}
             />
 
           </div>
@@ -243,14 +255,12 @@ const PopUpEditUser = ({ handleClose, show, idUser }) => {
           {/* -------------------EMAIL-------------------- */}
           <div>
             <input
-              placeholder="Email *"
+
               type="text"
               id="email"
-              autoComplete="off"
               onChange={(e) => setEmail(e.target.value)}
-              required
               aria-invalid={validEmail ? "false" : "true"}
-              aria-describedby="emailnote"
+              placeHolder={obj.email}
 
             />
 
@@ -260,15 +270,14 @@ const PopUpEditUser = ({ handleClose, show, idUser }) => {
           {/* -------------------PHONE-------------------- */}
           <div>
             <input
-              placeholder="Phone *"
               type="text"
               id="phone"
               className="col-sm-4"
               autoComplete="off"
               onChange={(e) => setPhone(e.target.value)}
-              required
               aria-invalid={validPhone ? "false" : "true"}
               aria-describedby="emailnote"
+              placeHolder={obj.phone}
 
             />
 

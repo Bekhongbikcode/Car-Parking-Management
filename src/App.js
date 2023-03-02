@@ -11,12 +11,15 @@ import ReservationComplete from './components/Payment/ReservationComplete';
 import ZoneDetail from './components/Zone/ZoneDetail';
 
 
-import AdminHomePage from './components/Admin/AdminHomepae';
+import SercurityHomePage from './components/Admin/Sercurity/SercurityHomepae';
 import ResidentManagement from './components/Admin/Sercurity/ResidentManagement';
 import CustomerManagement from './components/Admin/Sercurity/CustomerManagement';
 import InvoiceManagement from './components/Admin/Sercurity/InvoiceManagement';
 import Price from './components/Screen/Price';
 import SlotManagement from './components/Admin/Sercurity/SlotManagement';
+import BuildingManagerHomePage from './components/Admin/BuildingManager/BuildingManagerHomePage';
+import SercurityManagement from './components/Admin/BuildingManager/SercurityManagement';
+import AdminLogin from './components/Admin/AdminLogin';
 
 
 
@@ -35,12 +38,15 @@ function App() {
           <Route path='/Banking' element={<Banking></Banking>}></Route>
           <Route path='/ReservationComplete' element={<ReservationComplete />}></Route>
           <Route path='/ZoneDetail/:index' element={<ZoneDetail />}></Route>
-          <Route path='/AdminHomePage' element={<AdminHomePage></AdminHomePage>}></Route>
+          <Route path='/SercurityHomePage' element={<SercurityHomePage></SercurityHomePage>}></Route>
           <Route path='/ResidentManagement' element={<ResidentManagement></ResidentManagement>}></Route>
           <Route path='/CustomerManagement' element={<CustomerManagement></CustomerManagement>}></Route>
           <Route path='/InvoiceManagement' element={<InvoiceManagement></InvoiceManagement>}></Route>
           <Route path='/SlotManagement' element={<SlotManagement></SlotManagement>}></Route>
+          <Route path='/BuildingManagerHomePage' element={<BuildingManagerHomePage></BuildingManagerHomePage>}></Route>
+          <Route path='/SercurityManagement' element={<SercurityManagement></SercurityManagement>}></Route>
           <Route path='/Price' element={<Price></Price>}></Route>
+          <Route path='/AdminLogin' element={<AdminLogin></AdminLogin>}></Route>
           
           
           

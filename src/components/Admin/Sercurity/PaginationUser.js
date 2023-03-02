@@ -54,7 +54,7 @@ function PaginationUser(props) {
 
                     </form>
                 </td>
-                <PopUpEditUser idUser={idUser} handleClose={togglePopupCreateRes} show={showPopupCreateRes}></PopUpEditUser>
+                <PopUpEditUser idUser={idUser} handleClose={togglePopupCreateRes} show={showPopupCreateRes} role='User'></PopUpEditUser>
 
             </tr>
 

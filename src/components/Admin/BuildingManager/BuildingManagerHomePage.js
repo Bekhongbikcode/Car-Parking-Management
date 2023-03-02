@@ -1,35 +1,23 @@
-import AdminFooter from "./AdminPageFooter";
-import AdminHeader from "./AdminPageHeader";
-import './Admin.css'
-import CustomerManagement from "./Sercurity/CustomerManagement";
+import AdminFooter from "../AdminPageFooter";
+import AdminHeader from "../AdminPageHeader";
+import '../Admin.css'
+
 import { Link } from "react-router-dom";
 import React, { useState, useEffect, useRef } from "react";
-import ResidentManagement from "./Sercurity/ResidentManagement";
-import BookingManagement from "./Sercurity/InvoiceManagement";
-import InvoiceManagement from "./Sercurity/InvoiceManagement";
-import SlotManagement from "./Sercurity/SlotManagement";
 
-const AdminHomePage = () => {
-    const [select, setSelect] = useState('Customer');
+
+import SercurityManagement from "./SercurityManagement";
+
+const BuildingManagerHomePage = () => {
+    const [select, setSelect] = useState('Sercurity');
 
     const handleItemClick = (item) => {
         setSelect(item);
-        if (select == 'Customer') {
+        if (select == 'Sercurity') {
             console.log(item)
-            return  <CustomerManagement ></CustomerManagement>
+            return  <SercurityManagement ></SercurityManagement>
         }
-        else if (select == 'Residents') {
-            console.log(item)
-            return <ResidentManagement></ResidentManagement>
-        }
-        else if (select == 'Booking') {
-            console.log(item)
-            return <BookingManagement></BookingManagement>
-        }
-        else if (select == 'Invoice') {
-            console.log(item)
-            return <BookingManagement></BookingManagement>
-        }
+        
 
         
 
@@ -40,14 +28,14 @@ const AdminHomePage = () => {
         <div>
             <AdminHeader></AdminHeader>
             <div className="admin-role">
-                <div><h3>Sercurity Dashboard</h3></div>
+                <div><h3>Building Manager Dashboard</h3></div>
             </div>
             <div className="admin-homepage-body" style={{marginBottom:'150px'}}>
 
                 <ul class="nav admin-nav-custom flex-column " style={{marginTop:'100px'}}>
 
-                    <li tabindex="0" class="nav-item" onClick={() => handleItemClick('Customer')}>
-                        <a class="nav-link active" href="#">Customers</a>
+                    <li tabindex="0" class="nav-item" onClick={() => handleItemClick('Sercurity')}>
+                        <a class="nav-link active" href="#">Sercurity</a>
                     </li>
                     <li tabindex="0" class="nav-item" onClick={() => handleItemClick('Residents')}>
                         <a class="nav-link active" href="#">Residents</a>
@@ -67,11 +55,9 @@ const AdminHomePage = () => {
 
                 </ul>
                 
-                {select == 'Customer' ? <CustomerManagement></CustomerManagement> 
-                    : select == 'Residents' ? <ResidentManagement></ResidentManagement>
-                    : select == 'Invoices' ? <InvoiceManagement></InvoiceManagement>
-                    : <SlotManagement></SlotManagement>
-                }
+                {select == 'Sercurity' ? <SercurityManagement ></SercurityManagement> 
+                    : <SercurityManagement></SercurityManagement>}
+                    
                 
                 
                 
@@ -85,4 +71,4 @@ const AdminHomePage = () => {
     );
 }
 
-export default AdminHomePage;
+export default BuildingManagerHomePage;
