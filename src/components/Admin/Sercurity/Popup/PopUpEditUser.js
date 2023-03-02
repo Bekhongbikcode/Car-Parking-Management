@@ -56,7 +56,7 @@ const PopUpEditUser = ({ handleClose, show, idUser, role }) => {
 
 
   useEffect(() => {
-    
+
     fetch(URL_USER + idUser)
       .then(response => response.json())
       .then((data) => {
@@ -171,11 +171,20 @@ const PopUpEditUser = ({ handleClose, show, idUser, role }) => {
 
     const regObj = { password, fullname, dateofbirth, gender, email, phone }
 
-    console.log(mainURL + idUser);
+
 
     if (IsValidate()) {
       console.log(regObj)
-      if (role === 'User') { setMainURL(URL) } else setMainURL(URL_SERCURITY)
+      console.log(idUser)
+      console.log(role)
+      if (role == 'User') {
+        setMainURL(URL); 
+        console.log(mainURL);
+      }
+      else {
+        setMainURL(URL_SERCURITY);
+        console.log(mainURL + idUser);
+      }
       fetch(mainURL + idUser, {
         method: 'PUT',
         header: {
