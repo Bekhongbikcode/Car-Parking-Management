@@ -7,6 +7,7 @@ import React, { useState, useEffect, useRef } from "react";
 
 
 import SercurityManagement from "./SercurityManagement";
+import RevenueManagement from "./RevenueManagement";
 
 const BuildingManagerHomePage = () => {
     const [select, setSelect] = useState('Sercurity');
@@ -37,8 +38,8 @@ const BuildingManagerHomePage = () => {
                     <li tabindex="0" class="nav-item" onClick={() => handleItemClick('Sercurity')}>
                         <a class="nav-link active" href="#">Sercurity</a>
                     </li>
-                    <li tabindex="0" class="nav-item" onClick={() => handleItemClick('Residents')}>
-                        <a class="nav-link active" href="#">Residents</a>
+                    <li tabindex="0" class="nav-item" onClick={() => handleItemClick('Revenue')}>
+                        <a class="nav-link active" href="#">Revenue</a>
                     </li>
                     <li tabindex="0" class="nav-item" onClick={() => handleItemClick('Invoices')}>
                         <a class="nav-link active" href="#">Invoices</a>
@@ -56,7 +57,7 @@ const BuildingManagerHomePage = () => {
                 </ul>
                 
                 {select == 'Sercurity' ? <SercurityManagement ></SercurityManagement> 
-                    : <SercurityManagement></SercurityManagement>}
+                    : <RevenueManagement></RevenueManagement>}
                     
                 
                 

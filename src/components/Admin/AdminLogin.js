@@ -34,6 +34,8 @@ const AdminLogin = () => {
         passwordupdate(password)
     }, [password]);
 
+    
+
     const ProceedLogin = (e) => {
         e.preventDefault();
         if (validate()) {
@@ -61,29 +63,38 @@ const AdminLogin = () => {
                 } else {
                     if (resp.password === password) {
                         console.log(resp);
-                        toast.success('Success');
+
                         sessionStorage.setItem('username', username);
                         sessionStorage.setItem('fullname', resp.fullname);
                         sessionStorage.setItem('email', resp.email);
                         sessionStorage.setItem('phone', resp.phone);
                         sessionStorage.setItem('id', username);
-                        if (resp.role === 3) {
-                            toast.success('Success');
-                            sessionStorage.setItem('username', username);
+                        if (resp.role == 3) {
+                            console.log(resp.role)
+                            toast.success('Success', resp.role);
+                            localStorage.setItem('username', username);
                             usenavigate('/SercurityHomePage')
-                        } else if (resp.role === 2) {
-                            toast.success('Success');
-                            sessionStorage.setItem('username', username);
+                        } else if (resp.role == 2) {
+                            console.log(resp.role)
+                            toast.success('Success', resp.role);
+                            localStorage.setItem('username', username);
                             usenavigate('/BuildingManagerHomePage')
+                        }else if (resp.role == 1) {
+                            console.log(resp.role)
+                            toast.success('Success', resp.role);
+                            localStorage.setItem('username', username);
+                            usenavigate('/BuildingManagerHomePage')
+                        } else {
+                            toast.error('You are not a admin');
                         }
                     } else {
                         toast.error('Please Enter Correct Password');
                     }
                 }
             })
-            // .catch((err) => {
-            //     toast.error('Login Failed due to :' + err.message);
-            // });
+            .catch((err) => {
+                toast.error('Login Failed due to :' + err.message);
+            });
         }
     }
 

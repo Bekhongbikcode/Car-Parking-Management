@@ -20,6 +20,7 @@ import SlotManagement from './components/Admin/Sercurity/SlotManagement';
 import BuildingManagerHomePage from './components/Admin/BuildingManager/BuildingManagerHomePage';
 import SercurityManagement from './components/Admin/BuildingManager/SercurityManagement';
 import AdminLogin from './components/Admin/AdminLogin';
+import RevenueManagement from './components/Admin/BuildingManager/RevenueManagement';
 
 
 
@@ -47,6 +48,7 @@ function App() {
           <Route path='/SercurityManagement' element={<SercurityManagement></SercurityManagement>}></Route>
           <Route path='/Price' element={<Price></Price>}></Route>
           <Route path='/AdminLogin' element={<AdminLogin></AdminLogin>}></Route>
+          <Route path='/RevenueManagement' element={<RevenueManagement></RevenueManagement>}></Route>
           
           
           
