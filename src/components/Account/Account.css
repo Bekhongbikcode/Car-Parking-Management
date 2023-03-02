@@ -1,115 +1,107 @@
-/* Account Header  */
-.Header_Account {
-    display: flex;
-    background-color: #282c34;
-  }
-  
-  .Account_Right {
-    padding: 10px 10px;
-  }
-  
-  .Account_Left {
-    margin-left: 80%;
-  }
-  
-  .Account_Left button {
-    padding: 10px 10px;
-    color: white;
-    background-color: #282c34;
-    border: 3px solid #2DC98A;
-    cursor: pointer;
-    margin: 10px 10px;
-    border-radius: 10px;
-  }
-  
-  .Account_Left a {
-    padding-left: 20px;
-    text-decoration: none;
-    color: white;
-  }
-  
-  /*--------------------------------- Account Footer---------------------- */
-  .Footer_Account {
+.App {
     text-align: center;
-    color: aliceblue;
-    background-color: #2DC98A;
-    padding: 10px ;
   }
   
-  /* Account Body */
-  .Body_Account {
-    text-align: left;
-    display: flex;
-    padding: 50px 10px;
+  .App-logo {
+    height: 40vmin;
+    pointer-events: none;
   }
   
-  .Body_Left {
-    margin-right: 50px;
+  @media (prefers-reduced-motion: no-preference) {
+    .App-logo {
+      animation: App-logo-spin infinite 20s linear;
     }
-  
-  .Linking_Page {
-    color: #929292;
-    text-decoration: none;
-    margin-left: 50px;
   }
   
-  .Linking_Page:focus {
-    color: black;
-    font-weight: bold;
-  }
-  
-  .Body_Right {
-    text-align: center;
-    border: 2px solid black;
-    border-radius: 20px;
-    padding: 8% 20%;
-    margin-left: 20px;
-  }
-  
-  .Body_Right text {
-    font-size: xx-large;
-  }
-  
-  .Body_Right button {
-    color: aliceblue;
-    background-color: #2DC98A;
-    border-radius: 10px;
-    border: 0px;
-    cursor: pointer;
-    padding: 15px 15px;
-    text-align: center;
-  }
-  
-  .Body_Right button:hover {
-    color: #2DC98A;
-    background-color: white;
-    border-radius: 10px;
-    border: 2px solid #2DC98A;
-    cursor: pointer;
-    padding: 15px 15px;
-    text-align: center;
-    font-weight: bold;
-  }
-  
-  /* Past Booking */
-  
-  .Past_Choice{
+  .App-header {
+    background-color: #282c34;
+    min-height: 100vh;
     display: flex;
-    margin-left: 40%;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: calc(10px + 2vmin);
+    color: white;
   }
   
-  .Past_Link{
-    margin-top: 5%;
-    color: black;
+  .App-link {
+    color: #61dafb;
+  }
+  
+  @keyframes App-logo-spin {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+  /* fallback */
+@font-face {
+  font-family: 'Material Icons';
+  font-style: normal;
+  font-weight: 400;
+  src: url(https://fonts.gstatic.com/s/materialicons/v139/flUhRq6tzZclQEJ-Vdg-IuiaDsNc.woff2) format('woff2');
+}
+
+.material-icons {
+  font-family: 'Material Icons';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;
+  line-height: 1;
+  letter-spacing: normal;
+  text-transform: none;
+  display: inline-block;
+  white-space: nowrap;
+  word-wrap: normal;
+  direction: ltr;
+  -webkit-font-feature-settings: 'liga';
+  -webkit-font-smoothing: antialiased;
+}
+  
+  .brand-logo{
+    display: flex !important;
+  }
+  
+  .body-link ul li {
+    text-align: left;
+    padding-bottom: 15px;
+    padding-left: 20px;
+    margin-top: 30px;
+  
+  }
+  
+  .body-link{
+    width: 20%;
+  }
+  
+  .body-link ul li a:hover {
+    color: #2dc98a;
+  }
+  
+  .body-link ul li a {
     text-decoration: none;
-    padding: 10px 50px;
-    margin-right: 40px;
+    color: black;
   }
   
-  .Past_Link:first-child{
-    background-color: #D9D9D9;
-    padding-top: 10px;
+  .past-table{
+    margin-top: -25% !important;
+    margin-left: 25% !important;
+    margin-bottom: 10% !important;
   }
   
-  /* End */
+  .profile-setting{
+    margin-top: -25% !important;
+    margin-left: 25% !important;
+    margin-bottom: 10% !important;
+  }
   
+  .btn{
+    margin-bottom: 20px !important;
+  }
+  
+  .toast{
+    background-color: #2dc98a !important;
+  }

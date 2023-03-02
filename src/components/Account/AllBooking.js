@@ -1,13 +1,14 @@
-import React, { useState, useEffect } from 'react';
+import React from "react";
 import { Container, Table } from 'react-materialize';
+import { useState, useEffect } from "react";
 import FooterAccount from '../../../../Account/account/src/components/Account/FooterAccount';
 import HeaderAccount from '../../../../Account/account/src/components/Account/HeaderAccount';
 import BodyLink from '../../../../Account/account/src/components/Account/BodyLinkAccount';
-function CompletedBooking() {
+function AllBooking() {
     const [history, setHistory] = useState([]);
 
     useEffect(() => {
-        fetch('http://localhost:3000/completed')
+        fetch('http://localhost:3000/all')
             .then((response) => response.json())
             .then((bookingData) => {
                 setHistory(bookingData);
@@ -18,7 +19,7 @@ function CompletedBooking() {
         <Container className='past-table'>
             <HeaderAccount/>
             <BodyLink/>
-             <Table>
+            <Table>
                 <thead>
                     <tr>
                         <th data-field="id" style={{ textAlign: "center" }}>
@@ -58,9 +59,9 @@ function CompletedBooking() {
                     ))}
                 </tbody>
             </Table>
-            <FooterAccount/>
+            <FooterAccount />
         </Container>
     )
 }
 
-export default CompletedBooking;
+export default AllBooking;

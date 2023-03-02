@@ -3,11 +3,12 @@ import { Container, Table } from 'react-materialize';
 import FooterAccount from '../../../../Account/account/src/components/Account/FooterAccount';
 import HeaderAccount from '../../../../Account/account/src/components/Account/HeaderAccount';
 import BodyLink from '../../../../Account/account/src/components/Account/BodyLinkAccount';
-function CompletedBooking() {
+
+function CancelledBooking() {
     const [history, setHistory] = useState([]);
 
     useEffect(() => {
-        fetch('http://localhost:3000/completed')
+        fetch('http://localhost:3000/cancelled')
             .then((response) => response.json())
             .then((bookingData) => {
                 setHistory(bookingData);
@@ -18,7 +19,7 @@ function CompletedBooking() {
         <Container className='past-table'>
             <HeaderAccount/>
             <BodyLink/>
-             <Table>
+              <Table>
                 <thead>
                     <tr>
                         <th data-field="id" style={{ textAlign: "center" }}>
@@ -63,4 +64,4 @@ function CompletedBooking() {
     )
 }
 
-export default CompletedBooking;
+export default CancelledBooking;
