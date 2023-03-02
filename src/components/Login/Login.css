@@ -124,6 +124,7 @@
   }
   
   .login-form>button {
+    color: black;
     margin-bottom: 30px;
     margin-top: 160px;
     font-weight: 500;
@@ -213,6 +214,7 @@
   
   .btn-signup {
     background-color: #fff !important;
+    color: black;
     width: 180px !important;
     height: 40px !important;
     text-align: center;

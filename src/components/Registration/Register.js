@@ -227,7 +227,7 @@ const Register = () => {
                                 </p>
                             </section>
                         ) : (
-                            <section >
+                            <section style={{border:'none'}} >
                                 <p ref={errRef} className={errMsg ? "errMsg"
                                     : "offScreen"} aria-live="assertive">{errMsg}</p>
                                 <form onSubmit={handleSubmit} className="row">

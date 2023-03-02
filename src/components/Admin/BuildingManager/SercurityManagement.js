@@ -364,14 +364,6 @@ const SercurityManagement = () => {
                 }
             </table>
 
-
-
-
-
-
-
-
-
         </div>
     );
 }

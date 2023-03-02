@@ -25,6 +25,7 @@
     margin-left: 20%;
     z-index: 99;
     position: absolute;
+    border: #fff
   }
   
   .register-form input {
@@ -201,6 +202,7 @@
   
   .btn-already-res {
     background-color: #fff !important;
+    color: black;
     width: 180px !important;
     height: 40px !important;
     text-align: center;

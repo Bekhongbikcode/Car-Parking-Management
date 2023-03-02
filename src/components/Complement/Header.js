@@ -64,9 +64,9 @@ const Header = (props) => {
 
                                 </li>
                                 <li class="nav-item not-hover" style={{ paddingTop: '5px', textDecoration: 'none' }}>
-                                    <form onSubmit={logout}>
-                                        <button type="submit" style={{ border: 'none', backgroundColor: 'white', paddingTop: '5px' }} >Log out</button>
-                                    </form>
+
+                                    <a onClick={logout} type="submit" style={{ border: 'none', backgroundColor: 'white', paddingTop: '5px' }} >Log out</a>
+
 
                                 </li>
                             </>
