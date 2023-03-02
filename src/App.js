@@ -22,6 +22,14 @@ import SercurityManagement from './components/Admin/BuildingManager/SercurityMan
 import AdminLogin from './components/Admin/AdminLogin';
 import RevenueManagement from './components/Admin/BuildingManager/RevenueManagement';
 
+import './components/Account/Account.css';
+import HistoryBooking from './components/Account/HistoryBooking';
+import AllBooking from './components/Account/AllBooking';
+import CompletedBooking from './components/Account/CompletedBooking';
+import CancelledBooking from './components/Account/CancelBooking';
+import ProfileSetting from './components/Account/ProfileSetting';
+import AccountInformation from './components/Account/AccountInformation';
+
 
 
 function App() {
@@ -50,7 +58,13 @@ function App() {
           <Route path='/AdminLogin' element={<AdminLogin></AdminLogin>}></Route>
           <Route path='/RevenueManagement' element={<RevenueManagement></RevenueManagement>}></Route>
           
-          
+          {/* User */}
+          <Route path='/accountinformation' element={<AccountInformation />}></Route>
+          <Route path='/allbooking' element={<AllBooking />}></Route>
+          <Route path='/pastbooking' element={<HistoryBooking />}></Route>
+          <Route path='/completedbooking' element={<CompletedBooking />}></Route>
+          <Route path='/cancelledbooking' element={<CancelledBooking />}></Route>
+          <Route path='/profilesetting' element={<ProfileSetting />}></Route>
           
           
           
