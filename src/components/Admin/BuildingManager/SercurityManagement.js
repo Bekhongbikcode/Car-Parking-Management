@@ -275,12 +275,12 @@ const SercurityManagement = () => {
 
     return (
         <div className="admin-homepage-dashboard">
+            <h5 style={{ textAlign: 'left', margin: '20px' }}>Manage Sercurity</h5>
             <form className='filter-id justify-content-center' onSubmit={handleIdFilter}>
                 Filter by ID:
                 <input type="text" onChange={e => setId(e.target.value)} />
                 <button type='submit'>Search</button>
             </form>
-
 
             <table className="table table-striped">
                 <thead>
@@ -337,7 +337,7 @@ const SercurityManagement = () => {
                                 </form>
                                 <PopUpEditUser idUser={idUser} handleClose={togglePopupCreateRes} show={showPopupCreateRes} role='Customer'></PopUpEditUser>
                             </td>
-                            
+
 
                         </tr>
                     ))

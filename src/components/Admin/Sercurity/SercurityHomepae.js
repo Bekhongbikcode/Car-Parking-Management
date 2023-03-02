@@ -2,7 +2,7 @@ import AdminFooter from "../AdminPageFooter";
 import AdminHeader from "../AdminPageHeader";
 import '../Admin.css'
 import CustomerManagement from "./CustomerManagement";
-import { Link } from "react-router-dom";
+import { Link,useNavigate } from "react-router-dom";
 import React, { useState, useEffect, useRef } from "react";
 import ResidentManagement from "./ResidentManagement";
 import BookingManagement from "./InvoiceManagement";
@@ -10,6 +10,16 @@ import InvoiceManagement from "./InvoiceManagement";
 import SlotManagement from "./SlotManagement";
 
 const SercurityHomePage = () => {
+    const [logined, setLogined] = useState(sessionStorage.getItem("username"));
+    const usenavigate = useNavigate();
+    
+
+    useEffect(()=>{
+        if (logined === null || logined === ''){
+            usenavigate('/AdminLogin')
+        }
+    },[logined])
+
     const [select, setSelect] = useState('Customer');
 
     const handleItemClick = (item) => {
