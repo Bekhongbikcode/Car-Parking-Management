@@ -5,6 +5,7 @@ import PaginationUser from './PaginationUser';
 import { toast } from "react-toastify";
 import { json, Link, useNavigate } from "react-router-dom";
 import './SecurityDashBoard.css'
+import PopUpEditUser from './PopUpEditUser';
 
 
 // const URL_Find_All = 'https://corsproxy-pms.herokuapp.com/https://backend-heroku-pms.herokuapp.com/customer/findById?IdUser=';
@@ -58,13 +59,19 @@ const ResidentManagement = () => {
     const [errMsg, setErrMsg] = useState('');
     const [success, setSuccess] = useState(false);
 
+    const [showPopupCreateRes, setShowPopupCreateRes] = useState(false);
+    const togglePopupCreateRes = () => {
+
+        setShowPopupCreateRes(!showPopupCreateRes);
+    };
+
     useEffect(() => {
         const result = USER_REGEX.test(id);
         setValidName(result);
         // console.log(id)
     }, [id])
 
-    useEffect(()=>{
+    useEffect(() => {
         setFullName(fullName)
         console.log(fullName)
     }, [fullName])
@@ -90,7 +97,7 @@ const ResidentManagement = () => {
 
     }, [pwd, matchPwd])
 
-   
+
 
     useEffect(() => {
 
@@ -105,7 +112,7 @@ const ResidentManagement = () => {
             if (txtGender === 'male') {
                 setGender(true)
             }
-        console.log(txtGender)  
+        console.log(txtGender)
         // console.log(gender)  
     }, [txtGender])
 
@@ -114,15 +121,10 @@ const ResidentManagement = () => {
 
     }, [phone])
 
-    
-
-    
 
     const IsValidate = () => {
         let isproceed = true;
         let errormessage = 'Please enter the valid value!';
-
-       
 
         if (!PHONE_REGEX.test(phone)) {
             isproceed = false;
@@ -143,10 +145,6 @@ const ResidentManagement = () => {
             isproceed = false;
 
         }
-        
-
-        
-
 
         if (!isproceed) {
             toast.warning(errormessage)
@@ -162,7 +160,7 @@ const ResidentManagement = () => {
 
         const regObj = { id, password, fullname, dateofbirth, gender, email, phone }
         console.log(regObj)
-        
+
 
         if (IsValidate()) {
 
@@ -175,10 +173,7 @@ const ResidentManagement = () => {
                     "X-Requested-With": "XMLHttpRequest",
                     "Cache-Control": "no-cache",
                 },
-
                 body: JSON.stringify(regObj)
-
-
             }).then((res) => {
 
                 console.log(JSON.stringify(regObj))
@@ -294,14 +289,14 @@ const ResidentManagement = () => {
                     <th><input onChange={(e) => setFullName(e.target.value)}></input></th>
                     <th><input type="date" onChange={(e) => setBirthDay(e.target.value)}></input></th>
                     <th>
-                        <select type="select"  onChange={e => setTxtGender(e.target.value)} >
-                        <option value="female" className="gender">Female</option>
-                        <option value="male" className="gender">Male</option>
+                        <select type="select" onChange={e => setTxtGender(e.target.value)} >
+                            <option value="female" className="gender">Female</option>
+                            <option value="male" className="gender">Male</option>
                         </select>
                     </th>
                     <th><input onChange={(e) => setPhone(e.target.value)}></input></th>
                     <th><input onChange={(e) => setEmail(e.target.value)}></input></th>
-                    
+
                     <th></th>
                     <th>
                         <form onSubmit={handleCreate}>
@@ -323,12 +318,14 @@ const ResidentManagement = () => {
                             <td>{residents.email}</td>
                             <td style={{ color: residents.status_Account === true ? '#118408' : '#E23F31', fontWeight: 'bold' }}>{residents.status_Account === true ? 'Active' : 'Booked'}</td>
                             <td>
-                                <form>
-                                    <button style={{ border: 'none', backgroundColor: '#2DC98A', color: 'white', width: '55px', borderRadius: '2px' }}>Edit</button>
-                                </form>
+
+                                <button onClick={togglePopupCreateRes} style={{ border: 'none', backgroundColor: '#2DC98A', color: 'white', width: '55px', borderRadius: '2px' }}>Edit</button>
+
                             </td>
                         </tr>
+                            <PopUpEditUser handleClose={togglePopupCreateRes} show={showPopupCreateRes}></PopUpEditUser>
                         </tbody>
+
                     )
                 }
 

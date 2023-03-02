@@ -185,17 +185,7 @@ const Register = () => {
         const dateofbirth = birthday;
 
         const regObj = { id, password, fullname, dateofbirth, gender, email, phone }
-        const regObj1 = {
-            "id": id,
-            "pwd": pwd,
-            "fullName": fullName,
-            "birthday": birthday,
-            "gender": gender,
-            "email": email,
-            "phone": phone
-        }
-
-
+        
         if (IsValidate()) {
 
             fetch(REGISTER_URL, {
@@ -207,12 +197,8 @@ const Register = () => {
                     "X-Requested-With": "XMLHttpRequest",
                     "Cache-Control": "no-cache",
                 },
-
                 body: JSON.stringify(regObj)
-
-
             }).then((res) => {
-
                 console.log(JSON.stringify(regObj))
                 console.log(res);
                 setSuccess(true);
@@ -222,7 +208,6 @@ const Register = () => {
                 toast.error('Failed: ' + err.message);
             });
         }
-
     }
 
     return (

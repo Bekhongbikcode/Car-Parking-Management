@@ -117,3 +117,44 @@ button{
     cursor: pointer;
   }
   
+  /* -----------------------popup-edit-user-------------------- */
+  .popup-edit-user{
+    text-align: center;
+  }
+
+  .popup-edit-user input{
+    width: 42% !important;
+    border-radius: 0;
+    margin-top: 5px;
+    margin-bottom: 5px;
+  }
+
+  .popup-edit-user select{
+    width: 42% !important;
+    border-radius: 0;
+    margin-top: 5px;
+    margin-bottom: 5px;
+  }
+
+  .popup-edit-user button{
+    width: 40% !important;
+    margin-bottom: 5px;
+    margin-top: 5px;
+    margin-left: 30%;
+  }
+  /* ------------------------Popup-Slot------------------------ */
+  .form-infor-slot{
+    width: 30%;
+    margin: 0 auto;
+    margin-top: 20px;
+    margin-bottom: 50px;
+  }
+
+  .form-infor-slot i{
+    float: right;
+    font-size: 18px;
+  }
+  .form-infor-slot span{
+    font-size: 18px;
+
+  }
