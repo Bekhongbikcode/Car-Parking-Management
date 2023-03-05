@@ -8,7 +8,7 @@ const URL_Book = 'https://corsproxy-pms.herokuapp.com/https://backend-heroku-pms
 const URL_Infor_R_Slot = 'https://corsproxy-pms.herokuapp.com/https://backend-heroku-pms.herokuapp.com/security/ResponseResidentInfoSlot?id_Building='
 const URL_PAYMENT = 'https://corsproxy-pms.herokuapp.com/https://backend-heroku-pms.herokuapp.com/paymentResident/save'
 
-const Popup = ({ handleClose, show}) => {
+const Popup = ({ handleClose, show }) => {
   const showHideClassName = show ? 'popup display-block' : 'popup display-none';
   const [idSearch, setIdSearch] = useState('');
   const [fullname, setfullname] = useState('');
@@ -136,14 +136,14 @@ const Popup = ({ handleClose, show}) => {
     });
   }
 
-  const handleResidentPayment = async(e) =>{
+  const handleResidentPayment = async (e) => {
     e.preventDefault();
     const idUser = idSearch;
     const id_Building = building;
     const typeOfPayment = 'Cash';
     const dateOfPayment = Date.now();
 
-    const obj = { typeOfPayment, idUser, id_Building, dateOfPayment}
+    const obj = { typeOfPayment, idUser, id_Building, dateOfPayment }
 
     fetch(URL_PAYMENT, {
       method: 'POST',
@@ -165,7 +165,6 @@ const Popup = ({ handleClose, show}) => {
     }).catch((err) => {
       toast.error('Failed: ' + err.message);
     });
-
 
   }
 

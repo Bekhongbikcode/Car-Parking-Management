@@ -26,7 +26,7 @@ const SercurityHomePage = () => {
         setSelect(item);
         if (select == 'Customer') {
             console.log(item)
-            return  <CustomerManagement ></CustomerManagement>
+            return  <CustomerManagement></CustomerManagement>
         }
         else if (select == 'Residents') {
             console.log(item)
@@ -40,8 +40,6 @@ const SercurityHomePage = () => {
             console.log(item)
             return <BookingManagement></BookingManagement>
         }
-
-        
 
 
 
@@ -84,8 +82,7 @@ const SercurityHomePage = () => {
                 }
                 
                 
-                
-
+            
             </div>
              <div style={{width:'100%', marginTop:'50px'}}>
              <AdminFooter></AdminFooter>
