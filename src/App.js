@@ -21,6 +21,7 @@ import BuildingManagerHomePage from './components/Admin/BuildingManager/Building
 import SercurityManagement from './components/Admin/BuildingManager/SercurityManagement';
 import AdminLogin from './components/Admin/AdminLogin';
 import RevenueManagement from './components/Admin/BuildingManager/RevenueManagement';
+import HeadManagerHomePage from './components/Admin/HeadManager/HeadManagerHomePage';
 
 
 
@@ -50,10 +51,11 @@ function App() {
           <Route path='/Price' element={<Price></Price>}></Route>
           <Route path='/AdminLogin' element={<AdminLogin></AdminLogin>}></Route>
           <Route path='/RevenueManagement' element={<RevenueManagement></RevenueManagement>}></Route>
-          
-        
-          
-          
+          <Route path='/HeadManagerHomePage' element={<HeadManagerHomePage></HeadManagerHomePage>}></Route>
+
+
+
+
         </Routes>
       </BrowserRouter>
 
