@@ -33,7 +33,7 @@ const RevenueManagement = () => {
                         <th>Manager ID</th>
                     </tr>
                 </thead>
-                <tbody>
+                {/* <tbody>
                     {item.map((item) => (
                         <tr key={item.id_Building}>
                             <td>{item.id_Building}</td>
@@ -41,7 +41,7 @@ const RevenueManagement = () => {
                             <td>{item.id_manager}</td>
                         </tr>
                     ))}
-                </tbody>
+                </tbody> */}
 
             </table>
 
