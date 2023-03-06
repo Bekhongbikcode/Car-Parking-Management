@@ -23,7 +23,12 @@ import AdminLogin from './components/Admin/AdminLogin';
 import RevenueManagement from './components/Admin/BuildingManager/RevenueManagement';
 import HeadManagerHomePage from './components/Admin/HeadManager/HeadManagerHomePage';
 
-
+import AccountInformation from './components/Account/AccountInformation';
+import AllBooking from './components/Account/AllBooking';
+import CancelledBooking from './components/Account/CancelledBooking';
+import CompletedBooking from './components/Account/CompletedBooking';
+import HistoryBooking from './components/Account/HistoryBooking';
+import ProfileSetting from './components/Account/ProfileSetting';
 
 
 function App() {
@@ -54,7 +59,12 @@ function App() {
           <Route path='/HeadManagerHomePage' element={<HeadManagerHomePage></HeadManagerHomePage>}></Route>
 
 
-
+          <Route path='/allbooking' element={<AllBooking />}></Route>
+          <Route path='/pastbooking' element={<HistoryBooking />}></Route>
+          <Route path='/completedbooking' element={<CompletedBooking />}></Route>
+          <Route path='/cancelledbooking' element={<CancelledBooking />}></Route>
+          <Route path='/profilesetting' element={<ProfileSetting />}></Route>
+          <Route path='/account' element={<AccountInformation />}></Route>
 
         </Routes>
       </BrowserRouter>

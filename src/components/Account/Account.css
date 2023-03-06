@@ -1,0 +1,38 @@
+.navigation-menu li{
+    float: left;
+    margin-right: 30px;
+    padding: 15px 15px;
+    list-style: none;
+}
+
+.navigation-menu li a{
+    text-decoration: none;
+    color: white;
+}
+
+.navigation-menu li a:hover{
+    color: brown;
+
+}
+
+.menu ul{
+    margin-left: 75%;
+}
+
+.body-link ul{
+    width: 200px;
+}
+
+.body-link ul li{
+    list-style: none;
+    margin-bottom: 25px;
+}
+
+.body-link ul li a{
+    text-decoration: none;
+    color: black;
+}
+
+.body-link ul li a:hover{
+    color: yellowgreen;
+}
