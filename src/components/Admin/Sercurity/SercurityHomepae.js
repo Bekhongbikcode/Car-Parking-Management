@@ -10,12 +10,13 @@ import InvoiceManagement from "./InvoiceManagement";
 import SlotManagement from "./SlotManagement";
 
 const SercurityHomePage = () => {
-    const [logined, setLogined] = useState(sessionStorage.getItem("username"));
+    const [logined, setLogined] = useState(localStorage.getItem("username"));
+    const [role, setRole] = useState(localStorage.getItem('role'))
     const usenavigate = useNavigate();
     
 
     useEffect(()=>{
-        if (logined === null || logined === ''){
+        if ((logined === null || logined === '') || role != 3 ){
             usenavigate('/AdminLogin')
         }
     },[logined])

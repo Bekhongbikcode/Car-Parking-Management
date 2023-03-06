@@ -4,14 +4,24 @@ import '../Admin.css'
 
 import './HeadManager.css'
 
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import React, { useState, useEffect, useRef } from "react";
 
 import BuildingManagerManagement from "./BuildingManagerManagement";
 import RevenueAllManagement from "./RevenueAllBuilding";
 
 const HeadManagerHomePage = () => {
+
+    const usenavigate = useNavigate();
     const [select, setSelect] = useState('Sercurity');
+
+    const [logined, setLogined] = useState(localStorage.getItem("username"));
+    const [role, setRole] = useState(localStorage.getItem('role'))
+    useEffect(() => {
+        if ((logined === null || logined === '') ||role != 1) {
+            usenavigate('/AdminLogin')
+        }
+    }, [logined])
 
     const handleItemClick = (item) => {
         setSelect(item);
@@ -19,12 +29,6 @@ const HeadManagerHomePage = () => {
             console.log(item)
             return <BuildingManagerManagement></BuildingManagerManagement>
         }
-
-
-
-
-
-
 
     };
     return (
@@ -34,7 +38,7 @@ const HeadManagerHomePage = () => {
                 <div><h3>Head Manager Dashboard</h3></div>
             </div>
             {/* ------------------------------------------------ */}
-            
+
             {/* ------------------------------------------------ */}
             <div className="admin-homepage-body" style={{ marginBottom: '150px' }}>
 
@@ -61,17 +65,9 @@ const HeadManagerHomePage = () => {
 
                 </ul>
 
-                
-            
-                
-            
 
                 {select == 'building-manager' ? <BuildingManagerManagement></BuildingManagerManagement>
                     : <RevenueAllManagement></RevenueAllManagement>}
-
-
-
-
 
             </div>
             <div style={{ width: '100%', marginTop: '50px' }}>

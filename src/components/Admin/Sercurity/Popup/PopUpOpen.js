@@ -136,12 +136,17 @@ const Popup = ({ handleClose, show }) => {
     });
   }
 
+  console.log(idSearch);
+  console.log(building)
+
   const handleResidentPayment = async (e) => {
     e.preventDefault();
     const idUser = idSearch;
     const id_Building = building;
     const typeOfPayment = 'Banking';
     const dateOfPayment = Date.now();
+    console.log(idUser);
+    console.log(id_Building)
 
     const obj = { typeOfPayment, idUser, id_Building, dateOfPayment }
 

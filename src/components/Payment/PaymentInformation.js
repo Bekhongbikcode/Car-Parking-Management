@@ -178,7 +178,7 @@ const PaymentInformation = () => {
                     <i>Not completed</i>
                     <br />
                     <span>Price</span>
-                    <i>{obj.total_Of_Money}</i>
+                    <i >{obj.total_Of_Money}</i>
                     <br />
 
 

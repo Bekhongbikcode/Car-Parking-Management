@@ -13,6 +13,7 @@ const AdminHeader = () => {
 
     const logout = () => {
         localStorage.removeItem('username')
+        localStorage.removeItem('role')
         window.location.href = '/AdminLogin';
     }
 

@@ -69,20 +69,24 @@ const AdminLogin = () => {
                         sessionStorage.setItem('email', resp.email);
                         sessionStorage.setItem('phone', resp.phone);
                         sessionStorage.setItem('id', username);
+                        
                         if (resp.role == 3) {
                             console.log(resp.role)
                             toast.success('Success', resp.role);
                             localStorage.setItem('username', username);
+                            localStorage.setItem('role', resp.role);
                             usenavigate('/SercurityHomePage')
                         } else if (resp.role == 2) {
                             console.log(resp.role)
                             toast.success('Success', resp.role);
                             localStorage.setItem('username', username);
+                            localStorage.setItem('role', resp.role);
                             usenavigate('/BuildingManagerHomePage')
                         }else if (resp.role == 1) {
                             console.log(resp.role)
                             toast.success('Success', resp.role);
                             localStorage.setItem('username', username);
+                            localStorage.setItem('role', resp.role);
                             usenavigate('/HeadManagerHomePage')
                         } else {
                             toast.error('You are not a admin');

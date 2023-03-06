@@ -11,7 +11,7 @@ const URL = 'https://corsproxy-pms.herokuapp.com/https://backend-heroku-pms.hero
 const URL_Search_Res = 'https://corsproxy-pms.herokuapp.com/https://backend-heroku-pms.herokuapp.com/user/findById?id=';
 const URL_Book = 'https://corsproxy-pms.herokuapp.com/https://backend-heroku-pms.herokuapp.com/residentslot/saveResidentSlot'
 const URL_Infor_R_Slot = 'https://corsproxy-pms.herokuapp.com/https://backend-heroku-pms.herokuapp.com/security/ResponseResidentInfoSlot?id_Building='
-
+const URL_Infor_C_Slot = 'https://corsproxy-pms.herokuapp.com/https://backend-heroku-pms.herokuapp.com/security/ResponseCustomerInfoSlot?id_Building='
 
 const SlotManagement = () => {
 
@@ -19,31 +19,42 @@ const SlotManagement = () => {
     const [building, setBuilding] = useState('A')
 
     const [shells, setShells] = useState([]);
-    
+
     const [slot, setSlot] = useState('');
     const [success, setSuccess] = useState(false);
     const [idSlot, setIdSlot] = useState('');
     const [inforResSlot, setInforResSlot] = useState([]);
+    const [URL_INFOR, setURL_INFOR] = useState('');
+    const [role, setRole] = useState('');
 
 
 
     const [showPopupInfor, setShowPopupInfor] = useState(false);
     const [showPopupCreateRes, setShowPopupCreateRes] = useState(false);
+
+    useEffect(() =>{
+        setURL_INFOR(URL_INFOR)
+    }, [URL_INFOR])
     const togglePopupCreateRes = () => {
 
         setShowPopupCreateRes(!showPopupCreateRes);
     };
 
-    const togglePopupInfor = (id) => {
+    const togglePopupInfor = (id, role) => {
 
         setShowPopupInfor(!showPopupInfor);
-        console.log(id)
-        console.log(URL_Infor_R_Slot + building + '&id_R_Slot=' + id)
-        fetch(URL_Infor_R_Slot + building + '&id_R_Slot=' + id)
+        if (role === 'R') {
+            setURL_INFOR(URL_Infor_R_Slot)
+        }
+        else  if (role === 'C') setURL_INFOR(URL_Infor_C_Slot);
+        console.log(id);
+        console.log(URL_INFOR + building + '&id_' + role + '_Slot=' + id)
+        fetch(URL_INFOR + building + '&id_' + role + '_Slot=' + id)
             .then(response => response.json())
             .then((data) => {
                 setInforResSlot(data)
-                // console.log(URL_Infor_R_Slot + building + '&id_R_Slot=' + id)
+                setRole(role)
+                console.log(URL_INFOR + building + '&id_' + role + '_Slot=' + id)
                 console.log(data)
             })
             .catch(error => console.error(error));
@@ -54,13 +65,13 @@ const SlotManagement = () => {
         toast.error('Slot null!');
     }
 
-    
+
 
     const handleSetBuilding = (item) => {
         setBuilding(item)
     }
 
-    
+
 
     useEffect(() => {
         setBuilding(building)
@@ -78,7 +89,7 @@ const SlotManagement = () => {
     const residentSlot = shells.filter(slot => slot.id_slot.startsWith('R'));
     const customerSlot = shells.filter(slot => slot.id_slot.startsWith('C'));
 
-    
+
 
 
     return (
@@ -104,7 +115,7 @@ const SlotManagement = () => {
                         <tr class="border">
                             {residentSlot.slice(0, 10).map(shell => (
                                 <td
-                                    onClick={shell.status_Slots === true ? () => togglePopupInfor(shell.id_slot) : massageSlot}
+                                    onClick={shell.status_Slots === true ? () => togglePopupInfor(shell.id_slot, 'R') : massageSlot}
                                     className="border" key={shell.id}
                                     style={{ backgroundColor: shell.status_Slots === true ? 'rgba(250, 104, 104, 0.874)' : 'white' }}
                                 >
@@ -115,7 +126,7 @@ const SlotManagement = () => {
                         <tr class="border">
                             {residentSlot.slice(10, 20).map(shell => (
                                 <td
-                                    onClick={shell.status_Slots === true ? () => togglePopupInfor(shell.id_slot) : massageSlot}
+                                    onClick={shell.status_Slots === true ? () => togglePopupInfor(shell.id_slot, 'R') : massageSlot}
                                     className="border" key={shell.id}
                                     style={{ backgroundColor: shell.status_Slots === true ? 'rgba(250, 104, 104, 0.874)' : 'white' }}
                                 >
@@ -133,7 +144,7 @@ const SlotManagement = () => {
 
                             {customerSlot.slice(0, 10).map(shell => (
                                 <td
-                                    onClick={shell.status_Slots === true ? (() => togglePopupInfor(shell.id_slot)) : massageSlot}
+                                    onClick={shell.status_Slots === true ? (() => togglePopupInfor(shell.id_slot, 'C')) : massageSlot}
                                     className="border" key={shell.id}
                                     style={{ backgroundColor: shell.status_Slots === true ? 'rgba(250, 104, 104, 0.874)' : 'white' }}
                                 >
@@ -146,7 +157,7 @@ const SlotManagement = () => {
 
                             {customerSlot.slice(10, 20).map(shell => (
                                 <td
-                                    onClick={shell.status_Slots === true ? () => togglePopupInfor(shell.id_slot) : massageSlot}
+                                    onClick={shell.status_Slots === true ? () => togglePopupInfor(shell.id_slot, 'C') : massageSlot}
                                     className="border" key={shell.id}
                                     style={{ backgroundColor: shell.status_Slots === true ? 'rgba(250, 104, 104, 0.874)' : 'white' }}
                                 >
@@ -159,8 +170,8 @@ const SlotManagement = () => {
                 </table>
 
             </div>
-            <PopupInforSlot handleClose={togglePopupInfor} show={showPopupInfor} data={inforResSlot}>
-                
+            <PopupInforSlot handleClose={togglePopupInfor} show={showPopupInfor} data={inforResSlot} role={role}>
+
             </PopupInforSlot>
 
             <button onClick={togglePopupCreateRes} style={{ width: '160px' }}>Create Resident</button>
