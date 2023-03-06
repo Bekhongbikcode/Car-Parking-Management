@@ -2,6 +2,8 @@ import AdminFooter from "../AdminPageFooter";
 import AdminHeader from "../AdminPageHeader";
 import '../Admin.css'
 
+import './HeadManager.css'
+
 import { Link } from "react-router-dom";
 import React, { useState, useEffect, useRef } from "react";
 
@@ -15,11 +17,12 @@ const HeadManagerHomePage = () => {
         setSelect(item);
         if (select == 'building-manager') {
             console.log(item)
-            return  <BuildingManagerManagement></BuildingManagerManagement>
+            return <BuildingManagerManagement></BuildingManagerManagement>
         }
-        
 
-        
+
+
+
 
 
 
@@ -30,9 +33,12 @@ const HeadManagerHomePage = () => {
             <div className="admin-role">
                 <div><h3>Head Manager Dashboard</h3></div>
             </div>
-            <div className="admin-homepage-body" style={{marginBottom:'150px'}}>
+            {/* ------------------------------------------------ */}
+            
+            {/* ------------------------------------------------ */}
+            <div className="admin-homepage-body" style={{ marginBottom: '150px' }}>
 
-                <ul class="nav admin-nav-custom flex-column " style={{marginTop:'100px'}}>
+                <ul class="nav admin-nav-custom flex-column " style={{ marginTop: '100px' }}>
 
                     <li tabindex="0" class="nav-item" onClick={() => handleItemClick('building-manager')}>
                         <a class="nav-link active" href="#">Building Manager</a>
@@ -54,19 +60,24 @@ const HeadManagerHomePage = () => {
                     </li>
 
                 </ul>
+
                 
+            
+                
+            
+
                 {select == 'building-manager' ? <BuildingManagerManagement></BuildingManagerManagement>
-                    :<RevenueAllManagement></RevenueAllManagement>}
-                    
-                
-                
-                
+                    : <RevenueAllManagement></RevenueAllManagement>}
+
+
+
+
 
             </div>
-             <div style={{width:'100%', marginTop:'50px'}}>
-             <AdminFooter></AdminFooter>
-             </div>   
-            
+            <div style={{ width: '100%', marginTop: '50px' }}>
+                <AdminFooter></AdminFooter>
+            </div>
+
         </div>
     );
 }

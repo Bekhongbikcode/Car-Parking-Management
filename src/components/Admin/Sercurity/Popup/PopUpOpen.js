@@ -140,7 +140,7 @@ const Popup = ({ handleClose, show }) => {
     e.preventDefault();
     const idUser = idSearch;
     const id_Building = building;
-    const typeOfPayment = 'Cash';
+    const typeOfPayment = 'Banking';
     const dateOfPayment = Date.now();
 
     const obj = { typeOfPayment, idUser, id_Building, dateOfPayment }

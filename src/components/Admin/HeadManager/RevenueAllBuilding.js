@@ -6,20 +6,20 @@ import { toast } from "react-toastify";
 const URL = 'https://corsproxy-pms.herokuapp.com/https://backend-heroku-pms.herokuapp.com/headManager/RevenueFromAllBuilding'
 
 const RevenueAllManagement = () => {
-    const [item, setItem] = useState([]);
+    const [items, setItems] = useState([]);
 
     useEffect(() => {
         fetch(URL)
             .then(response => response.json())
             .then((data) => {
-                setItem(data)
+                setItems(data)
+                console.log(data);
             })
             .catch((err) => {
                 console.log(toast);
                 toast.error('Failed: ' + err.message);
             });
     }, [])
-
 
     return (
         <div className="admin-homepage-dashboard">
@@ -34,8 +34,8 @@ const RevenueAllManagement = () => {
                     </tr>
                 </thead>
                 <tbody>
-                    {/* {item.map((item) => (
-                        <tr>
+                    {/* {items.map((item, index) => (
+                        <tr key={index}>
                             <td>{item.idUser}</td>
                             <td>{item.income}</td>
                         </tr>
