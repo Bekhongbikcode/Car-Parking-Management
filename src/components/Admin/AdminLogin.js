@@ -8,7 +8,7 @@ import Helmet from "react-helmet";
 import { HelmetProvider } from "react-helmet-async";
 import './AdminLogin.css'
 
-// const LOGIN_URL = "https://0c1a-42-118-112-251.ap.ngrok.io/ParkingManagement/api/user/getUser/";
+
 
 const LOGIN_URL = "https://cors-anywhere-production-8d5d.up.railway.app/https://parking-management-system-deploy-production.up.railway.app/headManager/findByIdManager/"
 const PWD_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%]).{8,30}/;
@@ -75,7 +75,7 @@ const AdminLogin = () => {
                             toast.success('Success', resp.role);
                             localStorage.setItem('username', username);
                             localStorage.setItem('role', resp.role);
-                            usenavigate('/SercurityHomePage')
+                            usenavigate('/SerHomePage')
                         } else if (resp.role == 2) {
                             console.log(resp.role)
                             toast.success('Success', resp.role);

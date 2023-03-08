@@ -4,10 +4,10 @@ import PaginationInvoice from './PaginationInvoice';
 import './SecurityDashBoard.css'
 
 
-const URL_Find_C_ID = 'https://corsproxy-pms.herokuapp.com/https://backend-heroku-pms.herokuapp.com/security/searchCustomerInvoiceId/';
-const URL_Find_R_ID = 'https://corsproxy-pms.herokuapp.com/https://backend-heroku-pms.herokuapp.com/security/searchResidentInvoiceId/';
-const URL_R = 'https://corsproxy-pms.herokuapp.com/https://backend-heroku-pms.herokuapp.com/security/findAllResidentInvoice'
-const URL_C = 'https://corsproxy-pms.herokuapp.com/https://backend-heroku-pms.herokuapp.com/security/findAllCustomerInvoice'
+const URL_Find_C_ID = 'https://cors-anywhere-production-8d5d.up.railway.app/https://parking-management-system-deploy-production.up.railway.app/security/searchCustomerInvoiceId/';
+const URL_Find_R_ID = 'https://cors-anywhere-production-8d5d.up.railway.app/https://parking-management-system-deploy-production.up.railway.app/security/searchResidentInvoiceId/';
+const URL_R = 'https://cors-anywhere-production-8d5d.up.railway.app/https://parking-management-system-deploy-production.up.railway.app/security/findAllResidentInvoice'
+const URL_C = 'https://cors-anywhere-production-8d5d.up.railway.app/https://parking-management-system-deploy-production.up.railway.app/security/findAllCustomerInvoice'
 
 
 const InvoiceManagement = () => {

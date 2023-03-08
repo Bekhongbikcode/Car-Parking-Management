@@ -9,35 +9,35 @@ import BookingManagement from "./InvoiceManagement";
 import InvoiceManagement from "./InvoiceManagement";
 import SlotManagement from "./SlotManagement";
 
-const SercurityHomePage = () => {
+const SerHomePage = () => {
     const [logined, setLogined] = useState(localStorage.getItem("username"));
     const [role, setRole] = useState(localStorage.getItem('role'))
     const usenavigate = useNavigate();
     
 
-    // useEffect(()=>{
-    //     if ((logined === null || logined === '') || role != 3 ){
-    //         usenavigate('/AdminLogin')
-    //     }
-    // },[logined])
+    useEffect(()=>{
+        if ((logined === null || logined === '') || role != 3 ){
+            usenavigate('/AdminLogin')
+        }
+    },[logined])
 
-    const [select, setSelect] = useState('');
+    const [select, setSelect] = useState('Customer');
 
     const handleItemClick = (item) => {
         setSelect(item);
-        if (select === 'Customers') {
+        if (select == 'Customer') {
             console.log(item)
             return  <CustomerManagement></CustomerManagement>
         }
-        else if (select === 'Residents') {
+        else if (select == 'Residents') {
             console.log(item)
             return <ResidentManagement></ResidentManagement>
         }
-        else if (select === 'Booking') {
+        else if (select == 'Booking') {
             console.log(item)
             return <BookingManagement></BookingManagement>
         }
-        else if (select === 'Invoice') {
+        else if (select == 'Invoice') {
             console.log(item)
             return <BookingManagement></BookingManagement>
         }
@@ -55,7 +55,7 @@ const SercurityHomePage = () => {
 
                 <ul class="nav admin-nav-custom flex-column " style={{marginTop:'100px'}}>
 
-                    <li tabindex="0" class="nav-item" onClick={() => handleItemClick('Customers')}>
+                    <li tabindex="0" class="nav-item" onClick={() => handleItemClick('Customer')}>
                         <a class="nav-link active" href="#">Customers</a>
                     </li>
                     <li tabindex="0" class="nav-item" onClick={() => handleItemClick('Residents')}>
@@ -76,7 +76,7 @@ const SercurityHomePage = () => {
 
                 </ul>
                 
-                {select == 'Customers' ? <CustomerManagement></CustomerManagement> 
+                {select == 'Customer' ? <CustomerManagement></CustomerManagement> 
                     : select == 'Residents' ? <ResidentManagement></ResidentManagement>
                     : select == 'Invoices' ? <InvoiceManagement></InvoiceManagement>
                     : <SlotManagement></SlotManagement>
@@ -93,4 +93,4 @@ const SercurityHomePage = () => {
     );
 }
 
-export default SercurityHomePage;
+export default SerHomePage;

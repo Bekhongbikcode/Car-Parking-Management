@@ -29,6 +29,7 @@ import CancelledBooking from './components/Account/CancelledBooking';
 import CompletedBooking from './components/Account/CompletedBooking';
 import HistoryBooking from './components/Account/HistoryBooking';
 import ProfileSetting from './components/Account/ProfileSetting';
+import SerHomePage from './components/Admin/Sercurity/SerHomePage';
 
 
 function App() {
@@ -47,6 +48,7 @@ function App() {
           <Route path='/ReservationComplete' element={<ReservationComplete />}></Route>
           <Route path='/ZoneDetail/:index' element={<ZoneDetail />}></Route>
           <Route path='/SercurityHomePage' element={<SercurityHomePage></SercurityHomePage>}></Route>
+          <Route path='/SerHomePage' element={<SerHomePage></SerHomePage>}></Route>
           <Route path='/ResidentManagement' element={<ResidentManagement></ResidentManagement>}></Route>
           <Route path='/CustomerManagement' element={<CustomerManagement></CustomerManagement>}></Route>
           <Route path='/InvoiceManagement' element={<InvoiceManagement></InvoiceManagement>}></Route>

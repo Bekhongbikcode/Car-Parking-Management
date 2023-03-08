@@ -114,7 +114,7 @@ const ReservationDetail = () => {
         const idUser = sessionStorage.getItem("id");
         const obj = { idUser, startDate, endDate, startTime, endTime, id_Building, type_Of_Vehicle, id_C_Slot, fullname, email, phone }
 
-        fetch('https://corsproxy-pms.herokuapp.com/https://backend-heroku-pms.herokuapp.com/bookingCustomer/save', {
+        fetch('https://cors-anywhere-production-8d5d.up.railway.app/https://parking-management-system-deploy-production.up.railway.app/bookingCustomer/save', {
             method: 'POST',
             header: {
 
