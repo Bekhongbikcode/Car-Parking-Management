@@ -6,7 +6,7 @@ function ZoneB() {
     const [shellsR, setShellsR] = useState([]);
 
     useEffect(() => {
-        fetch('https://corsproxy-pms.herokuapp.com/https://backend-heroku-pms.herokuapp.com/present_slot/findAll/B')
+        fetch('https://cors-anywhere-production-8d5d.up.railway.app/https://parking-management-system-deploy-production.up.railway.app/present_slot/findAll/B')
             .then(response => response.json())
             .then((data) => {
                 setShells(data)

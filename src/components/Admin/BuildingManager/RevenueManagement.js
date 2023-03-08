@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import './BuildingManager.css'
 import { toast } from "react-toastify";
 
-const URL = 'https://corsproxy-pms.herokuapp.com/https://backend-heroku-pms.herokuapp.com/buildingManager/RevenueFromEachBuilding'
+const URL = 'https://cors-anywhere-production-8d5d.up.railway.app/https://parking-management-system-deploy-production.up.railway.app/buildingManager/RevenueFromEachBuilding'
 
 const RevenueManagement = () => {
     const [item, setItem] = useState([]);
@@ -31,17 +31,21 @@ const RevenueManagement = () => {
                         <th>Building ID</th>
                         <th>Income</th>
                         <th>Manager ID</th>
+                        <th>Num of Customers</th>
+                        <th>Num of Residents</th>
                     </tr>
                 </thead>
-                {/* <tbody>
+                <tbody>
                     {item.map((item) => (
                         <tr key={item.id_Building}>
                             <td>{item.id_Building}</td>
                             <td>{item.income}</td>
                             <td>{item.id_manager}</td>
+                            <td>{item.countCustomer}</td>
+                            <td>{item.countResident}</td>
                         </tr>
                     ))}
-                </tbody> */}
+                </tbody>
 
             </table>
 

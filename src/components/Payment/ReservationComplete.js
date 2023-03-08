@@ -20,7 +20,7 @@ const ReservationComplete = () => {
 
 
     useEffect(() => {
-        fetch('https://corsproxy-pms.herokuapp.com/https://backend-heroku-pms.herokuapp.com/paymentCustomer/findPayment')
+        fetch('https://cors-anywhere-production-8d5d.up.railway.app/https://parking-management-system-deploy-production.up.railway.app/paymentCustomer/findPayment')
             .then(response => response.json())
             .then((data) => {
                 setInvoice(data);

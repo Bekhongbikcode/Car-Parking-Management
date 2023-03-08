@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import './HeadManager.css'
 import { toast } from "react-toastify";
 
-const URL = 'https://corsproxy-pms.herokuapp.com/https://backend-heroku-pms.herokuapp.com/headManager/RevenueFromAllBuilding'
+const URL = 'https://cors-anywhere-production-8d5d.up.railway.app/https://parking-management-system-deploy-production.up.railway.app/headManager/RevenueFromAllBuilding'
 
 const RevenueAllManagement = () => {
     const [items, setItems] = useState([]);
@@ -34,12 +34,12 @@ const RevenueAllManagement = () => {
                     </tr>
                 </thead>
                 <tbody>
-                    {/* {items.map((item, index) => (
-                        <tr key={index}>
-                            <td>{item.idUser}</td>
-                            <td>{item.income}</td>
-                        </tr>
-                    ))} */}
+
+                    <tr>
+                        <td>{items.idUser}</td>
+                        <td>{items.income}</td>
+                    </tr>
+
                 </tbody>
 
             </table>

@@ -15,7 +15,6 @@ const URL_Infor_C_Slot = 'https://corsproxy-pms.herokuapp.com/https://backend-he
 
 const SlotManagement = () => {
 
-
     const [building, setBuilding] = useState('A')
 
     const [shells, setShells] = useState([]);
@@ -32,7 +31,7 @@ const SlotManagement = () => {
     const [showPopupInfor, setShowPopupInfor] = useState(false);
     const [showPopupCreateRes, setShowPopupCreateRes] = useState(false);
 
-    useEffect(() =>{
+    useEffect(() => {
         setURL_INFOR(URL_INFOR)
     }, [URL_INFOR])
     const togglePopupCreateRes = () => {
@@ -46,7 +45,7 @@ const SlotManagement = () => {
         if (role === 'R') {
             setURL_INFOR(URL_Infor_R_Slot)
         }
-        else  if (role === 'C') setURL_INFOR(URL_Infor_C_Slot);
+        else if (role === 'C') setURL_INFOR(URL_Infor_C_Slot);
         console.log(id);
         console.log(URL_INFOR + building + '&id_' + role + '_Slot=' + id)
         fetch(URL_INFOR + building + '&id_' + role + '_Slot=' + id)
@@ -57,7 +56,12 @@ const SlotManagement = () => {
                 console.log(URL_INFOR + building + '&id_' + role + '_Slot=' + id)
                 console.log(data)
             })
-            .catch(error => console.error(error));
+            .catch((error) => {
+                if (error.response && error.response.status === 500 || error.response && error.response.status === 400)
+                    toast.error('Resident not payment yet!')
+                        
+            })
+
 
     };
 

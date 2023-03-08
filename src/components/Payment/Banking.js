@@ -39,7 +39,7 @@ const Banking = () => {
         const type_Of_Payment = sessionStorage.getItem("typePayment");
         const id_Building = sessionStorage.getItem("idbuilding");
         const regObj = { id_Booking, type_Of_Payment, id_Building }
-        fetch('https://corsproxy-pms.herokuapp.com/https://backend-heroku-pms.herokuapp.com/paymentCustomer/save', {
+        fetch('https://cors-anywhere-production-8d5d.up.railway.app/https://parking-management-system-deploy-production.up.railway.app/paymentCustomer/save', {
 
             method: 'POST',
             header: {
