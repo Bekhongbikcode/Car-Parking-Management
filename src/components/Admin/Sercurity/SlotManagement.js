@@ -1,10 +1,13 @@
 import '../Admin.css'
 import React, { useState, useEffect, useRef, useCallback } from "react";
 import PaginationInvoice from './PaginationInvoice';
-import './SecurityDashBoard.css'
+import './CommanDashBoard.css'
 import Popup from './Popup/PopUpOpen';
 import { toast } from "react-toastify";
 import PopupInforSlot from './Popup/PopUpInforSlot';
+import { faBuilding } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import AdminHeader from '../AdminPageHeader';
 
 
 const URL = 'https://cors-anywhere-production-8d5d.up.railway.app/https://parking-management-system-deploy-production.up.railway.app/present_slot/findAll/';
@@ -59,7 +62,7 @@ const SlotManagement = () => {
             .catch((error) => {
                 if (error.response && error.response.status === 500 || error.response && error.response.status === 400)
                     toast.error('Resident not payment yet!')
-                        
+
             })
 
 
@@ -93,21 +96,39 @@ const SlotManagement = () => {
     const residentSlot = shells.filter(slot => slot.id_slot.startsWith('R'));
     const customerSlot = shells.filter(slot => slot.id_slot.startsWith('C'));
 
+    useEffect(() => {
+        const navItems = document.querySelectorAll('.nav-custom-sercurity li');
+
+        navItems.forEach(navItem => {
+            navItem.addEventListener('click', () => {
+                // Remove the active class from all li elements
+                navItems.forEach(item => {
+                    item.classList.remove('active');
+                });
+
+                // Add the active class to the clicked li element
+                navItem.classList.add('active');
+
+                // Call the handleSetBuilding function with the appropriate argument
+                handleSetBuilding(navItem.innerText.charAt(navItem.innerText.length - 1));
+            });
+        });
+    }, [])
 
 
 
     return (
         <div className="admin-homepage-dashboard">
-            <h5 style={{ textAlign: 'left', margin: '20px', marginBottom: 0 }}>Manage Slot</h5>
+            <AdminHeader>/</AdminHeader>
             <ul class="nav justify-content-center nav-custom nav-custom-sercurity" style={{ marginLeft: '60px' }}>
-                <li class="nav-item" onClick={() => handleSetBuilding('A')}>
-                    <a class="nav-link" href="#">Zone A</a>
+            <li class="nav-item" onClick={() => handleSetBuilding('A')}>
+                    <a class="nav-link" href="#"><FontAwesomeIcon style={{ marginRight: '10px' }} icon={faBuilding}></FontAwesomeIcon>Zone A</a>
                 </li>
                 <li class="nav-item" onClick={() => handleSetBuilding('B')}>
-                    <a class="nav-link" href="#">Zone B</a>
+                    <a class="nav-link" href="#"><FontAwesomeIcon style={{ marginRight: '10px' }} icon={faBuilding}></FontAwesomeIcon>Zone B</a>
                 </li>
                 <li class="nav-item" onClick={() => handleSetBuilding('C')}>
-                    <a class="nav-link" href="#">Zone C</a>
+                    <a class="nav-link" href="#"><FontAwesomeIcon style={{ marginRight: '10px' }} icon={faBuilding}></FontAwesomeIcon>Zone C</a>
                 </li>
             </ul>
 

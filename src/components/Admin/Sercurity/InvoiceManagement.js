@@ -1,7 +1,8 @@
 import '../Admin.css'
 import React, { useState, useEffect, useRef, useCallback } from "react";
 import PaginationInvoice from './PaginationInvoice';
-import './SecurityDashBoard.css'
+import './CommanDashBoard.css'
+import AdminHeader from '../AdminPageHeader';
 
 
 const URL_Find_C_ID = 'https://cors-anywhere-production-8d5d.up.railway.app/https://parking-management-system-deploy-production.up.railway.app/security/searchCustomerInvoiceId/';
@@ -96,10 +97,34 @@ const InvoiceManagement = () => {
 
     }
 
+    useEffect(() => {
+        const navItems = document.querySelectorAll('.nav-custom-sercurity li');
+
+        navItems.forEach(navItem => {
+            navItem.addEventListener('click', () => {
+                // Remove the active class from all li elements
+                navItems.forEach(item => {
+                    item.classList.remove('active');
+                });
+
+                // Add the active class to the clicked li element
+                navItem.classList.add('active');
+
+                // Call the handleSetBuilding function with the appropriate argument
+                handleSetBuilding(navItem.innerText.charAt(navItem.innerText.length - 1));
+            });
+        });
+    }, [])
+
     return (
         <div className="admin-homepage-dashboard">
-            <h5 style={{ textAlign: 'left', margin: '20px', marginBottom:0 }}>Manage Invoice</h5>
-            <ul class="nav justify-content-center nav-custom nav-custom-sercurity  ">
+        <AdminHeader></AdminHeader>
+            <form className='filter-id justify-content-center' style={{ textAlign: 'left', marginTop: '30px', float: 'left', marginRight:'350px' }}  onSubmit={handleIdFilter}>
+                Filter by ID:
+                <input  type="text" onChange={e => setId(e.target.value)} />
+                <button type='submit'>Search</button>
+            </form>
+            <ul class="nav justify-content-center nav-custom nav-custom-sercurity  " >
                 <li class="nav-item" onClick={() => handleSetBuilding('Resident')}>
                     <a class="nav-link" href="#">Resident</a>
                 </li>
@@ -108,11 +133,7 @@ const InvoiceManagement = () => {
                 </li>
 
             </ul>
-            <form className='filter-id justify-content-center'  onSubmit={handleIdFilter}>
-                Filter by ID:
-                <input  type="text" onChange={e => setId(e.target.value)} />
-                <button type='submit'>Search</button>
-            </form>
+            
 
             <table className="table table-striped">
                 <thead>

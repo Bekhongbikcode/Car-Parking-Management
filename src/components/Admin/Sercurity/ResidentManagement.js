@@ -1,11 +1,16 @@
 import '../Admin.css'
+import './CommanDashBoard.css'
 import React, { useState, useEffect, useRef } from "react";
 import Pagination from '../../Complement/Pagination';
 import PaginationUser from './PaginationUser';
 import { toast } from "react-toastify";
 import { json, Link, useNavigate } from "react-router-dom";
-import './SecurityDashBoard.css'
 import PopUpEditUser from './Popup/PopUpEditUser';
+import { faBuilding } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import AdminHeader from '../AdminPageHeader';
+
+
 
 
 // const URL_Find_All = 'https://corsproxy-pms.herokuapp.com/https://backend-heroku-pms.herokuapp.com/customer/findById?IdUser=';
@@ -246,29 +251,46 @@ const ResidentManagement = () => {
 
     }
 
+    useEffect(() => {
+        const navItems = document.querySelectorAll('.nav-custom-sercurity li');
+
+        navItems.forEach(navItem => {
+            navItem.addEventListener('click', () => {
+                // Remove the active class from all li elements
+                navItems.forEach(item => {
+                    item.classList.remove('active');
+                });
+
+                // Add the active class to the clicked li element
+                navItem.classList.add('active');
+
+                // Call the handleSetBuilding function with the appropriate argument
+                handleSetBuilding(navItem.innerText.charAt(navItem.innerText.length - 1));
+            });
+        });
+    }, [])
+
 
     return (
         <div className="admin-homepage-dashboard">
-            <h5 style={{ textAlign: 'left', margin: '20px' }}>Manage Resident</h5>
-            <ul class="nav justify-content-center nav-custom nav-custom-sercurity">
-                <li class="nav-item" onClick={() => handleSetBuilding('A')}>
-                    <a class="nav-link" href="#">Zone A</a>
-                </li>
-                <li class="nav-item" onClick={() => handleSetBuilding('B')}>
-                    <a class="nav-link" href="#">Zone B</a>
-                </li>
-                <li class="nav-item" onClick={() => handleSetBuilding('C')}>
-                    <a class="nav-link" href="#">Zone C</a>
-                </li>
-                <li class="nav-item" onClick={() => handleSetBuilding('All')}>
-                    <a class="nav-link" href="#">All Resident</a>
-                </li>
-            </ul>
-            <form className='filter-id justify-content-center' onSubmit={handleIdFilter}>
+            <AdminHeader></AdminHeader>
+
+            <form className='filter-id justify-content-center' style={{ textAlign: 'left', marginTop: '30px', float: 'left' }} onSubmit={handleIdFilter}>
                 Filter by ID:
-                <input type="text" onChange={e => setIdSearch(e.target.value)} />
+                <input type="text" onChange={e => setId(e.target.value)} />
                 <button type='submit'>Search</button>
             </form>
+            <ul class="nav justify-content-center nav-custom nav-custom-sercurity">
+                <li class="nav-item" onClick={() => handleSetBuilding('A')}>
+                    <a class="nav-link" href="#"><FontAwesomeIcon style={{ marginRight: '10px' }} icon={faBuilding}></FontAwesomeIcon>Zone A</a>
+                </li>
+                <li class="nav-item" onClick={() => handleSetBuilding('B')}>
+                    <a class="nav-link" href="#"><FontAwesomeIcon style={{ marginRight: '10px' }} icon={faBuilding}></FontAwesomeIcon>Zone B</a>
+                </li>
+                <li class="nav-item" onClick={() => handleSetBuilding('C')}>
+                    <a class="nav-link" href="#"><FontAwesomeIcon style={{ marginRight: '10px' }} icon={faBuilding}></FontAwesomeIcon>Zone C</a>
+                </li>
+            </ul>
             <table className="table table-striped">
                 <thead>
                     <tr>

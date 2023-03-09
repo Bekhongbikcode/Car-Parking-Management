@@ -1,10 +1,14 @@
 import '../Admin.css'
+import './CommanDashBoard.css'
 import React, { useState, useEffect, useRef } from "react";
 import Pagination from '../../Complement/Pagination';
 import PaginationUser from './PaginationUser';
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import './SecurityDashBoard.css'
+
+import AdminHeader from '../AdminPageHeader';
+import { faBuilding } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const URL_Find_All = 'https://cors-anywhere-production-8d5d.up.railway.app/https://parking-management-system-deploy-production.up.railway.app/MoreFeatureGet/findByIdCustomer?idCustomer=';
 const URL = 'https://cors-anywhere-production-8d5d.up.railway.app/https://parking-management-system-deploy-production.up.railway.app/security/ListAllCustomerFromBuilding/'
@@ -68,7 +72,7 @@ const CustomerManagement = () => {
         // console.log(id)
     }, [id])
 
-    useEffect(()=>{
+    useEffect(() => {
         setFullName(fullName)
         console.log(fullName)
     }, [fullName])
@@ -94,7 +98,7 @@ const CustomerManagement = () => {
 
     }, [pwd, matchPwd])
 
-   
+
 
     useEffect(() => {
 
@@ -109,7 +113,7 @@ const CustomerManagement = () => {
             if (txtGender === 'male') {
                 setGender(true)
             }
-        console.log(txtGender)  
+        console.log(txtGender)
         // console.log(gender)  
     }, [txtGender])
 
@@ -118,15 +122,15 @@ const CustomerManagement = () => {
 
     }, [phone])
 
-    
 
-    
+
+
 
     const IsValidate = () => {
         let isproceed = true;
         let errormessage = 'Please enter the valid value!';
 
-       
+
 
         if (!PHONE_REGEX.test(phone)) {
             isproceed = false;
@@ -147,7 +151,7 @@ const CustomerManagement = () => {
             isproceed = false;
 
         }
-        
+
 
         if (!isproceed) {
             toast.warning(errormessage)
@@ -163,7 +167,7 @@ const CustomerManagement = () => {
 
         const regObj = { id, password, fullname, dateofbirth, gender, email, phone }
         console.log(regObj)
-        
+
 
         if (IsValidate()) {
 
@@ -210,7 +214,7 @@ const CustomerManagement = () => {
             .catch((err) => {
                 console.log(toast);
                 toast.error('Failed: ' + err.message);
-                localStorage.setItem("msg", 'Failed: ' + err.message )
+                localStorage.setItem("msg", 'Failed: ' + err.message)
                 window.location.href = '/AdminHomePage'
             });
     }, [building])
@@ -231,7 +235,7 @@ const CustomerManagement = () => {
                 .catch((err) => {
                     console.log(toast);
                     toast.error('Failed: ' + err.message);
-                    localStorage.setItem("msg", 'Failed: ' + err.message )
+                    localStorage.setItem("msg", 'Failed: ' + err.message)
                 });
 
         }
@@ -245,32 +249,56 @@ const CustomerManagement = () => {
                 .catch((err) => {
                     console.log(toast);
                     toast.error('Failed: ' + err.message);
-                    localStorage.setItem("msg", 'Failed: ' + err.message )
+                    localStorage.setItem("msg", 'Failed: ' + err.message)
                     window.location.href = '/AdminHomePage'
                 });
         }
 
     }
 
+    useEffect(() => {
+        const navItems = document.querySelectorAll('.nav-custom-sercurity li');
+
+        navItems.forEach(navItem => {
+            navItem.addEventListener('click', () => {
+                // Remove the active class from all li elements
+                navItems.forEach(item => {
+                    item.classList.remove('active');
+                });
+
+                // Add the active class to the clicked li element
+                navItem.classList.add('active');
+
+                // Call the handleSetBuilding function with the appropriate argument
+                handleSetBuilding(navItem.innerText.charAt(navItem.innerText.length - 1));
+            });
+        });
+    }, [])
+
+
+
+
     return (
         <div className="admin-homepage-dashboard">
-            <h5 style={{ textAlign: 'left', margin: '20px' }}>Manage Customer</h5>
-            <ul class="nav justify-content-center nav-custom nav-custom-sercurity">
-                <li class="nav-item" onClick={() => handleSetBuilding('A')}>
-                    <a class="nav-link" href="#">Zone A</a>
-                </li>
-                <li class="nav-item" onClick={() => handleSetBuilding('B')}>
-                    <a class="nav-link" href="#">Zone B</a>
-                </li>
-                <li class="nav-item" onClick={() => handleSetBuilding('C')}>
-                    <a class="nav-link" href="#">Zone C</a>
-                </li>
-            </ul>
-            <form className='filter-id justify-content-center' onSubmit={handleIdFilter}>
+            <AdminHeader ></AdminHeader>
+
+            <form className='filter-id justify-content-center' style={{ textAlign: 'left', marginTop: '30px', float: 'left' }} onSubmit={handleIdFilter}>
                 Filter by ID:
                 <input type="text" onChange={e => setId(e.target.value)} />
                 <button type='submit'>Search</button>
             </form>
+            <ul class="nav justify-content-center nav-custom nav-custom-sercurity">
+                <li class="nav-item" onClick={() => handleSetBuilding('A')}>
+                    <a class="nav-link" href="#"><FontAwesomeIcon style={{ marginRight: '10px' }} icon={faBuilding}></FontAwesomeIcon>Zone A</a>
+                </li>
+                <li class="nav-item" onClick={() => handleSetBuilding('B')}>
+                    <a class="nav-link" href="#"><FontAwesomeIcon style={{ marginRight: '10px' }} icon={faBuilding}></FontAwesomeIcon>Zone B</a>
+                </li>
+                <li class="nav-item" onClick={() => handleSetBuilding('C')}>
+                    <a class="nav-link" href="#"><FontAwesomeIcon style={{ marginRight: '10px' }} icon={faBuilding}></FontAwesomeIcon>Zone C</a>
+                </li>
+            </ul>
+
 
 
             <table className="table table-striped">
@@ -293,14 +321,14 @@ const CustomerManagement = () => {
                     <th><input onChange={(e) => setFullName(e.target.value)}></input></th>
                     <th><input type="date" onChange={(e) => setBirthDay(e.target.value)}></input></th>
                     <th>
-                        <select type="select"  onChange={e => setTxtGender(e.target.value)} >
-                        <option value="female" className="gender">Female</option>
-                        <option value="male" className="gender">Male</option>
+                        <select type="select" onChange={e => setTxtGender(e.target.value)} >
+                            <option value="female" className="gender">Female</option>
+                            <option value="male" className="gender">Male</option>
                         </select>
                     </th>
                     <th><input onChange={(e) => setPhone(e.target.value)}></input></th>
                     <th><input onChange={(e) => setEmail(e.target.value)}></input></th>
-                    
+
                     <th></th>
                     <th>
                         <form onSubmit={handleCreate}>

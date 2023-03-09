@@ -214,7 +214,7 @@ const PopUpEditUser = ({ handleClose, show, idUser, role }) => {
           &times;
         </button>
         <form onSubmit={handleSubmit} className="row popup-edit-user">
-          <h2 style={{}}>Edit User</h2>
+          <h2>Edit User</h2>
 
           <h6>User name: ' {idUser} '</h6>
 

@@ -64,7 +64,7 @@ function PaginationUser(props) {
     return (
         <>
             <tbody>{renderListItems()}</tbody>
-            <tr className="pagination" style={{ position: 'absolute', right: 100, top: 140 }}>{renderPageNumbers()}</tr>
+            <tr className="pagination" style={{float:'right'}}>{renderPageNumbers()}</tr>
 
         </>
     );

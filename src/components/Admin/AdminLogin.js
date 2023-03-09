@@ -75,7 +75,7 @@ const AdminLogin = () => {
                             toast.success('Success', resp.role);
                             localStorage.setItem('username', username);
                             localStorage.setItem('role', resp.role);
-                            usenavigate('/SerHomePage')
+                            usenavigate('/SercurityHomePage')
                         } else if (resp.role == 2) {
                             console.log(resp.role)
                             toast.success('Success', resp.role);
