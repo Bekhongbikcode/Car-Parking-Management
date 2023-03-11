@@ -75,22 +75,23 @@ const AdminLogin = () => {
                             toast.success('Success', resp.role);
                             localStorage.setItem('username', username);
                             localStorage.setItem('role', resp.role);
-                            usenavigate('/SercurityHomePage')
+                            usenavigate('/ManagerHomepage')
                         } else if (resp.role == 2) {
                             console.log(resp.role)
                             toast.success('Success', resp.role);
                             localStorage.setItem('username', username);
                             localStorage.setItem('role', resp.role);
-                            usenavigate('/BuildingManagerHomePage')
+                            usenavigate('/ManagerHomepage')
                         }else if (resp.role == 1) {
                             console.log(resp.role)
                             toast.success('Success', resp.role);
                             localStorage.setItem('username', username);
                             localStorage.setItem('role', resp.role);
-                            usenavigate('/HeadManagerHomePage')
+                            usenavigate('/ManagerHomepage')
                         } else {
                             toast.error('You are not a admin');
                         }
+                        
                     } else {
                         toast.error('Please Enter Correct Password');
                     }

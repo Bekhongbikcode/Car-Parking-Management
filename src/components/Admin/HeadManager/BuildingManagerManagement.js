@@ -5,6 +5,7 @@ import PaginationUser from '../Sercurity/PaginationUser';
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import PopUpEditUser from '../Sercurity/Popup/PopUpEditUser';
+import AdminHeader from '../AdminPageHeader';
 
 
 const URL_Find_All = 'https://cors-anywhere-production-8d5d.up.railway.app/https://parking-management-system-deploy-production.up.railway.app/MoreFeatureGet/findByIdCustomer?idCustomer=';
@@ -273,7 +274,7 @@ const BuildingManagerManagement = () => {
 
     return (
         <div className="admin-homepage-dashboard">
-            <h5 style={{ textAlign: 'left', margin: '20px' }}>Manage Sercurity</h5>
+            <AdminHeader></AdminHeader>
             <form className='filter-id justify-content-center' onSubmit={handleIdFilter}>
                 Filter by ID:
                 <input type="text" onChange={e => setId(e.target.value)} />

@@ -10,8 +10,7 @@ import Banking from './components/Payment/Banking';
 import ReservationComplete from './components/Payment/ReservationComplete';
 import ZoneDetail from './components/Zone/ZoneDetail';
 
-
-import SercurityHomePage from './components/Admin/Sercurity/SercurityHomepae';
+import ManagerHomePage from './components/Admin/Sercurity/ManagerHomepage';
 import ResidentManagement from './components/Admin/Sercurity/ResidentManagement';
 import CustomerManagement from './components/Admin/Sercurity/CustomerManagement';
 import InvoiceManagement from './components/Admin/Sercurity/InvoiceManagement';
@@ -47,7 +46,7 @@ function App() {
           <Route path='/Banking' element={<Banking></Banking>}></Route>
           <Route path='/ReservationComplete' element={<ReservationComplete />}></Route>
           <Route path='/ZoneDetail/:index' element={<ZoneDetail />}></Route>
-          <Route path='/SercurityHomePage' element={<SercurityHomePage></SercurityHomePage>}></Route>
+          <Route path='/ManagerHomepage' element={<ManagerHomePage></ManagerHomePage>}></Route>
           <Route path='/SerHomePage' element={<SerHomePage></SerHomePage>}></Route>
           <Route path='/ResidentManagement' element={<ResidentManagement></ResidentManagement>}></Route>
           <Route path='/CustomerManagement' element={<CustomerManagement></CustomerManagement>}></Route>

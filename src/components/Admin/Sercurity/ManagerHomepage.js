@@ -15,14 +15,14 @@ import RevenueManagement from "../BuildingManager/RevenueManagement";
 import BuildingManagerManagement from "../HeadManager/BuildingManagerManagement";
 import RevenueAllManagement from "../HeadManager/RevenueAllBuilding";
 
-const SercurityHomePage = () => {
+const ManagerHomePage = () => {
     const [logined, setLogined] = useState(localStorage.getItem("username"));
     const [role, setRole] = useState(localStorage.getItem('role'))
     const usenavigate = useNavigate();
 
 
     useEffect(() => {
-        if ((logined === null || logined === '') || role != 3) {
+        if ((logined === null || logined === '')) {
             usenavigate('/AdminLogin')
         }
     }, [logined])
@@ -62,7 +62,7 @@ const SercurityHomePage = () => {
                         <p className='nav-link' style={{ fontSize: '25px', paddingTop: '20px', color: 'white' }} href="#"><FontAwesomeIcon style={{ paddingRight: '30px', paddingLeft: '6%' }} icon={faSpaceShuttle}></FontAwesomeIcon>Admin Page</p>
                     </div>
                     <label>Sercurity</label>
-                    <ul className="navbar-nav">
+                    <ul className="navbar-nav" >
 
                         <li tabindex="0" class="nav-item " onClick={() => handleItemClick('Customers')}>
                             <a className="nav-link active " href="#"><FontAwesomeIcon style={{ paddingRight: '30px' }} icon={faUsers} />Customers</a>
@@ -81,7 +81,7 @@ const SercurityHomePage = () => {
 
                     </ul>
                     <label>Building Manager</label>
-                    <ul className="navbar-nav">
+                    <ul className="navbar-nav" >
 
                         <li tabindex="0" class="nav-item" onClick={() => handleItemClick('Sercurity')}>
                             <a class="nav-link active" href="#"><FontAwesomeIcon style={{ paddingRight: '30px' }} icon={faUserShield} />Sercurity</a>
@@ -92,7 +92,7 @@ const SercurityHomePage = () => {
 
                     </ul>
                     <label>Head Manager</label>
-                    <ul className="navbar-nav">
+                    <ul className="navbar-nav" >
 
                         <li tabindex="0" class="nav-item" onClick={() => handleItemClick('Building-manager')}>
                             <a class="nav-link active" href="#"><FontAwesomeIcon style={{ paddingRight: '30px' }} icon={faBuildingUser}></FontAwesomeIcon>Building Manager</a>
@@ -121,4 +121,4 @@ const SercurityHomePage = () => {
     );
 }
 
-export default SercurityHomePage;
+export default ManagerHomePage;

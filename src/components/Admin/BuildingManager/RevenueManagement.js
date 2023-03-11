@@ -2,6 +2,7 @@ import React from "react";
 import { useEffect, useState } from "react";
 import './BuildingManager.css'
 import { toast } from "react-toastify";
+import AdminHeader from "../AdminPageHeader";
 
 const URL = 'https://cors-anywhere-production-8d5d.up.railway.app/https://parking-management-system-deploy-production.up.railway.app/buildingManager/RevenueFromEachBuilding'
 
@@ -23,9 +24,9 @@ const RevenueManagement = () => {
 
     return (
         <div className="admin-homepage-dashboard">
-            <h5 style={{ textAlign: 'left', margin: '20px' }}>Manage Revenue</h5>
+            <AdminHeader></AdminHeader>
 
-            <table className="table table-striped">
+            <table className="table table-striped" style={{marginTop:'50px'}}>
                 <thead>
                     <tr>
                         <th>Building ID</th>

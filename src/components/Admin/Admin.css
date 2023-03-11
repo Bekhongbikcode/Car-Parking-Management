@@ -77,6 +77,11 @@
 
 }
 
+.navbar-nav li:active,
+.navbar-nav li.active {
+  background-color: #2DC98A;
+}
+
 .nav-custom li {
   display: inline-block;
   position: relative;
