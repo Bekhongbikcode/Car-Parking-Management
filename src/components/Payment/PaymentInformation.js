@@ -27,7 +27,7 @@ const PaymentInformation = () => {
     }, [type]);
 
     useEffect(() => {
-        fetch('https://cors-anywhere-production-8d5d.up.railway.app/https://parking-management-system-deploy-production.up.railway.app/bookingCustomer/findBooking')
+        fetch('https://cors-anywhere-production-8d5d.up.railway.app/https://parking-management-system-deploy-production-d240.up.railway.app/bookingCustomer/findBooking')
             .then(response => response.json())
             .then((data) => {
                 setBookingInf(data);

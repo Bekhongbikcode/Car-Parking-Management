@@ -1,7 +1,7 @@
 import AdminFooter from "../AdminPageFooter";
 import AdminHeader from "../AdminPageHeader";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faSpaceShuttle, faUserShield, faSquareParking, faFileInvoiceDollar, faUsers, faPersonShelter, faMoneyBill1Wave, faBuildingUser } from "@fortawesome/free-solid-svg-icons";
+import { faSpaceShuttle, faUserShield, faSquareParking, faFileInvoiceDollar, faUsers, faPersonShelter, faMoneyBill1Wave, faBuildingUser, faMoneyBillWave } from "@fortawesome/free-solid-svg-icons";
 import '../Admin.css'
 import CustomerManagement from "./CustomerManagement";
 import { Link, useNavigate } from "react-router-dom";
@@ -14,6 +14,7 @@ import SercurityManagement from "../BuildingManager/SercurityManagement";
 import RevenueManagement from "../BuildingManager/RevenueManagement";
 import BuildingManagerManagement from "../HeadManager/BuildingManagerManagement";
 import RevenueAllManagement from "../HeadManager/RevenueAllBuilding";
+import MoneyManagement from "./MoneyManagement";
 
 const ManagerHomePage = () => {
     const [logined, setLogined] = useState(localStorage.getItem("username"));
@@ -56,7 +57,7 @@ const ManagerHomePage = () => {
         <div>
 
             <div className="admin-homepage-body" style={{ marginBottom: '150px' }}>
-
+                
                 <div class="nav admin-nav-custom flex-column ">
                     <div className="admin-nav-custom-title">
                         <p className='nav-link' style={{ fontSize: '25px', paddingTop: '20px', color: 'white' }} href="#"><FontAwesomeIcon style={{ paddingRight: '30px', paddingLeft: '6%' }} icon={faSpaceShuttle}></FontAwesomeIcon>Admin Page</p>
@@ -100,6 +101,9 @@ const ManagerHomePage = () => {
                         <li tabindex="0" class="nav-item" onClick={() => handleItemClick('Revenue-all')}>
                             <a class="nav-link active" href="#"><FontAwesomeIcon style={{ paddingRight: '30px' }} icon={faMoneyBill1Wave}></FontAwesomeIcon>Revenue all</a>
                         </li>
+                        <li tabindex="0" class="nav-item" onClick={() => handleItemClick('Set-money')}>
+                            <a class="nav-link active" href="#"><FontAwesomeIcon style={{ paddingRight: '30px' }} icon={faMoneyBillWave}></FontAwesomeIcon>Set Money</a>
+                        </li>
                     </ul>
                 </div>
 
@@ -110,7 +114,8 @@ const ManagerHomePage = () => {
                                 : select === 'Sercurity' ? <SercurityManagement ></SercurityManagement>
                                     : select === 'Revenue-building' ? <RevenueManagement></RevenueManagement>
                                         : select === 'Building-manager' ? <BuildingManagerManagement></BuildingManagerManagement>
-                                            : <RevenueAllManagement></RevenueAllManagement>
+                                            : select === 'Revenue-all' ? <RevenueAllManagement></RevenueAllManagement>
+                                                : <MoneyManagement></MoneyManagement>
                 }
 
 

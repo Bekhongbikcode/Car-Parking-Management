@@ -4,7 +4,7 @@ import './BuildingManager.css'
 import { toast } from "react-toastify";
 import AdminHeader from "../AdminPageHeader";
 
-const URL = 'https://cors-anywhere-production-8d5d.up.railway.app/https://parking-management-system-deploy-production.up.railway.app/buildingManager/RevenueFromEachBuilding'
+const URL = 'https://cors-anywhere-production-8d5d.up.railway.app/https://parking-management-system-deploy-production-d240.up.railway.app/buildingManager/RevenueFromEachBuilding'
 
 const RevenueManagement = () => {
     const [item, setItem] = useState([]);

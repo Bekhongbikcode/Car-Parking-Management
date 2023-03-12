@@ -5,10 +5,10 @@ import './CommanDashBoard.css'
 import AdminHeader from '../AdminPageHeader';
 
 
-const URL_Find_C_ID = 'https://cors-anywhere-production-8d5d.up.railway.app/https://parking-management-system-deploy-production.up.railway.app/security/searchCustomerInvoiceId/';
-const URL_Find_R_ID = 'https://cors-anywhere-production-8d5d.up.railway.app/https://parking-management-system-deploy-production.up.railway.app/security/searchResidentInvoiceId/';
-const URL_R = 'https://cors-anywhere-production-8d5d.up.railway.app/https://parking-management-system-deploy-production.up.railway.app/security/findAllResidentInvoice'
-const URL_C = 'https://cors-anywhere-production-8d5d.up.railway.app/https://parking-management-system-deploy-production.up.railway.app/security/findAllCustomerInvoice'
+const URL_Find_C_ID = 'https://cors-anywhere-production-8d5d.up.railway.app/https://parking-management-system-deploy-production-d240.up.railway.app/security/searchCustomerInvoiceId/';
+const URL_Find_R_ID = 'https://cors-anywhere-production-8d5d.up.railway.app/https://parking-management-system-deploy-production-d240.up.railway.app/security/searchResidentInvoiceId/';
+const URL_R = 'https://cors-anywhere-production-8d5d.up.railway.app/https://parking-management-system-deploy-production-d240.up.railway.app/security/findAllResidentInvoice'
+const URL_C = 'https://cors-anywhere-production-8d5d.up.railway.app/https://parking-management-system-deploy-production-d240.up.railway.app/security/findAllCustomerInvoice'
 
 
 const InvoiceManagement = () => {

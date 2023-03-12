@@ -29,6 +29,7 @@ import CompletedBooking from './components/Account/CompletedBooking';
 import HistoryBooking from './components/Account/HistoryBooking';
 import ProfileSetting from './components/Account/ProfileSetting';
 import SerHomePage from './components/Admin/Sercurity/SerHomePage';
+import MoneyManagement from './components/Admin/Sercurity/MoneyManagement';
 
 
 function App() {
@@ -57,6 +58,7 @@ function App() {
           <Route path='/Price' element={<Price></Price>}></Route>
           <Route path='/AdminLogin' element={<AdminLogin></AdminLogin>}></Route>
           <Route path='/RevenueManagement' element={<RevenueManagement></RevenueManagement>}></Route>
+          <Route path='/MoneyManagement' element={<MoneyManagement></MoneyManagement>}></Route>
           <Route path='/HeadManagerHomePage' element={<HeadManagerHomePage></HeadManagerHomePage>}></Route>
 
 

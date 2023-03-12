@@ -10,11 +10,11 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import AdminHeader from '../AdminPageHeader';
 
 
-const URL = 'https://cors-anywhere-production-8d5d.up.railway.app/https://parking-management-system-deploy-production.up.railway.app/present_slot/findAll/';
-const URL_Search_Res = 'https://cors-anywhere-production-8d5d.up.railway.app/https://parking-management-system-deploy-production.up.railway.app/user/findById?id=';
-const URL_Book = 'https://cors-anywhere-production-8d5d.up.railway.app/https://parking-management-system-deploy-production.up.railway.app/residentslot/saveResidentSlot'
-const URL_Infor_R_Slot = 'https://cors-anywhere-production-8d5d.up.railway.app/https://parking-management-system-deploy-production.up.railway.app/security/ResponseResidentInfoSlot?id_Building='
-const URL_Infor_C_Slot = 'https://cors-anywhere-production-8d5d.up.railway.app/https://parking-management-system-deploy-production.up.railway.app/ResponseCustomerInfoSlot?id_Building='
+const URL = 'https://cors-anywhere-production-8d5d.up.railway.app/https://parking-management-system-deploy-production-d240.up.railway.app/present_slot/findAll/';
+const URL_Search_Res = 'https://cors-anywhere-production-8d5d.up.railway.app/https://parking-management-system-deploy-production-d240.up.railway.app/user/findById?id=';
+const URL_Book = 'https://cors-anywhere-production-8d5d.up.railway.app/https://parking-management-system-deploy-production-d240.up.railway.app/residentslot/saveResidentSlot'
+const URL_Infor_R_Slot = 'https://cors-anywhere-production-8d5d.up.railway.app/https://parking-management-system-deploy-production-d240.up.railway.app/security/ResponseResidentInfoSlot?id_Building='
+const URL_Infor_C_Slot = 'https://cors-anywhere-production-8d5d.up.railway.app/https://parking-management-system-deploy-production-d240.up.railway.app/ResponseCustomerInfoSlot?id_Building='
 
 const SlotManagement = () => {
 

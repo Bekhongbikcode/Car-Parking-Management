@@ -6,7 +6,7 @@ function ZoneC() {
     const [shellsR, setShellsR] = useState([]);
 
     useEffect(() => {
-        fetch('https://cors-anywhere-production-8d5d.up.railway.app/https://parking-management-system-deploy-production.up.railway.app/present_slot/findAll/C')
+        fetch('https://cors-anywhere-production-8d5d.up.railway.app/https://parking-management-system-deploy-production-d240.up.railway.app/present_slot/findAll/C')
             .then(response => response.json())
             .then((data) => {
                 setShells(data)

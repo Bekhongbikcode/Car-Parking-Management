@@ -73,7 +73,7 @@ const ReservationDetail = () => {
     useEffect(() => {
         // if (zone === 'A') {
             console.log(zone)
-            fetch('https://cors-anywhere-production-8d5d.up.railway.app/https://parking-management-system-deploy-production.up.railway.app/present_slot/findAll/'+zone)
+            fetch('https://cors-anywhere-production-8d5d.up.railway.app/https://parking-management-system-deploy-production-d240.up.railway.app/present_slot/findAll/'+zone)
                 .then(response => response.json())
                 .then((data) => {
                     setShells(data)
@@ -114,7 +114,7 @@ const ReservationDetail = () => {
         const idUser = sessionStorage.getItem("id");
         const obj = { idUser, startDate, endDate, startTime, endTime, id_Building, type_Of_Vehicle, id_C_Slot, fullname, email, phone }
 
-        fetch('https://cors-anywhere-production-8d5d.up.railway.app/https://parking-management-system-deploy-production.up.railway.app/bookingCustomer/save', {
+        fetch('https://cors-anywhere-production-8d5d.up.railway.app/https://parking-management-system-deploy-production-d240.up.railway.app/bookingCustomer/save', {
             method: 'POST',
             header: {
 
