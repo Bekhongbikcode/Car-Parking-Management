@@ -1,18 +1,47 @@
-import { useEffect, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import React, { useEffect, useState,  } from "react";
+import { Link } from "react-router-dom";
 import Helmet from "react-helmet";
 import { HelmetProvider } from "react-helmet-async";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCheck, faTimes, faInfoCircle, faUser, faClock } from "@fortawesome/free-solid-svg-icons";
+import { faClock } from "@fortawesome/free-solid-svg-icons";
 import Header from "../Complement/Header";
 import Footer from "../Complement/Footer";
 import Slider from "../Complement/Slider";
 import './Main.css'
+import PopUpWarning from './PopUp/PopUpWarning';
+
+const URL_WARNING = '';
 
 const Home = () => {
     const [zone, setZone] = useState('A');
+
     const [username, setUsername] = useState(sessionStorage.getItem('username'));
 
+    const [showPopupWarning, setShowPopupWarning] = useState(false);
+    const [open, setOpen] = useState(true);
+    
+
+    const togglePopupWarning = () => {
+
+        setShowPopupWarning(!showPopupWarning);
+    };
+
+    useEffect(() => {
+        if (open) {
+          togglePopupWarning();
+        }
+      }, [open]);
+      
+
+
+    useEffect(() => {
+        fetch(URL_WARNING)
+            .then(response => response.json())
+            .then((data) => {
+                
+            })
+            .catch(error => console.error(error));
+    }, [])
 
     useEffect(() => {
         setZone(zone);
@@ -25,8 +54,9 @@ const Home = () => {
         sessionStorage.setItem("zone", zone);
 
         // window.location.href = '/Reservation';
-
     }
+
+    
 
 
     return (
@@ -40,7 +70,7 @@ const Home = () => {
             {/* -----------------------------zone-area-homepage----------------------- */}
             <form onSubmit={handleSubmit}>
 
-                <div className="row zone-area-homepage">
+                <div className="row zone-area-homepage" >
 
                     <div className="card col-lg-4" style={{ marginLeft: '10%' }}>
                         <div className="card-header">
@@ -183,7 +213,12 @@ const Home = () => {
 
                 </div>
             </form>
+            
             <Footer></Footer>
+        
+            <PopUpWarning handleClose={togglePopupWarning} show={showPopupWarning}>
+
+            </PopUpWarning>
 
 
         </HelmetProvider>
@@ -193,35 +228,4 @@ const Home = () => {
 export default Home;
 
 
-// import React, { useState } from "react";
 
-// function ContentSwitcher() {
-//   const [activeButton, setActiveButton] = useState(1);
-
-//   const handleClick = (buttonIndex) => {
-//     setActiveButton(buttonIndex);
-//   };
-
-//   return (
-//     <div>
-//       <button onClick={() => handleClick(1)}>Button 1</button>
-//       <button onClick={() => handleClick(2)}>Button 2</button>
-//       <button onClick={() => handleClick(3)}>Button 3</button>
-//       {activeButton === 1 && <Content1 />}
-//       {activeButton === 2 && <Content2 />}
-//       {activeButton === 3 && <Content3 />}
-//     </div>
-//   );
-// }
-
-// function Content1() {
-//   return <div>Content for Button 1</div>;
-// }
-
-// function Content2() {
-//   return <div>Content for Button 2</div>;
-// }
-
-// function Content3() {
-//   return <div>Content for Button 3</div>;
-// }

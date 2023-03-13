@@ -126,7 +126,7 @@ const ReservationDetail = () => {
             },
             body: JSON.stringify(obj)
         }).then((res) => {
-            toast.success('Booking Success');
+            
             console.log(obj)
             sessionStorage.setItem("obj", JSON.stringify(obj));
             const currentDate = new Date(Date.now());
@@ -140,6 +140,7 @@ const ReservationDetail = () => {
             sessionStorage.setItem("timebook", currentTime);
             window.location.href = '/PaymentInformation'
             console.log(res);
+            toast.success('Booking Success');
 
         }).catch((err) => {
             console.log(err.massage())

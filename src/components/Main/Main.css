@@ -310,5 +310,31 @@
     background-color: #3ab489 !important;
   
   }
-  
+
+  /* ----------------------------------POPUP--------------------------------------- */
+
+  .popup-main-custom{
+    position: absolute;  
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    border: 1px solid black;
+    z-index: 100000000 !important;
+  }
+
+  .home-warning {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+ .icon-header-home-warning{
+    font-size: 40px;
+    margin-right: 10px;
+    color: #E74032;
+ }
+
+ .header-home-warning span{
+  font-size: 25px;
+  color: #E74032;
+  font-weight: bold;
+ }
   

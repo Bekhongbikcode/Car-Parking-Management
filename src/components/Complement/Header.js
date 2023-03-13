@@ -3,7 +3,9 @@ import { Link, useNavigate } from "react-router-dom";
 import Helmet from "react-helmet";
 import { HelmetProvider } from "react-helmet-async";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCheck, faTimes, faInfoCircle, faUser } from "@fortawesome/free-solid-svg-icons";
+import { faCheck, faTimes, faInfoCircle, faUser, faBell } from "@fortawesome/free-solid-svg-icons";
+import { Navbar, Nav, NavDropdown } from 'react-bootstrap';
+
 import './Complement.css'
 const Header = (props) => {
     const usenavigate = useNavigate();
@@ -37,19 +39,27 @@ const Header = (props) => {
                 <li class="nav-item">
                     <a class="nav-link" href="#">Location</a>
                 </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#">More</a>
-                    <ul class="dropdown-menu" style={{ position: 'absolute', zIndex: '100' }}>
-                        <li><a class="dropdown-item" href="#">Link 1</a></li>
-                        <li><a class="dropdown-item" href="#">Link 2</a></li>
-                        <li><a class="dropdown-item" href="#">Link 3</a></li>
-                    </ul>
-                </li>
+                <Nav>
+                    <NavDropdown title="More" id="basic-nav-dropdown">
+                        <NavDropdown.Item href="#action/3.1">About Us</NavDropdown.Item>
+                        <NavDropdown.Item href="#action/3.2">Contact Us</NavDropdown.Item>
+                        <NavDropdown.Item href="#action/3.3">Our Vision</NavDropdown.Item>
+
+                    </NavDropdown>
+                </Nav>
+                <Nav>
+                    <NavDropdown title={<FontAwesomeIcon icon={faBell}></FontAwesomeIcon>}>
+                        <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
+                        <NavDropdown.Item href="#action/3.2">Another action</NavDropdown.Item>
+                        <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
+
+                    </NavDropdown>
+                </Nav>
                 {
                     props.data === null || props.data === ''
                         ? (<>
 
-                            <li class="nav-item not-hover" style={{ paddingTop: '5px', textDecoration: 'none' }}>
+                            <li class="nav-item not-hover" style={{ paddingTop: '10px', textDecoration: 'none' }}>
                                 <Link to={'/login'}><a>Login</a></Link>
                             </li>
 
@@ -59,16 +69,17 @@ const Header = (props) => {
                         )
                         : (
                             <>
-                                <li class="nav-item not-hover">
-                                    <span style={{ color: 'black' }} > <FontAwesomeIcon icon={faUser} style={{ paddingTop: '10px', color: 'black' }} /></span>
 
-                                </li>
-                                <li class="nav-item not-hover" style={{ paddingTop: '5px', textDecoration: 'none' }}>
+                                <Nav>
+                                    <NavDropdown title={<FontAwesomeIcon icon={faUser}></FontAwesomeIcon>}>
+                                        <NavDropdown.Item href="#action/3.1">My profile</NavDropdown.Item>
+                                        <NavDropdown.Item href="#action/3.2">Another action</NavDropdown.Item>
+                                        <NavDropdown.Divider />
+                                        <NavDropdown.Item ><a onClick={logout} type="submit">Log out</a></NavDropdown.Item>
 
-                                    <a onClick={logout} type="submit" style={{ border: 'none', backgroundColor: 'white', paddingTop: '5px' }} >Log out</a>
-
-
-                                </li>
+                                    </NavDropdown>
+                                </Nav>
+                                
                             </>
                         )
                 }
@@ -76,6 +87,7 @@ const Header = (props) => {
 
 
             </ul>
+
 
 
 

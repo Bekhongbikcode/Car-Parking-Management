@@ -116,8 +116,8 @@
     width: 420px;
     height: 570px;
     box-sizing: border-box;
-    position: absolute;
-    z-index: 100;
+    /* position: absolute;
+    z-index: 0; */
     top: 9%;
     left: 10%;
     background: linear-gradient(0deg, rgb(255, 255, 255), rgb(255, 255, 255)), rgb(255, 255, 255);
@@ -194,10 +194,10 @@
   }
   
   .describe-system {
-    position: absolute;
+    /* position: absolute; */
     right: 10%;
     top: 35%;
-    z-index: 0;
+    /* z-index: 0; */
   }
   
   .describe-system h1 {
