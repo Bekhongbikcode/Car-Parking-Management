@@ -1,6 +1,6 @@
   .filter-id {
     margin-left: 7%;
-    margin-right: 180px;
+    margin-right: 80px;
     margin-top: 20px;
     margin-bottom: 20px;
   }
@@ -31,9 +31,10 @@
   .nav-custom-sercurity {
     margin-top: 25px !important;
     margin-bottom: 20px !important;
-    margin-left: 15px !important;
 
   }
+
+
 
   /* .nav-custom-sercurity a:active,
   .nav-custom-sercurity a.active {

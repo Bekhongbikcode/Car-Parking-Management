@@ -10,7 +10,7 @@ import Banking from './components/Payment/Banking';
 import ReservationComplete from './components/Payment/ReservationComplete';
 import ZoneDetail from './components/Zone/ZoneDetail';
 
-import ManagerHomePage from './components/Admin/Sercurity/ManagerHomepage';
+import ManagerHomePage from './components/Admin/ManagerHomepage';
 import ResidentManagement from './components/Admin/Sercurity/ResidentManagement';
 import CustomerManagement from './components/Admin/Sercurity/CustomerManagement';
 import InvoiceManagement from './components/Admin/Sercurity/InvoiceManagement';
@@ -30,6 +30,7 @@ import HistoryBooking from './components/Account/HistoryBooking';
 import ProfileSetting from './components/Account/ProfileSetting';
 import SerHomePage from './components/Admin/Sercurity/SerHomePage';
 import MoneyManagement from './components/Admin/Sercurity/MoneyManagement';
+import ResidentPage from './components/Main/ResidentPage';
 
 
 function App() {
@@ -68,6 +69,8 @@ function App() {
           <Route path='/cancelledbooking' element={<CancelledBooking />}></Route>
           <Route path='/profilesetting' element={<ProfileSetting />}></Route>
           <Route path='/account' element={<AccountInformation />}></Route>
+
+          <Route path='/ResidentPage' element={<ResidentPage></ResidentPage>}></Route>
 
         </Routes>
       </BrowserRouter>

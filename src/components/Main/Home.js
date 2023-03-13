@@ -56,9 +56,6 @@ const Home = () => {
         // window.location.href = '/Reservation';
     }
 
-    
-
-
     return (
         <HelmetProvider>
             <Helmet>
@@ -200,18 +197,12 @@ const Home = () => {
 
                                 <h5>Your staff can use our mobile app and read the QR code upon entry for speeding up the arrivals.</h5>
                             </span>
-
-
                         </div>
-
-
-
-
 
                     </div>
 
-
                 </div>
+
             </form>
             
             <Footer></Footer>

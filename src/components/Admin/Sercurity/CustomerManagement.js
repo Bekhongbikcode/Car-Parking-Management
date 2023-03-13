@@ -289,13 +289,13 @@ const CustomerManagement = () => {
             </form>
             <ul class="nav justify-content-center nav-custom nav-custom-sercurity">
                 <li class="nav-item" onClick={() => handleSetBuilding('A')}>
-                    <a class="nav-link" href="#"><FontAwesomeIcon style={{ marginRight: '10px' }} icon={faBuilding}></FontAwesomeIcon>Zone A</a>
+                    <a class="nav-link" href="#"><FontAwesomeIcon style={{ paddingRight: '10px' }} icon={faBuilding}></FontAwesomeIcon>Zone A</a>
                 </li>
                 <li class="nav-item" onClick={() => handleSetBuilding('B')}>
-                    <a class="nav-link" href="#"><FontAwesomeIcon style={{ marginRight: '10px' }} icon={faBuilding}></FontAwesomeIcon>Zone B</a>
+                    <a class="nav-link" href="#"><FontAwesomeIcon style={{ paddingRight: '10px' }} icon={faBuilding}></FontAwesomeIcon>Zone B</a>
                 </li>
                 <li class="nav-item" onClick={() => handleSetBuilding('C')}>
-                    <a class="nav-link" href="#"><FontAwesomeIcon style={{ marginRight: '10px' }} icon={faBuilding}></FontAwesomeIcon>Zone C</a>
+                    <a class="nav-link" href="#"><FontAwesomeIcon style={{ paddingRight: '10px' }} icon={faBuilding}></FontAwesomeIcon>Zone C</a>
                 </li>
             </ul>
 

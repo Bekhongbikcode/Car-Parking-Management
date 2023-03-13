@@ -3,7 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import Helmet from "react-helmet";
 import { HelmetProvider } from "react-helmet-async";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCheck, faTimes, faInfoCircle, faUser, faBell } from "@fortawesome/free-solid-svg-icons";
+import { faBars, faUser, faBell } from "@fortawesome/free-solid-svg-icons";
 import { Navbar, Nav, NavDropdown } from 'react-bootstrap';
 
 import './Complement.css'
@@ -39,7 +39,7 @@ const Header = (props) => {
                 <li class="nav-item">
                     <a class="nav-link" href="#">Location</a>
                 </li>
-                <Nav>
+                <Nav class="nav-item">
                     <NavDropdown title="More" id="basic-nav-dropdown">
                         <NavDropdown.Item href="#action/3.1">About Us</NavDropdown.Item>
                         <NavDropdown.Item href="#action/3.2">Contact Us</NavDropdown.Item>
@@ -47,7 +47,7 @@ const Header = (props) => {
 
                     </NavDropdown>
                 </Nav>
-                <Nav>
+                <Nav class="nav-item">
                     <NavDropdown title={<FontAwesomeIcon icon={faBell}></FontAwesomeIcon>}>
                         <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
                         <NavDropdown.Item href="#action/3.2">Another action</NavDropdown.Item>
@@ -70,7 +70,7 @@ const Header = (props) => {
                         : (
                             <>
 
-                                <Nav>
+                                <Nav class="nav-item">
                                     <NavDropdown title={<FontAwesomeIcon icon={faUser}></FontAwesomeIcon>}>
                                         <NavDropdown.Item href="#action/3.1">My profile</NavDropdown.Item>
                                         <NavDropdown.Item href="#action/3.2">Another action</NavDropdown.Item>
@@ -79,7 +79,7 @@ const Header = (props) => {
 
                                     </NavDropdown>
                                 </Nav>
-                                
+
                             </>
                         )
                 }
@@ -89,7 +89,19 @@ const Header = (props) => {
             </ul>
 
 
-
+            <Nav className="nav-item-responsive" style={{ display: 'block' }}>
+                <NavDropdown className="icon-nav-item-responsive" title={<FontAwesomeIcon icon={faBars}></FontAwesomeIcon>}>
+                    
+                        <NavDropdown.Item style={{width:'350px', marginLeft:'10'}}><Link to={'/'}> <a class="nav-link" href="#">Home</a></Link></NavDropdown.Item>
+                        <NavDropdown.Item><Link to={'/Reservation'}> <a class="nav-link" href="#">Reservation</a></Link></NavDropdown.Item>
+                        <NavDropdown.Item><a class="nav-link" href="#">Slots</a></NavDropdown.Item>
+                        <NavDropdown.Item><Link to={'/Price'}><a class="nav-link" href="#">Price</a></Link></NavDropdown.Item>
+                        <NavDropdown.Item><a class="nav-link" href="#">Location</a></NavDropdown.Item>
+                        <NavDropdown.Divider />
+                        <NavDropdown.Item ><a onClick={logout} type="submit">Log out</a></NavDropdown.Item>
+                    
+                </NavDropdown>
+            </Nav>
 
         </div>
 

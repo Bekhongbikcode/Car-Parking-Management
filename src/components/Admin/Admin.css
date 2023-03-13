@@ -53,6 +53,12 @@
   color: white !important;
 }
 
+.admin-nav-custom-title p{
+  font-size: 23px !important;
+  font-weight: bold;
+
+}
+
 .admin-nav-custom label {
   color: white !important;
   text-decoration: none;

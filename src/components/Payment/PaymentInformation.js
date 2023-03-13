@@ -179,7 +179,7 @@ const PaymentInformation = () => {
                     </form>
 
                 </div>
-                <img src={''} />
+                <img src={'../assets/img/visa.png'} />
                 <div className="payment-infor-detail" >
                     <span>Reservation ID</span>
                     <i>{bookingInf.id_Booking}</i>

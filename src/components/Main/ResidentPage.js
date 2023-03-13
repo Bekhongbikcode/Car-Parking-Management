@@ -1,22 +1,11 @@
-import AdminFooter from "../AdminPageFooter";
-import AdminHeader from "../AdminPageHeader";
+
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSpaceShuttle, faUserShield, faSquareParking, faFileInvoiceDollar, faUsers, faPersonShelter, faMoneyBill1Wave, faBuildingUser, faMoneyBillWave } from "@fortawesome/free-solid-svg-icons";
-import '../Admin.css'
-import CustomerManagement from "./CustomerManagement";
 import { Link, useNavigate } from "react-router-dom";
 import React, { useState, useEffect, useRef } from "react";
-import ResidentManagement from "./ResidentManagement";
-import BookingManagement from "./InvoiceManagement";
-import InvoiceManagement from "./InvoiceManagement";
-import SlotManagement from "./SlotManagement";
-import SercurityManagement from "../BuildingManager/SercurityManagement";
-import RevenueManagement from "../BuildingManager/RevenueManagement";
-import BuildingManagerManagement from "../HeadManager/BuildingManagerManagement";
-import RevenueAllManagement from "../HeadManager/RevenueAllBuilding";
-import MoneyManagement from "./MoneyManagement";
 
-const ManagerHomePage = () => {
+
+const ResidentPage = () => {
     const [logined, setLogined] = useState(localStorage.getItem("username"));
     const [role, setRole] = useState(localStorage.getItem('role'))
     const usenavigate = useNavigate();
@@ -107,16 +96,7 @@ const ManagerHomePage = () => {
                     </ul>
                 </div>
 
-                {select === 'Customers' ? <CustomerManagement></CustomerManagement>
-                    : select === 'Residents' ? <ResidentManagement></ResidentManagement>
-                        : select === 'Invoices' ? <InvoiceManagement></InvoiceManagement>
-                            : select === 'Slots' ? <SlotManagement></SlotManagement>
-                                : select === 'Sercurity' ? <SercurityManagement ></SercurityManagement>
-                                    : select === 'Revenue-building' ? <RevenueManagement></RevenueManagement>
-                                        : select === 'Building-manager' ? <BuildingManagerManagement></BuildingManagerManagement>
-                                            : select === 'Revenue-all' ? <RevenueAllManagement></RevenueAllManagement>
-                                                : <MoneyManagement></MoneyManagement>
-                }
+                
 
 
 
@@ -126,4 +106,4 @@ const ManagerHomePage = () => {
     );
 }
 
-export default ManagerHomePage;
+export default ResidentPage;
