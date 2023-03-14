@@ -3,12 +3,12 @@ import React, { useState, useEffect, useRef, useCallback } from "react";
 import PaginationInvoice from './PaginationInvoice';
 import './CommanDashBoard.css'
 import AdminHeader from '../AdminPageHeader';
+import {url_api} from "../../../API/api";
 
-
-const URL_Find_C_ID = 'https://cors-anywhere-production-8d5d.up.railway.app/https://parking-management-system-deploy-production-d240.up.railway.app/security/searchCustomerInvoiceId/';
-const URL_Find_R_ID = 'https://cors-anywhere-production-8d5d.up.railway.app/https://parking-management-system-deploy-production-d240.up.railway.app/security/searchResidentInvoiceId/';
-const URL_R = 'https://cors-anywhere-production-8d5d.up.railway.app/https://parking-management-system-deploy-production-d240.up.railway.app/security/findAllResidentInvoice'
-const URL_C = 'https://cors-anywhere-production-8d5d.up.railway.app/https://parking-management-system-deploy-production-d240.up.railway.app/security/findAllCustomerInvoice'
+const URL_Find_C_ID = url_api+"/security/searchCustomerInvoiceId/";
+const URL_Find_R_ID = url_api+"/security/searchResidentInvoiceId/";
+const URL_R = url_api+"/security/findAllResidentInvoice"
+const URL_C = url_api+"/security/findAllCustomerInvoice"
 
 
 const InvoiceManagement = () => {

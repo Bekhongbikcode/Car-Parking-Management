@@ -11,6 +11,7 @@ import Header from "../Complement/Header";
 import Footer from "../Complement/Footer";
 import ReservationDetail from "./ReservationDetail";
 import './Payment.css'
+import {url_api} from "../../API/api";
 
 
 const EMAIL_REGEX = /^[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[A-Za-z]+$/;
@@ -30,7 +31,7 @@ const PaymentInformation = () => {
     }, [type]);
 
     useEffect(() => {
-        fetch('https://cors-anywhere-production-8d5d.up.railway.app/https://parking-management-system-deploy-production-d240.up.railway.app/bookingCustomer/findBooking')
+        fetch(url_api+"/bookingCustomer/findBooking")
             .then(response => response.json())
             .then((data) => {
                 setBookingInf(data);
@@ -103,7 +104,7 @@ const PaymentInformation = () => {
 
         console.log(regObj)
 
-        fetch('https://cors-anywhere-production-8d5d.up.railway.app/https://parking-management-system-deploy-production-d240.up.railway.app/bookingCustomer/cancelBooking', {
+        fetch(url_api+"/bookingCustomer/cancelBooking", {
 
             method: 'POST',
             header: {

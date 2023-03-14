@@ -30,7 +30,7 @@ import HistoryBooking from './components/Account/HistoryBooking';
 import ProfileSetting from './components/Account/ProfileSetting';
 import SerHomePage from './components/Admin/Sercurity/SerHomePage';
 import MoneyManagement from './components/Admin/Sercurity/MoneyManagement';
-import ResidentPage from './components/Main/ResidentPage';
+import ResidentPage from './components/Resident/ResidentPage';
 
 
 function App() {

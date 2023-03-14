@@ -6,7 +6,8 @@ import React, { useState, useEffect, useRef } from "react";
 import { json, Link, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 
-import './Payment.css'
+import './Payment.css';
+import {url_api} from "../../API/api";
 
 const Banking = () => {
     const [name, setName] = useState('');
@@ -39,7 +40,7 @@ const Banking = () => {
         const type_Of_Payment = sessionStorage.getItem("typePayment");
         const id_Building = sessionStorage.getItem("idbuilding");
         const regObj = { id_Booking, type_Of_Payment, id_Building }
-        fetch('https://cors-anywhere-production-8d5d.up.railway.app/https://parking-management-system-deploy-production-d240.up.railway.app/paymentCustomer/save', {
+        fetch(url_api+"/paymentCustomer/save", {
 
             method: 'POST',
             header: {

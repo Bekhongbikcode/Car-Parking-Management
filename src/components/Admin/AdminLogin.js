@@ -7,10 +7,11 @@ import BackgroundCommon from "../Complement/BackgroundCommon";
 import Helmet from "react-helmet";
 import { HelmetProvider } from "react-helmet-async";
 import './AdminLogin.css'
+import { url_api } from "../../API/api";
 
 
 
-const LOGIN_URL = "https://cors-anywhere-production-8d5d.up.railway.app/https://parking-management-system-deploy-production-d240.up.railway.app/headManager/findByIdManager/"
+const LOGIN_URL = url_api + "/headManager/findByIdManager/"
 const PWD_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%]).{8,30}/;
 const EMAIL_REGEX = /^[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[A-Za-z]+$/;
 
@@ -34,7 +35,7 @@ const AdminLogin = () => {
         passwordupdate(password)
     }, [password]);
 
-    
+
 
     const ProceedLogin = (e) => {
         e.preventDefault();
@@ -69,7 +70,7 @@ const AdminLogin = () => {
                         sessionStorage.setItem('email', resp.email);
                         sessionStorage.setItem('phone', resp.phone);
                         sessionStorage.setItem('id', username);
-                        
+
                         if (resp.role == 3) {
                             console.log(resp.role)
                             toast.success('Success', resp.role);
@@ -82,7 +83,7 @@ const AdminLogin = () => {
                             localStorage.setItem('username', username);
                             localStorage.setItem('role', resp.role);
                             usenavigate('/ManagerHomepage')
-                        }else if (resp.role == 1) {
+                        } else if (resp.role == 1) {
                             console.log(resp.role)
                             toast.success('Success', resp.role);
                             localStorage.setItem('username', username);
@@ -91,15 +92,15 @@ const AdminLogin = () => {
                         } else {
                             toast.error('You are not a admin');
                         }
-                        
+
                     } else {
                         toast.error('Please Enter Correct Password');
                     }
                 }
             })
-            .catch((err) => {
-                toast.error('Login Failed due to :' + err.message);
-            });
+                .catch((err) => {
+                    toast.error('Login Failed due to :' + err.message);
+                });
         }
     }
 

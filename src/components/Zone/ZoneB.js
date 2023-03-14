@@ -1,12 +1,13 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import './Zone.css'
+import './Zone.css';
+import {url_api} from "../../API/api";
 function ZoneB() {
     const [shells, setShells] = useState([]);
     const [shellsR, setShellsR] = useState([]);
 
     useEffect(() => {
-        fetch('https://cors-anywhere-production-8d5d.up.railway.app/https://parking-management-system-deploy-production-d240.up.railway.app/present_slot/findAll/B')
+        fetch(url_api+'/present_slot/findAll/B')
             .then(response => response.json())
             .then((data) => {
                 setShells(data)

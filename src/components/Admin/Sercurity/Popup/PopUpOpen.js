@@ -1,12 +1,13 @@
 
 import React, { useState, useEffect, useRef, useCallback } from "react";
 import { toast } from "react-toastify";
+import {url_api} from "../../../../API/api";
 
-const URL = 'https://cors-anywhere-production-8d5d.up.railway.app/https://parking-management-system-deploy-production-d240.up.railway.app/present_slot/findAll/';
-const URL_Search_Res = 'https://cors-anywhere-production-8d5d.up.railway.app/https://parking-management-system-deploy-production-d240.up.railway.app/user/findById?id=';
-const URL_Book = 'https://cors-anywhere-production-8d5d.up.railway.app/https://parking-management-system-deploy-production-d240.up.railway.app/residentslot/saveResidentSlot'
-const URL_Infor_R_Slot = 'https://cors-anywhere-production-8d5d.up.railway.app/https://parking-management-system-deploy-production-d240.up.railway.app/security/ResponseResidentInfoSlot?id_Building='
-const URL_PAYMENT = 'https://cors-anywhere-production-8d5d.up.railway.app/https://parking-management-system-deploy-production-d240.up.railway.app/paymentResident/save'
+const URL = url_api+"/present_slot/findAll/";
+const URL_Search_Res = url_api+"/user/findById?id=";
+const URL_Book = url_api+"/residentslot/saveResidentSlot"
+const URL_Infor_R_Slot = url_api+"/security/ResponseResidentInfoSlot?id_Building="
+const URL_PAYMENT = url_api+"/paymentResident/save"
 
 const Popup = ({ handleClose, show }) => {
   const showHideClassName = show ? 'popup display-block' : 'popup display-none';

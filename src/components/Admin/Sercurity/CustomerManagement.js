@@ -9,11 +9,12 @@ import "react-toastify/dist/ReactToastify.css";
 import AdminHeader from '../AdminPageHeader';
 import { faBuilding } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import {url_api} from "../../../API/api";
 
-const URL_Find_All = 'https://cors-anywhere-production-8d5d.up.railway.app/https://parking-management-system-deploy-production-d240.up.railway.app/MoreFeatureGet/findByIdCustomer?idCustomer=';
-const URL = 'https://cors-anywhere-production-8d5d.up.railway.app/https://parking-management-system-deploy-production-d240.up.railway.app/security/ListAllCustomerFromBuilding/'
+const URL_Find_All = url_api+"/MoreFeatureGet/findByIdCustomer?idCustomer=";
+const URL = url_api+"/security/ListAllCustomerFromBuilding/";
 
-const REGISTER_URL = "https://cors-anywhere-production-8d5d.up.railway.app/https://parking-management-system-deploy-production-d240.up.railway.app/security/createCustomer";
+const REGISTER_URL = url_api+"/security/createCustomer";
 const USER_REGEX = /^[a-zA-Z][a-zA-Z0-9-_]{3,23}$/;
 const PWD_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%]).{8,30}/;
 const EMAIL_REGEX = /^[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[A-Za-z]+$/;

@@ -4,15 +4,16 @@ import { faCheck, faTimes, faInfoCircle, faUser } from "@fortawesome/free-solid-
 import { json, Link, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { Helmet, HelmetProvider } from 'react-helmet-async';
+import {url_api} from "../../../../API/api";
 
 const USER_REGEX = /^[a-zA-Z][a-zA-Z0-9-_]{3,23}$/;
 const PWD_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%]).{8,30}/;
 const EMAIL_REGEX = /^[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[A-Za-z]+$/;
 const PHONE_REGEX = /^[0-9]{10,12}$/;
 
-const URL = 'https://cors-anywhere-production-8d5d.up.railway.app/https://parking-management-system-deploy-production-d240.up.railway.app/security/updateCustomer_Resident?idUser='
-const URL_USER = 'https://cors-anywhere-production-8d5d.up.railway.app/https://parking-management-system-deploy-production-d240.up.railway.app/user/findById?id='
-const URL_SERCURITY = 'https://cors-anywhere-production-8d5d.up.railway.app/https://parking-management-system-deploy-production-d240.up.railway.app/buildingManager/updateSecurity?idUser='
+const URL = url_api+"/security/updateCustomer_Resident?idUser=";
+const URL_USER = url_api+"/user/findById?id=";
+const URL_SERCURITY = url_api+"/buildingManager/updateSecurity?idUser=";
 
 const PopUpEditUser = ({ handleClose, show, idUser, role }) => {
   const showHideClassName = show ? 'popup display-block' : 'popup display-none';

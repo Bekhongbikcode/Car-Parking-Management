@@ -3,7 +3,8 @@ import { Link } from "react-router-dom";
 import { toast } from "react-toastify";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {faArrowRight } from "@fortawesome/free-solid-svg-icons";
-import './Payment.css'
+import './Payment.css';
+import {url_api} from "../../API/api";
 
 const EMAIL_REGEX = /^[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[A-Za-z]+$/;
 const PHONE_REGEX = /^[0-9]{10,12}$/;
@@ -73,7 +74,7 @@ const ReservationDetail = () => {
     useEffect(() => {
         // if (zone === 'A') {
             console.log(zone)
-            fetch('https://cors-anywhere-production-8d5d.up.railway.app/https://parking-management-system-deploy-production-d240.up.railway.app/present_slot/findAll/'+zone)
+            fetch(url_api+"/present_slot/findAll/"+zone)
                 .then(response => response.json())
                 .then((data) => {
                     setShells(data)
@@ -114,7 +115,7 @@ const ReservationDetail = () => {
         const idUser = sessionStorage.getItem("id");
         const obj = { idUser, startDate, endDate, startTime, endTime, id_Building, type_Of_Vehicle, id_C_Slot, fullname, email, phone }
 
-        fetch('https://cors-anywhere-production-8d5d.up.railway.app/https://parking-management-system-deploy-production-d240.up.railway.app/bookingCustomer/save', {
+        fetch(url_api+"/bookingCustomer/save", {
             method: 'POST',
             header: {
 

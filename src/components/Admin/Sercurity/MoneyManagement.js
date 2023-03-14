@@ -8,11 +8,12 @@ import PopupInforSlot from './Popup/PopUpInforSlot';
 import { faBuilding } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import AdminHeader from '../AdminPageHeader';
+import {url_api} from "../../../API/api";
 
 
 
-const URL = 'https://cors-anywhere-production-8d5d.up.railway.app/https://parking-management-system-deploy-production-d240.up.railway.app/updatemoney/findAllMoney';
-const SAVE_URL = 'https://cors-anywhere-production-8d5d.up.railway.app/https://parking-management-system-deploy-production-d240.up.railway.app/updatemoney/save'
+const URL = url_api+"/updatemoney/findAllMoney";
+const SAVE_URL = url_api+"/updatemoney/save";
 const NUMBER_REGEX = /^[0-9]{10,12}$/;
 
 const MoneyManagement = () => {

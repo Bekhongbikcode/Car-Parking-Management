@@ -9,6 +9,7 @@ import Footer from "../Complement/Footer";
 import Slider from "../Complement/Slider";
 import './Main.css'
 import PopUpWarning from './PopUp/PopUpWarning';
+import {url_api} from "../../API/api";
 
 const URL_WARNING = '';
 

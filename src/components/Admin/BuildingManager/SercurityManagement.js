@@ -1,5 +1,6 @@
 import '../Admin.css'
 import React, { useState, useEffect, useRef } from "react";
+import {url_api} from "../../../API/api";
 
 
 
@@ -10,11 +11,11 @@ import PopUpEditUser from '../Sercurity/Popup/PopUpEditUser';
 import AdminHeader from '../AdminPageHeader';
 
 
-const URL_Find_All = 'https://cors-anywhere-production-8d5d.up.railway.app/https://parking-management-system-deploy-production-d240.up.railway.app/MoreFeatureGet/findByIdCustomer?idCustomer=';
-const URL = 'https://cors-anywhere-production-8d5d.up.railway.app/https://parking-management-system-deploy-production-d240.up.railway.app/buildingManager/findAllSecurity'
-const URL_PUT = 'https://cors-anywhere-production-8d5d.up.railway.app/https://parking-management-system-deploy-production-d240.up.railway.app/buildingManager/BanOrUnbanSecurity?idUser='
+const URL_Find_All = url_api+"/MoreFeatureGet/findByIdCustomer?idCustomer=";
+const URL = url_api+"/buildingManager/findAllSecurity";
+const URL_PUT = url_api+"/buildingManager/BanOrUnbanSecurity?idUser=";
 
-const REGISTER_URL = "https://cors-anywhere-production-8d5d.up.railway.app/https://parking-management-system-deploy-production-d240.up.railway.app/buildingManager/createSecurity";
+const REGISTER_URL = url_api+"/buildingManager/createSecurity";
 const USER_REGEX = /^[a-zA-Z][a-zA-Z0-9-_]{3,23}$/;
 const PWD_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%]).{8,30}/;
 const EMAIL_REGEX = /^[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[A-Za-z]+$/;
