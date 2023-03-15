@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import { url_api } from "../../../API/api";
+import { url_api } from "../../API/api";
 import { toast } from "react-toastify";
 
-function PaginationInvoice(props) {
+function PaginationHistoryInvoice(props) {
     const user = props.user;
     const [currentPage, setCurrentPage] = useState(1);
     const pageSize = props.pageSize || 10; // default to 10 if not provided
@@ -13,7 +13,6 @@ function PaginationInvoice(props) {
         setCurrentPage(page);
     };
 
-    // console.log(user)
 
     const renderPageNumbers = () => {
         const pageNumbers = [];
@@ -57,26 +56,13 @@ function PaginationInvoice(props) {
         return props.data.slice(start, end).map((item, index) => (
             <tr key={start + index}>
                 <td>{start + index + 1}</td>
-                <td>{user === 'Customer' ? item.id_C_Invoice : item.id_R_Invoice}</td>
                 <td>{item.id_Payment}</td>
-                <td>{user === 'Customer' ? item.id_Customer : item.id_Resident}</td>
+                <td>{item.id_R_Invoice}</td>
                 <td>{item.typeOfPayment}</td>
                 <td>{item.time}</td>
-                <td>{item.total_Of_Money.toLocaleString(undefined, { minimumFractionDigits: 2 })} VND</td>
-                <td style={{textAlign:'center'}}>
-
-
-                    {item.status ? (<a style={{ color: '#128207', fontWeight:'bold' }}>Complete</a>) 
-                    : 
-                    (<button style={{width:'150px', fontWeight:'bold', backgroundColor:'#CE1103', border:'0'}} onClick={() => { handleChangeStatus(item.id_C_Invoice) }}> Not Complete</button>)}
-
-
-                </td>
-                <td>
-                    <form>
-                        <button style={{ border: 'none', backgroundColor: '#2DC98A', color: 'white', width: '55px', borderRadius: '2px' }}>Edit</button>
-                    </form>
-                </td>
+                <td>{item.total_Of_Money}</td>
+                <td>{item.status }</td>
+               
             </tr>
         ));
     };
@@ -90,4 +76,4 @@ function PaginationInvoice(props) {
     );
 }
 
-export default PaginationInvoice;
+export default PaginationHistoryInvoice;

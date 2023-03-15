@@ -81,7 +81,7 @@ const ReservationComplete = () => {
                     <i>{sessionStorage.getItem("datebook")}, {sessionStorage.getItem("timebook")}</i>
                     <br />
                     <span>Price</span>
-                    <i>10.40</i>
+                    <i>{invoice.total_of_money} VND</i>
                     <br />
                     <span>Payments</span>
                     <i>{invoice.type_Of_Payment}</i>

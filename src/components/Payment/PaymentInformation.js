@@ -11,7 +11,7 @@ import Header from "../Complement/Header";
 import Footer from "../Complement/Footer";
 import ReservationDetail from "./ReservationDetail";
 import './Payment.css'
-import {url_api} from "../../API/api";
+import { url_api } from "../../API/api";
 
 
 const EMAIL_REGEX = /^[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[A-Za-z]+$/;
@@ -31,7 +31,7 @@ const PaymentInformation = () => {
     }, [type]);
 
     useEffect(() => {
-        fetch(url_api+"/bookingCustomer/findBooking")
+        fetch(url_api + "/bookingCustomer/findBooking")
             .then(response => response.json())
             .then((data) => {
                 setBookingInf(data);
@@ -42,6 +42,7 @@ const PaymentInformation = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+        alert('Do you want to choose: ' + type + ' is type of payment?')
         console.log(bookingInf.id_Booking);
         console.log(type)
         sessionStorage.setItem("idbooking", bookingInf.id_Booking);
@@ -94,6 +95,7 @@ const PaymentInformation = () => {
 
     const handleCancel = async (e) => {
         e.preventDefault();
+        alert('Do you want to Cancel your Reservation?')
         const id_booking = bookingInf.id_Booking;
         const id_Customer = username;
         const id_Building = obj.id_Building;
@@ -104,7 +106,7 @@ const PaymentInformation = () => {
 
         console.log(regObj)
 
-        fetch(url_api+"/bookingCustomer/cancelBooking", {
+        fetch(url_api + "/bookingCustomer/cancelBooking", {
 
             method: 'POST',
             header: {
@@ -128,6 +130,7 @@ const PaymentInformation = () => {
         });
 
     }
+    console.log(obj.total_Of_Money)
 
     return (
         <div>
@@ -170,7 +173,7 @@ const PaymentInformation = () => {
                     <label style={{ marginLeft: '-20%', marginTop: '20px', width: '700px' }}>Payment method *</label>
                     <br />
 
-                    <select className="form-select" style={{ width: '35%', marginLeft: '-20%', float: 'left' }} onChange={e => setType(e.target.value)} value={type} >
+                    <select className="form-select" style={{ width: '40%', marginLeft: '-20%', float: 'left' }} onChange={e => setType(e.target.value)} value={type} >
                         <option> <FontAwesomeIcon icon={faCashRegister}></FontAwesomeIcon> Cash</option>
                         <option>Banking</option>
                     </select>
@@ -213,13 +216,13 @@ const PaymentInformation = () => {
                     <i>Not completed</i>
                     <br />
                     <span>Price</span>
-                    <i >{obj.total_Of_Money}</i>
+                    <i>{bookingInf.total_Of_Money} VND</i>
                     <br />
 
 
                 </div>
 
-                <button onClick={handleCancel}>Cancel Reservation</button>
+                <button onClick={handleCancel} style={{ backgroundColor: '#E63E31', border: '0px' }}>Cancel Reservation</button>
 
             </div>
 

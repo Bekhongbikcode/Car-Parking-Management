@@ -41,7 +41,7 @@ const RevenueManagement = () => {
                     {item.map((item) => (
                         <tr key={item.id_Building}>
                             <td>{item.id_Building}</td>
-                            <td>{item.income}</td>
+                            <td>{item.income.toLocaleString(undefined, { minimumFractionDigits: 2 })} VND</td>
                             <td>{item.id_manager}</td>
                             <td>{item.countCustomer}</td>
                             <td>{item.countResident}</td>

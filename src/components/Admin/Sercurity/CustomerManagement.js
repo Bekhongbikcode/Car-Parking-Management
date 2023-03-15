@@ -19,6 +19,7 @@ const USER_REGEX = /^[a-zA-Z][a-zA-Z0-9-_]{3,23}$/;
 const PWD_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%]).{8,30}/;
 const EMAIL_REGEX = /^[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[A-Za-z]+$/;
 const PHONE_REGEX = /^[0-9]{10,12}$/;
+const ROLE = 'C'
 
 const CustomerManagement = () => {
     const [customers, setCustomers] = useState([]);
@@ -337,7 +338,7 @@ const CustomerManagement = () => {
                         </form>
                     </th>
                 </tr>
-                {idNull ? (<PaginationUser data={customers}></PaginationUser>)
+                {idNull ? (<PaginationUser data={customers} role = {'C'}></PaginationUser>)
 
                     : (
                         <tbody><tr >

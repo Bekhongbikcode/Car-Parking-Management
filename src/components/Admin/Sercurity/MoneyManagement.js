@@ -152,63 +152,63 @@ const MoneyManagement = () => {
                 <tbody>
                     <tr>
                         <th>car_MONEY_BY_HOUR</th>
-                        <th>{obj.car_MONEY_BY_HOUR}</th>
+                        <th>{obj.car_MONEY_BY_HOUR} VND</th>
                         <th>
                             <input style={{ width: '40%', borderRadius: '0px' }} type={'text'} onChange={(e) => set_Car_MONEY_BY_HOUR(e.target.value)} />
                         </th>
                     </tr>
                     <tr>
                         <th>bike_MONEY_BY_HOUR</th>
-                        <th>{obj.bike_MONEY_BY_HOUR}</th>
+                        <th>{obj.bike_MONEY_BY_HOUR} VND</th>
                         <th>
                             <input style={{ width: '40%', borderRadius: '0px' }} type={'text'} onChange={(e) => set_bike_MONEY_BY_HOUR(e.target.value)} />
                         </th>
                     </tr>
                     <tr>
                         <th>moto_MONEY_BY_HOUR</th>
-                        <th>{obj.moto_MONEY_BY_HOUR}</th>
+                        <th>{obj.moto_MONEY_BY_HOUR} VND</th>
                         <th>
                             <input style={{ width: '40%', borderRadius: '0px' }} type={'text'} onChange={(e) => set_moto_MONEY_BY_HOUR(e.target.value)} />
                         </th>
                     </tr>
                     <tr>
                         <th>car_MONEY_BY_DAY</th>
-                        <th>{obj.car_MONEY_BY_DAY}</th>
+                        <th>{obj.car_MONEY_BY_DAY} VND</th>
                         <th>
                             <input style={{ width: '40%', borderRadius: '0px' }} type={'hidden'} onChange={(e) => set_car_MONEY_BY_DAY(e.target.value)} />
                         </th>
                     </tr>
                     <tr>
                         <th>bike_MONEY_BY_DAY</th>
-                        <th>{obj.bike_MONEY_BY_DAY}</th>
+                        <th>{obj.bike_MONEY_BY_DAY} VND</th>
                         <th>
                             <input style={{ width: '40%', borderRadius: '0px' }} type={'hidden'} onChange={(e) => set_bike_MONEY_BY_DAY(e.target.value)} />
                         </th>
                     </tr>
                     <tr>
                         <th>moto_MONEY_BY_DAY</th>
-                        <th>{obj.moto_MONEY_BY_DAY}</th>
+                        <th>{obj.moto_MONEY_BY_DAY} VND</th>
                         <th>
                             <input style={{ width: '40%', borderRadius: '0px' }} type={'hidden'} onChange={(e) => set_moto_MONEY_BY_DAY(e.target.value)} />
                         </th>
                     </tr>
                     <tr>
                         <th>car_MONEY_BY_MONTH</th>
-                        <th>{obj.car_MONEY_BY_MONTH}</th>
+                        <th>{obj.car_MONEY_BY_MONTH} VND</th>
                         <th>
                             <input style={{ width: '40%', borderRadius: '0px' }} type={'hidden'} onChange={(e) => set_car_MONEY_BY_MONTH(e.target.value)} />
                         </th>
                     </tr>
                     <tr>
                         <th>bike_MONEY_BY_MONTH</th>
-                        <th>{obj.bike_MONEY_BY_MONTH}</th>
+                        <th>{obj.bike_MONEY_BY_MONTH} VND</th>
                         <th>
                             <input style={{ width: '40%', borderRadius: '0px' }} type={'hidden'} onChange={(e) => set_bike_MONEY_BY_MONTH(e.target.value)} />
                         </th>
                     </tr>
                     <tr>
-                        <th>moto_MONEY_BY_MONTH</th>
-                        <th>{obj.moto_MONEY_BY_MONTH}</th>
+                        <th>moto_MONEY_BY_MONTH</th> 
+                        <th>{obj.moto_MONEY_BY_MONTH} VND</th>
                         <th>
                             <input style={{ width: '40%', borderRadius: '0px' }} type={'hidden'} onChange={(e) => set_moto_MONEY_BY_MONTH(e.target.value)} />
                         </th>

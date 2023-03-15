@@ -10,7 +10,7 @@ import {url_api} from "../../API/api"
 
 // const LOGIN_URL = "https://0c1a-42-118-112-251.ap.ngrok.io/ParkingManagement/api/user/getUser/";
 
-const LOGIN_URL = url_api + "/user/findById?id="
+const LOGIN_URL = url_api + "/loginAccount?"
 const PWD_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%]).{8,30}/;
 const EMAIL_REGEX = /^[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[A-Za-z]+$/;
 
@@ -39,7 +39,7 @@ const Login = () => {
         if (validate()) {
             ///implentation
             console.log(username)
-            fetch(LOGIN_URL + username, {
+            fetch(LOGIN_URL + "username="+username +"&password=" + password, {
                 headers: {
                     method: 'GET',
                     "X-Requested-With": "XMLHttpRequest",
@@ -61,22 +61,22 @@ const Login = () => {
                 } else {
                     if (resp.password === password) {
                         console.log(resp);
-                        toast.success('Success');
+                        toast.success(resp.message);
                         sessionStorage.setItem('username', username);
                         sessionStorage.setItem('fullname', resp.fullname);
                         sessionStorage.setItem('email', resp.email);
                         sessionStorage.setItem('phone', resp.phone);
                         sessionStorage.setItem('id', username);
-                        // window.location.href ='/'
+                        window.location.href ='/'
                         usenavigate('/');
                     } else {
                         toast.error('Please Enter Correct Password');
                     }
                 }
             })
-            // .catch((err) => {
-            //     toast.error('Login Failed due to :' + err.message);
-            // });
+            .catch((err) => {
+                toast.error('Login Failed due to :' + err.message);
+            });
         }
     }
 

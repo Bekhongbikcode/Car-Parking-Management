@@ -119,7 +119,7 @@ const InvoiceManagement = () => {
     return (
         <div className="admin-homepage-dashboard">
         <AdminHeader></AdminHeader>
-            <form className='filter-id justify-content-center' style={{ textAlign: 'left', marginTop: '30px', float: 'left', marginRight:'350px' }}  onSubmit={handleIdFilter}>
+            <form className='filter-id justify-content-center' style={{ textAlign: 'left', marginTop: '30px', float: 'left', marginRight:'230px' }}  onSubmit={handleIdFilter}>
                 Filter by ID:
                 <input  type="text" onChange={e => setId(e.target.value)} />
                 <button type='submit'>Search</button>
@@ -145,8 +145,8 @@ const InvoiceManagement = () => {
                         <th>Type Of Payment</th>
                         <th>Time</th>
                         <th>Total Of Money</th>
-                        <th>Status</th>
-                        <th>Action</th>
+                        <th style={{textAlign:'center'}}>Status</th>
+                        <th >Action</th>
                     </tr>
 
                 </thead>

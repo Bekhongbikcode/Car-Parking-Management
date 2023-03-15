@@ -114,7 +114,7 @@ const ReservationDetail = () => {
         const fullname = fullName;
         const idUser = sessionStorage.getItem("id");
         const obj = { idUser, startDate, endDate, startTime, endTime, id_Building, type_Of_Vehicle, id_C_Slot, fullname, email, phone }
-
+        console.log(obj)
         fetch(url_api+"/bookingCustomer/save", {
             method: 'POST',
             header: {

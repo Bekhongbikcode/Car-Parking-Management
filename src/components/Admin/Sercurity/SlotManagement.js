@@ -15,7 +15,7 @@ const URL = url_api+"/present_slot/findAll/";
 const URL_Search_Res = url_api+"/user/findById?id=";
 const URL_Book = url_api+"/residentslot/saveResidentSlot"
 const URL_Infor_R_Slot = url_api+"/security/ResponseResidentInfoSlot?id_Building="
-const URL_Infor_C_Slot = url_api+"/ResponseCustomerInfoSlot?id_Building="
+const URL_Infor_C_Slot = url_api+"/security/ResponseCustomerInfoSlot?id_Building="
 
 const SlotManagement = () => {
 
