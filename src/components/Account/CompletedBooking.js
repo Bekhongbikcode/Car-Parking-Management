@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import 'bootstrap/dist/css/bootstrap.min.css';
 import { Container, Table } from 'react-bootstrap'
-import HeaderAccount from './HeaderAccount';
+import { NavLink } from 'react-router-dom';
 import BodyLink from './BodyLink';
-import FooterAccount from './FooterAccount';
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 
 function CompletedBooking() {
     const [history, setHistory] = useState([]);
@@ -18,14 +18,18 @@ function CompletedBooking() {
     }, [])
     return (
         <div>
-            <HeaderAccount />
-            <div style={{ display: "flex", marginTop:"5%", marginBottom:"10%" }}>
+            <div style={{ display: "flex" }}>
 
                 <BodyLink />
                 <Container>
-                    <Table className='table-stripped'>
+                    <div style={{ borderBottom: "1px solid black", display: "flex", marginTop: "5%" }}>
+                        <img src={'../assets/img/logo.png'} style={{ width: "150px", height: "40px", marginLeft: "30px", marginBottom: "10px" }}></img>
+                        <NavLink className='logo' to='/login' style={{ color: "black", marginLeft: "70%", textDecoration: "none" }}><i class="bi bi-bookmark-fill"></i> Log out</NavLink>
+
+                    </div>
+                    <Table striped className='table-stripped' style={{ marginTop: "5%" }}>
                         <thead>
-                            <tr>
+                            <tr style={{ backgroundColor: "#263544", color: "white" }}>
                                 <th data-field="id" style={{ textAlign: "center" }}>
                                     Start Date
                                 </th>
@@ -65,7 +69,6 @@ function CompletedBooking() {
                     </Table>
                 </Container>
             </div>
-            <FooterAccount />
         </div>
     )
 }

@@ -72,7 +72,7 @@ const Header = (props) => {
 
                                 <Nav class="nav-item">
                                     <NavDropdown title={<FontAwesomeIcon icon={faUser}></FontAwesomeIcon>}>
-                                        <NavDropdown.Item href="#action/3.1">My profile</NavDropdown.Item>
+                                        <NavDropdown.Item href="/account">My profile</NavDropdown.Item>
                                         <NavDropdown.Item href="#action/3.2">Another action</NavDropdown.Item>
                                         <NavDropdown.Divider />
                                         <NavDropdown.Item ><a onClick={logout} type="submit">Log out</a></NavDropdown.Item>

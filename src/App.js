@@ -28,6 +28,7 @@ import CancelledBooking from './components/Account/CancelledBooking';
 import CompletedBooking from './components/Account/CompletedBooking';
 import HistoryBooking from './components/Account/HistoryBooking';
 import ProfileSetting from './components/Account/ProfileSetting';
+
 import SerHomePage from './components/Admin/Sercurity/SerHomePage';
 import MoneyManagement from './components/Admin/Sercurity/MoneyManagement';
 import ResidentPage from './components/Resident/ResidentPage';
