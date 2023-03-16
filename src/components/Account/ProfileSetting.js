@@ -97,9 +97,9 @@ function ProfileSetting() {
                                 <input type="text" class="form-control" id="floatingInput" placeholder="Input Phone" onChange={(e) => setPhone(e.target.value)} />
                                 <label for="floatingInput">Phone</label>
                             </div>
-                            <div class="form-group">
+                            {/* <div class="form-group">
                                 <input type="file" class="form-control-file" onChange={(e) => setImg(e.target.value)} />
-                            </div>
+                            </div> */}
                             <div>
                                 <button type="submit" style={{ backgroundColor: "#2DC98A", color: "white", border: "none", borderRadius: "10%", padding: "10px 20px", marginBottom: "10px", marginLeft: "50%" }}>Saves</button>
                                 <ToastContainer />
