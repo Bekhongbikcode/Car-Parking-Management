@@ -15,7 +15,7 @@ function BodyLink() {
                 <FontAwesomeIcon icon={faCoffee} beatFade /> <h5 style={{ marginLeft: "20px" }}>User Page</h5>
             </div>
             <h6 style={{ color: "#2dc98a", fontWeight: "bolder", textAlign: "left", marginBottom: "30px" }}>Account</h6>
-            <NavLink to='/account'><li><FontAwesomeIcon icon={faAdd} astyle={{ marginRight: "20px" }} /> Account</li></NavLink>
+            <NavLink to='/account'><li><FontAwesomeIcon icon={faAdd} style={{ marginRight: "20px" }} />Account</li></NavLink>
             <NavLink to='/profilesetting'><li><FontAwesomeIcon icon={fa6} style={{ marginRight: "20px" }} />Profile Setting</li></NavLink>
 
             <h6 style={{ color: "#2dc98a", fontWeight: "bolder", textAlign: "left", marginBottom: "30px" }}>Setting</h6>
