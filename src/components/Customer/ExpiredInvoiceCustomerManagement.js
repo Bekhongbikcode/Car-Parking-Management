@@ -2,32 +2,53 @@
 import React, { useState, useEffect, useRef, useCallback } from "react";
 
 import AdminHeader from '../Admin/AdminPageHeader';
-import PaginationHistoryInvoice from "./PanationResidentHistoryInvoice";
+import PaginationHistoryInvoice from "./PanationCustomerHistoryInvoice";
 import { url_api } from "../../API/api";
-import PaginationExpiredInvoice from "./PaginationExpriedInvoice";
+import PaginationExpiredInvoice from "./PaginationExpriedCustomerInvoice";
+import PaginationExpiredCustomerInvoice from "./PaginationExpriedCustomerInvoice";
 
 
 
-const URL_HISTORY= url_api+"/expired/checkExpiredR/"
+const URL_HISTORY = url_api + "/expired/checkExpiredC/"
 
 
-const ExpiredInvoiceManagement = () => {
+const ExpiredInvoiceCustomerManagement = () => {
     const [obj, setObj] = useState([]);
     const [id, setId] = useState('');
     const [idNull, setIdNull] = useState(true);
     const [user, setUser] = useState('Resident');
     const [URLby, setURLby] = useState('');
-
-    const[idUser, setIdUser] = useState(sessionStorage.getItem('id'));
+    const [role, setRole] = useState(sessionStorage.getItem('role'));
+    const [idUser, setIdUser] = useState(sessionStorage.getItem('id'));
 
     const handleSetBuilding = useCallback((item) => {
         setUser(item);
     }, []);
 
-    
+
     useEffect(() => {
         console.log(URL_HISTORY + idUser);
-        fetch(URL_HISTORY + idUser)
+        const currentDate = new Date(Date.now());
+        const formattedDate = currentDate.toISOString().substr(0, 10);
+        const now = new Date();
+        const hours = now.getHours();
+        const minutes = now.getMinutes();
+        const seconds = now.getSeconds();
+        const currentTime = `${hours}:${minutes}:${seconds}`;
+        const regObj = { formattedDate, currentTime }
+        fetch(URL_HISTORY + idUser,
+            {
+                method: 'POST',
+                header: {
+                    "Access-Control-Allow-Origin": URL_HISTORY + idUser,
+                    "Accept": "*/*",
+                    "Content-Type": "application/text",
+                    "X-Requested-With": "XMLHttpRequest",
+                    "Cache-Control": "no-cache",
+                },
+                body: JSON.stringify(regObj)
+            }
+        )
             .then(response => response.json())
             .then((data) => {
                 setObj(data);
@@ -41,7 +62,7 @@ const ExpiredInvoiceManagement = () => {
     const handleIdFilter = async (e) => {
 
         e.preventDefault();
-       
+
 
     }
 
@@ -66,9 +87,9 @@ const ExpiredInvoiceManagement = () => {
 
     return (
         <div className="admin-homepage-dashboard">
-   
-           
-            
+
+
+
             <table className="table table-striped">
                 <thead>
                     <tr>
@@ -85,7 +106,7 @@ const ExpiredInvoiceManagement = () => {
                 </thead>
                 {idNull ?
                     (
-                        <PaginationExpiredInvoice data={obj}></PaginationExpiredInvoice>
+                        <PaginationExpiredCustomerInvoice data={obj}></PaginationExpiredCustomerInvoice>
                     )
                     : (
                         <tbody>
@@ -113,4 +134,4 @@ const ExpiredInvoiceManagement = () => {
     );
 }
 
-export default ExpiredInvoiceManagement;
+export default ExpiredInvoiceCustomerManagement;

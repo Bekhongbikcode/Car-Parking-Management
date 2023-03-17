@@ -65,7 +65,7 @@ const HistoryResidentInvoiceManagement = () => {
 
     return (
         <div className="admin-homepage-dashboard">
-        <AdminHeader></AdminHeader>
+        
            
             
             <table className="table table-striped">

@@ -11,6 +11,8 @@ const Header = (props) => {
     const usenavigate = useNavigate();
     const [customerlist, listupdate] = useState(null);
     const [displayusername, displayusernameupdate] = useState('');
+    const [role, setRole] = useState(sessionStorage.getItem("role"));
+    const [idUser, setIdUser] = useState(sessionStorage.getItem("id"));
     console.log(props.data)
     const logout = () => {
         sessionStorage.removeItem('username')
@@ -72,7 +74,10 @@ const Header = (props) => {
 
                                 <Nav class="nav-item">
                                     <NavDropdown title={<FontAwesomeIcon icon={faUser}></FontAwesomeIcon>}>
-                                        <NavDropdown.Item href="/account">My profile</NavDropdown.Item>
+                                        <NavDropdown.Item>
+                                            <Link to={'/CustomerPage'}>My profile</Link>
+
+                                        </NavDropdown.Item>
                                         <NavDropdown.Item href="#action/3.2">Another action</NavDropdown.Item>
                                         <NavDropdown.Divider />
                                         <NavDropdown.Item ><a onClick={logout} type="submit">Log out</a></NavDropdown.Item>
@@ -91,15 +96,15 @@ const Header = (props) => {
 
             <Nav className="nav-item-responsive" style={{ display: 'block' }}>
                 <NavDropdown className="icon-nav-item-responsive" title={<FontAwesomeIcon icon={faBars}></FontAwesomeIcon>}>
-                    
-                        <NavDropdown.Item style={{width:'350px', marginLeft:'10'}}><Link to={'/'}> <a class="nav-link" href="#">Home</a></Link></NavDropdown.Item>
-                        <NavDropdown.Item><Link to={'/Reservation'}> <a class="nav-link" href="#">Reservation</a></Link></NavDropdown.Item>
-                        <NavDropdown.Item><a class="nav-link" href="#">Slots</a></NavDropdown.Item>
-                        <NavDropdown.Item><Link to={'/Price'}><a class="nav-link" href="#">Price</a></Link></NavDropdown.Item>
-                        <NavDropdown.Item><a class="nav-link" href="#">Location</a></NavDropdown.Item>
-                        <NavDropdown.Divider />
-                        <NavDropdown.Item ><a onClick={logout} type="submit">Log out</a></NavDropdown.Item>
-                    
+
+                    <NavDropdown.Item style={{ width: '350px', marginLeft: '10' }}><Link to={'/'}> <a class="nav-link" href="#">Home</a></Link></NavDropdown.Item>
+                    <NavDropdown.Item><Link to={'/Reservation'}> <a class="nav-link" href="#">Reservation</a></Link></NavDropdown.Item>
+                    <NavDropdown.Item><a class="nav-link" href="#">Slots</a></NavDropdown.Item>
+                    <NavDropdown.Item><Link to={'/Price'}><a class="nav-link" href="#">Price</a></Link></NavDropdown.Item>
+                    <NavDropdown.Item><a class="nav-link" href="#">Location</a></NavDropdown.Item>
+                    <NavDropdown.Divider />
+                    <NavDropdown.Item ><a onClick={logout} type="submit">Log out</a></NavDropdown.Item>
+
                 </NavDropdown>
             </Nav>
 

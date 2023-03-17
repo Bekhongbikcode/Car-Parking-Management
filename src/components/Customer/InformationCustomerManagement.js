@@ -12,7 +12,7 @@ const PWD_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%]).{8,30}/;
 const EMAIL_REGEX = /^[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[A-Za-z]+$/;
 const PHONE_REGEX = /^[0-9]{10,12}$/;
 
-const InformationResidentManagement = () => {
+const InformationCustomerManagement = () => {
 
     const [obj, setObj] = useState([]);
     const [id, setId] = useState('');
@@ -269,4 +269,4 @@ const InformationResidentManagement = () => {
 
 }
 
-export default InformationResidentManagement;
+export default InformationCustomerManagement;

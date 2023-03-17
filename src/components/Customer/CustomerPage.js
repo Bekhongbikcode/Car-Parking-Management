@@ -1,19 +1,21 @@
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faSpaceShuttle, faUserShield, faSquareParking, faFileInvoiceDollar, faUsers, faPersonShelter, faMoneyBill1Wave, faBuildingUser, faMoneyBillWave } from "@fortawesome/free-solid-svg-icons";
+import { faSpaceShuttle, faHome, faSquareParking, faFileInvoiceDollar, faUsers, faPersonShelter, faSignOut, faBuildingUser, faMoneyBillWave } from "@fortawesome/free-solid-svg-icons";
 import { Link, useNavigate } from "react-router-dom";
 import React, { useState, useEffect, useRef } from "react";
-import './Resident.css';
-import HistoryResidentInvoiceManagement from "./HistoryResidentInvoiceManagement";
-import ExpiredInvoiceManagement from "./ExpiredInvoiceManagement";
-import InformationResidentManagement from "./InformationResidentManagement";
+import InformationCustomerManagement from "./InformationCustomerManagement";
+import HistoryCustomerInvoiceManagement from "./HistoryCustomerInvoiceManagement";
+import ExpiredInvoiceCustomerManagement from "./ExpiredInvoiceCustomerManagement";
 
 
-const ResidentPage = () => {
+
+const CustomerPage = () => {
     const [logined, setLogined] = useState(localStorage.getItem("username"));
     const [role, setRole] = useState(localStorage.getItem('role'));
     const usenavigate = useNavigate();
 
+
+    
 
     const [select, setSelect] = useState('Customers');
 
@@ -41,6 +43,11 @@ const ResidentPage = () => {
 
     })
 
+    const logout = () => {
+        sessionStorage.removeItem('username')
+        window.location.href = '/login';
+    }
+
     return (
         <div>
 
@@ -65,16 +72,23 @@ const ResidentPage = () => {
                         <li tabindex="0" class="nav-item" onClick={() => handleItemClick('Slots')}>
                             <a className="nav-link active" href="#"><FontAwesomeIcon style={{ paddingRight: '30px' }} icon={faSquareParking}></FontAwesomeIcon>Slots</a>
                         </li>
+                        <li tabindex="0" class="nav-item" >
+                            <a className="nav-link active" href="/"><FontAwesomeIcon style={{ paddingRight: '30px' }} icon={faHome}></FontAwesomeIcon>Home Page</a>
+                        </li>
+                        <li tabindex="0" class="nav-item" onClick={logout}>
+                            <a className="nav-link active" ><FontAwesomeIcon style={{ paddingRight: '30px' }} icon={faSignOut}></FontAwesomeIcon>Log out</a>
+                        </li>
+                        
 
 
 
                     </ul>
 
                 </div>
-                {select === 'Your-Information' ? <InformationResidentManagement></InformationResidentManagement>
-                    : select === 'Your-Invoice-History' ? <HistoryResidentInvoiceManagement></HistoryResidentInvoiceManagement>
-                        : select === 'Expired-Invoices' ? <ExpiredInvoiceManagement></ExpiredInvoiceManagement>
-                            : <HistoryResidentInvoiceManagement></HistoryResidentInvoiceManagement>
+                {select === 'Your-Information' ? <InformationCustomerManagement></InformationCustomerManagement>
+                    : select === 'Your-Invoice-History' ? <HistoryCustomerInvoiceManagement></HistoryCustomerInvoiceManagement>
+                        : select === 'Expired-Invoices' ? <ExpiredInvoiceCustomerManagement></ExpiredInvoiceCustomerManagement>
+                            : <HistoryCustomerInvoiceManagement></HistoryCustomerInvoiceManagement>
 
                 }
 
@@ -88,4 +102,4 @@ const ResidentPage = () => {
     );
 }
 
-export default ResidentPage;
+export default CustomerPage;

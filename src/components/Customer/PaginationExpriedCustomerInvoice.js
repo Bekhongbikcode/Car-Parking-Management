@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { url_api } from "../../API/api";
 import { toast } from "react-toastify";
 
-function PaginationHistoryInvoice(props) {
+function PaginationExpiredCustomerInvoice(props) {
     const user = props.user;
     const [currentPage, setCurrentPage] = useState(1);
     const pageSize = props.pageSize || 10; // default to 10 if not provided
@@ -56,15 +56,18 @@ function PaginationHistoryInvoice(props) {
         return props.data.slice(start, end).map((item, index) => (
             <tr key={start + index}>
                 <td>{start + index + 1}</td>
-                <td>{item.id_R_Invoice}</td>
-                <td>{item.id_Payment}</td>
-                <td>{item.id_Booking}</td>
-                <td>{item.startDate}</td>
-                <td>{item.endDate}</td>
-                <td>{item.typeOfPayment}</td>
-                <td>{item.time}</td>
-                <td>{item.total_Of_Money} VND</td>
-                <td>{item.status }</td>
+                <td>{item.id_invoice}</td>
+                <td>{item.end_date} - {item.end_time}</td>
+                <td>{item.current_date} - {item.current_time}</td>
+                <td>{item.expired} hours</td>
+                <td>{item.fine} VND</td>
+                <td style={!item.warning ? {color:'#259645', fontWeight:'bold'} : {color:'#E74032', fontWeight:'bold'}}
+                
+                >{item.warning ? "Not Complete" : "Completed"}</td>
+                <td>
+                    <button>Payment</button>
+                </td>
+                
                
             </tr>
         ));
@@ -79,4 +82,4 @@ function PaginationHistoryInvoice(props) {
     );
 }
 
-export default PaginationHistoryInvoice;
+export default PaginationExpiredCustomerInvoice;

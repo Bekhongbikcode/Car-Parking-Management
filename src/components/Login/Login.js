@@ -6,7 +6,7 @@ import { faCheck, faTimes, faInfoCircle, faUser } from "@fortawesome/free-solid-
 import BackgroundCommon from "../Complement/BackgroundCommon";
 import Helmet from "react-helmet";
 import { HelmetProvider } from "react-helmet-async";
-import {url_api} from "../../API/api"
+import { url_api } from "../../API/api"
 
 // const LOGIN_URL = "https://0c1a-42-118-112-251.ap.ngrok.io/ParkingManagement/api/user/getUser/";
 
@@ -17,6 +17,7 @@ const EMAIL_REGEX = /^[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[A-Za-z]+$/;
 const Login = () => {
     const [username, usernameupdate] = useState('');
     const [password, passwordupdate] = useState('');
+    const [role, setRole] = useState('');
 
     const usenavigate = useNavigate();
 
@@ -39,7 +40,7 @@ const Login = () => {
         if (validate()) {
             ///implentation
             console.log(username)
-            fetch(LOGIN_URL + "username="+username +"&password=" + password, {
+            fetch(LOGIN_URL + "username=" + username + "&password=" + password, {
                 headers: {
                     method: 'GET',
                     "X-Requested-With": "XMLHttpRequest",
@@ -48,35 +49,47 @@ const Login = () => {
                     "Cache-Control": "no-cache",
                     mode: 'cors'
                 }
-                
+
             }).then((res) => {
                 console.log(res.json)
                 return res.json();
-                
+
             }).then((resp) => {
                 console.log(resp.password)
                 console.log(resp)
                 if (Object.keys(resp).length === 0) {
-                    toast.error('Please Enter valid username');
+                    toast.error('Please Enter valid username' );
                 } else {
-                    if (resp.password === password) {
-                        console.log(resp);
-                        toast.success(resp.message);
+                     if (resp.password === password) {
                         sessionStorage.setItem('username', username);
                         sessionStorage.setItem('fullname', resp.fullname);
                         sessionStorage.setItem('email', resp.email);
                         sessionStorage.setItem('phone', resp.phone);
                         sessionStorage.setItem('id', username);
-                        window.location.href ='/'
+                        localStorage.setItem('id', username);
+                        console.log(resp);
+                        window.location.href = '/'
+                        if (resp.message === 'Login Customer Successfully') {
+                            sessionStorage.setItem('role', 'C');
+                            toast.success(resp.message);
+                            window.location.href = '/'
+                        } else
+                            if (resp.message === 'Login Resident Successfully') {
+                                console.log(resp);
+                                toast.success(resp.message);
+                                sessionStorage.setItem('role', 'R');
+                                window.location.href = '/'
+                            }
                         usenavigate('/');
-                    } else {
+                    }
+                    else {
                         toast.error('Please Enter Correct Password');
                     }
                 }
             })
-            .catch((err) => {
-                toast.error('Login Failed due to :' + err.message);
-            });
+                .catch((err) => {
+                    toast.error('Login Failed due to :' + err.message);
+                });
         }
     }
 

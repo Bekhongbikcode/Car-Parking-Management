@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { url_api } from "../../API/api";
 import { toast } from "react-toastify";
 
-function PaginationHistoryInvoice(props) {
+function PaginationCustomerHistoryInvoice(props) {
     const user = props.user;
     const [currentPage, setCurrentPage] = useState(1);
     const pageSize = props.pageSize || 10; // default to 10 if not provided
@@ -56,15 +56,16 @@ function PaginationHistoryInvoice(props) {
         return props.data.slice(start, end).map((item, index) => (
             <tr key={start + index}>
                 <td>{start + index + 1}</td>
-                <td>{item.id_R_Invoice}</td>
+                <td>{item.id_C_Invoice}</td>
                 <td>{item.id_Payment}</td>
                 <td>{item.id_Booking}</td>
                 <td>{item.startDate}</td>
                 <td>{item.endDate}</td>
                 <td>{item.typeOfPayment}</td>
-                <td>{item.time}</td>
                 <td>{item.total_Of_Money} VND</td>
-                <td>{item.status }</td>
+                <td style={item.status ? {color:'#259645', fontWeight:'bold'} : {color:'#E74032', fontWeight:'bold'}}
+                
+                >{item.status ? "Completed" : "Not Complete"}</td>
                
             </tr>
         ));
@@ -79,4 +80,4 @@ function PaginationHistoryInvoice(props) {
     );
 }
 
-export default PaginationHistoryInvoice;
+export default PaginationCustomerHistoryInvoice;

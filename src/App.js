@@ -32,6 +32,7 @@ import ProfileSetting from './components/Account/ProfileSetting';
 import SerHomePage from './components/Admin/Sercurity/SerHomePage';
 import MoneyManagement from './components/Admin/Sercurity/MoneyManagement';
 import ResidentPage from './components/Resident/ResidentPage';
+import CustomerPage from './components/Customer/CustomerPage';
 
 
 function App() {
@@ -72,6 +73,7 @@ function App() {
           <Route path='/account' element={<AccountInformation />}></Route>
 
           <Route path='/ResidentPage' element={<ResidentPage></ResidentPage>}></Route>
+          <Route path='/CustomerPage' element={<CustomerPage></CustomerPage>}></Route>
 
         </Routes>
       </BrowserRouter>

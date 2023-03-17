@@ -70,7 +70,7 @@ function PaginationUser(props) {
         const start = (currentPage - 1) * pageSize;
         const end = start + pageSize;
         return props.data.slice(start, end).map((item, index) => (
-
+            
             <tr key={start + index}>
                 <td>{start + index + 1}</td>
                 <td>{item.id}</td>
@@ -79,10 +79,10 @@ function PaginationUser(props) {
                 <td>{item.gender ? "Male" : "Female"}</td>
                 <td>{item.phone}</td>
                 <td>{item.email}</td>
-                <td style={{ color: item.status_Account === true ? '#118408' : '#E23F31', fontWeight: 'bold' }}>
+                <td style={{ color: item.status_Account === false ? '#118408' : '#E23F31', fontWeight: 'bold' }}>
                     <a style={{textDecoration:'underline', cursor:'pointer'}} onClick={() => {handleChangeStatus(item.id)}}>
 
-                        {item.status_Account === true ? 'Active' : item.status_Account === false ? 'Ban' : 'Booked'}
+                        {item.status_Account === false ? 'Active' :  'Banned' }
                     </a>
                 </td>
                 <td>
@@ -92,7 +92,7 @@ function PaginationUser(props) {
                     </form>
                 </td>
                 <PopUpEditUser idUser={idUser} handleClose={togglePopupCreateRes} show={showPopupCreateRes} role='User'></PopUpEditUser>
-
+                <>{console.log(item.status_Account)}</>
             </tr>
 
         ));

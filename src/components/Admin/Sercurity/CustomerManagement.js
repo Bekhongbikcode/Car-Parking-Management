@@ -350,7 +350,7 @@ const CustomerManagement = () => {
                             <td>{customers.phone}</td>
                             <td>{customers.email}</td>
 
-                            <td style={{ color: customers.status_Account === true ? '#118408' : '#E23F31', fontWeight: 'bold' }}>{customers.status_Account === true ? 'Active' : 'Ban'}</td>
+                            <td style={{ color: customers.status_Account === false ? '#118408' : '#E23F31', fontWeight: 'bold' }}>{customers.status_Account === false ? 'Active' : 'Ban'}</td>
                             <td>
                                 <form>
                                     <button onClick={togglePopupCreateRes} style={{ border: 'none', backgroundColor: '#2DC98A', color: 'white', width: '55px', borderRadius: '2px' }}>Edit</button>

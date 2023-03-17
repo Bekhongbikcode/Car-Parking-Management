@@ -1,4 +1,4 @@
-import React, { useEffect, useState,  } from "react";
+import React, { useEffect, useState, } from "react";
 import { Link } from "react-router-dom";
 import Helmet from "react-helmet";
 import { HelmetProvider } from "react-helmet-async";
@@ -9,40 +9,80 @@ import Footer from "../Complement/Footer";
 import Slider from "../Complement/Slider";
 import './Main.css'
 import PopUpWarning from './PopUp/PopUpWarning';
-import {url_api} from "../../API/api";
+import { url_api } from "../../API/api";
 
-const URL_WARNING = '';
+const URL_WARNING_C = url_api + '/expired/checkExpiredC/';
+const URL_WARNING_R = url_api + '/expired/checkExpiredR/';
 
 const Home = () => {
     const [zone, setZone] = useState('A');
 
     const [username, setUsername] = useState(sessionStorage.getItem('username'));
+    const [id, setId] = useState(sessionStorage.getItem('id'));
+    const [role, setRole] = useState(sessionStorage.getItem('role'));
+    const [URL_WARNING, set_URL_WARNING] = useState('')
+    const [obj, setObj] = useState([]);
 
     const [showPopupWarning, setShowPopupWarning] = useState(false);
-    const [open, setOpen] = useState(true);
-    
+    const [open, setOpen] = useState();
+
+
 
     const togglePopupWarning = () => {
 
         setShowPopupWarning(!showPopupWarning);
     };
 
+
+
     useEffect(() => {
-        if (open) {
-          togglePopupWarning();
+        if (role === 'C') {
+            set_URL_WARNING(URL_WARNING_C + id);
+            console.log(URL_WARNING_C + id)
+        } else if (role === 'R') {
+            set_URL_WARNING(URL_WARNING_R + id);
+            console.log(URL_WARNING_R + id)
         }
-      }, [open]);
-      
+    
+
+        fetch(URL_WARNING, { headers: { "Content-Type": "application/json" } })
+        .then(response => console.log(response))
+        .then((data) => {
+            setObj(data)
+            console.log('data: ' + JSON.stringify(data))
+            setOpen(true);
+            console.log('chose 1: ' + open)
+        })
+        .catch(error => {
+            setOpen(false);
+            console.log('chose 2: ' + open)
+            console.error(error)
+        })
 
 
-    useEffect(() => {
-        fetch(URL_WARNING)
-            .then(response => response.json())
-            .then((data) => {
-                
-            })
-            .catch(error => console.error(error));
-    }, [])
+
+        
+            
+            
+       
+
+
+    }, [open]);
+    
+    useEffect(() =>{
+        if (open)
+        togglePopupWarning();
+    },[open])
+
+    
+
+    
+
+
+
+
+
+
 
     useEffect(() => {
         setZone(zone);
@@ -205,9 +245,9 @@ const Home = () => {
                 </div>
 
             </form>
-            
+
             <Footer></Footer>
-        
+
             <PopUpWarning handleClose={togglePopupWarning} show={showPopupWarning}>
 
             </PopUpWarning>
