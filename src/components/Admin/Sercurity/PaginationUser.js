@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { url_api } from "../../../API/api";
 import PopUpEditUser from './Popup/PopUpEditUser';
 import { toast } from "react-toastify";
+const URL_RESIDENT = url_api+"/security/updateCustomer_Resident?idUser=";
+
 function PaginationUser(props) {
     const role = props.role;
     const [currentPage, setCurrentPage] = useState(1);
@@ -91,7 +93,7 @@ function PaginationUser(props) {
 
                     </form>
                 </td>
-                <PopUpEditUser idUser={idUser} handleClose={togglePopupCreateRes} show={showPopupCreateRes} role='User'></PopUpEditUser>
+                <PopUpEditUser idUser={idUser} handleClose={togglePopupCreateRes} show={showPopupCreateRes} role='User' url={URL_RESIDENT}></PopUpEditUser>
                 <>{console.log(item.status_Account)}</>
             </tr>
 

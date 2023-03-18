@@ -74,9 +74,7 @@ const ReservationComplete = () => {
                     <span>Time</span>
                     <i>{invoice.startDate}, {invoice.endDate}, {invoice.startTime}, {invoice.endTime}</i>
                     <br />
-                    <span>Status Invoice</span>
-                    {(invoice.status_Invoice == true) ? <i style={{color:'green'}}>Completed</i> : <i style={{color:'red'}}>Waiting to pay</i>}
-                    <br />
+                   
                     <span>Created</span>
                     <i>{sessionStorage.getItem("datebook")}, {sessionStorage.getItem("timebook")}</i>
                     <br />
@@ -85,6 +83,10 @@ const ReservationComplete = () => {
                     <br />
                     <span>Payments</span>
                     <i>{invoice.type_Of_Payment}</i>
+                    <br />
+                     <span>Status Invoice</span>
+                    {invoice.status_Invoice == true ? <i style={{color:'#199709'}}>Completed</i> : <i style={{color:'#C30000'}}>Waiting to pay</i>}
+                    <br />
 
                 </div>
 

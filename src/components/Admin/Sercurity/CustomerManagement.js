@@ -10,6 +10,7 @@ import AdminHeader from '../AdminPageHeader';
 import { faBuilding } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {url_api} from "../../../API/api";
+import PopUpEditUser from './Popup/PopUpEditUser';
 
 const URL_Find_All = url_api+"/MoreFeatureGet/findByIdCustomer?idCustomer=";
 const URL = url_api+"/security/ListAllCustomerFromBuilding/";
@@ -20,6 +21,7 @@ const PWD_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%]).{8,30}/;
 const EMAIL_REGEX = /^[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[A-Za-z]+$/;
 const PHONE_REGEX = /^[0-9]{10,12}$/;
 const ROLE = 'C'
+const URL_CUSTOMER = url_api+"/security/updateCustomer_Resident?idUser=";
 
 const CustomerManagement = () => {
     const [customers, setCustomers] = useState([]);
@@ -357,6 +359,7 @@ const CustomerManagement = () => {
                                 </form>
                             </td>
                         </tr>
+                        <PopUpEditUser handleClose={togglePopupCreateRes} show={showPopupCreateRes} url={URL_CUSTOMER}></PopUpEditUser>
                         </tbody>
                     )
                 }

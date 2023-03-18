@@ -16,6 +16,7 @@ const URL_Search_Res = url_api+"/user/findById?id=";
 const URL_Book = url_api+"/residentslot/saveResidentSlot"
 const URL_Infor_R_Slot = url_api+"/security/ResponseResidentInfoSlot?id_Building="
 const URL_Infor_C_Slot = url_api+"/security/ResponseCustomerInfoSlot?id_Building="
+const URL_INFOR=''
 
 const SlotManagement = () => {
 
@@ -29,35 +30,27 @@ const SlotManagement = () => {
     const [inforResSlot, setInforResSlot] = useState([]);
     const [URL_INFOR, setURL_INFOR] = useState('');
     const [role, setRole] = useState('');
-
-
-
     const [showPopupInfor, setShowPopupInfor] = useState(false);
     const [showPopupCreateRes, setShowPopupCreateRes] = useState(false);
 
-    useEffect(() => {
-        setURL_INFOR(URL_INFOR)
-    }, [URL_INFOR])
+    
     const togglePopupCreateRes = () => {
 
         setShowPopupCreateRes(!showPopupCreateRes);
     };
 
-    const togglePopupInfor = (id, role) => {
+    const togglePopupInfor = (id, role, url) => {
 
         setShowPopupInfor(!showPopupInfor);
-        if (role === 'R') {
-            setURL_INFOR(URL_Infor_R_Slot)
-        }
-        else if (role === 'C') setURL_INFOR(URL_Infor_C_Slot);
+        console.log(url)
         console.log(id);
-        console.log(URL_INFOR + building + '&id_' + role + '_Slot=' + id)
-        fetch(URL_INFOR + building + '&id_' + role + '_Slot=' + id)
+        console.log(url + building + '&id_' + role + '_Slot=' + id)
+        fetch(url  + building + '&id_' + role + '_Slot=' + id)
             .then(response => response.json())
             .then((data) => {
                 setInforResSlot(data)
                 setRole(role)
-                console.log(URL_INFOR + building + '&id_' + role + '_Slot=' + id)
+                console.log(url + building + '&id_' + role + '_Slot=' + id)
                 console.log(data)
             })
             .catch((error) => {
@@ -141,7 +134,7 @@ const SlotManagement = () => {
                         <tr class="border">
                             {residentSlot.slice(0, 10).map(shell => (
                                 <td
-                                    onClick={shell.status_Slots === true ? () => togglePopupInfor(shell.id_slot, 'R') : massageSlot}
+                                    onClick={shell.status_Slots === true ? () => togglePopupInfor(shell.id_slot, 'R', URL_Infor_R_Slot) : massageSlot}
                                     className="border" key={shell.id}
                                     style={{ backgroundColor: shell.status_Slots === true ? 'rgba(250, 104, 104, 0.874)' : 'white' }}
                                 >
@@ -152,7 +145,7 @@ const SlotManagement = () => {
                         <tr class="border">
                             {residentSlot.slice(10, 20).map(shell => (
                                 <td
-                                    onClick={shell.status_Slots === true ? () => togglePopupInfor(shell.id_slot, 'R') : massageSlot}
+                                    onClick={shell.status_Slots === true ? () => togglePopupInfor(shell.id_slot, 'R', URL_Infor_R_Slot) : massageSlot}
                                     className="border" key={shell.id}
                                     style={{ backgroundColor: shell.status_Slots === true ? 'rgba(250, 104, 104, 0.874)' : 'white' }}
                                 >
@@ -170,7 +163,7 @@ const SlotManagement = () => {
 
                             {customerSlot.slice(0, 10).map(shell => (
                                 <td
-                                    onClick={shell.status_Slots === true ? (() => togglePopupInfor(shell.id_slot, 'C')) : massageSlot}
+                                    onClick={shell.status_Slots === true ? (() => togglePopupInfor(shell.id_slot, 'C', URL_Infor_C_Slot)) : massageSlot}
                                     className="border" key={shell.id}
                                     style={{ backgroundColor: shell.status_Slots === true ? 'rgba(250, 104, 104, 0.874)' : 'white' }}
                                 >
@@ -183,7 +176,7 @@ const SlotManagement = () => {
 
                             {customerSlot.slice(10, 20).map(shell => (
                                 <td
-                                    onClick={shell.status_Slots === true ? () => togglePopupInfor(shell.id_slot, 'C') : massageSlot}
+                                    onClick={shell.status_Slots === true ? () => togglePopupInfor(shell.id_slot, 'C', URL_Infor_C_Slot) : massageSlot}
                                     className="border" key={shell.id}
                                     style={{ backgroundColor: shell.status_Slots === true ? 'rgba(250, 104, 104, 0.874)' : 'white' }}
                                 >

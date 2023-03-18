@@ -1,9 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCheck, faTimes, faInfoCircle, faUser } from "@fortawesome/free-solid-svg-icons";
-import { json, Link, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
-import { Helmet, HelmetProvider } from 'react-helmet-async';
 import {url_api} from "../../../../API/api";
 
 const USER_REGEX = /^[a-zA-Z][a-zA-Z0-9-_]{3,23}$/;
@@ -15,7 +11,12 @@ const URL = url_api+"/security/updateCustomer_Resident?idUser=";
 const URL_USER = url_api+"/user/findById?id=";
 const URL_SERCURITY = url_api+"/buildingManager/updateSecurity?idUser=";
 
-const PopUpEditUser = ({ handleClose, show, idUser, role }) => {
+const PopUpEditUser = ({ handleClose, show, idUser, role, url }) => {
+  
+  console.log('url: '+url)
+  console.log('show: '+show)
+  console.log('role: '+role)
+  console.log('idUser: '+idUser)
   const showHideClassName = show ? 'popup display-block' : 'popup display-none';
   const [mainURL, setMainURL] = useState('');
 
@@ -178,15 +179,8 @@ const PopUpEditUser = ({ handleClose, show, idUser, role }) => {
       console.log(regObj)
       console.log(idUser)
       console.log(role)
-      if (role == 'User') {
-        setMainURL(URL); 
-        console.log(mainURL);
-      }
-      else {
-        setMainURL(URL_SERCURITY);
-        console.log(mainURL + idUser);
-      }
-      fetch(mainURL + idUser, {
+    
+      fetch(url + idUser, {
         method: 'PUT',
         header: {
           "Access-Control-Allow-Origin": URL,

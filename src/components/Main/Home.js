@@ -24,7 +24,7 @@ const Home = () => {
     const [obj, setObj] = useState([]);
 
     const [showPopupWarning, setShowPopupWarning] = useState(false);
-    const [open, setOpen] = useState();
+    const [open, setOpen] = useState(false);
 
 
 
@@ -43,7 +43,6 @@ const Home = () => {
             set_URL_WARNING(URL_WARNING_R + id);
             console.log(URL_WARNING_R + id)
         }
-    
 
         fetch(URL_WARNING, { headers: { "Content-Type": "application/json" } })
         .then(response => console.log(response))
@@ -54,24 +53,22 @@ const Home = () => {
             console.log('chose 1: ' + open)
         })
         .catch(error => {
-            setOpen(false);
+            // setOpen(false);
             console.log('chose 2: ' + open)
             console.error(error)
         })
 
+        if(obj === undefined) setOpen(false)
+        else setOpen(true)
 
+    }, [URL_WARNING]);
 
-        
-            
-            
-       
-
-
-    }, [open]);
+    
     
     useEffect(() =>{
         if (open)
         togglePopupWarning();
+        console.log(open)
     },[open])
 
     

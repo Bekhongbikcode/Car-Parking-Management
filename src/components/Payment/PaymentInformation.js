@@ -130,7 +130,7 @@ const PaymentInformation = () => {
         });
 
     }
-    console.log(obj.total_Of_Money)
+
 
     return (
         <div>
@@ -200,29 +200,37 @@ const PaymentInformation = () => {
                     <span>Type of vehicle</span>
                     <i>{bookingInf.type_Of_Vehicle}</i>
                     <br />
-                    <span>Parking Zone</span>
-                    <i>{obj.id_Building}</i>
+                    <span>Parking zone</span>
+                    <i>{bookingInf.id_Building}</i>
                     <br />
                     <span>Slot</span>
-                    <i>{obj.id_C_Slot}</i>
+                    <i>{bookingInf.id_C_Slot}</i>
                     <br />
-                    <span>Duration</span>
-                    <i>{obj.startDate}, {obj.endDate}, {obj.startTime}, {obj.endTime}</i>
+                    <span>Start date</span>
+                    <i>{bookingInf.startDate}</i> 
+                    <br />
+                    <span>Start time</span>
+                    <i>{bookingInf.startTime}</i>
+                    <br />
+                    <span>End date</span>
+                    <i>{bookingInf.endDate}</i>
+                    <br />
+                    <span>End time</span>
+                    <i>{bookingInf.endTime}</i>
                     <br />
                     <span>Created</span>
                     <i>{sessionStorage.getItem("datebook")}, {sessionStorage.getItem("timebook")}</i>
                     <br />
-                    <span>Status</span>
-                    <i>Not completed</i>
-                    <br />
                     <span>Price</span>
                     <i>{bookingInf.total_Of_Money} VND</i>
                     <br />
+                    <span>Status</span>
+                    <i style={{color:'#C30000'}}>Not completed</i>
 
 
                 </div>
 
-                <button onClick={handleCancel} style={{ backgroundColor: '#E63E31', border: '0px' }}>Cancel Reservation</button>
+                <button onClick={handleCancel} style={{ backgroundColor: '#E63E31', border: '0px', marginTop:'20px', width:'50%' }}>Cancel Reservation</button>
 
             </div>
 

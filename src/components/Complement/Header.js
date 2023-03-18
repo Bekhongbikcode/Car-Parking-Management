@@ -13,11 +13,18 @@ const Header = (props) => {
     const [displayusername, displayusernameupdate] = useState('');
     const [role, setRole] = useState(sessionStorage.getItem("role"));
     const [idUser, setIdUser] = useState(sessionStorage.getItem("id"));
+    const [activeLink, setActiveLink] = useState(null);
+
     console.log(props.data)
     const logout = () => {
         sessionStorage.removeItem('username')
         window.location.href = '/login';
     }
+
+    
+    
+
+
     return (
 
         <div className="header">
@@ -25,23 +32,24 @@ const Header = (props) => {
             <div className="logo">
                 <img src={'../assets/img/logo.png'}></img>
             </div>
-            <ul class="nav justify-content-end nav-custom  ">
-                <li class="nav-item">
+            <div class="nav justify-content-end nav-custom  ">
+            
+                <li class={activeLink === 1 ? 'header-active nav-item' : null} onClick={() => setActiveLink(1)}>
                     <Link to={'/'}> <a class="nav-link" href="#">Home</a></Link>
                 </li>
-                <li class="nav-item">
+                <li class={activeLink === 2 ? 'header-active nav-item' : null} onClick={() => setActiveLink(2)}>
                     <Link to={'/Reservation'}> <a class="nav-link" href="#">Reservation</a></Link>
                 </li>
-                <li class="nav-item">
+                <li class={activeLink === 3 ? 'header-active nav-item' : null} onClick={() => setActiveLink(3)}>
                     <a class="nav-link" href="#">Slots</a>
                 </li>
-                <li class="nav-item">
+                <li class={activeLink === 4 ? 'header-active nav-item' : null} onClick={() => setActiveLink(4)}>
                     <Link to={'/Price'}><a class="nav-link" href="#">Price</a></Link>
                 </li>
-                <li class="nav-item">
+                <li class={activeLink === 5 ? 'header-active nav-item' : null} onClick={() => setActiveLink(5)}>
                     <a class="nav-link" href="#">Location</a>
                 </li>
-                <Nav class="nav-item">
+                <Nav class={activeLink === 6 ? 'header-active nav-item' : null} onClick={() => setActiveLink(6)}>
                     <NavDropdown title="More" id="basic-nav-dropdown">
                         <NavDropdown.Item href="#action/3.1">About Us</NavDropdown.Item>
                         <NavDropdown.Item href="#action/3.2">Contact Us</NavDropdown.Item>
@@ -91,7 +99,7 @@ const Header = (props) => {
 
 
 
-            </ul>
+            </div>
 
 
             <Nav className="nav-item-responsive" style={{ display: 'block' }}>

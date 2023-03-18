@@ -1,10 +1,8 @@
 import '../Admin.css'
 import './CommanDashBoard.css'
 import React, { useState, useEffect, useRef } from "react";
-import Pagination from '../../Complement/Pagination';
 import PaginationUser from './PaginationUser';
 import { toast } from "react-toastify";
-import { json, Link, useNavigate } from "react-router-dom";
 import PopUpEditUser from './Popup/PopUpEditUser';
 import { faBuilding } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -17,7 +15,7 @@ import {url_api} from "../../../API/api";
 // const URL_Find_All = 'https://corsproxy-pms.herokuapp.com/https://backend-heroku-pms.herokuapp.com/customer/findById?IdUser=';
 const URL_Find_All = url_api+"/MoreFeatureGet/findByIdResident?idResident=";
 const URL = url_api+"/security/ListAllResidentFromBuilding/";
-// const URL = 'https://corsproxy-pms.herokuapp.com/https://backend-heroku-pms.herokuapp.com/MoreFeatureGet/findResidentAll'
+const URL_RESIDENT = url_api+"/security/updateCustomer_Resident?idUser=";
 const REGISTER_URL = url_api+"/security/createResident";
 const USER_REGEX = /^[a-zA-Z][a-zA-Z0-9-_]{3,23}$/;
 const PWD_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%]).{8,30}/;
@@ -30,6 +28,7 @@ const ResidentManagement = () => {
     const [idSearch, setIdSearch] = useState('');
     const [idNull, setIdNull] = useState(true);
     const [building, setBuilding] = useState('A');
+
 
 
     const [id, setId] = useState('');
@@ -66,9 +65,12 @@ const ResidentManagement = () => {
     const [success, setSuccess] = useState(false);
 
     const [showPopupCreateRes, setShowPopupCreateRes] = useState(false);
+    const [urlResident, setUrlResident] = useState(URL_RESIDENT)
+    
     const togglePopupCreateRes = () => {
 
         setShowPopupCreateRes(!showPopupCreateRes);
+        setUrlResident(URL_RESIDENT);
     };
 
     useEffect(() => {
@@ -346,7 +348,7 @@ const ResidentManagement = () => {
 
                             </td>
                         </tr>
-                            <PopUpEditUser handleClose={togglePopupCreateRes} show={showPopupCreateRes}></PopUpEditUser>
+                            <PopUpEditUser handleClose={togglePopupCreateRes} show={showPopupCreateRes} url={urlResident}></PopUpEditUser>
                         </tbody>
 
                     )
