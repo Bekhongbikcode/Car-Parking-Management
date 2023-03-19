@@ -118,6 +118,7 @@
   background-size: cover;
   object-fit: fill;
   position: relative;
+  
 }
 
 .booking-in-homepage {
@@ -129,6 +130,7 @@
   top: 9%;
   left: 10%;
   background: linear-gradient(0deg, rgb(255, 255, 255), rgb(255, 255, 255)), rgb(255, 255, 255);
+  box-shadow: rgba(0, 0, 0, 0.5) 0px 30px 90px;
 
 }
 

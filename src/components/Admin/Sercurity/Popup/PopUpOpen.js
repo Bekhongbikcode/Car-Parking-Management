@@ -1,13 +1,13 @@
 
 import React, { useState, useEffect, useRef, useCallback } from "react";
 import { toast } from "react-toastify";
-import {url_api} from "../../../../API/api";
+import { url_api } from "../../../../API/api";
 
-const URL = url_api+"/present_slot/findAll/";
-const URL_Search_Res = url_api+"/user/findById?id=";
-const URL_Book = url_api+"/residentslot/saveResidentSlot"
-const URL_Infor_R_Slot = url_api+"/security/ResponseResidentInfoSlot?id_Building="
-const URL_PAYMENT = url_api+"/paymentResident/save"
+const URL = url_api + "/present_slot/findAll/";
+const URL_Search_Res = url_api + "/user/findById?id=";
+const URL_Book = url_api + "/residentslot/saveResidentSlot"
+const URL_Infor_R_Slot = url_api + "/security/ResponseResidentInfoSlot?id_Building="
+const URL_PAYMENT = url_api + "/paymentResident/save"
 
 const Popup = ({ handleClose, show }) => {
   const showHideClassName = show ? 'popup display-block' : 'popup display-none';
@@ -187,7 +187,7 @@ const Popup = ({ handleClose, show }) => {
           <form className='filter-id justify-content-start' style={{ marginLeft: '27%' }} onSubmit={handleIdFilter}>
             <label> Filter by ID: </label>
             <br />
-            <input type="text" onChange={e => setIdSearch(e.target.value)} style={{ borderRadius: '0', width: '44.5%' }} />
+            <input type="text" onChange={e => setIdSearch(e.target.value)} style={{ borderRadius: '0', width: '55%' }} />
             <button type='submit' style={{ borderRadius: '0', width: '14%' }}>Search</button>
           </form>
           <label style={{ marginLeft: '28%', width: '42%' }}>Fullname</label>
@@ -209,25 +209,41 @@ const Popup = ({ handleClose, show }) => {
             <option>C</option>
           </select>
 
-          <label style={{ marginLeft: '28%' }}>Slot</label>
-
-          <select className="form-select" style={{ marginLeft: '28%', width: '42%', borderRadius: '0' }} onChange={(e) => setSlot(e.target.value)} value={slot}>
-            {residentSlot.map(shell => {
-              if (shell.status_Slots == false) {
-
-                return <option>{shell.id_slot}</option>
-              }
-            })}
-
-
-          </select>
           <label style={{ marginLeft: '28%' }}>Type of vehicle</label>
           <select className="form-select" style={{ marginLeft: '28%', width: '42%', borderRadius: '0' }} onChange={(e) => setTypeOfVehicle(e.target.value)} value={typeOfVehicle}>
             <option>Car</option>
             <option>Motor</option>
             <option>Bike</option>
           </select>
-          <br />
+  
+
+          <label style={{ marginLeft: '28%' }}>Slot</label>
+
+          <select className="form-select" style={{ marginLeft: '28%', width: '42%', borderRadius: '0' }} onChange={(e) => setSlot(e.target.value)} value={slot}>
+            {typeOfVehicle === 'Car' && residentSlot.slice(0, 10).map((shell) => {
+              if (shell.status_Slots === false) {
+                return <option key={shell.id_slot}>{shell.id_slot}</option>;
+              }
+              return null;
+            })}
+            {typeOfVehicle === 'Motor' && residentSlot.slice(10, 20).map((shell) => {
+              if (shell.status_Slots === false) {
+                return <option key={shell.id_slot}>{shell.id_slot}</option>;
+              }
+              return null;
+            })}
+            {typeOfVehicle === 'Bike' && residentSlot.slice(20, 30).map((shell) => {
+              if (shell.status_Slots === false) {
+                return <option key={shell.id_slot}>{shell.id_slot}</option>;
+              }
+              return null;
+            })}
+
+
+
+          </select>
+          <br/>
+          
 
 
         </div>

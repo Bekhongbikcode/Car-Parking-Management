@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { toast } from "react-toastify";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowRight, faRoad, faExit } from "@fortawesome/free-solid-svg-icons";
+import { faCarRear, faBicycle, faMotorcycle } from "@fortawesome/free-solid-svg-icons";
 import './Payment.css';
 import { url_api } from "../../API/api";
 
@@ -19,7 +20,7 @@ const ReservationDetail = () => {
     const [validEmail, setValidEmail] = useState(false);
     const [phone, setPhone] = useState(sessionStorage.getItem("phone"))
     const [validPhone, setValidPhone] = useState(false);
-    const [typeOfVehicle, setTypeOfVehicle] = useState('Moto');
+    const [typeOfVehicle, setTypeOfVehicle] = useState('Motor');
     const [slot, setSlot] = useState('');
     const [shells, setShells] = useState([]);
     const [logined, setLogined] = useState(sessionStorage.getItem("username"))
@@ -150,8 +151,11 @@ const ReservationDetail = () => {
                 console.log(err.massage())
             });
         }
-        else  window.location.href = '/login';
+        else window.location.href = '/login';
     }
+
+
+
 
 
     return (
@@ -283,15 +287,25 @@ const ReservationDetail = () => {
                     <div className=" col-lg-6 class-input">
                         <label>Slot *</label>
                         <br />
-                        <select className="form-select" onChange={(e) => setSlot(e.target.value)} >
-                            {customerSlot.map(shell => {
-                                if (shell.status_Slots == false) {
-
-                                    return <option>{shell.id_slot}</option>
+                        <select className="form-select" onChange={(e) => setSlot(e.target.value)}>
+                            {typeOfVehicle === 'Car' && customerSlot.slice(0, 10).map((shell) => {
+                                if (shell.status_Slots === false) {
+                                    return <option key={shell.id_slot}>{shell.id_slot}</option>;
                                 }
+                                return null;
                             })}
-
-
+                            {typeOfVehicle === 'Motor' && customerSlot.slice(10, 20).map((shell) => {
+                                if (shell.status_Slots === false) {
+                                    return <option key={shell.id_slot}>{shell.id_slot}</option>;
+                                }
+                                return null;
+                            })}
+                            {typeOfVehicle === 'Bike' && customerSlot.slice(20, 30).map((shell) => {
+                                if (shell.status_Slots === false) {
+                                    return <option key={shell.id_slot}>{shell.id_slot}</option>;
+                                }
+                                return null;
+                            })}
                         </select>
                     </div>
 
@@ -340,15 +354,15 @@ const ReservationDetail = () => {
                 </div>
             </div>
 
-            <div className="table-responsive  align-items-center justify-content-center zone-reservation">
+            <div className="table-responsive  align-items-center justify-content-center zone-reservation" style={{ width: '30%' }}>
                 <h5>AVAILABILITY</h5>
                 <div style={{ marginTop: '50px', fontWeight: 'bold' }}>Resident Area</div>
-                <table className="table border">
+                <table className="table border" >
                     <tbody>
-                        <tr class="border">
-
-                            {residentSlot.slice(1, 10).map(shell => (
-                                <td className="border" key={shell.id} style={{ backgroundColor: shell.status_Slots === true ? 'rgba(250, 104, 104, 0.874)' : 'white' }}>
+                        <tr class="border" style={{}}>
+                            {residentSlot.slice(0, 10).map(shell => (
+                                <td className="border" key={shell.id} style={{ fontSize: '15px', width: '10px', backgroundColor: shell.status_Slots === true ? 'rgba(250, 104, 104, 0.874)' : 'white' }}>
+                                    <FontAwesomeIcon style={{ fontSize: '13px', paddingRight: '10px' }} icon={faCarRear}></FontAwesomeIcon>
 
                                     {shell.id_slot}
                                 </td>
@@ -357,7 +371,18 @@ const ReservationDetail = () => {
                         <tr class="border">
 
                             {residentSlot.slice(10, 20).map(shell => (
-                                <td className="border" key={shell.id} style={{ backgroundColor: shell.status_Slots === true ? 'rgba(250, 104, 104, 0.874)' : 'white' }}>
+                                <td className="border" key={shell.id} style={{ fontSize: '15px', width: '10px', backgroundColor: shell.status_Slots === true ? 'rgba(250, 104, 104, 0.874)' : 'white' }}>
+                                    <FontAwesomeIcon style={{ fontSize: '13px', paddingRight: '0px' }} icon={faBicycle}></FontAwesomeIcon>
+
+                                    {shell.id_slot}
+                                </td>
+                            ))}
+                        </tr>
+                        <tr class="border">
+
+                            {residentSlot.slice(20, 30).map(shell => (
+                                <td className="border" key={shell.id} style={{ fontSize: '15px', width: '10px', backgroundColor: shell.status_Slots === true ? 'rgba(250, 104, 104, 0.874)' : 'white' }}>
+                                    <FontAwesomeIcon style={{ fontSize: '13px', paddingRight: '0px' }} icon={faMotorcycle}></FontAwesomeIcon>
 
                                     {shell.id_slot}
                                 </td>
@@ -378,7 +403,8 @@ const ReservationDetail = () => {
                         <tr class="border">
 
                             {customerSlot.slice(0, 10).map(shell => (
-                                <td className="border" key={shell.id} style={{ backgroundColor: shell.status_Slots === true ? 'rgba(250, 104, 104, 0.874)' : 'white' }}>
+                                <td className="border" key={shell.id} style={{ fontSize: '15px', width: '10px', backgroundColor: shell.status_Slots === true ? 'rgba(250, 104, 104, 0.874)' : 'white' }}>
+                                    <FontAwesomeIcon style={{ fontSize: '13px', paddingRight: '10px' }} icon={faCarRear}></FontAwesomeIcon>
 
                                     {shell.id_slot}
                                 </td>
@@ -387,7 +413,18 @@ const ReservationDetail = () => {
                         <tr class="border">
 
                             {customerSlot.slice(10, 20).map(shell => (
-                                <td className="border" key={shell.id} style={{ backgroundColor: shell.status_Slots === true ? 'rgba(250, 104, 104, 0.874)' : 'white' }}>
+                                <td className="border" key={shell.id} style={{ fontSize: '15px', width: '10px', backgroundColor: shell.status_Slots === true ? 'rgba(250, 104, 104, 0.874)' : 'white' }}>
+                                    <FontAwesomeIcon style={{ fontSize: '13px', paddingRight: '0px' }} icon={faBicycle}></FontAwesomeIcon>
+
+                                    {shell.id_slot}
+                                </td>
+                            ))}
+                        </tr>
+                        <tr class="border">
+
+                            {customerSlot.slice(20, 30).map(shell => (
+                                <td className="border" key={shell.id} style={{ fontSize: '15px', width: '10px', backgroundColor: shell.status_Slots === true ? 'rgba(250, 104, 104, 0.874)' : 'white' }}>
+                                    <FontAwesomeIcon style={{ fontSize: '13px', paddingRight: '0px' }} icon={faMotorcycle}></FontAwesomeIcon>
 
                                     {shell.id_slot}
                                 </td>
@@ -397,7 +434,7 @@ const ReservationDetail = () => {
 
                 </table>
 
-                <table class="table" style={{ marginTop: '60px', boxShadow:'none' }}>
+                <table class="table" style={{ marginTop: '60px', boxShadow: 'none' }}>
                     <tr className="">
                         <td style={{ width: '40px', height: '40px', backgroundColor: 'rgba(250, 104, 104, 0.874)', marginRight: '10px' }}>
                             <span>Slot</span>
