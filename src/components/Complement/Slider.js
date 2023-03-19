@@ -41,7 +41,7 @@ const Slider = () => {
     }
 
     return (
-        <div className="background" style={{ marginTop: '-11px' }}>
+        <div className="background" style={{ marginTop: '65px' }}>
             <div className="booking-in-homepage">
                 <h2>BOOKING NOW</h2>
                 <form onSubmit={handleSubmit}>
@@ -68,6 +68,7 @@ const Slider = () => {
                             <option>08:00</option>
                             <option>09:00</option>
                             <option>10:00</option>
+                            <option>11:00</option>
                             <option>12:00</option>
                             <option>13:00</option>
                             <option>14:00</option>
@@ -107,7 +108,7 @@ const Slider = () => {
                             <option>07:00</option>
                             <option>08:00</option>
                             <option>09:00</option>
-                            <option>10:00</option>
+                            <option>11:00</option>
                             <option>12:00</option>
                             <option>13:00</option>
                             <option>14:00</option>

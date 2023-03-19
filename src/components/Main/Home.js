@@ -4,6 +4,7 @@ import Helmet from "react-helmet";
 import { HelmetProvider } from "react-helmet-async";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faClock } from "@fortawesome/free-solid-svg-icons";
+import { Carousel, Card, Stack, Button } from "react-bootstrap";
 import Header from "../Complement/Header";
 import Footer from "../Complement/Footer";
 import Slider from "../Complement/Slider";
@@ -15,6 +16,14 @@ const URL_WARNING_C = url_api + '/expired/checkExpiredC/';
 const URL_WARNING_R = url_api + '/expired/checkExpiredR/';
 
 const Home = () => {
+    const reviews = [
+        { _id: 1, text: "abc" },
+        { _id: 2, text: "def" },
+        { _id: 3, text: "ghi" },
+        { _id: 4, text: "jkl" },
+        
+    ];
+
     const [zone, setZone] = useState('A');
 
     const [username, setUsername] = useState(sessionStorage.getItem('username'));
@@ -25,6 +34,8 @@ const Home = () => {
 
     const [showPopupWarning, setShowPopupWarning] = useState(false);
     const [open, setOpen] = useState(false);
+
+    
 
 
 
@@ -45,35 +56,35 @@ const Home = () => {
         }
 
         fetch(URL_WARNING, { headers: { "Content-Type": "application/json" } })
-        .then(response => console.log(response))
-        .then((data) => {
-            setObj(data)
-            console.log('data: ' + JSON.stringify(data))
-            setOpen(true);
-            console.log('chose 1: ' + open)
-        })
-        .catch(error => {
-            // setOpen(false);
-            console.log('chose 2: ' + open)
-            console.error(error)
-        })
+            .then(response => console.log(response))
+            .then((data) => {
+                setObj(data)
+                console.log('data: ' + JSON.stringify(data))
+                setOpen(true);
+                console.log('chose 1: ' + open)
+            })
+            .catch(error => {
+                // setOpen(false);
+                console.log('chose 2: ' + open)
+                console.error(error)
+            })
 
-        if(obj === undefined) setOpen(false)
+        if (obj === undefined) setOpen(false)
         else setOpen(true)
 
     }, [URL_WARNING]);
 
-    
-    
-    useEffect(() =>{
+
+
+    useEffect(() => {
         if (open)
-        togglePopupWarning();
+            togglePopupWarning();
         console.log(open)
-    },[open])
+    }, [open])
 
-    
 
-    
+
+
 
 
 
@@ -105,94 +116,95 @@ const Home = () => {
             {/* -----------------------------zone-area-homepage----------------------- */}
             <form onSubmit={handleSubmit}>
 
+
                 <div className="row zone-area-homepage" >
 
-                    <div className="card col-lg-4" style={{ marginLeft: '10%' }}>
-                        <div className="card-header">
+                    <Card className="card col-lg-4" style={{ marginLeft: '10%' }}>
+                        <Card.Header className="card-header">
                             <div>
                                 <p style={{ display: 'block', margin: '0 auto', color: "#fff" }}>2.5$ / Day</p>
                             </div>
                             <span>Zone A</span>
-                        </div>
-                        <div className="card-body">
+                        </Card.Header>
+                        <Card.Body className="card-body">
                             <span>Content</span>
                             <div>
                                 <FontAwesomeIcon icon={faClock}></FontAwesomeIcon>
                                 <b style={{ marginLeft: '10px', fontSize: '12px' }}>Max, Duration: 4 hours</b>
                             </div>
-                        </div>
-                        <div className="card-footer">
+                        </Card.Body>
+                        <Card.Footer className="card-footer">
                             <form onSubmit={handleSubmit}>
 
                                 <Link to={'/ZoneDetail/A'}>
 
-                                    <button style={{ color: "#fff", width: '25%' }}  ><span>Details</span></button>
+                                    <Button style={{ color: "#fff", width: '30.8%' }}  ><span>Details</span></Button>
                                 </Link>
                                 <Link to={'/Reservation'}>
-                                    <button style={{ color: "#fff" }} onClick={e => setZone(e.target.value)} value='A'><span>Make Reservation</span></button>
+                                    <Button style={{ color: "#fff" }} onClick={e => setZone(e.target.value)} value='A'><span>Make Reservation</span></Button>
                                 </Link>
                             </form>
-                        </div>
-                    </div>
+                        </Card.Footer>
+                    </Card>
 
 
-                    <div className="card col-lg-4">
-                        <div className="card-header">
+                    <Card className="card col-lg-4">
+                        <Card.Header className="card-header">
                             <div>
                                 <p style={{ display: 'block', margin: '0 auto', color: "#fff" }}>2.5$ / Day</p>
                             </div>
                             <span>Zone B</span>
-                        </div>
-                        <div className="card-body">
+                        </Card.Header>
+                        <Card.Body className="card-body">
                             <span>Content</span>
                             <div>
                                 <FontAwesomeIcon icon={faClock}></FontAwesomeIcon>
                                 <b style={{ marginLeft: '10px', fontSize: '12px' }}>Max, Duration: 4 hours</b>
                             </div>
-                        </div>
-                        <div className="card-footer">
+                        </Card.Body>
+                        <Card.Footer className="card-footer">
                             <form onSubmit={handleSubmit}>
 
                             </form>
 
                             <Link to={'/ZoneDetail/B'}>
 
-                                <button style={{ color: "#fff", width: '25%' }} onClick={() => setZone('B')} value="B"><span>Details</span></button>
+                                <Button style={{ color: "#fff", width: '30.8%' }} onClick={() => setZone('B')} value="B"><span>Details</span></Button>
                             </Link>
                             <Link to={'/Reservation'}>
-                                <button style={{ color: "#fff" }} onClick={e => setZone(e.target.value)} value='B'><span>Make Reservation</span></button>
+                                <Button style={{ color: "#fff" }} onClick={e => setZone(e.target.value)} value='B'><span>Make Reservation</span></Button>
                             </Link>
-                        </div>
-                    </div>
+                        </Card.Footer>
+                    </Card>
 
 
-                    <div className="card col-lg-4">
-                        <div className="card-header">
+                    <Card className="card col-lg-4">
+                        <Card.Header className="card-header">
                             <div>
                                 <p style={{ display: 'block', margin: '0 auto', color: "#fff" }}>2.5$ / Day</p>
                             </div>
                             <span>Zone C</span>
-                        </div>
-                        <div className="card-body">
+                        </Card.Header>
+                        <Card.Body className="card-body">
                             <span>Content</span>
                             <div>
                                 <FontAwesomeIcon icon={faClock}></FontAwesomeIcon>
                                 <b style={{ marginLeft: '10px', fontSize: '12px' }}>Max, Duration: 4 hours</b>
                             </div>
-                        </div>
-                        <div className="card-footer">
+                        </Card.Body>
+                        <Card.Footer className="card-footer">
                             <form onSubmit={handleSubmit}>
 
                             </form>
                             <Link to={'/ZoneDetail/C'}>
 
-                                <button style={{ color: "#fff", width: '25%' }} onClick={() => setZone('C')} value="C"><span>Details</span></button>
+                                <Button style={{ color: "#fff", width: '30.8%' }} onClick={() => setZone('C')} value="C"><span>Details</span></Button>
                             </Link>
                             <Link to={'/Reservation'}>
-                                <button style={{ color: "#fff" }} onClick={e => setZone(e.target.value)} value='C'><span>Make Reservation</span></button>
+                                <Button style={{ color: "#fff" }} onClick={e => setZone(e.target.value)} value='C'><span>Make Reservation</span></Button>
                             </Link>
-                        </div>
-                    </div>
+                        </Card.Footer>
+                    </Card>
 
                     {/* -----------------------------Entry/barrier system & QR code----------------------- */}
 
@@ -241,7 +253,65 @@ const Home = () => {
 
                 </div>
 
+
+                {/* ------------------SLIDER-------------------------- */}
+                <div>
+                    <h1 className="text-center fw-bold my-3">
+                        User Reviews ({reviews.length})
+                    </h1>
+                    <div className="bg-light container-fluid" style={{backgroundColor:'white'}}>
+                        <Carousel style={{ height: 300 }}>
+                            {reviews.map((review, index) => (
+                                <Carousel.Item style={{ height: 300, color:'black' }}>
+                                    <Stack
+                                        direction="horizontal"
+                                        className="h-100 justify-content-center align-items-center "
+        
+                                        gap={2}
+                                    >
+                                        <Card style={{ width: "18rem" }}>
+                                            <Card.Body >
+                                                <Card.Title style={{color:"black"}}>Card Title</Card.Title>
+                                                <Card.Text style={{color:"black"}}>
+                                                    Some quick example text to build on the card title and
+                                                    make up the bulk of the card's content.
+                                                </Card.Text>
+                                                <Button style={{width:'80%', height:'38px'}} variant="primary">Go somewhere</Button>
+                                            </Card.Body>
+                                        </Card>
+
+                                        <Card style={{ width: "18rem" }}>
+                                            <Card.Body>
+                                                <Card.Title style={{color:"black"}}>Card Title</Card.Title>
+                                                <Card.Text style={{color:"black"}}>
+                                                    Some quick example text to build on the card title and
+                                                    make up the bulk of the card's content.
+                                                </Card.Text>
+                                                <Button style={{width:'80%', height:'38px'}} variant="primary">Go somewhere</Button>
+                                            </Card.Body>
+                                        </Card>
+
+                                        <Card style={{ width: "18rem" }}>
+                                            <Card.Body>
+                                                <Card.Title style={{color:"black"}}>Card Title</Card.Title>
+                                                <Card.Text style={{color:"black"}}>
+                                                    Some quick example text to build on the card title and
+                                                    make up the bulk of the card's content.
+                                                </Card.Text>
+                                                <Button style={{width:'80%', height:'38px'}} variant="primary">Go somewhere</Button>
+                                            </Card.Body>
+                                        </Card>
+                                    </Stack>
+                                </Carousel.Item>
+                            ))}
+                        </Carousel>
+                    </div>
+                </div>
+
+
             </form>
+
+
 
             <Footer></Footer>
 

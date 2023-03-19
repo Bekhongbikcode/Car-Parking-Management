@@ -31,7 +31,7 @@ const ReservationComplete = () => {
     }, []);
 
     return (
-        <div>
+        <div className="body-reservation">
              <Header data={username}></Header>
             <Slider></Slider>
 

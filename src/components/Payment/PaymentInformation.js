@@ -133,7 +133,7 @@ const PaymentInformation = () => {
 
 
     return (
-        <div>
+        <div className="body-reservation">
             <Header data={username}></Header>
             <Slider></Slider>
 
@@ -165,7 +165,6 @@ const PaymentInformation = () => {
 
 
             <div style={{ color: 'black' }} className="payment-infor">
-                <p style={{ fontWeight: 'bold' }}>Your reservation ID is: { }</p>
                 <p style={{ width: '500px' }}>In order to complete your reservation, you will need to make an online payment. Click the button below to go to a secure payment site.</p>
                 <p style={{ fontWeight: 'bold' }}>YOUR RESERVATION WILL NOT BE VALID WITHOUT THE PAYMENT!</p>
                 <div className="col-lg-6 class-input" >

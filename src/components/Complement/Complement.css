@@ -39,6 +39,10 @@
   background-color: white !important;
   padding: 1%;
   margin-bottom: 10px;
+  position: fixed;
+  z-index: 10000;
+  top:0;
+  box-shadow: 0 3px 3px -3px;
 }
 
 .header a {

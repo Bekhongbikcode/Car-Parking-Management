@@ -2,9 +2,9 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { toast } from "react-toastify";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {faArrowRight } from "@fortawesome/free-solid-svg-icons";
+import { faArrowRight, faRoad, faExit } from "@fortawesome/free-solid-svg-icons";
 import './Payment.css';
-import {url_api} from "../../API/api";
+import { url_api } from "../../API/api";
 
 const EMAIL_REGEX = /^[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[A-Za-z]+$/;
 const PHONE_REGEX = /^[0-9]{10,12}$/;
@@ -22,6 +22,7 @@ const ReservationDetail = () => {
     const [typeOfVehicle, setTypeOfVehicle] = useState('Moto');
     const [slot, setSlot] = useState('');
     const [shells, setShells] = useState([]);
+    const [logined, setLogined] = useState(sessionStorage.getItem("username"))
 
     useEffect(() => {
         setStartDate(startDate);
@@ -69,18 +70,18 @@ const ReservationDetail = () => {
         setSlot(slot)
     }, [slot])
 
-  
+
 
     useEffect(() => {
         // if (zone === 'A') {
-            console.log(zone)
-            fetch(url_api+"/present_slot/findAll/"+zone)
-                .then(response => response.json())
-                .then((data) => {
-                    setShells(data)
-                    console.log(data)
-                })
-                .catch(error => console.error(error));
+        console.log(zone)
+        fetch(url_api + "/present_slot/findAll/" + zone)
+            .then(response => response.json())
+            .then((data) => {
+                setShells(data)
+                console.log(data)
+            })
+            .catch(error => console.error(error));
     }, [zone]);
 
     const residentSlot = shells.filter(slot => slot.id_slot.startsWith('R'));
@@ -107,50 +108,54 @@ const ReservationDetail = () => {
     }
 
     const handleSubmit = async (e) => {
-        e.preventDefault();
-        const id_Building = zone;
-        const type_Of_Vehicle = typeOfVehicle;
-        const id_C_Slot = slot;
-        const fullname = fullName;
-        const idUser = sessionStorage.getItem("id");
-        const obj = { idUser, startDate, endDate, startTime, endTime, id_Building, type_Of_Vehicle, id_C_Slot, fullname, email, phone }
-        console.log(obj)
-        fetch(url_api+"/bookingCustomer/save", {
-            method: 'POST',
-            header: {
 
-                "Accept": "*/*",
-                "Content-Type": "application/json",
-                "X-Requested-With": "XMLHttpRequest",
-                "Cache-Control": "no-cache",
-
-            },
-            body: JSON.stringify(obj)
-        }).then((res) => {
-            
+        if (logined != null || logined != '') {
+            e.preventDefault();
+            const id_Building = zone;
+            const type_Of_Vehicle = typeOfVehicle;
+            const id_C_Slot = slot;
+            const fullname = fullName;
+            const idUser = sessionStorage.getItem("id");
+            const obj = { idUser, startDate, endDate, startTime, endTime, id_Building, type_Of_Vehicle, id_C_Slot, fullname, email, phone }
             console.log(obj)
-            sessionStorage.setItem("obj", JSON.stringify(obj));
-            const currentDate = new Date(Date.now());
-            const formattedDate = currentDate.toISOString().substr(0, 10);
-            const now = new Date();
-            const hours = now.getHours();
-            const minutes = now.getMinutes();
-            const seconds = now.getSeconds();
-            const currentTime = `${hours}:${minutes}:${seconds}`;
-            sessionStorage.setItem("datebook", formattedDate);
-            sessionStorage.setItem("timebook", currentTime);
-            window.location.href = '/PaymentInformation'
-            console.log(res);
-            toast.success('Booking Success');
+            fetch(url_api + "/bookingCustomer/save", {
+                method: 'POST',
+                header: {
 
-        }).catch((err) => {
-            console.log(err.massage())
-        });
+                    "Accept": "*/*",
+                    "Content-Type": "application/json",
+                    "X-Requested-With": "XMLHttpRequest",
+                    "Cache-Control": "no-cache",
+
+                },
+                body: JSON.stringify(obj)
+            }).then((res) => {
+
+                console.log(obj)
+                sessionStorage.setItem("obj", JSON.stringify(obj));
+                const currentDate = new Date(Date.now());
+                const formattedDate = currentDate.toISOString().substr(0, 10);
+                const now = new Date();
+                const hours = now.getHours();
+                const minutes = now.getMinutes();
+                const seconds = now.getSeconds();
+                const currentTime = `${hours}:${minutes}:${seconds}`;
+                sessionStorage.setItem("datebook", formattedDate);
+                sessionStorage.setItem("timebook", currentTime);
+                window.location.href = '/PaymentInformation'
+                console.log(res);
+                toast.success('Booking Success');
+
+            }).catch((err) => {
+                console.log(err.massage())
+            });
+        }
+        else  window.location.href = '/login';
     }
 
 
     return (
-        <div>
+        <div className="body-reservation">
 
 
             <h2 style={{ textAlign: 'center', paddingTop: '30px', color: '#BA3925' }}>Processing...</h2>
@@ -210,6 +215,7 @@ const ReservationDetail = () => {
                             <option>08:00</option>
                             <option>09:00</option>
                             <option>10:00</option>
+                            <option>11:00</option>
                             <option>12:00</option>
                             <option>13:00</option>
                             <option>14:00</option>
@@ -240,6 +246,7 @@ const ReservationDetail = () => {
                             <option>08:00</option>
                             <option>09:00</option>
                             <option>10:00</option>
+                            <option>11:00</option>
                             <option>12:00</option>
                             <option>13:00</option>
                             <option>14:00</option>
@@ -258,7 +265,7 @@ const ReservationDetail = () => {
                     <div className=" col-lg-6 class-input">
                         <label>Zone *</label>
                         <br />
-                        <select className="form-select" onChange={(e) => setZone(e.target.value)} value={zone} >
+                        <select className="form-select" onChange={(e) => setZone(e.target.value)} value={zone}  >
                             <option>A</option>
                             <option>B</option>
                             <option>C</option>
@@ -279,7 +286,7 @@ const ReservationDetail = () => {
                         <select className="form-select" onChange={(e) => setSlot(e.target.value)} >
                             {customerSlot.map(shell => {
                                 if (shell.status_Slots == false) {
-                                    
+
                                     return <option>{shell.id_slot}</option>
                                 }
                             })}
@@ -335,7 +342,7 @@ const ReservationDetail = () => {
 
             <div className="table-responsive  align-items-center justify-content-center zone-reservation">
                 <h5>AVAILABILITY</h5>
-                <div style={{ marginTop: '50px' }}>Resident Area</div>
+                <div style={{ marginTop: '50px', fontWeight: 'bold' }}>Resident Area</div>
                 <table className="table border">
                     <tbody>
                         <tr class="border">
@@ -356,11 +363,16 @@ const ReservationDetail = () => {
                                 </td>
                             ))}
                         </tr>
-                        
+
                     </tbody>
 
                 </table>
-                <div>Customer Area</div>
+                <div style={{ backgroundColor: 'white', textAlign: 'left' }}>
+                    <FontAwesomeIcon style={{ rotate: '180px', marginRight: '20px' }} icon={faRoad}></FontAwesomeIcon>
+                    <span>Road</span>
+                </div>
+
+                <div style={{ marginTop: '10px', fontWeight: 'bold' }}>Customer Area</div>
                 <table class="table border">
                     <tbody>
                         <tr class="border">
@@ -383,6 +395,20 @@ const ReservationDetail = () => {
                         </tr>
                     </tbody>
 
+                </table>
+
+                <table class="table" style={{ marginTop: '60px', boxShadow:'none' }}>
+                    <tr className="">
+                        <td style={{ width: '40px', height: '40px', backgroundColor: 'rgba(250, 104, 104, 0.874)', marginRight: '10px' }}>
+                            <span>Slot</span>
+                        </td>
+                        <td style={{ paddingLeft: '10px' }}>   Booked</td>
+
+                        <td style={{ width: '40px', height: '40px', border: '1px solid black', marginRight: '10px' }}>
+                            <span>   Slot</span>
+                        </td>
+                        <td style={{ paddingLeft: '10px' }}>Null</td>
+                    </tr>
                 </table>
             </div>
 
