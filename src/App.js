@@ -34,6 +34,8 @@ import MoneyManagement from './components/Admin/Sercurity/MoneyManagement';
 import ResidentPage from './components/Resident/ResidentPage';
 import CustomerPage from './components/Customer/CustomerPage';
 
+import About from './components/More/About';
+import News from './components/More/News';
 
 function App() {
   return (
@@ -74,6 +76,9 @@ function App() {
 
           <Route path='/ResidentPage' element={<ResidentPage></ResidentPage>}></Route>
           <Route path='/CustomerPage' element={<CustomerPage></CustomerPage>}></Route>
+
+          <Route path='/about' element={<About></About>}></Route>
+          <Route path='/news' element={<News></News>}></Route>
 
         </Routes>
       </BrowserRouter>

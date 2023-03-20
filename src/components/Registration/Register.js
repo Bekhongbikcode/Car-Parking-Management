@@ -7,13 +7,13 @@ import BackgroundCommon from "../Complement/BackgroundCommon";
 import { Helmet, HelmetProvider } from 'react-helmet-async';
 
 import './Register.css';
-import {url_api} from "../../API/api";
+import { url_api } from "../../API/api";
 
 const USER_REGEX = /^[a-zA-Z][a-zA-Z0-9-_]{3,23}$/;
 const PWD_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%]).{8,30}/;
 const EMAIL_REGEX = /^[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[A-Za-z]+$/;
 const PHONE_REGEX = /^[0-9]{10,12}$/;
-const REGISTER_URL = url_api+"/user/save";
+const REGISTER_URL = url_api + "/user/save";
 
 
 const Register = () => {
@@ -182,7 +182,7 @@ const Register = () => {
         const dateofbirth = birthday;
 
         const regObj = { id, password, fullname, dateofbirth, gender, email, phone }
-        
+
         if (IsValidate()) {
 
             fetch(REGISTER_URL, {
@@ -209,12 +209,202 @@ const Register = () => {
 
     return (
         <HelmetProvider>
-            <>
-                <Helmet>
-                    <title>Register</title>
-                </Helmet>
-                <div className="container-register">
-                    <BackgroundCommon className="background-register"></BackgroundCommon>
+            <Helmet>
+                <title>Register</title>
+            </Helmet>
+            <div className="container-register">
+                <BackgroundCommon className="background-register"></BackgroundCommon>
+                <div className="register-form">
+                    {success ? (
+                        <section>
+                            <h1>Success!</h1>
+                            <p>
+                                <a href="#">Sign In</a>
+                            </p>
+                        </section>
+                    ) : (
+                        <section style={{ border: 'none' }} >
+                            <p ref={errRef} className={errMsg ? "errMsg"
+                                : "offScreen"} aria-live="assertive">{errMsg}</p>
+                            <form onSubmit={handleSubmit} className="row">
+                                <h2>Sign Up</h2>
+                                <span style={{ marginBottom: "40px", display: "block" }}>Join over 1 million other drivers throughout the UK. Over 350,000 spaces and counting.</span>
+                                {/* -------------------USER-NAME-------------------- */}
+                                <div>
+                                    <input
+                                        placeholder="User Name *"
+                                        type="text"
+                                        id="username"
+                                        className="col-sm-4"
+                                        ref={userRef}
+                                        autoComplete="off"
+                                        onChange={(e) => setId(e.target.value)}
+                                        required
+                                        aria-invalid={validName ? "false" : "true"}
+                                        aria-describedby="unidnote"
+                                        onFocus={() => setUserFocus(true)}
+                                        onBlur={() => setUserFocus(false)}
+                                    />
+
+                                    <FontAwesomeIcon icon={faCheck} className={validName ? "valid" : "hide"} />
+                                    <FontAwesomeIcon icon={faTimes} className={validName || !id ? "hide" : "invalid"} />
+
+                                </div>
+                                {/* -------------------FULL-NAME-------------------- */}
+                                <div>
+                                    <input
+                                        placeholder="Full Name *"
+                                        type="text"
+                                        id="fullname"
+                                        className="col-sm-4"
+                                        autoComplete="off"
+                                        onChange={(e) => setFullName(e.target.value)}
+                                        required
+
+                                    />
+                                </div>
+                                {/* -------------------PASSWORD-------------------- */}
+                                <div className="row">
+                                    <div className="col-sm-4 valid-pwd" id="password" style={{ marginRight: "20px" }}>
+                                        <input
+                                            placeholder="Password *"
+                                            type="password"
+                                            id="password"
+                                            onChange={(e) => setPwd(e.target.value)}
+                                            required
+                                            aria-invalid={validPwd ? "false" : "true"}
+                                            aria-describedby="pwdnode"
+                                            onFocus={() => setPwdFocus(true)}
+                                            onBlur={() => setPwdFocus(false)}
+                                        />
+                                        <i><FontAwesomeIcon icon={faCheck} className={validPwd ? "valid" : "hide"} /></i>
+                                        <i><FontAwesomeIcon icon={faTimes} className={validPwd || !pwd ? "hide" : "invalid"} /></i>
+
+                                    </div>
+
+                                    {/* -------------------CONFIRM-PASSWORD-------------------- */}
+                                    <div className="col-sm-4 valid-pwd">
+                                        <input
+                                            placeholder="Confirm Password *"
+                                            type="password"
+                                            id="confirm_password"
+
+                                            onChange={(e) => setMatchPwd(e.target.value)}
+                                            required
+                                            aria-invalid={validMatch ? "false" : "true"}
+                                            aria-describedby="confirmnode"
+                                            onFocus={() => setMatchFocus(true)}
+                                            onBlur={() => setMatchFocus(false)}
+                                        />
+
+                                        <i><FontAwesomeIcon icon={faCheck} className={validMatch && matchPwd ? "valid" : "hide"} /></i>
+                                        <i><FontAwesomeIcon icon={faTimes} className={validMatch || !matchPwd ? "hide" : "invalid"} /></i>
+                                    </div>
+
+                                </div>
+
+                                {/* -------------------BIRTHDAY-------------------- */}
+                                <div className="col-sm-4" style={{ marginRight: "80px", color: "#8AA4B3" }}>
+                                    <input
+                                        placeholder="Birth Day"
+                                        type="date"
+                                        id="birthday"
+
+                                        autoComplete="off"
+                                        onChange={(e) => setBirthDay(e.target.value)}
+                                    />
+
+                                </div>
+                                {/* -------------------GENDER-------------------- */}
+                                <div className="input-gender col-sm-4 ">
+
+                                    <input style={{ float: "left", marginLeft: "-10px" }} type="radio" checked={txtGender === 'female'} onChange={e => setTxtGender(e.target.value)} name="gender" value="female" ></input>
+                                    <label className="gender"><span>Female</span></label>
+
+
+                                    <input style={{ float: "left" }} type="radio" checked={txtGender === 'male'} onChange={e => setTxtGender(e.target.value)} name="gender" value="male" ></input>
+                                    <label className="gender"><span>Male</span></label>
+
+
+
+                                </div>
+                                {/* -------------------EMAIL-------------------- */}
+                                <div>
+                                    <input
+                                        placeholder="Email *"
+                                        type="text"
+                                        id="email"
+                                        className="col-sm-4"
+                                        autoComplete="off"
+                                        onChange={(e) => setEmail(e.target.value)}
+                                        required
+                                        aria-invalid={validEmail ? "false" : "true"}
+                                        aria-describedby="emailnote"
+                                        onFocus={() => setEmailFocus(true)}
+                                        onBlur={() => setEmailFocus(false)}
+
+                                    />
+
+                                    <FontAwesomeIcon icon={faCheck} className={validEmail ? "valid" : "hide"} />
+                                    <FontAwesomeIcon icon={faTimes} className={validEmail || !email ? "hide" : "invalid"} />
+
+                                </div>
+
+
+                                {/* -------------------PHONE-------------------- */}
+                                <div>
+                                    <input
+                                        placeholder="Phone *"
+                                        type="text"
+                                        id="phone"
+                                        className="col-sm-4"
+                                        autoComplete="off"
+                                        onChange={(e) => setPhone(e.target.value)}
+                                        required
+                                        aria-invalid={validPhone ? "false" : "true"}
+                                        aria-describedby="emailnote"
+                                        onFocus={() => setPhoneFocus(true)}
+                                        onBlur={() => setPhoneFocus(false)}
+
+                                    />
+
+                                    <FontAwesomeIcon className={validPhone ? "valid" : "hide"} icon={faCheck} />
+
+
+                                    <FontAwesomeIcon className={validPhone || !phone ? "hide" : "invalid"} icon={faTimes} />
+
+                                </div>
+
+
+                                {/* -------------------PROMOTIONS-------------------- */}
+                                <div className="col-sm-4 checkbox">
+                                    <input type="checkbox" onChange={e => setChecked(e.target.value)} name="checked" value="checked"></input>
+                                    <p > <a href="#" style={{ color: "black", textDecoration: "none" }}>Opt-in here if you would like to be one of the first to hear about our new discounts & promotions</a></p>
+                                </div>
+                                {/* -------------------SIGNUP-BTN-------------------- */}
+                                <div>
+                                    <button className="btn-res col-sm-4" type="submit" >
+                                        Sign Up
+                                    </button>
+                                </div>
+                                {/* -------------------OTHER-------------------- */}
+                                <div className="anyaccount" style={{ marginLeft: "60px", float: "left", textAlign: "center" }} ><span style={{ color: "black" }}>Already Registered?</span></div>
+                                <Link to={'/login'}> <button className="btn-already-res"> <FontAwesomeIcon icon={faUser} style={{ marginRight: "10px" }} />Log In</button></Link>
+
+                                {/* <p>
+                                Already Registered? <br />
+                                <span className="line">
+
+                                    <a style={{ color: "black" }} href="/Login">Sign In</a>
+                                </span>
+                            </p> */}
+
+                            </form>
+
+                        </section>
+                    )}
+                </div>
+                <div className="set-register">
                     <div className="register-form">
                         {success ? (
                             <section>
@@ -224,11 +414,11 @@ const Register = () => {
                                 </p>
                             </section>
                         ) : (
-                            <section style={{border:'none'}} >
+                            <section style={{ border: 'none' }} >
                                 <p ref={errRef} className={errMsg ? "errMsg"
                                     : "offScreen"} aria-live="assertive">{errMsg}</p>
                                 <form onSubmit={handleSubmit} className="row">
-                                    <h2 style={{}}>Sign Up</h2>
+                                    <h2>Sign Up</h2>
                                     <span style={{ marginBottom: "40px", display: "block" }}>Join over 1 million other drivers throughout the UK. Over 350,000 spaces and counting.</span>
                                     {/* -------------------USER-NAME-------------------- */}
                                     <div>
@@ -405,11 +595,393 @@ const Register = () => {
                             </section>
                         )}
                     </div>
-
                 </div>
-            </>
-        </HelmetProvider>
+            </div>
+            <div className="res-container-register">
+                <div className="register-form">
+                    {success ? (
+                        <section>
+                            <h1>Success!</h1>
+                            <p>
+                                <a href="#">Sign In</a>
+                            </p>
+                        </section>
+                    ) : (
+                        <section style={{ border: 'none' }} >
+                            <p ref={errRef} className={errMsg ? "errMsg"
+                                : "offScreen"} aria-live="assertive">{errMsg}</p>
+                            <form onSubmit={handleSubmit} className="row">
+                                <h2>Sign Up</h2>
+                                <span style={{ marginBottom: "40px", display: "block" }}>Join over 1 million other drivers throughout the UK. Over 350,000 spaces and counting.</span>
+                                {/* -------------------USER-NAME-------------------- */}
+                                <div>
+                                    <input
+                                        placeholder="User Name *"
+                                        type="text"
+                                        id="username"
+                                        className="col-sm-4"
+                                        ref={userRef}
+                                        autoComplete="off"
+                                        onChange={(e) => setId(e.target.value)}
+                                        required
+                                        aria-invalid={validName ? "false" : "true"}
+                                        aria-describedby="unidnote"
+                                        onFocus={() => setUserFocus(true)}
+                                        onBlur={() => setUserFocus(false)}
+                                    />
 
+                                    <FontAwesomeIcon icon={faCheck} className={validName ? "valid" : "hide"} />
+                                    <FontAwesomeIcon icon={faTimes} className={validName || !id ? "hide" : "invalid"} />
+
+                                </div>
+                                {/* -------------------FULL-NAME-------------------- */}
+                                <div>
+                                    <input
+                                        placeholder="Full Name *"
+                                        type="text"
+                                        id="fullname"
+                                        className="col-sm-4"
+                                        autoComplete="off"
+                                        onChange={(e) => setFullName(e.target.value)}
+                                        required
+
+                                    />
+                                </div>
+                                {/* -------------------PASSWORD-------------------- */}
+                                <div className="row">
+                                    <div className="col-sm-4 valid-pwd" id="password">
+                                        <input
+                                            placeholder="Password *"
+                                            type="password"
+                                            id="password"
+                                            onChange={(e) => setPwd(e.target.value)}
+                                            required
+                                            aria-invalid={validPwd ? "false" : "true"}
+                                            aria-describedby="pwdnode"
+                                            onFocus={() => setPwdFocus(true)}
+                                            onBlur={() => setPwdFocus(false)}
+                                        />
+                                        <i><FontAwesomeIcon icon={faCheck} className={validPwd ? "valid" : "hide"} /></i>
+                                        <i><FontAwesomeIcon icon={faTimes} className={validPwd || !pwd ? "hide" : "invalid"} /></i>
+
+                                    </div>
+
+                                    {/* -------------------CONFIRM-PASSWORD-------------------- */}
+                                    <div className="col-sm-4 valid-pwd">
+                                        <input
+                                            placeholder="Confirm Password *"
+                                            type="password"
+                                            id="confirm_password"
+
+                                            onChange={(e) => setMatchPwd(e.target.value)}
+                                            required
+                                            aria-invalid={validMatch ? "false" : "true"}
+                                            aria-describedby="confirmnode"
+                                            onFocus={() => setMatchFocus(true)}
+                                            onBlur={() => setMatchFocus(false)}
+                                        />
+
+                                        <i><FontAwesomeIcon icon={faCheck} className={validMatch && matchPwd ? "valid" : "hide"} /></i>
+                                        <i><FontAwesomeIcon icon={faTimes} className={validMatch || !matchPwd ? "hide" : "invalid"} /></i>
+                                    </div>
+
+                                </div>
+
+                                {/* -------------------BIRTHDAY-------------------- */}
+                                <div className="col-sm-4" style={{ marginRight: "80px", color: "#8AA4B3" }}>
+                                    <input
+                                        placeholder="Birth Day"
+                                        type="date"
+                                        id="birthday"
+
+                                        autoComplete="off"
+                                        onChange={(e) => setBirthDay(e.target.value)}
+                                    />
+
+                                </div>
+                                {/* -------------------GENDER-------------------- */}
+                                <div className="input-gender col-sm-4 ">
+
+                                    <input style={{ float: "left", marginLeft: "-10px" }} type="radio" checked={txtGender === 'female'} onChange={e => setTxtGender(e.target.value)} name="gender" value="female" ></input>
+                                    <label className="gender"><span>Female</span></label>
+
+
+                                    <input style={{ float: "left"}} type="radio" checked={txtGender === 'male'} onChange={e => setTxtGender(e.target.value)} name="gender" value="male" ></input>
+                                    <label className="gender"><span>Male</span></label>
+
+
+
+                                </div>
+                                {/* -------------------EMAIL-------------------- */}
+                                <div>
+                                    <input
+                                        placeholder="Email *"
+                                        type="text"
+                                        id="email"
+                                        className="col-sm-4"
+                                        autoComplete="off"
+                                        onChange={(e) => setEmail(e.target.value)}
+                                        required
+                                        aria-invalid={validEmail ? "false" : "true"}
+                                        aria-describedby="emailnote"
+                                        onFocus={() => setEmailFocus(true)}
+                                        onBlur={() => setEmailFocus(false)}
+
+                                    />
+
+                                    <FontAwesomeIcon icon={faCheck} className={validEmail ? "valid" : "hide"} />
+                                    <FontAwesomeIcon icon={faTimes} className={validEmail || !email ? "hide" : "invalid"} />
+
+                                </div>
+
+
+                                {/* -------------------PHONE-------------------- */}
+                                <div>
+                                    <input
+                                        placeholder="Phone *"
+                                        type="text"
+                                        id="phone"
+                                        className="col-sm-4"
+                                        autoComplete="off"
+                                        onChange={(e) => setPhone(e.target.value)}
+                                        required
+                                        aria-invalid={validPhone ? "false" : "true"}
+                                        aria-describedby="emailnote"
+                                        onFocus={() => setPhoneFocus(true)}
+                                        onBlur={() => setPhoneFocus(false)}
+
+                                    />
+
+                                    <FontAwesomeIcon className={validPhone ? "valid" : "hide"} icon={faCheck} />
+
+
+                                    <FontAwesomeIcon className={validPhone || !phone ? "hide" : "invalid"} icon={faTimes} />
+
+                                </div>
+
+
+                                {/* -------------------PROMOTIONS-------------------- */}
+                                <div className="col-sm-4 checkbox">
+                                    <input type="checkbox" onChange={e => setChecked(e.target.value)} name="checked" value="checked"></input>
+                                    <p > <a href="#" style={{ color: "black", textDecoration: "none" }}>Opt-in here if you would like to be one of the first to hear about our new discounts & promotions</a></p>
+                                </div>
+                                {/* -------------------SIGNUP-BTN-------------------- */}
+                                <div>
+                                    <button className="btn-res col-sm-4" type="submit" >
+                                        Sign Up
+                                    </button>
+                                </div>
+                                {/* -------------------OTHER-------------------- */}
+                                <div className="anyaccount" style={{ marginLeft: "60px", float: "left", textAlign: "center" }} ><span style={{ color: "black" }}>Already Registered?</span></div>
+                                <Link to={'/login'}> <button className="btn-already-res"> <FontAwesomeIcon icon={faUser} style={{ marginRight: "10px" }} />Log In</button></Link>
+
+                                {/* <p>
+                                Already Registered? <br />
+                                <span className="line">
+
+                                    <a style={{ color: "black" }} href="/Login">Sign In</a>
+                                </span>
+                            </p> */}
+
+                            </form>
+
+                        </section>
+                    )}
+                </div>
+                <div className="set-register">
+                    <div className="register-form">
+                        {success ? (
+                            <section>
+                                <h1>Success!</h1>
+                                <p>
+                                    <a href="#">Sign In</a>
+                                </p>
+                            </section>
+                        ) : (
+                            <section style={{ border: 'none' }} >
+                                <p ref={errRef} className={errMsg ? "errMsg"
+                                    : "offScreen"} aria-live="assertive">{errMsg}</p>
+                                <form onSubmit={handleSubmit} className="row">
+                                    <h2>Sign Up</h2>
+                                    <span style={{ marginBottom: "40px", display: "block" }}>Join over 1 million other drivers throughout the UK. Over 350,000 spaces and counting.</span>
+                                    {/* -------------------USER-NAME-------------------- */}
+                                    <div>
+                                        <input
+                                            placeholder="User Name *"
+                                            type="text"
+                                            id="username"
+                                            className="col-sm-4"
+                                            ref={userRef}
+                                            autoComplete="off"
+                                            onChange={(e) => setId(e.target.value)}
+                                            required
+                                            aria-invalid={validName ? "false" : "true"}
+                                            aria-describedby="unidnote"
+                                            onFocus={() => setUserFocus(true)}
+                                            onBlur={() => setUserFocus(false)}
+                                        />
+
+                                        <FontAwesomeIcon icon={faCheck} className={validName ? "valid" : "hide"} />
+                                        <FontAwesomeIcon icon={faTimes} className={validName || !id ? "hide" : "invalid"} />
+
+                                    </div>
+                                    {/* -------------------FULL-NAME-------------------- */}
+                                    <div>
+                                        <input
+                                            placeholder="Full Name *"
+                                            type="text"
+                                            id="fullname"
+                                            className="col-sm-4"
+                                            autoComplete="off"
+                                            onChange={(e) => setFullName(e.target.value)}
+                                            required
+
+                                        />
+                                    </div>
+                                    {/* -------------------PASSWORD-------------------- */}
+                                    <div className="row">
+                                        <div className="col-sm-4 valid-pwd" id="password" style={{ marginRight: "20px" }}>
+                                            <input
+                                                placeholder="Password *"
+                                                type="password"
+                                                id="password"
+                                                onChange={(e) => setPwd(e.target.value)}
+                                                required
+                                                aria-invalid={validPwd ? "false" : "true"}
+                                                aria-describedby="pwdnode"
+                                                onFocus={() => setPwdFocus(true)}
+                                                onBlur={() => setPwdFocus(false)}
+                                            />
+                                            <i><FontAwesomeIcon icon={faCheck} className={validPwd ? "valid" : "hide"} /></i>
+                                            <i><FontAwesomeIcon icon={faTimes} className={validPwd || !pwd ? "hide" : "invalid"} /></i>
+
+                                        </div>
+
+                                        {/* -------------------CONFIRM-PASSWORD-------------------- */}
+                                        <div className="col-sm-4 valid-pwd">
+                                            <input
+                                                placeholder="Confirm Password *"
+                                                type="password"
+                                                id="confirm_password"
+
+                                                onChange={(e) => setMatchPwd(e.target.value)}
+                                                required
+                                                aria-invalid={validMatch ? "false" : "true"}
+                                                aria-describedby="confirmnode"
+                                                onFocus={() => setMatchFocus(true)}
+                                                onBlur={() => setMatchFocus(false)}
+                                            />
+
+                                            <i><FontAwesomeIcon icon={faCheck} className={validMatch && matchPwd ? "valid" : "hide"} /></i>
+                                            <i><FontAwesomeIcon icon={faTimes} className={validMatch || !matchPwd ? "hide" : "invalid"} /></i>
+                                        </div>
+
+                                    </div>
+
+                                    {/* -------------------BIRTHDAY-------------------- */}
+                                    <div className="col-sm-4" style={{ marginRight: "80px", color: "#8AA4B3" }}>
+                                        <input
+                                            placeholder="Birth Day"
+                                            type="date"
+                                            id="birthday"
+
+                                            autoComplete="off"
+                                            onChange={(e) => setBirthDay(e.target.value)}
+                                        />
+
+                                    </div>
+                                    {/* -------------------GENDER-------------------- */}
+                                    <div className="input-gender col-sm-4 ">
+
+                                        <input style={{ float: "left", marginLeft: "-10px" }} type="radio" checked={txtGender === 'female'} onChange={e => setTxtGender(e.target.value)} name="gender" value="female" ></input>
+                                        <label className="gender"><span>Female</span></label>
+
+
+                                        <input style={{ float: "left" }} type="radio" checked={txtGender === 'male'} onChange={e => setTxtGender(e.target.value)} name="gender" value="male" ></input>
+                                        <label className="gender"><span>Male</span></label>
+
+
+
+                                    </div>
+                                    {/* -------------------EMAIL-------------------- */}
+                                    <div>
+                                        <input
+                                            placeholder="Email *"
+                                            type="text"
+                                            id="email"
+                                            className="col-sm-4"
+                                            autoComplete="off"
+                                            onChange={(e) => setEmail(e.target.value)}
+                                            required
+                                            aria-invalid={validEmail ? "false" : "true"}
+                                            aria-describedby="emailnote"
+                                            onFocus={() => setEmailFocus(true)}
+                                            onBlur={() => setEmailFocus(false)}
+
+                                        />
+
+                                        <FontAwesomeIcon icon={faCheck} className={validEmail ? "valid" : "hide"} />
+                                        <FontAwesomeIcon icon={faTimes} className={validEmail || !email ? "hide" : "invalid"} />
+
+                                    </div>
+
+
+                                    {/* -------------------PHONE-------------------- */}
+                                    <div>
+                                        <input
+                                            placeholder="Phone *"
+                                            type="text"
+                                            id="phone"
+                                            className="col-sm-4"
+                                            autoComplete="off"
+                                            onChange={(e) => setPhone(e.target.value)}
+                                            required
+                                            aria-invalid={validPhone ? "false" : "true"}
+                                            aria-describedby="emailnote"
+                                            onFocus={() => setPhoneFocus(true)}
+                                            onBlur={() => setPhoneFocus(false)}
+
+                                        />
+
+                                        <FontAwesomeIcon className={validPhone ? "valid" : "hide"} icon={faCheck} />
+
+
+                                        <FontAwesomeIcon className={validPhone || !phone ? "hide" : "invalid"} icon={faTimes} />
+
+                                    </div>
+
+
+                                    {/* -------------------PROMOTIONS-------------------- */}
+                                    <div className="col-sm-4 checkbox">
+                                        <input type="checkbox" onChange={e => setChecked(e.target.value)} name="checked" value="checked"></input>
+                                        <p > <a href="#" style={{ color: "black", textDecoration: "none" }}>Opt-in here if you would like to be one of the first to hear about our new discounts & promotions</a></p>
+                                    </div>
+                                    {/* -------------------SIGNUP-BTN-------------------- */}
+                                    <div>
+                                        <button className="btn-res col-sm-4" type="submit" >
+                                            Sign Up
+                                        </button>
+                                    </div>
+                                    {/* -------------------OTHER-------------------- */}
+                                    <div className="anyaccount" style={{ marginLeft: "60px", float: "left", textAlign: "center" }} ><span style={{ color: "black" }}>Already Registered?</span></div>
+                                    <Link to={'/login'}> <button className="btn-already-res"> <FontAwesomeIcon icon={faUser} style={{ marginRight: "10px" }} />Log In</button></Link>
+
+                                    {/* <p>
+                                Already Registered? <br />
+                                <span className="line">
+
+                                    <a style={{ color: "black" }} href="/Login">Sign In</a>
+                                </span>
+                            </p> */}
+
+                                </form>
+
+                            </section>
+                        )}
+                    </div>
+                </div>
+            </div>
+        </HelmetProvider>
     )
 
 }
