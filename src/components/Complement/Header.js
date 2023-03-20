@@ -21,8 +21,8 @@ const Header = (props) => {
         window.location.href = '/login';
     }
 
-    
-    
+
+
 
 
     return (
@@ -33,7 +33,7 @@ const Header = (props) => {
                 <img src={'../assets/img/logo.png'}></img>
             </div>
             <div class="nav justify-content-end nav-custom  ">
-            
+
                 <li class={activeLink === 1 ? 'header-active nav-item' : null} onClick={() => setActiveLink(1)}>
                     <Link to={'/'}> <a class="nav-link" href="#">Home</a></Link>
                 </li>
@@ -41,13 +41,13 @@ const Header = (props) => {
                     <Link to={'/Reservation'}> <a class="nav-link" href="#">Reservation</a></Link>
                 </li>
                 <li class={activeLink === 3 ? 'header-active nav-item' : null} onClick={() => setActiveLink(3)}>
-                    <a class="nav-link" href="#">Slots</a>
+                    <Link to={'/Service'}> <a class="nav-link" href="#">Services</a></Link>
                 </li>
                 <li class={activeLink === 4 ? 'header-active nav-item' : null} onClick={() => setActiveLink(4)}>
                     <Link to={'/Price'}><a class="nav-link" href="#">Price</a></Link>
                 </li>
                 <li class={activeLink === 5 ? 'header-active nav-item' : null} onClick={() => setActiveLink(5)}>
-                    <a class="nav-link" href="#">Location</a>
+                    <Link to={'/News'}><a class="nav-link" href="#">News</a></Link>
                 </li>
                 <Nav class={activeLink === 6 ? 'header-active nav-item' : null} onClick={() => setActiveLink(6)}>
                     <NavDropdown title="More" id="basic-nav-dropdown">

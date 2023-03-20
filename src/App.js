@@ -33,6 +33,8 @@ import SerHomePage from './components/Admin/Sercurity/SerHomePage';
 import MoneyManagement from './components/Admin/Sercurity/MoneyManagement';
 import ResidentPage from './components/Resident/ResidentPage';
 import CustomerPage from './components/Customer/CustomerPage';
+import News from './components/Screen/News';
+import Service from './components/Screen/Service';
 
 
 function App() {
@@ -75,6 +77,8 @@ function App() {
           <Route path='/ResidentPage' element={<ResidentPage></ResidentPage>}></Route>
           <Route path='/CustomerPage' element={<CustomerPage></CustomerPage>}></Route>
 
+          <Route path='/News' element={<News></News>}></Route>
+          <Route path='/Service' element={<Service></Service>}></Route>
         </Routes>
       </BrowserRouter>
 

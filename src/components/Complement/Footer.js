@@ -31,22 +31,19 @@ const Footer = () => {
                             <h5 class="font-weight-bold text-light mb-4">Quick Links</h5>
                             <div class="d-flex flex-column justify-content-start">
                                 <a class="text-light  mb-2"  href="#"><i class="fa fa-angle-right mr-2"></i>Home</a>
-                                <a class="text-light  mb-2"  href="#"><i class="fa fa-angle-right mr-2"></i>Our Shop</a>
-                                <a class="text-light  mb-2"  href="#"><i class="fa fa-angle-right mr-2"></i>Shop Detail</a>
-                                <a class="text-light  mb-2"  href="#"><i class="fa fa-angle-right mr-2"></i>Shopping Cart</a>
-                                <a class="text-light  mb-2"  href="#"><i class="fa fa-angle-right mr-2"></i>Checkout</a>
-                                <a class="text-light " ><i class="fa fa-angle-right mr-2"></i>Contact Us</a>
+                                <a class="text-light  mb-2"  href="#"><i class="fa fa-angle-right mr-2"></i>Reservation</a>
+                                <a class="text-light  mb-2"  href="#"><i class="fa fa-angle-right mr-2"></i>Slot Detail</a>
+                                <a class="text-light  mb-2"  href="#"><i class="fa fa-angle-right mr-2"></i>Price Detail</a>
+                                
                             </div>
                         </div>
                         <div class="col-md-4 mb-5">
                             <h5 class="font-weight-bold text-light  mb-4">Quick Links</h5>
                             <div class="d-flex flex-column justify-content-start">
-                                <a class="text-light  mb-2"  href="#"><i class="fa fa-angle-right mr-2"></i>Home</a>
-                                <a class="text-light  mb-2"  href="#"><i class="fa fa-angle-right mr-2"></i>Our Shop</a>
-                                <a class="text-light  mb-2" href="#"><i class="fa fa-angle-right mr-2"></i>Shop Detail</a>
-                                <a class="text-light  mb-2"  href="#"><i class="fa fa-angle-right mr-2"></i>Shopping Cart</a>
-                                <a class="text-light  mb-2"  href="#"><i class="fa fa-angle-right mr-2"></i>Checkout</a>
-                                <a class="text-light "><i class="fa fa-angle-right mr-2"></i>Contact Us</a>
+                                <a class="text-light  mb-2"  href="#"><i class="fa fa-angle-right mr-2"></i>About Us</a>
+                                <a class="text-light  mb-2"  href="#"><i class="fa fa-angle-right mr-2"></i>Our Vision</a>
+                                <a class="text-light  mb-2" href="#"><i class="fa fa-angle-right mr-2"></i>Contact Us</a>
+                                
                             </div>
                         </div>
                         <div class="col-md-4 mb-5">
@@ -60,7 +57,7 @@ const Footer = () => {
                                         required="required" />
                                 </div>
                                 <div>
-                                    <button class="btn btn-primary btn-block border-0 py-3" type="submit">Subscribe Now</button>
+                                    <button style={{width:'200px' , height:'38px'}} class="btn btn-primary " type="submit">Subscribe Now</button>
                                 </div>
                             </form>
                         </div>

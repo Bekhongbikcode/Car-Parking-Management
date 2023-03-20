@@ -166,6 +166,7 @@
   padding-left: 10px;
   border: 0.5px solid #8AA4B3;
   border-radius: 5px;
+  box-shadow: rgba(0, 0, 0, 0.14) 0px 3px 8px;
 }
 
 .class-input select {
@@ -175,6 +176,7 @@
   padding-left: 10px;
   border: 0.5px solid #8AA4B3;
   border-radius: 5px;
+  box-shadow: rgba(0, 0, 0, 0.14) 0px 3px 8px;
 }
 
 .class-input input:focus {

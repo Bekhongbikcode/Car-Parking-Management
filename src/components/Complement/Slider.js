@@ -132,8 +132,8 @@ const Slider = () => {
 
             </div>
             <div className="describe-system" >
-                <h1>Booking Vehicle Parking Area</h1>
-                <p>The system provide the easily service to book a slot for your vehicle in my parking area
+                <h1 style={{color:'white'}}>Booking Vehicle Parking Area</h1>
+                <p style={{color:'white', fontSize:'20px'}}>The system provide the easily service to book a slot for your vehicle in my parking area
                     and pay the monthly invoice if you is a resident.</p>
             </div>
         </div>
