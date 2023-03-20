@@ -206,7 +206,7 @@
   height: 60px;
   background-color: #fff;
   border: none;
-  
+
 }
 
 .zone-area-homepage .card-header div {
@@ -218,7 +218,7 @@
   right: 0;
   margin-right: -12px;
   text-align: center;
-  border-radius: 0 15px 0  !important;
+  border-radius: 0 15px 0 !important;
 }
 
 .zone-area-homepage .card-header span {
@@ -382,8 +382,9 @@
   border: none;
   position: relative;
   margin-bottom: 30px;
-  box-shadow: 0 0.46875rem 2.1875rem rgba(90,97,105,0.1), 0 0.9375rem 1.40625rem rgba(90,97,105,0.1), 0 0.25rem 0.53125rem rgba(90,97,105,0.12), 0 0.125rem 0.1875rem rgba(90,97,105,0.1);
+  box-shadow: 0 0.46875rem 2.1875rem rgba(90, 97, 105, 0.1), 0 0.9375rem 1.40625rem rgba(90, 97, 105, 0.1), 0 0.25rem 0.53125rem rgba(90, 97, 105, 0.12), 0 0.125rem 0.1875rem rgba(90, 97, 105, 0.1);
 }
+
 .l-bg-cherry {
   background: linear-gradient(to right, #493240, #f09) !important;
   color: #fff;
@@ -404,7 +405,10 @@
   color: #fff;
 }
 
-.card .card-statistic-3 .card-icon-large .fas, .card .card-statistic-3 .card-icon-large .far, .card .card-statistic-3 .card-icon-large .fab, .card .card-statistic-3 .card-icon-large .fal {
+.card .card-statistic-3 .card-icon-large .fas,
+.card .card-statistic-3 .card-icon-large .far,
+.card .card-statistic-3 .card-icon-large .fab,
+.card .card-statistic-3 .card-icon-large .fal {
   font-size: 110px;
 }
 
@@ -460,7 +464,8 @@
   transition: opacity .6s ease;
 }
 
-.carousel-control-next-icon, .carousel-control-prev-icon {
+.carousel-control-next-icon,
+.carousel-control-prev-icon {
   display: inline-block;
   width: 2rem;
   height: 2rem;
@@ -468,4 +473,39 @@
   background-position: 50%;
   background-size: 100% 100%;
   color: black !important;
+}
+
+@media screen and (max-width:390px) {
+  .zone-area-homepage{
+    width: 300px !important;
+    margin-left: 60px !important;
+  }
+  
+  .zone-area-homepage .card{
+    width: 300px !important;
+    margin-left: -10px !important;
+    margin-top: 10% !important;
+  }
+
+  .msg{
+    width: 100% !important;
+    height: 100% !important;
+    margin-left: -10% !important;
+  }
+
+  .img-gate-homepage{
+    width: 100% !important;
+    margin-top: -40% !important;
+    margin-left: -6% !important;
+  }
+
+  .barrier-homepage{
+    margin-bottom: 200px !important;
+  }
+
+  .recard{
+    width: 40rem !important;
+    height: 18rem !important; 
+  }
+
 }

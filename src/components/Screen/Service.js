@@ -92,13 +92,11 @@ const Service = () => {
                             </p>
                         </div>
                     </div>
-
-
                 </div>
-
             </section>
-
-            <Footer></Footer>
+            <div className="footerservice">
+                <Footer></Footer>
+            </div>
         </div>
     )
 }

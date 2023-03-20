@@ -98,3 +98,27 @@
         max-width: 33.33%;
     }
 }
+
+@media screen and (max-width:390px) {
+    * {
+      margin: 0;
+      padding: 0;
+      text-decoration: none;
+    }
+.signature{
+    display: none;
+}
+
+.carimg img{
+    width: 300px;
+}
+
+.section-heading{
+    margin-top:15%;
+}
+.footerservice {
+    margin-top: 76rem !important;
+}
+.service-page p{
+}
+}

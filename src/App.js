@@ -37,7 +37,6 @@ import News from './components/Screen/News';
 import Service from './components/Screen/Service';
 
 
-
 function App() {
   return (
     <div className="App">
@@ -81,9 +80,7 @@ function App() {
 
           <Route path='/News' element={<News></News>}></Route>
           <Route path='/Service' element={<Service></Service>}></Route>
-
-          
-
+        
 
         </Routes>
       </BrowserRouter>

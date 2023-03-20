@@ -14,7 +14,7 @@ const News = () => {
                 <div class="row" style={{ marginBottom: '20px', marginTop: '-30px' }}>
                     <h2 class="section-heading">News</h2>
                 </div>
-                <div className="col s6">
+                <div className="col s6 carimg">
                     <img src="https://parkivia.ancorathemes.com/wp-content/uploads/2017/12/img-featur-copyright.jpg"></img>
                 </div>
                 <div className="col s6">
@@ -82,6 +82,7 @@ const News = () => {
                             marginBottom: "0",
                             marginLeft: "300px",
                         }}
+                        className="signature"
                     >
                         CarParkingPage
                     </p>
@@ -135,6 +136,7 @@ const News = () => {
                             marginBottom: "0",
                             marginLeft: "230px",
                         }}
+                        className="signature"
                     >
                         CarParkingPage
                     </p>

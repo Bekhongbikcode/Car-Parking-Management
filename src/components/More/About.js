@@ -1,7 +1,7 @@
 import M from 'materialize-css'
 import 'materialize-css/dist/css/materialize.min.css'
 import React, { useEffect } from 'react'
-import { Row, Col, Icon, CardTitle, Card } from 'react-materialize';
+import { Row, Col, CardTitle, Card } from 'react-materialize';
 import Header from '../Complement/Header';
 import FooterMore from './FooterMore';
 import './More.css'
@@ -51,10 +51,10 @@ function About() {
                 <Row className='col s3'>
                     <Col>
                         <Card
-                            closeIcon={<Icon>close</Icon>}
+                            // closeIcon={<Icon>close</Icon>}
                             header={<CardTitle image="https://d1gymyavdvyjgt.cloudfront.net/drive/images/uploads/headers/ws_cropper/1_0x0_790x520_0x520_bay_parking_guide.jpg" reveal waves="light" />}
                             reveal={<p>The more convenient that can help you to find the car parking area</p>}
-                            revealIcon={<Icon>more_vert</Icon>}
+                            // revealIcon={<Icon>more_vert</Icon>}
                             title="Car Advantages"
                         >
                         <button className='btn' type="submit" style={{ backgroundColor: "#2dc98a", borderRadius: "5%", border: "none", color: "white" }}> Join Us</button>
@@ -64,10 +64,10 @@ function About() {
                 </Row><Row className='col s3'>
                     <Col>
                         <Card
-                            closeIcon={<Icon>close</Icon>}
+                            // closeIcon={<Icon>close</Icon>}
                             header={<CardTitle image="https://www.rac.co.uk/drive/images/uploads/content/Bay_parking_guide_reverse.jpg" reveal waves="light" />}
                             reveal={<p>The service can make you feeling good to parking</p>}
-                            revealIcon={<Icon>more_vert</Icon>}
+                            // revealIcon={<Icon>more_vert</Icon>}
                             title="Car Service"
                         >
                         <button className='btn' type="submit" style={{ backgroundColor: "#2dc98a", borderRadius: "5%", border: "none", color: "white" }}> Join Us</button>
@@ -77,10 +77,10 @@ function About() {
                 </Row><Row className='col s3'>
                     <Col>
                         <Card
-                            closeIcon={<Icon>close</Icon>}
+                            // closeIcon={<Icon>close</Icon>}
                             header={<CardTitle image="https://www.rac.co.uk/drive/images/uploads/content/Bay_parking_guide_driving_test.jpg" reveal waves="light" />}
                             reveal={<p>Make you can easily to finding the parking with one click</p>}
-                            revealIcon={<Icon>more_vert</Icon>}
+                            // revealIcon={<Icon>more_vert</Icon>}
                             title="Car Convenient"
                         >
                         <button className='btn' type="submit" style={{ backgroundColor: "#2dc98a", borderRadius: "5%", border: "none", color: "white" }}> Join Us</button>
@@ -90,10 +90,10 @@ function About() {
                 </Row><Row className='col s3'>
                     <Col>
                         <Card
-                            closeIcon={<Icon>close</Icon>}
+                            // closeIcon={<Icon>close</Icon>}
                             header={<CardTitle image="https://images.jdmagicbox.com/comp/def_content/car-parking-management/cars-parked-in-parking-lot-car-parking-management-1-0stjw.jpg?clr=382e2e&temp=1" reveal waves="light" />}
                             reveal={<p>Can have more than 2000 place for parking in a times</p>}
-                            revealIcon={<Icon>more_vert</Icon>}
+                            // revealIcon={<Icon>more_vert</Icon>}
                             title="Car Huge Parking"
                         >
                         <button className='btn' type="submit" style={{ backgroundColor: "#2dc98a", borderRadius: "5%", border: "none", color: "white" }}> Join Us</button>
