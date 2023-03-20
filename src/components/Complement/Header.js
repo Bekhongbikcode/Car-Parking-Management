@@ -21,8 +21,8 @@ const Header = (props) => {
         window.location.href = '/login';
     }
 
-
-
+    
+    
 
 
     return (
@@ -33,26 +33,26 @@ const Header = (props) => {
                 <img src={'../assets/img/logo.png'}></img>
             </div>
             <div class="nav justify-content-end nav-custom  ">
-
+            
                 <li class={activeLink === 1 ? 'header-active nav-item' : null} onClick={() => setActiveLink(1)}>
-                    <Link to={'/'}> <a class="nav-link" href="#">Home</a></Link>
+                    <Link to={'/'} > <a class="nav-link" href="#">Home</a></Link>
                 </li>
                 <li class={activeLink === 2 ? 'header-active nav-item' : null} onClick={() => setActiveLink(2)}>
                     <Link to={'/Reservation'}> <a class="nav-link" href="#">Reservation</a></Link>
                 </li>
                 <li class={activeLink === 3 ? 'header-active nav-item' : null} onClick={() => setActiveLink(3)}>
-                    <Link to={'/Service'}> <a class="nav-link" href="#">Services</a></Link>
+                <Link to={'/Service'}> <a class="nav-link" href="#">Services</a></Link>
                 </li>
                 <li class={activeLink === 4 ? 'header-active nav-item' : null} onClick={() => setActiveLink(4)}>
                     <Link to={'/Price'}><a class="nav-link" href="#">Price</a></Link>
                 </li>
                 <li class={activeLink === 5 ? 'header-active nav-item' : null} onClick={() => setActiveLink(5)}>
-                    <Link to={'/News'}><a class="nav-link" href="#">News</a></Link>
+                <Link to={'/News'}><a class="nav-link" href="#">News</a></Link>
                 </li>
                 <Nav class={activeLink === 6 ? 'header-active nav-item' : null} onClick={() => setActiveLink(6)}>
                     <NavDropdown title="More" id="basic-nav-dropdown">
-                        <NavDropdown.Item href="/about">About Us</NavDropdown.Item>
-                        <NavDropdown.Item href="/news">Contact Us</NavDropdown.Item>
+                        <NavDropdown.Item href="#action/3.1">About Us</NavDropdown.Item>
+                        <NavDropdown.Item href="#action/3.2">Contact Us</NavDropdown.Item>
                         <NavDropdown.Item href="#action/3.3">Our Vision</NavDropdown.Item>
 
                     </NavDropdown>

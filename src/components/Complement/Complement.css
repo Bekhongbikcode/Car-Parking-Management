@@ -41,6 +41,14 @@
   background-color: white !important;
   padding: 1%;
   margin-bottom: 10px;
+  position: fixed;
+  top: 0;
+  z-index: 10000;
+  box-shadow: rgba(0, 0, 0, 0.14) 0px 3px 8px;
+}
+
+.header-active{
+  background-color: #2DC98A;
 }
 
 .header a {
