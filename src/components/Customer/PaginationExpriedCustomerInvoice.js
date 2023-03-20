@@ -1,12 +1,57 @@
-import React, { useState } from "react";
-import { url_api } from "../../API/api";
+import React, { useEffect, useState } from "react";
+
 import { toast } from "react-toastify";
+import { url_api } from "../../API/api";
+import PopupExpiredInfor from "./PopUp/PopUpExpiredInfor";
+
+const URL_Fee_C = url_api + '/expired/getFeeCutomer/'
+const URL_PAYMENT_R = url_api + '/expired/payR/'
+const URL_PAYMENT_C = url_api + '/expired/payC/'
 
 function PaginationExpiredCustomerInvoice(props) {
     const user = props.user;
     const [currentPage, setCurrentPage] = useState(1);
     const pageSize = props.pageSize || 10; // default to 10 if not provided
     const totalPages = Math.ceil(props.data.length / pageSize);
+    const [invoiceId, setInvoiceId] = useState('');
+    const [obj, setObj] = useState('');
+
+    const [showPopupCreateRes, setShowPopupCreateRes] = useState(false);
+    const togglePopupCreateRes = () => {
+        setShowPopupCreateRes(!showPopupCreateRes);
+        // const now = new Date();
+        // const hours = now.getHours();
+        // const minutes = now.getMinutes();
+        // const seconds = now.getSeconds();
+        // const currentTime = `${hours}a${minutes}a${seconds}`;
+        // console.log(URL_Fee_C + invoiceId + '?time=' + currentTime)
+        // fetch(URL_Fee_C + invoiceId + '?time=' + currentTime, {
+        //     method: "GET",
+        //     headers: {
+        //         "Access-Control-Allow-Origin": URL_Fee_C + invoiceId,
+        //         Accept: "*/*",
+        //         "Content-Type": "application/json",
+        //         "X-Requested-With": "XMLHttpRequest",
+        //         "Cache-Control": "no-cache",
+        //     },
+
+        // })
+        //     .then((res) => res.json())
+        //     .then((data) => {
+        //         setObj(data)
+                
+        //         console.log(data);
+        //     })
+        //     .catch((err) => {
+        //         console.error(err);
+
+        //     });
+    };
+
+    const getInvoiceId = (id) => {
+        setInvoiceId(id);
+        console.log('id:' + id)
+    }
 
     const handleClick = (event, page) => {
         event.preventDefault();
@@ -28,27 +73,39 @@ function PaginationExpiredCustomerInvoice(props) {
         return pageNumbers;
     };
 
-    const handleChangeStatus = (id) => {
-        fetch(url_api + '/security/changeStatusInvoiceCustomer/' + id, {
-            method: 'PUT',
-            header: {
-                "Access-Control-Allow-Origin": url_api + '/security/changeStatusInvoiceCustomer/' + id,
-                "Accept": "*/*",
-                "Content-Type": "application/text",
-                "X-Requested-With": "XMLHttpRequest",
-                "Cache-Control": "no-cache",
-            },
+   
 
-        }).then((res) => {
+    // useEffect(() => {
+    //     const now = new Date();
+    //     const hours = now.getHours();
+    //     const minutes = now.getMinutes();
+    //     const seconds = now.getSeconds();
+    //     const currentTime = `${hours}a${minutes}a${seconds}`;
+    //     console.log(URL_Fee_C + invoiceId + '?time=' + currentTime)
+    //     fetch(URL_Fee_C + invoiceId + '?time=' + currentTime, {
+    //         method: "GET",
+    //         headers: {
+    //             "Access-Control-Allow-Origin": URL_Fee_C + invoiceId,
+    //             Accept: "*/*",
+    //             "Content-Type": "application/json",
+    //             "X-Requested-With": "XMLHttpRequest",
+    //             "Cache-Control": "no-cache",
+    //         },
 
-            console.log(res);
+    //     })
+    //         .then((res) => res.json())
+    //         .then((data) => {
+    //             setObj(data)
+                
+    //             console.log(data);
+    //         })
+    //         .catch((err) => {
+    //             console.error(err);
 
-            toast.success('Register successfully.');
+    //         });
 
-        }).catch((err) => {
-            toast.error('Failed: ' + err.message);
-        });
-    }
+    // },[])
+   
 
     const renderListItems = () => {
         const start = (currentPage - 1) * pageSize;
@@ -61,14 +118,14 @@ function PaginationExpiredCustomerInvoice(props) {
                 <td>{item.current_date} - {item.current_time}</td>
                 <td>{item.expired} hours</td>
                 <td>{item.fine} VND</td>
-                <td style={!item.warning ? {color:'#259645', fontWeight:'bold'} : {color:'#E74032', fontWeight:'bold'}}
-                
+                <td style={!item.warning ? { color: '#259645', fontWeight: 'bold' } : { color: '#E74032', fontWeight: 'bold' }}
+
                 >{item.warning ? "Not Complete" : "Completed"}</td>
                 <td>
-                    <button>Payment</button>
+                    <button onClick={() => { getInvoiceId(item.id_invoice); togglePopupCreateRes() }}>Payment</button>
                 </td>
-                
-               
+                <PopupExpiredInfor idInvoice={invoiceId} handleClose={togglePopupCreateRes} show={showPopupCreateRes}  url={URL_Fee_C}></PopupExpiredInfor>
+
             </tr>
         ));
     };

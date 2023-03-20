@@ -47,40 +47,57 @@ const Home = () => {
 
 
     useEffect(() => {
+        const currentDate = new Date(Date.now());
+        const formattedDate = currentDate.toISOString().substr(0, 10);
+        const now = new Date();
+        const hours = now.getHours();
+        const minutes = now.getMinutes();
+        const seconds = now.getSeconds();
+        const currentTime = `${hours}a${minutes}a${seconds}`;
         if (role === 'C') {
-            set_URL_WARNING(URL_WARNING_C + id);
-            console.log(URL_WARNING_C + id)
+            set_URL_WARNING(URL_WARNING_C + id + '?time=' + currentTime);
+            console.log(URL_WARNING_C + id + '?time=' + currentTime)
         } else if (role === 'R') {
-            set_URL_WARNING(URL_WARNING_R + id);
-            console.log(URL_WARNING_R + id)
+            set_URL_WARNING(URL_WARNING_R + id + '?time=' + currentTime);
+            console.log(URL_WARNING_R + id + '?time=' + currentTime)
         }
 
-        fetch(URL_WARNING, { headers: { "Content-Type": "application/json" } })
-            .then(response => console.log(response))
+        fetch(URL_WARNING, {
+            method: "GET",
+            headers: {
+                "Access-Control-Allow-Origin": URL_WARNING,
+                Accept: "*/*",
+                "Content-Type": "application/json",
+                "X-Requested-With": "XMLHttpRequest",
+                "Cache-Control": "no-cache",
+            },
+
+        })
+            .then((res) => res.json())
             .then((data) => {
-                setObj(data)
-                console.log('data: ' + JSON.stringify(data))
-                setOpen(true);
-                console.log('chose 1: ' + open)
+                
+                setObj(data);
+                console.log('data: ' + data)
+                setOpen(true)
             })
-            .catch(error => {
-                // setOpen(false);
-                console.log('chose 2: ' + open)
-                console.error(error)
-            })
+            .catch((err) => {
+                console.error(err);
+                
+            });
 
         if (obj === undefined) setOpen(false)
         else setOpen(true)
 
     }, [URL_WARNING]);
+    console.log('data: ' + obj.id_user)
 
 
 
-    useEffect(() => {
-        if (open)
-            togglePopupWarning();
-        console.log(open)
-    }, [open])
+    // useEffect(() => {
+    //     if (obj='' || obj === null)
+    //         togglePopupWarning();
+        
+    // }, [obj])
 
 
 

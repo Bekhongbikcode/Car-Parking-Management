@@ -1,0 +1,34 @@
+.customer-nav li{
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.react-calendar__tile, .react-calendar__month-view__days__day, .react-calendar__month-view__days__day--neighboringMonth{
+    background-color: rgb(255, 255, 255) !important;
+    color: black;
+
+}
+
+.react-calendar__navigation__arrow, .react-calendar__navigation__prev2-button{
+    background-color: black;
+    color: rgb(255, 255, 255);
+}
+
+.react-calendar__navigation__label{
+    background-color: black;
+    color: rgb(255, 255, 255);
+    
+
+}
+
+.react-calendar__navigation{
+    width: 100%;
+    margin-left: 28px;
+}
+
+.Calendar{
+    width: 40%;
+    margin-top: -380px;
+    margin-left: 60%;
+    right: 0;
+}

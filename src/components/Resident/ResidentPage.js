@@ -7,6 +7,7 @@ import './Resident.css';
 import HistoryResidentInvoiceManagement from "./HistoryResidentInvoiceManagement";
 import ExpiredInvoiceManagement from "./ExpiredInvoiceManagement";
 import InformationResidentManagement from "./InformationResidentManagement";
+import UserHeader from "../Complement/HeaderUser";
 
 
 const ResidentPage = () => {
@@ -43,7 +44,7 @@ const ResidentPage = () => {
 
     return (
         <div>
-
+            <UserHeader></UserHeader>
             <div className="admin-homepage-body" style={{ marginBottom: '150px' }}>
 
                 <div class="nav admin-nav-custom flex-column ">

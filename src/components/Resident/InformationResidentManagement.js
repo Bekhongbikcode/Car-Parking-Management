@@ -2,6 +2,9 @@ import React, { Component, useEffect, useState } from 'react';
 import { url_api } from '../../API/api';
 import AdminHeader from '../Admin/AdminPageHeader';
 import { toast } from "react-toastify";
+import { faCheck, faTimes, faInfoCircle, faCircleUser } from "@fortawesome/free-solid-svg-icons";
+import Calendar from 'react-calendar'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 
 const URL = url_api + "/user/findById?id="
@@ -45,7 +48,8 @@ const InformationResidentManagement = () => {
     const [errMsg, setErrMsg] = useState('');
     const [success, setSuccess] = useState(false);
 
-    const[idUser, setIdUser] = useState(sessionStorage.getItem('id'));
+    const [idUser, setIdUser] = useState(sessionStorage.getItem('id'));
+    const [nameUser, setNameUser] = useState(sessionStorage.getItem('fullname'));
 
 
 
@@ -201,69 +205,84 @@ const InformationResidentManagement = () => {
 
     return (
         <div className="admin-homepage-dashboard">
-            
-            <table className="table table-striped" style={{ width: '60%', margin: '0 auto', marginTop: '50px' }}>
-                <thead>
-                    <tr>
-                        <th>Information</th>
-                        <th>Detail</th>
-                        <th>Edit</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <th>Username</th>
-                        <th>{obj.id} </th>
-                        <th>
-                            <input style={{ width: '40%', borderRadius: '0px' }} type={'text'} />
-                        </th>
-                    </tr>
-                    <tr>
-                        <th>Full name</th>
-                        <th>{obj.fullname} </th>
-                        <th>
-                            <input style={{ width: '40%', borderRadius: '0px' }} type={'text'} />
-                        </th>
-                    </tr>
-                    <tr>
-                        <th>Password</th>
-                        <th>{obj.password} </th>
-                        <th>
-                            <input style={{ width: '40%', borderRadius: '0px' }} type={'password'} />
-                        </th>
-                    </tr>
-                    <tr>
-                        <th>Gender</th>
-                        <th>{obj.gender ? "Female" : "Male"} </th>
-                        <th>
-                            <input style={{ width: '40%', borderRadius: '0px' }} type={'text'} />
-                        </th>
-                    </tr>
-                    <tr>
-                        <th>Date of birth</th>
-                        <th>{obj.dateofbirth} </th>
-                        <th>
-                            <input style={{ width: '40%', borderRadius: '0px' }} type={'date'} />
-                        </th>
-                    </tr>
-                    <tr>
-                        <th>Email</th>
-                        <th>{obj.email} </th>
-                        <th>
-                            <input style={{ width: '40%', borderRadius: '0px' }} type={'text'} />
-                        </th>
-                    </tr>
-                    <tr>
-                        <th>Phone</th>
-                        <th>{obj.phone} </th>
-                        <th>
-                            <input style={{ width: '40%', borderRadius: '0px' }} type={'text'} />
-                        </th>
-                    </tr>
+            <div>
+                <FontAwesomeIcon style={{ fontSize: '150px', float: 'left', marginRight: '30px' }} icon={faCircleUser}></FontAwesomeIcon>
+                <div>
+                    <p style={{ fontSize: '50px', color: 'black', paddingTop: '10px' }}>
+                        {nameUser}
+                    </p>
+                    <div style={{ fontSize: '15px', color: 'black', width: '800px' }}>
+                        As a user, you can perform website functions such as booking, payment, and you can also register to become a resident or a VIP customer.
+                    </div>
+                </div>
+            </div>
+            <div style={{width:'100%', }}>
+                <table className="table table-striped" style={{ width: '50%', marginLeft: '00%', marginTop: '50px'}}>
+                    <thead>
+                        <tr>
+                            <th>Information</th>
+                            <th>Detail</th>
+                            <th>Edit</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th>Username</th>
+                            <td>{obj.id} </td>
+                            <th>
 
-                </tbody>
+                            </th>
+                        </tr>
+                        <tr>
+                            <th>Full name</th>
+                            <td>{obj.fullname} </td>
+                            <th>
+                                <input style={{ width: '80%', borderRadius: '0px' }} onChange={(e) => setFullName(e.target.value)} type={'text'} />
+                            </th>
+                        </tr>
+                        <tr>
+                            <th>Password</th>
+                            <td>********** </td>
+                            <th>
+                                <input style={{ width: '80%', borderRadius: '0px' }} type={'password'} />
+                            </th>
+                        </tr>
+                        <tr>
+                            <th>Gender</th>
+                            <td>{obj.gender ? "Female" : "Male"} </td>
+                            <th>
+                                <input style={{ width: '80%', borderRadius: '0px' }} type={'text'} />
+                            </th>
+                        </tr>
+                        <tr>
+                            <th>Date of birth</th>
+                            <td>{obj.dateofbirth} </td>
+                            <th>
+                                <input style={{ width: '80%', borderRadius: '0px' }} type={'date'} />
+                            </th>
+                        </tr>
+                        <tr>
+                            <th>Email</th>
+                            <td>{obj.email} </td>
+                            <th>
+                                <input style={{ width: '80%', borderRadius: '0px' }} type={'text'} />
+                            </th>
+                        </tr>
+                        <tr>
+                            <th>Phone</th>
+                            <td>{obj.phone} </td>
+                            <th>
+                                <input style={{ width: '80%', borderRadius: '0px' }} type={'text'} />
+                            </th>
+                        </tr>
 
-            </table>
+                    </tbody>
+
+                </table>
+                <Calendar className={'Calendar'} />
+            </div>
+            <button style={{marginTop:'200px', width:'15%',marginLeft:'30.5%'}} onClick={{handleSubmit}}>Save edit</button>
+
         </div>
     );
 
