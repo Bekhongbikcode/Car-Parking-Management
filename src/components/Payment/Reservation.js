@@ -98,19 +98,11 @@ const Reservation = () => {
         } else
             return isproceed;
     }
-
-   
-
-
-
     return (
         <div>
             <Header data={username}></Header>
             <Slider></Slider>
             <ReservationDetail></ReservationDetail>
-
-
-
             <Footer></Footer>
         </div>
     )

@@ -81,10 +81,7 @@ const Slider = () => {
                             <option>21:00</option>
                             <option>22:00</option>
                             <option>23:00</option>
-
-
                         </select>
-
                     </div>
                     <div className="class-input">
                         <label>End date *</label>

@@ -169,17 +169,18 @@ const PaymentInformation = () => {
                 <p style={{ fontWeight: 'bold' }}>YOUR RESERVATION WILL NOT BE VALID WITHOUT THE PAYMENT!</p>
                 <div className="col-lg-6 class-input" >
 
-                    <label style={{ marginLeft: '-20%', marginTop: '20px', width: '700px' }}>Payment method *</label>
+                    <label className="bankingorcash" style={{ marginLeft: '-20%', marginTop: '20px', width: '700px' }}>Payment method *</label>
                     <br />
+                    <div className="formchoose">
+                        <select className="form-select" style={{ width: '40%', marginLeft: '-20%', float: 'left' }} onChange={e => setType(e.target.value)} value={type} >
+                            <option> <FontAwesomeIcon icon={faCashRegister}></FontAwesomeIcon> Cash</option>
+                            <option>Banking</option>
+                        </select>
 
-                    <select className="form-select" style={{ width: '40%', marginLeft: '-20%', float: 'left' }} onChange={e => setType(e.target.value)} value={type} >
-                        <option> <FontAwesomeIcon icon={faCashRegister}></FontAwesomeIcon> Cash</option>
-                        <option>Banking</option>
-                    </select>
-
-                    <form onSubmit={handleSubmit}>
-                        <button style={{ color: "#fff" }} type="submit">Pay now</button>
-                    </form>
+                        <form onSubmit={handleSubmit}>
+                            <button style={{ color: "#fff" }} type="submit">Pay now</button>
+                        </form>
+                    </div>
 
                 </div>
                 <img src={'../assets/img/visa.png'} />
@@ -206,7 +207,7 @@ const PaymentInformation = () => {
                     <i>{bookingInf.id_C_Slot}</i>
                     <br />
                     <span>Start date</span>
-                    <i>{bookingInf.startDate}</i> 
+                    <i>{bookingInf.startDate}</i>
                     <br />
                     <span>Start time</span>
                     <i>{bookingInf.startTime}</i>
@@ -224,12 +225,12 @@ const PaymentInformation = () => {
                     <i>{bookingInf.total_Of_Money} VND</i>
                     <br />
                     <span>Status</span>
-                    <i style={{color:'#C30000'}}>Not completed</i>
+                    <i style={{ color: '#C30000' }}>Not completed</i>
 
 
                 </div>
 
-                <button onClick={handleCancel} style={{ backgroundColor: '#E63E31', border: '0px', marginTop:'20px', width:'50%' }}>Cancel Reservation</button>
+                <button onClick={handleCancel} style={{ backgroundColor: '#E63E31', border: '0px', marginTop: '20px', width: '50%' }}>Cancel Reservation</button>
 
             </div>
 

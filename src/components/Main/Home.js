@@ -21,7 +21,7 @@ const Home = () => {
         { _id: 2, text: "def" },
         { _id: 3, text: "ghi" },
         { _id: 4, text: "jkl" },
-        
+
     ];
 
     const [zone, setZone] = useState('A');
@@ -35,7 +35,7 @@ const Home = () => {
     const [showPopupWarning, setShowPopupWarning] = useState(false);
     const [open, setOpen] = useState(false);
 
-    
+
 
 
 
@@ -132,10 +132,7 @@ const Home = () => {
 
             {/* -----------------------------zone-area-homepage----------------------- */}
             <form onSubmit={handleSubmit}>
-
-
                 <div className="row zone-area-homepage" >
-
                     <Card className="card col-lg-4" style={{ marginLeft: '10%' }}>
                         <Card.Header className="card-header">
                             <div>
@@ -226,48 +223,37 @@ const Home = () => {
                     {/* -----------------------------Entry/barrier system & QR code----------------------- */}
 
                     <div class=" row barrier-homepage" >
-
-                        <div class=" col-lg-6" style={{ marginLeft: '10%' }}>
+                        <div class=" col-lg-6 msg" style={{ marginLeft: '10%' }}>
                             <h2>
                                 Entry/barrier system & QR code
                             </h2>
                             <span>
                                 <h5 style={{ display: 'block', marginBottom: '30px' }}>You can integrate planyo with any automated entry system. Check out our already existing integration with Spartime.</h5>
-
                                 <h5>Your staff can use our mobile app and read the QR code upon entry for speeding up the arrivals.</h5>
                             </span>
-
                         </div>
-
                         <div class="col-lg-6 img-gate-homepage">
                             <button style={{ color: "#fff" }} type="submit"><span>Make Reservation</span></button>
                         </div>
-
-
-
                     </div>
 
                     {/* -----------------------------Entry/barrier system & QR code----------------------- */}
 
                     <div class=" row barrier-homepage" >
-
                         <div class="col-lg-6 img-gate-homepage" style={{ marginLeft: '10%' }}>
                             <button style={{ color: "#fff" }} type="submit"><span>Make Reservation</span></button>
                         </div>
 
-                        <div class=" col-lg-6" >
+                        <div class=" col-lg-6 msg" >
                             <h2>
                                 Entry/barrier system & QR code
                             </h2>
                             <span>
                                 <h5 style={{ display: 'block', marginBottom: '30px' }}>You can integrate planyo with any automated entry system. Check out our already existing integration with Spartime.</h5>
-
                                 <h5>Your staff can use our mobile app and read the QR code upon entry for speeding up the arrivals.</h5>
                             </span>
                         </div>
-
                     </div>
-
                 </div>
 
 
@@ -276,46 +262,46 @@ const Home = () => {
                     <h1 className="text-center fw-bold my-3">
                         User Reviews ({reviews.length})
                     </h1>
-                    <div className="bg-light container-fluid" style={{backgroundColor:'white'}}>
+                    <div className="bg-light container-fluid" style={{ backgroundColor: 'white' }}>
                         <Carousel style={{ height: 300 }}>
                             {reviews.map((review, index) => (
-                                <Carousel.Item style={{ height: 300, color:'black' }}>
+                                <Carousel.Item style={{ height: 300, color: 'black' }} className='recard'>
                                     <Stack
                                         direction="horizontal"
                                         className="h-100 justify-content-center align-items-center "
-        
+
                                         gap={2}
                                     >
                                         <Card style={{ width: "18rem" }}>
                                             <Card.Body >
-                                                <Card.Title style={{color:"black"}}>Card Title</Card.Title>
-                                                <Card.Text style={{color:"black"}}>
+                                                <Card.Title style={{ color: "black" }}>Card Title</Card.Title>
+                                                <Card.Text style={{ color: "black" }}>
                                                     Some quick example text to build on the card title and
                                                     make up the bulk of the card's content.
                                                 </Card.Text>
-                                                <Button style={{width:'80%', height:'38px'}} variant="primary">Go somewhere</Button>
+                                                <Button style={{ width: '80%', height: '38px' }} variant="primary">Go somewhere</Button>
                                             </Card.Body>
                                         </Card>
 
                                         <Card style={{ width: "18rem" }}>
                                             <Card.Body>
-                                                <Card.Title style={{color:"black"}}>Card Title</Card.Title>
-                                                <Card.Text style={{color:"black"}}>
+                                                <Card.Title style={{ color: "black" }}>Card Title</Card.Title>
+                                                <Card.Text style={{ color: "black" }}>
                                                     Some quick example text to build on the card title and
                                                     make up the bulk of the card's content.
                                                 </Card.Text>
-                                                <Button style={{width:'80%', height:'38px'}} variant="primary">Go somewhere</Button>
+                                                <Button style={{ width: '80%', height: '38px' }} variant="primary">Go somewhere</Button>
                                             </Card.Body>
                                         </Card>
 
                                         <Card style={{ width: "18rem" }}>
                                             <Card.Body>
-                                                <Card.Title style={{color:"black"}}>Card Title</Card.Title>
-                                                <Card.Text style={{color:"black"}}>
+                                                <Card.Title style={{ color: "black" }}>Card Title</Card.Title>
+                                                <Card.Text style={{ color: "black" }}>
                                                     Some quick example text to build on the card title and
                                                     make up the bulk of the card's content.
                                                 </Card.Text>
-                                                <Button style={{width:'80%', height:'38px'}} variant="primary">Go somewhere</Button>
+                                                <Button style={{ width: '80%', height: '38px' }} variant="primary">Go somewhere</Button>
                                             </Card.Body>
                                         </Card>
                                     </Stack>
@@ -324,19 +310,10 @@ const Home = () => {
                         </Carousel>
                     </div>
                 </div>
-
-
             </form>
-
-
-
             <Footer></Footer>
-
             <PopUpWarning handleClose={togglePopupWarning} show={showPopupWarning}>
-
             </PopUpWarning>
-
-
         </HelmetProvider>
     );
 }
