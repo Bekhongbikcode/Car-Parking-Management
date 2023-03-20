@@ -51,8 +51,8 @@ const Header = (props) => {
                 </li>
                 <Nav class={activeLink === 6 ? 'header-active nav-item' : null} onClick={() => setActiveLink(6)}>
                     <NavDropdown title="More" id="basic-nav-dropdown">
-                        <NavDropdown.Item href="#action/3.1">About Us</NavDropdown.Item>
-                        <NavDropdown.Item href="#action/3.2">Contact Us</NavDropdown.Item>
+                        <NavDropdown.Item href="/about">About Us</NavDropdown.Item>
+                        <NavDropdown.Item href="/news">Contact Us</NavDropdown.Item>
                         <NavDropdown.Item href="#action/3.3">Our Vision</NavDropdown.Item>
 
                     </NavDropdown>
