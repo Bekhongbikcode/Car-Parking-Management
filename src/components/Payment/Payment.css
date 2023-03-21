@@ -240,4 +240,38 @@ select {
   .complete-infor-detail{
     margin-left: -80%;
   }
+
+  .personal-details h3{
+    text-align: center !important;
+    margin-left: -20px !important;
+  }
+
+  .personal-details{
+    margin-top: 200% !important;
+  }
+  .personal-details .class-input{
+    width: 100% !important;
+    margin-left: -5% !important;
+  }
+
+  .reservation-details{
+    margin-top: 10% !important;
+  }
+
+  .reservation-details h3{
+    text-align: center !important;
+    margin-left: -20px !important;
+  }
+
+  .reservation-details .class-input{
+    width: 100% !important;
+    margin-left: -5% !important;
+  }
+
+  .table-responsive{
+    width: 60% !important;
+    margin-top: 180% !important;
+    margin-right: 50px !important;
+    margin-left: 50px !important;
+  }
 }
