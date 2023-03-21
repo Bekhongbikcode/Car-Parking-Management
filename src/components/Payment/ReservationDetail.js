@@ -69,6 +69,7 @@ const ReservationDetail = () => {
 
     useEffect(() => {
         setSlot(slot)
+        
     }, [slot])
 
 

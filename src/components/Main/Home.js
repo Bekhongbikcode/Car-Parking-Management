@@ -33,7 +33,7 @@ const Home = () => {
     const [obj, setObj] = useState([]);
 
     const [showPopupWarning, setShowPopupWarning] = useState(false);
-    const [open, setOpen] = useState(false);
+    const [open, setOpen] = useState();
 
 
 
@@ -73,31 +73,38 @@ const Home = () => {
             },
 
         })
-            .then((res) => res.json())
+            .then((res) => {
+                setOpen(false)
+                console.log('open: ' + open)
+                res.json()
+            })
             .then((data) => {
-                
+
                 setObj(data);
                 console.log('data: ' + data)
                 setOpen(true)
+                console.log('open + : ' + open)
             })
             .catch((err) => {
                 console.error(err);
-                
+
             });
 
         if (obj === undefined) setOpen(false)
         else setOpen(true)
 
-    }, [URL_WARNING]);
-    console.log('data: ' + obj.id_user)
+    }, []);
+    console.log('data:---' + obj)
 
 
 
-    // useEffect(() => {
-    //     if (obj='' || obj === null)
-    //         togglePopupWarning();
-        
-    // }, [obj])
+    useEffect(() => {
+        if (open) {
+            togglePopupWarning()
+            console.log('open')
+        } else console.log('dont');
+
+    }, [])
 
 
 

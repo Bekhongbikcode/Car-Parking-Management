@@ -48,7 +48,7 @@ const InformationCustomerManagement = () => {
     const [success, setSuccess] = useState(false);
 
     const [idUser, setIdUser] = useState(sessionStorage.getItem('id'));
-    const [nameUser, setNameUser] = useState(sessionStorage.getItem('fullname'));
+    const [nameUser, setNameUser] = useState('');
 
 
 
@@ -209,7 +209,7 @@ const InformationCustomerManagement = () => {
                 <FontAwesomeIcon style={{ fontSize: '150px', float: 'left', marginRight: '30px' }} icon={faCircleUser}></FontAwesomeIcon>
                 <div>
                     <p style={{ fontSize: '50px', color: 'black', paddingTop: '10px' }}>
-                        {nameUser}
+                        {obj.fullname}
                     </p>
                     <div style={{ fontSize: '15px', color: 'black', width: '800px' }}>
                         As a user, you can perform website functions such as booking, payment, and you can also register to become a resident or a VIP customer.
