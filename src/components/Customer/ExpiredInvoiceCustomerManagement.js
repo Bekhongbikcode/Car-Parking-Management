@@ -61,9 +61,6 @@ const ExpiredInvoiceCustomerManagement = () => {
     }, []);
 
 
-
-
-
     useEffect(() => {
         const navItems = document.querySelectorAll('.nav-custom-sercurity li');
 
@@ -91,10 +88,11 @@ const ExpiredInvoiceCustomerManagement = () => {
                     <tr>
                         <th>No.</th>
                         <th>Id Invoice</th>
-                        <th>Id Payment</th>
-                        <th>Type Of Payment</th>
+                        <th>End time</th>
+                        <th>Current time</th>
                         <th>Time</th>
-                        <th>Total Of Money</th>
+                        <th>Expired</th>
+                        <th>Fine</th>
                         <th>Status</th>
                         <th>Action</th>
                     </tr>

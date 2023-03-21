@@ -33,7 +33,7 @@ const PopupExpiredInfor = ({ handleClose, show, data, idInvoice, url }) => {
         })
             .then((res) => toast.success('Payment Successful'))
             .then((data) => {
-                toast.success('Payment Successful')
+                
                 console.log(data);
             })
             .catch((err) => {

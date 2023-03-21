@@ -58,7 +58,6 @@ function PaginationExpiredCustomerInvoice(props) {
         setCurrentPage(page);
     };
 
-
     const renderPageNumbers = () => {
         const pageNumbers = [];
         for (let i = 1; i <= totalPages; i++) {
@@ -73,7 +72,6 @@ function PaginationExpiredCustomerInvoice(props) {
         return pageNumbers;
     };
 
-   
 
     // useEffect(() => {
     //     const now = new Date();
@@ -106,7 +104,6 @@ function PaginationExpiredCustomerInvoice(props) {
 
     // },[])
    
-
     const renderListItems = () => {
         const start = (currentPage - 1) * pageSize;
         const end = start + pageSize;
@@ -119,13 +116,11 @@ function PaginationExpiredCustomerInvoice(props) {
                 <td>{item.expired} hours</td>
                 <td>{item.fine} VND</td>
                 <td style={!item.warning ? { color: '#259645', fontWeight: 'bold' } : { color: '#E74032', fontWeight: 'bold' }}
-
                 >{item.warning ? "Not Complete" : "Completed"}</td>
                 <td>
                     <button onClick={() => { getInvoiceId(item.id_invoice); togglePopupCreateRes() }}>Payment</button>
                 </td>
                 <PopupExpiredInfor idInvoice={invoiceId} handleClose={togglePopupCreateRes} show={showPopupCreateRes}  url={URL_Fee_C}></PopupExpiredInfor>
-
             </tr>
         ));
     };
