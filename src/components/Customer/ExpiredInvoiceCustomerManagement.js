@@ -9,6 +9,7 @@ import PaginationExpiredCustomerInvoice from "./PaginationExpriedCustomerInvoice
 
 
 
+
 const URL_HISTORY = url_api + "/expired/checkExpiredC/"
 
 
@@ -34,52 +35,47 @@ const ExpiredInvoiceCustomerManagement = () => {
         const hours = now.getHours();
         const minutes = now.getMinutes();
         const seconds = now.getSeconds();
-        const currentTime = `${hours}:${minutes}:${seconds}`;
-        const regObj = { formattedDate, currentTime }
-        fetch(URL_HISTORY + idUser,
-            {
-                method: 'POST',
-                header: {
-                    "Access-Control-Allow-Origin": URL_HISTORY + idUser,
-                    "Accept": "*/*",
-                    "Content-Type": "application/text",
-                    "X-Requested-With": "XMLHttpRequest",
-                    "Cache-Control": "no-cache",
-                },
-                body: JSON.stringify(regObj)
-            }
-        )
-            .then(response => response.json())
+        const currentTime = `${hours}a${minutes}a${seconds}`;
+        const regObj = { currentTime: currentTime };
+        console.log(JSON.stringify(regObj));
+        fetch(URL_HISTORY + idUser + "?time=" + currentTime, {
+            method: "GET",
+            headers: {
+                "Access-Control-Allow-Origin": URL_HISTORY + idUser,
+                Accept: "*/*",
+                "Content-Type": "application/json",
+                "X-Requested-With": "XMLHttpRequest",
+                "Cache-Control": "no-cache",
+            },
+
+        })
+            .then((res) => res.json())
             .then((data) => {
                 setObj(data);
                 console.log(data);
             })
-            .catch(error => console.error(error));
+            .catch((err) => {
+                console.error(err);
+                
+            });
     }, []);
 
 
 
-    const handleIdFilter = async (e) => {
 
-        e.preventDefault();
-
-
-    }
 
     useEffect(() => {
         const navItems = document.querySelectorAll('.nav-custom-sercurity li');
 
         navItems.forEach(navItem => {
             navItem.addEventListener('click', () => {
-                // Remove the active class from all li elements
+               
                 navItems.forEach(item => {
                     item.classList.remove('active');
                 });
 
-                // Add the active class to the clicked li element
+                
                 navItem.classList.add('active');
-
-                // Call the handleSetBuilding function with the appropriate argument
                 handleSetBuilding(navItem.innerText.charAt(navItem.innerText.length - 1));
             });
         });
