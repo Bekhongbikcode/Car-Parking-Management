@@ -81,6 +81,7 @@ app-check {
 .container-login {
   position: relative;
   height: 790px;
+  display:  block;
 }
 
 .container-background {
@@ -242,6 +243,10 @@ app-check {
   display: none;
 }
 
+.res-container-login{
+  display: none;
+}
+
 
 @media screen and (max-width:390px) {
   * {
@@ -256,6 +261,18 @@ app-check {
 
   .res-form {
     display: block;
+  }
+
+  .container-login{
+    display: block;
+  }
+  .res-container-login{
+    display: block !important;
+  }
+
+
+  .takeimg{
+    right: 500px !important;
   }
 
   .res-form button {
@@ -325,4 +342,10 @@ app-check {
   .btn-signup {
     margin-right: 30px !important;
   }
+
+  .reslogin-form{
+    margin-top: -200% !important;
+    margin-left: 10% !important;
+  }
 }
+
