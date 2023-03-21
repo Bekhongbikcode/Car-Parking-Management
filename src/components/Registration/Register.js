@@ -277,8 +277,8 @@ const Register = () => {
                                             onFocus={() => setPwdFocus(true)}
                                             onBlur={() => setPwdFocus(false)}
                                         />
-                                        <i><FontAwesomeIcon icon={faCheck} className={validPwd ? "valid" : "hide"} /></i>
-                                        <i><FontAwesomeIcon icon={faTimes} className={validPwd || !pwd ? "hide" : "invalid"} /></i>
+                                        <i><FontAwesomeIcon icon={faCheck} className={validPwd ? "valids" : "hides"} /></i>
+                                        <i><FontAwesomeIcon icon={faTimes} className={validPwd || !pwd ? "hides" : "invalids"} /></i>
 
                                     </div>
 
@@ -297,8 +297,8 @@ const Register = () => {
                                             onBlur={() => setMatchFocus(false)}
                                         />
 
-                                        <i><FontAwesomeIcon icon={faCheck} className={validMatch && matchPwd ? "valid" : "hide"} /></i>
-                                        <i><FontAwesomeIcon icon={faTimes} className={validMatch || !matchPwd ? "hide" : "invalid"} /></i>
+                                        <i><FontAwesomeIcon icon={faCheck} className={validMatch && matchPwd ? "valids" : "hide"} /></i>
+                                        <i><FontAwesomeIcon icon={faTimes} className={validMatch || !matchPwd ? "hide" : "invalids"} /></i>
                                     </div>
 
                                 </div>
