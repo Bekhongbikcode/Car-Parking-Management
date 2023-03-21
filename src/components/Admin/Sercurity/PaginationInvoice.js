@@ -61,7 +61,7 @@ function PaginationInvoice(props) {
                 <td>{item.id_Payment}</td>
                 <td>{user === 'Customer' ? item.id_Customer : item.id_Resident}</td>
                 <td>{item.typeOfPayment}</td>
-                <td>{item.time}</td>
+                
                 <td>{item.total_Of_Money.toLocaleString(undefined, { minimumFractionDigits: 2 })} VND</td>
                 <td style={{textAlign:'center'}}>
 

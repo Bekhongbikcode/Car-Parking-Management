@@ -143,7 +143,7 @@ const InvoiceManagement = () => {
                         <th>Id Payment</th>
                         <th>{user === 'Resident' ? 'Id_Resident' : 'Id_Customer'}</th>
                         <th>Type Of Payment</th>
-                        <th>Time</th>
+                        
                         <th>Total Of Money</th>
                         <th style={{textAlign:'center'}}>Status</th>
                         <th >Action</th>

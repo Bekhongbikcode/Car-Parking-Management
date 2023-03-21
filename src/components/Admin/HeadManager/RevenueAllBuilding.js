@@ -38,7 +38,7 @@ const RevenueAllManagement = () => {
 
                     <tr>
                         <td>{items.idUser}</td>
-                        <td>{items.income}</td>
+                        <td>{items.income} VND</td>
                     </tr>
 
                 </tbody>
