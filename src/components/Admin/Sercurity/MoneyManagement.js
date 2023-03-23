@@ -152,63 +152,63 @@ const MoneyManagement = () => {
                 <tbody>
                     <tr>
                         <th>car_MONEY_BY_HOUR</th>
-                        <td>{obj.car_MONEY_BY_HOUR} VND</td>
+                        <td>{ Number(obj.car_MONEY_BY_HOUR).toLocaleString(undefined, { minimumFractionDigits: 2 })} VND</td>
                         <th>
                             <input style={{ width: '40%', borderRadius: '0px' }} type={'text'} onChange={(e) => set_Car_MONEY_BY_HOUR(e.target.value)} />
                         </th>
                     </tr>
                     <tr>
                         <th>bike_MONEY_BY_HOUR</th>
-                        <td>{obj.bike_MONEY_BY_HOUR} VND</td>
+                        <td>{ Number(obj.bike_MONEY_BY_HOUR).toLocaleString(undefined, { minimumFractionDigits: 2 })} VND</td>
                         <th>
                             <input style={{ width: '40%', borderRadius: '0px' }} type={'text'} onChange={(e) => set_bike_MONEY_BY_HOUR(e.target.value)} />
                         </th>
                     </tr>
                     <tr>
                         <th>moto_MONEY_BY_HOUR</th>
-                        <td>{obj.moto_MONEY_BY_HOUR} VND</td>
+                        <td>{ Number(obj.moto_MONEY_BY_HOUR).toLocaleString(undefined, { minimumFractionDigits: 2 })} VND</td>
                         <th>
                             <input style={{ width: '40%', borderRadius: '0px' }} type={'text'} onChange={(e) => set_moto_MONEY_BY_HOUR(e.target.value)} />
                         </th>
                     </tr>
                     <tr>
                         <th>car_MONEY_BY_DAY</th>
-                        <td>{obj.car_MONEY_BY_DAY} VND</td>
+                        <td>{ Number(obj.car_MONEY_BY_DAY).toLocaleString(undefined, { minimumFractionDigits: 2 })} VND</td>
                         <th>
                             <input style={{ width: '40%', borderRadius: '0px' }} type={'hidden'} onChange={(e) => set_car_MONEY_BY_DAY(e.target.value)} />
                         </th>
                     </tr>
                     <tr>
                         <th>bike_MONEY_BY_DAY</th>
-                        <td>{obj.bike_MONEY_BY_DAY} VND</td>
+                        <td>{ Number(obj.bike_MONEY_BY_DAY).toLocaleString(undefined, { minimumFractionDigits: 2 })} VND</td>
                         <th>
                             <input style={{ width: '40%', borderRadius: '0px' }} type={'hidden'} onChange={(e) => set_bike_MONEY_BY_DAY(e.target.value)} />
                         </th>
                     </tr>
                     <tr>
                         <th>moto_MONEY_BY_DAY</th>
-                        <td>{obj.moto_MONEY_BY_DAY} VND</td>
+                        <td>{ Number(obj.moto_MONEY_BY_DAY).toLocaleString(undefined, { minimumFractionDigits: 2 })} VND</td>
                         <th>
                             <input style={{ width: '40%', borderRadius: '0px' }} type={'hidden'} onChange={(e) => set_moto_MONEY_BY_DAY(e.target.value)} />
                         </th>
                     </tr>
                     <tr>
                         <th>car_MONEY_BY_MONTH</th>
-                        <td>{obj.car_MONEY_BY_MONTH} VND</td>
+                        <td>{ Number(obj.car_MONEY_BY_MONTH).toLocaleString(undefined, { minimumFractionDigits: 2 })} VND</td>
                         <th>
                             <input style={{ width: '40%', borderRadius: '0px' }} type={'hidden'} onChange={(e) => set_car_MONEY_BY_MONTH(e.target.value)} />
                         </th>
                     </tr>
                     <tr>
                         <th>bike_MONEY_BY_MONTH</th>
-                        <td>{obj.bike_MONEY_BY_MONTH} VND</td>
+                        <td>{ Number(obj.bike_MONEY_BY_MONTH).toLocaleString(undefined, { minimumFractionDigits: 2 })} VND</td>
                         <th>
                             <input style={{ width: '40%', borderRadius: '0px' }} type={'hidden'} onChange={(e) => set_bike_MONEY_BY_MONTH(e.target.value)} />
                         </th>
                     </tr>
                     <tr>
                         <th>moto_MONEY_BY_MONTH</th> 
-                        <td>{obj.moto_MONEY_BY_MONTH} VND</td>
+                        <td>{ Number(obj.moto_MONEY_BY_MONTH).toLocaleString(undefined, { minimumFractionDigits: 2 })} VND</td>
                         <th>
                             <input style={{ width: '40%', borderRadius: '0px' }} type={'hidden'} onChange={(e) => set_moto_MONEY_BY_MONTH(e.target.value)} />
                         </th>

@@ -87,9 +87,9 @@ const ManagerHomePage = () => {
                         <li tabindex="0" class="nav-item" onClick={() => handleItemClick('Sercurity')}>
                             <a class="nav-link active" href="#"><FontAwesomeIcon style={{ paddingRight: '30px' }} icon={faUserShield} />Sercurity</a>
                         </li>
-                        {/* <li tabindex="0" class="nav-item" onClick={() => handleItemClick('Revenue-building')}>
+                        <li tabindex="0" class="nav-item" onClick={() => handleItemClick('Revenue-building')}>
                             <a class="nav-link active" href="#"><FontAwesomeIcon style={{ paddingRight: '30px' }} icon={faMoneyBill1Wave}></FontAwesomeIcon>Revenue</a>
-                        </li> */}
+                        </li>
 
                     </ul>
                     <label>Head Manager</label>

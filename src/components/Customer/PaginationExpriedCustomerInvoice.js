@@ -112,9 +112,9 @@ function PaginationExpiredCustomerInvoice(props) {
                 <td>{start + index + 1}</td>
                 <td>{item.id_invoice}</td>
                 <td>{item.end_date} - {item.end_time}</td>
-                <td>{item.current_date} - {item.current_time}</td>
+                <td>{ String(item.current_date).substring(0,10)} - {item.current_time}</td>
                 <td>{item.expired} hours</td>
-                <td>{item.fine} VND</td>
+                <td>{Number(item.fine).toLocaleString(undefined, { minimumFractionDigits: 2 })} VND</td>
                 <td style={!item.warning ? { color: '#259645', fontWeight: 'bold' } : { color: '#E74032', fontWeight: 'bold' }}
                 >{item.warning ? "Not Complete" : "Completed"}</td>
                 <td>

@@ -33,7 +33,7 @@ const PopupExpiredInfor = ({ handleClose, show, data, idInvoice, url }) => {
         })
             .then((res) => toast.success('Payment Successful'))
             .then((data) => {
-                
+
                 console.log(data);
             })
             .catch((err) => {
@@ -74,12 +74,6 @@ const PopupExpiredInfor = ({ handleClose, show, data, idInvoice, url }) => {
 
     }, [idInvoice])
 
-    
-        const strDate = obj.current_date
-        const strTime = obj.current_time
-        const currentDate = obj.current_date
-        const currentTime = obj.current_time
-    
 
 
 
@@ -102,28 +96,28 @@ const PopupExpiredInfor = ({ handleClose, show, data, idInvoice, url }) => {
                         <i>{obj.end_time}</i>
                         <br />
                         <span>Current date :</span>
-                        <i>{currentDate}</i>
+                        <i>{ String(obj.current_date).substring(0,10)}</i>
                         <br />
                         <span>Current time:</span>
-                        <i>{currentTime}</i>
+                        <i>{obj.current_time}</i>
                         <br />
                         <span>Expired:</span>
                         <i>{obj.expired} hours</i>
                         <br />
                         <span>Based fee:</span>
-                        <i>{obj.based_fee} VND</i>
+                        <i>{Number(obj.based_fee).toLocaleString(undefined, { minimumFractionDigits: 2 })} VND</i>
                         <br />
                         <span>Fined fee:</span>
-                        <i>{obj.fined_fee} VND</i>
+                        <i>{Number(obj.fined_fee).toLocaleString(undefined, { minimumFractionDigits: 2 })} VND</i>
                         <br />
                         <span>Total:</span>
-                        <i>{obj.sum} VND</i>
+                        <i>{Number(obj.sum).toLocaleString(undefined, { minimumFractionDigits: 2 })} VND</i>
                         <br />
                         <span>Has paid:</span>
-                        <i>{obj.has_paid} VND</i>
+                        <i>{Number(obj.has_paid).toLocaleString(undefined, { minimumFractionDigits: 2 })} VND</i>
                         <br />
                         <span>Total fee:</span>
-                        <i>{obj.total_fee} VND</i>
+                        <i>{Number(obj.total_fee).toLocaleString(undefined, { minimumFractionDigits: 2 })} VND</i>
                         <br />
 
 

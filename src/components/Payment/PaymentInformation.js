@@ -42,7 +42,7 @@ const PaymentInformation = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        alert('Do you want to choose: ' + type + ' is type of payment?')
+        window.confirm('Do you want to choose: ' + type + ' is type of payment?')
         console.log(bookingInf.id_Booking);
         console.log(type)
         sessionStorage.setItem("idbooking", bookingInf.id_Booking);
@@ -223,7 +223,7 @@ const PaymentInformation = () => {
                     <i>{sessionStorage.getItem("datebook")}, {sessionStorage.getItem("timebook")}</i>
                     <br />
                     <span>Price</span>
-                    <i>{bookingInf.total_Of_Money} VND</i>
+                    <i>{ Number(bookingInf.total_Of_Money).toLocaleString(undefined, { minimumFractionDigits: 2 })} VND</i>
                     <br />
                     <span>Status</span>
                     <i style={{ color: '#C30000' }}>Not completed</i>

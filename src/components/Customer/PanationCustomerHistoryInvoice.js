@@ -62,7 +62,7 @@ function PaginationCustomerHistoryInvoice(props) {
                 <td>{item.startDate}</td>
                 <td>{item.endDate}</td>
                 <td>{item.typeOfPayment}</td>
-                <td>{item.total_Of_Money} VND</td>
+                <td>{Number(item.total_Of_Money ).toLocaleString(undefined, { minimumFractionDigits: 2 })} VND</td>
                 <td style={item.status ? {color:'#259645', fontWeight:'bold'} : {color:'#E74032', fontWeight:'bold'}}
                 
                 >{item.status ? "Completed" : "Not Complete"}</td>

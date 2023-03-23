@@ -3,9 +3,9 @@ import { useEffect, useState } from "react";
 import './BuildingManager.css'
 import { toast } from "react-toastify";
 import AdminHeader from "../AdminPageHeader";
-import {url_api} from "../../../API/api";
+import { url_api } from "../../../API/api";
 
-const URL = url_api+"/buildingManager/RevenueFromEachBuilding";
+const URL = url_api + "/buildingManager/RevenueFromEachBuilding";
 
 const RevenueManagement = () => {
     const [item, setItem] = useState([]);
@@ -27,22 +27,23 @@ const RevenueManagement = () => {
         <div className="admin-homepage-dashboard">
             <AdminHeader></AdminHeader>
 
-            <table className="table table-striped" style={{marginTop:'50px'}}>
+            <table className="table table-striped" style={{ marginTop: '50px' }}>
                 <thead>
                     <tr>
                         <th>Building ID</th>
-                        <th>Income</th>
                         <th>Manager ID</th>
+                        <th>Income</th>
                         <th>Num of Customers</th>
                         <th>Num of Residents</th>
                     </tr>
                 </thead>
                 <tbody>
                     {item.map((item) => (
-                        <tr key={item.id_Building}>
+                        <tr key={Number(item.id_Building).toLocaleString(undefined, { minimumFractionDigits: 2 })}>
                             <td>{item.id_Building}</td>
-                            <td>{item.income} VND</td>
+                            
                             <td>{item.id_manager}</td>
+                            <td>{Number(item.income).toLocaleString(undefined, { minimumFractionDigits: 2 })} VND</td>
                             <td>{item.countCustomer}</td>
                             <td>{item.countResident}</td>
                         </tr>

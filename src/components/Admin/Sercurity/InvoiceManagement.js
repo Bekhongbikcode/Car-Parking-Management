@@ -8,7 +8,7 @@ import {url_api} from "../../../API/api";
 const URL_Find_C_ID = url_api+"/security/searchCustomerInvoiceId/";
 const URL_Find_R_ID = url_api+"/security/searchResidentInvoiceId/";
 const URL_R = url_api+"/security/findAllResidentInvoice"
-const URL_C = url_api+"/security/findAllCustomerInvoice"
+const URL_C = "https://web-production-8d68.up.railway.app/https://41bf-2001-ee0-4f0f-b5b0-2c79-4df2-b315-4ba7.ap.ngrok.io"+"/security/findAllCustomerInvoice"
 
 
 const InvoiceManagement = () => {

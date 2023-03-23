@@ -10,6 +10,7 @@ import InformationResidentManagement from "./InformationResidentManagement";
 import UserHeader from "../Complement/HeaderUser";
 
 
+
 const ResidentPage = () => {
     const [logined, setLogined] = useState(localStorage.getItem("username"));
     const [role, setRole] = useState(localStorage.getItem('role'));

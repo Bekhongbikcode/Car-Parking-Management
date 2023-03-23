@@ -90,7 +90,6 @@ const ExpiredInvoiceCustomerManagement = () => {
                         <th>Id Invoice</th>
                         <th>End time</th>
                         <th>Current time</th>
-                        <th>Time</th>
                         <th>Expired</th>
                         <th>Fine</th>
                         <th>Status</th>
