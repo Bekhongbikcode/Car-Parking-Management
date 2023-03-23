@@ -3,10 +3,6 @@ import React, { useState, useEffect, useRef, useCallback } from "react";
 import { toast } from "react-toastify";
 import {url_api} from "../../../../API/api";
 
-const URL = url_api+"/present_slot/findAll/";
-const URL_Search_Res = url_api+"/user/findById?id=";
-const URL_Book = url_api+"/residentslot/saveResidentSlot";
-const URL_Infor_R_Slot = url_api+"/security/ResponseResidentInfoSlot?id_Building=";
 
 
 const PopupInforSlot = ({ handleClose, show, data, role }) => {

@@ -74,8 +74,9 @@ const Banking = () => {
             const currentTime = `${hours}:${minutes}:${seconds}`;
             sessionStorage.setItem("datebook", formattedDate);
             sessionStorage.setItem("timebook", currentTime)
-            window.location.href = '/ReservationComplete'
             toast.success('Pay successfully.');
+            window.location.href = '/ReservationComplete'
+            
 
         }).catch((err) => {
             toast.error('Failed: ' + err.message);

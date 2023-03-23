@@ -2,12 +2,14 @@
 import React, { useState, useEffect, useRef, useCallback } from "react";
 import { toast } from "react-toastify";
 import { url_api } from "../../../../API/api";
+import PopUpPaymentResident from "./PopUpPaymentResident";
 
 const URL = url_api + "/present_slot/findAll/";
 const URL_Search_Res = url_api + "/user/findById?id=";
 const URL_Book = url_api + "/residentslot/saveResidentSlot"
 const URL_Infor_R_Slot = url_api + "/security/ResponseResidentInfoSlot?id_Building="
 const URL_PAYMENT = url_api + "/paymentResident/save"
+const URL_FIND_PAYMENT = url_api + "/paymentResident/findPayment";
 
 const Popup = ({ handleClose, show }) => {
   const showHideClassName = show ? 'popup display-block' : 'popup display-none';
@@ -25,6 +27,16 @@ const Popup = ({ handleClose, show }) => {
   const [id, setId] = useState('');
   const [building, setBuilding] = useState('A')
   const [shells, setShells] = useState([]);
+  const [flag, setFlag] = useState(false);
+  const [invoice, setInvoice] = useState([]);
+
+  const [showPopupCreateRes, setShowPopupCreateRes] = useState(false);
+
+
+  const togglePopupCreateRes = () => {
+
+      setShowPopupCreateRes(!showPopupCreateRes);
+  };
 
   const massageSlot = () => {
     toast.error('Slot null!');
@@ -140,8 +152,8 @@ const Popup = ({ handleClose, show }) => {
   console.log(idSearch);
   console.log(building)
 
-  const handleResidentPayment = async (e) => {
-    e.preventDefault();
+  const handleResidentPayment =  () => {
+    
     const idUser = idSearch;
     const id_Building = building;
     const typeOfPayment = 'Banking';
@@ -172,8 +184,24 @@ const Popup = ({ handleClose, show }) => {
       if (err.response && err.response.status === 500)
         toast.error('Failed: ' + err.message);
     });
+    fetch(url_api + "/paymentResident/findPayment")
+      .then(response =>
+        response.json()
+      )
+      .then((data) => {
+        setInvoice(data);
+        console.log(data)
+        console.log('fetch first')
+        setFlag(true)
+      })
+      .catch(error => console.error(error));
+
+      
+    
 
   }
+
+  
 
 
   return (
@@ -215,7 +243,7 @@ const Popup = ({ handleClose, show }) => {
             <option>Motor</option>
             <option>Bike</option>
           </select>
-  
+
 
           <label style={{ marginLeft: '28%' }}>Slot</label>
 
@@ -242,17 +270,18 @@ const Popup = ({ handleClose, show }) => {
 
 
           </select>
-          <br/>
-          
+          <br />
+
 
 
         </div>
         <form onSubmit={handleSubmit} className="col-lg-6  class-input">
           <button style={{ color: "#fff", marginLeft: '48%', width: '60%' }} type="submit">Save Reservation</button>
         </form>
-        <form onSubmit={handleResidentPayment} className="col-lg-6  class-input">
+        <form onSubmit={() => {handleResidentPayment(); togglePopupCreateRes()}} className="col-lg-6  class-input">
           <button style={{ color: "#fff", marginLeft: '48%', width: '60%' }} type="submit">Payment</button>
         </form>
+        <PopUpPaymentResident handleClose={togglePopupCreateRes} show={showPopupCreateRes} url={URL_FIND_PAYMENT} idSearch={idSearch}></PopUpPaymentResident>
       </section>
     </div>
   );

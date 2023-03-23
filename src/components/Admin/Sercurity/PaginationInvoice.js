@@ -29,11 +29,20 @@ function PaginationInvoice(props) {
         return pageNumbers;
     };
 
-    const handleChangeStatus = (id) => {
-        fetch(url_api + '/security/changeStatusInvoiceCustomer/' + id, {
+    const handleChangeStatus = (id, role) => {
+        const url_change = '';
+        if (role === 'C') {
+            url_change = url_api + '/security/changeStatusInvoiceCustomer/' + id;
+            console.log(url_change)
+        }
+        else {
+            url_change = url_api + '/security/changeStatusInvoiceResident/' + id;
+            console.log(url_change)
+        }
+        fetch(url_change, {
             method: 'PUT',
             header: {
-                "Access-Control-Allow-Origin": url_api + '/security/changeStatusInvoiceCustomer/' + id,
+                "Access-Control-Allow-Origin": url_change,
                 "Accept": "*/*",
                 "Content-Type": "application/text",
                 "X-Requested-With": "XMLHttpRequest",
@@ -61,14 +70,14 @@ function PaginationInvoice(props) {
                 <td>{item.id_Payment}</td>
                 <td>{user === 'Customer' ? item.id_Customer : item.id_Resident}</td>
                 <td>{item.typeOfPayment}</td>
-                
+
                 <td>{item.total_Of_Money.toLocaleString(undefined, { minimumFractionDigits: 2 })} VND</td>
-                <td style={{textAlign:'center'}}>
+                <td style={{ textAlign: 'center' }}>
 
 
-                    {item.status ? (<a style={{ color: '#128207', fontWeight:'bold' }}>Complete</a>) 
-                    : 
-                    (<button style={{width:'150px', fontWeight:'bold', backgroundColor:'#CE1103', border:'0'}} onClick={() => { handleChangeStatus(item.id_C_Invoice) }}> Not Complete</button>)}
+                    {item.status ? (<a style={{ color: '#128207', fontWeight: 'bold' }}>Complete</a>)
+                        :
+                        (<button style={{ width: '150px', fontWeight: 'bold', backgroundColor: '#CE1103', border: '0' }} onClick={() => { user === 'Customer' ? handleChangeStatus(item.id_C_Invoice, 'C') : handleChangeStatus(item.id_R_Invoice, 'R') }}> Not Complete</button>)}
 
 
                 </td>
