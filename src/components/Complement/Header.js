@@ -20,11 +20,6 @@ const Header = (props) => {
         sessionStorage.removeItem('username')
         window.location.href = '/login';
     }
-
-
-
-
-
     return (
         <div className="header">
             <div className="headernotres">

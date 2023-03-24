@@ -9,7 +9,7 @@
 
 /* --------------------------REGISTER------------------------- */
 .container-register {
-  height: 790px;
+  height: 655px !important;
   position: relative;
   width: 500px;
 }
