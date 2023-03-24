@@ -307,7 +307,7 @@ p {
   }
 }
 
-@media screen and (max-width:390px) {
+@media screen and (max-width:400px) and (min-width: 100px) {
   * {
     margin: 0;
     padding: 0;

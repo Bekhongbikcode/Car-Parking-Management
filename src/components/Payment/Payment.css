@@ -196,7 +196,7 @@ select {
   font-weight: bold;
 }
 
-@media screen and (max-width: 390px) {
+@media screen and (max-width:400px) and (min-width: 100px) {
   .payment-infor p{
     margin-left: -60%;
     text-align: left;

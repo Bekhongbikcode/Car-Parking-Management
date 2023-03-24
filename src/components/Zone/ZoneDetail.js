@@ -14,19 +14,14 @@ import {url_api} from "../../API/api"
 
 const ZoneDetail = () => {
     const {index} = useParams();
-
-
-
     return (
         <div>
             <Header></Header>
             <Slider></Slider>
             <form onSubmit={'handleSubmit'}>
                 {index === 'A' ? <ZoneA></ZoneA> : index === 'B' ? <ZoneB></ZoneB> : <ZoneC></ZoneC>}
-
                 <div className="zone-detail-make">
                     <h5>MAKE RESERVATION</h5>
-
                     <div className="class-input">
                         <label>Start date *</label>
                         <br />
@@ -62,17 +57,13 @@ const ZoneDetail = () => {
                             <option>21:00</option>
                             <option>22:00</option>
                             <option>23:00</option>
-
-
                         </select>
-
                     </div>
                     <div className="class-input">
                         <label>End date *</label>
                         <br />
                         <div>
                             <input type={'date'} style={{ width: '120%', position: 'relative' }}   ></input>
-
                         </div>
                     </div>
                     <div className="class-input">
@@ -104,8 +95,6 @@ const ZoneDetail = () => {
                             <option>23:00</option>
                         </select>
                     </div>
-
-
                 </div>
             </form>
             <Footer></Footer>
