@@ -5,6 +5,8 @@ import Footer from "../Complement/Footer";
 import { Card } from "react-bootstrap";
 const News = () => {
     const [username, setUsername] = useState(sessionStorage.getItem('username'));
+
+    
     return (
         <div className="body-reservation">
             <Header data={username}></Header>
