@@ -27,22 +27,13 @@ const Login = () => {
     const usenavigate = useNavigate();
     const [showPopupCreateRes, setShowPopupCreateRes] = useState(false);
     const [flag, setFlag] = useState(false);
+    const [obj, setObj] = useState([]);
 
 
     const togglePopupCreateRes = () => {
 
         setShowPopupCreateRes(!showPopupCreateRes);
     };
-
-
-
-
-    
-
-
-    
-
-
 
 
     useEffect(() => {
@@ -171,27 +162,51 @@ const Login = () => {
     }
 
     const handleGoogle = () => {
-        window.location.href = 'https://parking-management-system-deploy-production-d240.up.railway.app/oauth2/authorization/google?continue=localhost:3000/'
+        // window.location.href = 'https://parking-management-system-deploy-production-d240.up.railway.app/oauth2/authorization/google?continue'
+        window.location.href = 'https://parking-management-system-deploy-production-d240.up.railway.app/loginGoogle'
         setFlag(true);
     }
 
-    useEffect(() => {
-        fetch(url_api + "/loginGoogle")
-            .then(res => res.json())
-            .then(resp => {
+    // const handleGoogle = () => {
+    //     fetch('https://parking-management-system-deploy-production-d240.up.railway.app/loginGoogle')
+    //         .then(res => res.json())
+    //         .then(resp => {
+    //             setObj(resp)
 
-                sessionStorage.setItem('username', username);
-                sessionStorage.setItem('fullname', resp.fullname);
-                sessionStorage.setItem('email', resp.email);
-                sessionStorage.setItem('phone', resp.phone);
-                sessionStorage.setItem('id', username);
-                localStorage.setItem('id', username);
-                console.log(resp);
-                window.location.href = '/'
+    //         })
 
-            })
+    // }
 
-    }, [flag])
+    // useEffect(() => {
+    //     fetch('https://parking-management-system-deploy-production-d240.up.railway.app/loginGoogle?continue')
+    //         .then(res => res.json())
+    //         .then(resp => {
+    //             console.log(resp);
+    //             sessionStorage.setItem('username', resp.id);
+    //             sessionStorage.setItem('fullname', resp.fullname);
+    //             sessionStorage.setItem('email', resp.email);
+    //             sessionStorage.setItem('phone', resp.phone);
+    //             sessionStorage.setItem('id', resp.id);
+    //             console.log(resp);
+    //             window.location.href = '/'
+    //             // if (resp.message === 'Login Customer Successfully') {
+    //             //     sessionStorage.setItem('role', 'C');
+    //             //     toast.success(resp.message);
+    //             //     window.location.href = '/'
+    //             // } else
+    //             //     if (resp.message === 'Login Resident Successfully') {
+    //             //         console.log(resp);
+    //             //         toast.success(resp.message);
+    //             //         sessionStorage.setItem('role', 'R');
+    //             //         window.location.href = '/'
+    //             //     }
+    //             // usenavigate('/');
+
+    //         })
+
+
+    // }, [])
+
 
     return (
         <HelmetProvider>
@@ -209,7 +224,7 @@ const Login = () => {
                         <BackgroundCommon></BackgroundCommon>
                         <h2>User Log in</h2>
                         <span style={{ marginBottom: "40px", display: "block" }}>Log in to your Eparking account.</span>
-                        <button onClick={() => {handleGoogle() }} className="google" style={{ marginBottom: "10px" }} type="submit"> <img style={{ width: "30px", position: "absolute", left: "20px", marginRight: "30px" }} src='./assets/img/Google_Logo.png' /> Login with Google</button>
+                        <button onClick={() => { handleGoogle() }} className="google" style={{ marginBottom: "10px" }} type="submit"> <img style={{ width: "30px", position: "absolute", left: "20px", marginRight: "30px" }} src='./assets/img/Google_Logo.png' /> Login with Google</button>
                         <button className="google" style={{ marginTop: "0px" }} type="submit"> <img style={{ width: "30px", position: "absolute", left: "20px", marginRight: "30px" }} src='./assets/img/facebook.png' /> Login with Facebook</button>
                         <br />
                         <div className="dash-or"><span>Or</span></div>
