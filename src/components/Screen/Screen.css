@@ -99,26 +99,28 @@
     }
 }
 
-@media screen and (max-width:390px) {
+@media screen and (max-width:400px) and (min-width: 100px) {
     * {
-      margin: 0;
-      padding: 0;
-      text-decoration: none;
+        margin: 0;
+        padding: 0;
+        text-decoration: none;
     }
-.signature{
-    display: none;
-}
 
-.carimg img{
-    width: 300px;
-}
+    .signature {
+        display: none;
+    }
 
-.section-heading{
-    margin-top:15%;
-}
-.footerservice {
-    margin-top: 76rem !important;
-}
-.service-page p{
-}
+    .carimg img {
+        width: 300px;
+    }
+
+    .section-heading {
+        margin-top: 15%;
+    }
+
+    .footerservice {
+        margin-top: 100rem !important;
+    }
+
+    .service-page p {}
 }
