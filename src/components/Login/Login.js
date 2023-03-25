@@ -28,6 +28,8 @@ const Login = () => {
     const [showPopupCreateRes, setShowPopupCreateRes] = useState(false);
     const [flag, setFlag] = useState(false);
     const [obj, setObj] = useState([]);
+    const [URL, setURL] = useState('');
+    const [success, setSuccess] = useState(false)
 
 
     const togglePopupCreateRes = () => {
@@ -163,8 +165,8 @@ const Login = () => {
 
     const handleGoogle = () => {
         // window.location.href = 'https://parking-management-system-deploy-production-d240.up.railway.app/oauth2/authorization/google?continue'
-        window.location.href = 'https://parking-management-system-deploy-production-d240.up.railway.app/loginGoogle'
-        setFlag(true);
+        window.location.href ="https://parking-management-system-deploy-production-d240.up.railway.app/loginGoogle"
+        
     }
 
     // const handleGoogle = () => {
@@ -178,17 +180,11 @@ const Login = () => {
     // }
 
     // useEffect(() => {
-    //     fetch('https://parking-management-system-deploy-production-d240.up.railway.app/loginGoogle?continue')
-    //         .then(res => res.json())
-    //         .then(resp => {
-    //             console.log(resp);
-    //             sessionStorage.setItem('username', resp.id);
-    //             sessionStorage.setItem('fullname', resp.fullname);
-    //             sessionStorage.setItem('email', resp.email);
-    //             sessionStorage.setItem('phone', resp.phone);
-    //             sessionStorage.setItem('id', resp.id);
-    //             console.log(resp);
-    //             window.location.href = '/'
+    //     fetch('https://parking-management-system-deploy-production-d240.up.railway.app/loginGoogle')
+    //         .then(res => toString(res))
+    //         .then(resp1 => {
+    //             // setURL(resp)
+    //             // setSuccess(true);
     //             // if (resp.message === 'Login Customer Successfully') {
     //             //     sessionStorage.setItem('role', 'C');
     //             //     toast.success(resp.message);
@@ -201,11 +197,25 @@ const Login = () => {
     //             //         window.location.href = '/'
     //             //     }
     //             // usenavigate('/');
+    //             fetch(resp1)
+    //                 .then(res => res.json())
+    //                 .then(resp => {
+    //                     sessionStorage.setItem('username', username);
+    //                     sessionStorage.setItem('fullname', resp.fullname);
+    //                     sessionStorage.setItem('email', resp.email);
+    //                     sessionStorage.setItem('phone', resp.phone);
+    //                     sessionStorage.setItem('id', username);
+    //                     localStorage.setItem('id', username);
+    //                     console.log(resp);
+    //                     window.location.href = '/'
+    //                 })
 
     //         })
 
 
-    // }, [])
+    // }, [flag])
+
+    
 
 
     return (

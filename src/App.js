@@ -36,6 +36,7 @@ import CustomerPage from './components/Customer/CustomerPage';
 import News from './components/Screen/News';
 import Service from './components/Screen/Service';
 import ErrorPage from './components/Error/ErrorPage';
+import Welcome from './components/Screen/Welcome';
 
 
 function App() {
@@ -82,6 +83,7 @@ function App() {
           <Route path='/News' element={<News></News>}></Route>
           <Route path='/Service' element={<Service></Service>}></Route>
           <Route path='*' element=<ErrorPage></ErrorPage> />
+          <Route path='/welcome' element={<Welcome></Welcome>}></Route>
           
 
 
