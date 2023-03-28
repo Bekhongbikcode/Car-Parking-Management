@@ -21,7 +21,6 @@ function ZoneB() {
 
     }, []);
 
-    
 
     const residentSlot = shells.filter(slot => slot.id_slot.startsWith('R'));
     const customerSlot = shells.filter(slot => slot.id_slot.startsWith('C'));

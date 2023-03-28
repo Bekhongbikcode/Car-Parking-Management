@@ -116,9 +116,9 @@ function PaginationExpiredCustomerInvoice(props) {
                 <td>{item.expired} hours</td>
                 <td>{Number(item.fine).toLocaleString(undefined, { minimumFractionDigits: 2 })} VND</td>
                 <td style={!item.warning ? { color: '#259645', fontWeight: 'bold' } : { color: '#E74032', fontWeight: 'bold' }}
-                >{item.warning ? "Not Complete" : "Completed"}</td>
+                ><button className="status-complete">{item.warning ? "Not Complete" : "Completed"}</button></td>
                 <td>
-                    <button onClick={() => { getInvoiceId(item.id_invoice); togglePopupCreateRes() }}>Payment</button>
+                    <button className="save-edit" onClick={() => { getInvoiceId(item.id_invoice); togglePopupCreateRes() }}>Payment</button>
                 </td>
                 <PopupExpiredInfor idInvoice={invoiceId} handleClose={togglePopupCreateRes} show={showPopupCreateRes}  url={URL_Fee_C}></PopupExpiredInfor>
             </tr>

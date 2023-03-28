@@ -38,7 +38,7 @@ const RevenueAllManagement = () => {
 
                     <tr>
                         <td>{items.idUser}</td>
-                        <td>{items.income} VND</td>
+                        <td>{ Number(items.income).toLocaleString(undefined, { minimumFractionDigits: 2 })} VND</td>
                     </tr>
 
                 </tbody>

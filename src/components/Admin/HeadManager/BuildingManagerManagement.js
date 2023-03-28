@@ -330,7 +330,7 @@ const BuildingManagerManagement = () => {
                            
                             <td>
                                 <form onSubmit={''}>
-                                    <button onClick={() => { togglePopupCreateRes(); set(item.id) }} style={{ border: 'none', backgroundColor: '#2DC98A', color: 'white', width: '55px', borderRadius: '2px' }}>Edit</button>
+                                    <button className='save-edit' onClick={() => { togglePopupCreateRes(); set(item.id) }} style={{ border: 'none', backgroundColor: '#2DC98A', color: 'white', width: '55px', borderRadius: '2px' }}>Edit</button>
                                 </form>
                                 <PopUpEditUser idUser={idUser} handleClose={togglePopupCreateRes} show={showPopupCreateRes} role='Customer'></PopUpEditUser>
                             </td>

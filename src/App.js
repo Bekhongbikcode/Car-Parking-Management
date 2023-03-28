@@ -36,7 +36,14 @@ import CustomerPage from './components/Customer/CustomerPage';
 import News from './components/Screen/News';
 import Service from './components/Screen/Service';
 import ErrorPage from './components/Error/ErrorPage';
-import Welcome from './components/Screen/Welcome';
+
+
+
+
+
+import About from './components/Complements/About';
+
+
 
 
 function App() {
@@ -67,6 +74,7 @@ function App() {
           <Route path='/RevenueManagement' element={<RevenueManagement></RevenueManagement>}></Route>
           <Route path='/MoneyManagement' element={<MoneyManagement></MoneyManagement>}></Route>
           <Route path='/HeadManagerHomePage' element={<HeadManagerHomePage></HeadManagerHomePage>}></Route>
+          <Route path='/about' element={<About></About>}></Route>
 
 
           <Route path='/allbooking' element={<AllBooking />}></Route>
@@ -83,7 +91,8 @@ function App() {
           <Route path='/News' element={<News></News>}></Route>
           <Route path='/Service' element={<Service></Service>}></Route>
           <Route path='*' element=<ErrorPage></ErrorPage> />
-          <Route path='/welcome' element={<Welcome></Welcome>}></Route>
+
+      
           
 
 

@@ -22,9 +22,6 @@ const Header = (props) => {
     }
 
 
-
-
-
     return (
         <div className="header">
             <div className="headernotres">
@@ -90,6 +87,7 @@ const Header = (props) => {
                             )
                     }
                 </div>
+
             </div>
             <Nav className="nav-item-responsive">
                 <NavDropdown className="icon-nav-item-responsive" title={<FontAwesomeIcon icon={faBars}></FontAwesomeIcon>}>

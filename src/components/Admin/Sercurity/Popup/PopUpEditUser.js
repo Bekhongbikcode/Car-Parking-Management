@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import { toast } from "react-toastify";
 import {url_api} from "../../../../API/api";
+import '../../Admin.css'
 
 const USER_REGEX = /^[a-zA-Z][a-zA-Z0-9-_]{3,23}$/;
 const PWD_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%]).{8,30}/;
@@ -288,7 +289,7 @@ const PopUpEditUser = ({ handleClose, show, idUser, role, url }) => {
 
           </div>
 
-          <button style={{ border: 'none', backgroundColor: '#2DC98A', color: 'white', borderRadius: '2px' }}>Save edition</button>
+          <button className="save-edit" style={{ border: 'none', backgroundColor: '#2DC98A', color: 'white', borderRadius: '2px' }}>Save edition</button>
 
 
         </form>

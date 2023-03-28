@@ -244,7 +244,7 @@ const CustomerManagement = () => {
 
         }
         else {
-            fetch(URL_Find_All + id)
+            fetch(  URL_Find_All + id)
                 .then(response => response.json())
                 .then((data) => {
                     setIdNull(false);

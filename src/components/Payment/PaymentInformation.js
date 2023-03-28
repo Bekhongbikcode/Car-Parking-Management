@@ -179,7 +179,7 @@ const PaymentInformation = () => {
                         </select>
 
                         <form onSubmit={handleSubmit}>
-                            <button style={{ color: "#fff" }} type="submit">Pay now</button>
+                            <button style={{ color: "#fff" }} type="submit" className="banking">Pay now</button>
                         </form>
                     </div>
 
@@ -208,13 +208,13 @@ const PaymentInformation = () => {
                     <i>{bookingInf.id_C_Slot}</i>
                     <br />
                     <span>Start date</span>
-                    <i>{bookingInf.startDate}</i>
+                    <i>{ String(bookingInf.startDate).substring(0,10)}</i>
                     <br />
                     <span>Start time</span>
                     <i>{bookingInf.startTime}</i>
                     <br />
                     <span>End date</span>
-                    <i>{bookingInf.endDate}</i>
+                    <i>{ String(bookingInf.endDate).substring(0,10)}</i>
                     <br />
                     <span>End time</span>
                     <i>{bookingInf.endTime}</i>
@@ -231,7 +231,7 @@ const PaymentInformation = () => {
 
                 </div>
 
-                <button onClick={handleCancel} style={{ backgroundColor: '#E63E31', border: '0px', marginTop: '20px', width: '50%' }}>Cancel Reservation</button>
+                <button onClick={handleCancel} style={{ backgroundColor: '#E63E31', border: '0px', marginTop: '20px', width: '50%' }} className="cancel-payment">Cancel Reservation</button>
 
             </div>
 

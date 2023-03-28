@@ -6,6 +6,7 @@
 
 
 
+
 /* --------------------------------------RESERVATION--------------------------------- */
 
 .body-reservation {
@@ -102,6 +103,54 @@ select {
 
 }
 
+
+/*  */
+.personal-details button {
+  align-items: center;
+  appearance: none;
+  background-image: radial-gradient(100% 100% at 100% 0, #5aff91 0, #2DC98A 100%);
+  border: 0;
+  border-radius: 6px;
+  box-shadow: rgba(45, 35, 66, .4) 0 2px 4px, rgba(45, 35, 66, .3) 0 7px 13px -3px, rgba(58, 65, 111, .5) 0 -3px 0 inset;
+  box-sizing: border-box;
+  color: #fff;
+  cursor: pointer;
+  display: inline-flex;
+  height: 48px;
+  justify-content: center;
+  line-height: 1;
+  list-style: none;
+  overflow: hidden;
+  padding-left: 16px;
+  padding-right: 16px;
+  position: relative;
+  text-align: left;
+  text-decoration: none;
+  transition: box-shadow .15s, transform .15s;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  white-space: nowrap;
+  will-change: box-shadow, transform;
+  font-size: 18px;
+}
+
+.personal-details .card-footer button:focus {
+  box-shadow: #2DC98A 0 0 0 1.5px inset, rgba(45, 35, 66, .4) 0 2px 4px, rgba(45, 35, 66, .3) 0 7px 13px -3px, #2DC98A 0 -3px 0 inset;
+}
+
+.personal-details .card-footer button:hover {
+  box-shadow: rgba(45, 35, 66, .4) 0 4px 8px, rgba(45, 35, 66, .3) 0 7px 13px -3px, #2DC98A 0 -3px 0 inset;
+  transform: translateY(-2px);
+}
+
+.personal-details .card-footer button:active {
+  box-shadow: #2DC98A 0 3px 7px inset;
+  transform: translateY(2px);
+}
+
+/*  */
+
 .zone-reservation {
   position: absolute;
   top: 1110px;
@@ -197,25 +246,25 @@ select {
 }
 
 @media screen and (max-width:400px) and (min-width: 100px) {
-  .payment-infor p{
+  .payment-infor p {
     margin-left: -60%;
     text-align: left;
     width: 380px !important;
   }
 
-  .payment-infor img{
+  .payment-infor img {
     width: 180%;
     margin-left: -60%;
 
   }
 
-  .payment-infor-detail{
+  .payment-infor-detail {
     width: fit-content;
     margin-left: -60%;
     text-align: left;
   }
 
-  .bankingorcash{
+  .bankingorcash {
     width: 400px !important;
     margin-left: -87% !important;
     text-align: left !important;
@@ -223,55 +272,91 @@ select {
     font-weight: bold;
   }
 
-  .formchoose{
+  .formchoose {
     width: 300px !important;
     margin-left: -55% !important;
     text-align: left !important;
   }
 
-  .form-select{
+  .form-select {
     width: 65% !important;
   }
 
-  .class-input label{
+  .class-input label {
     width: 200px !important;
   }
 
-  .complete-infor-detail{
+  .complete-infor-detail {
     margin-left: -80%;
   }
 
-  .personal-details h3{
+  .personal-details h3 {
     text-align: center !important;
     margin-left: -20px !important;
   }
 
-  .personal-details{
+  .personal-details {
     margin-top: 200% !important;
   }
-  .personal-details .class-input{
+
+  .personal-details .class-input {
     width: 100% !important;
     margin-left: -5% !important;
   }
 
-  .reservation-details{
+  .reservation-details {
     margin-top: 10% !important;
   }
 
-  .reservation-details h3{
+  .reservation-details h3 {
     text-align: center !important;
     margin-left: -20px !important;
   }
 
-  .reservation-details .class-input{
+  .reservation-details .class-input {
     width: 100% !important;
     margin-left: -5% !important;
   }
 
-  .table-responsive{
+  .table-responsive {
     width: 60% !important;
     margin-top: 180% !important;
     margin-right: 50px !important;
     margin-left: 50px !important;
   }
+}
+
+.cancel-payment {
+  background-image: radial-gradient(100% 100% at 100% 0, #f59891 0, #DF3D30 100%);
+  box-shadow: #DF3D30 0 0 0 1.5px inset, rgba(45, 35, 66, .4) 0 2px 4px, rgba(45, 35, 66, .3) 0 7px 13px -3px, #DF3D30 0 -3px 0 inset;
+
+}
+
+.cancel-payment, .banking:focus {
+  box-shadow: #2DC98A 0 0 0 1.5px inset, rgba(45, 35, 66, .4) 0 2px 4px, rgba(45, 35, 66, .3) 0 7px 13px -3px, #2DC98A 0 -3px 0 inset;
+}
+
+.cancel-payment, .banking:hover {
+  box-shadow: rgba(45, 35, 66, .4) 0 4px 8px, rgba(45, 35, 66, .3) 0 7px 13px -3px, #DF3D30 0 -3px 0 inset;
+  transform: translateY(-2px);
+}
+
+.cancel-payment:active {
+  box-shadow: #DF3D30 0 3px 7px inset;
+  transform: translateY(2px);
+}
+
+.banking {
+  box-shadow: #2DC98A 0 0 0 1.5px inset, rgba(45, 35, 66, .4) 0 2px 4px, rgba(45, 35, 66, .3) 0 7px 13px -3px, #2DC98A 0 -3px 0 inset;
+  background-image: radial-gradient(100% 100% at 100% 0, #5aff91 0, #2DC98A 100%);
+}
+
+.banking:active {
+  box-shadow: #2DC98A 0 3px 7px inset;
+  transform: translateY(2px);
+}
+
+.banking:hover {
+  box-shadow: rgba(45, 35, 66, .4) 0 4px 8px, rgba(45, 35, 66, .3) 0 7px 13px -3px, #2DC98A 0 -3px 0 inset;
+  transform: translateY(-2px);
 }

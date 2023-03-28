@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { url_api } from "../../../API/api";
 import { toast } from "react-toastify";
+import '../Admin.css'
 
 function PaginationInvoice(props) {
     const user = props.user;
@@ -31,15 +32,15 @@ function PaginationInvoice(props) {
 
     const handleChangeStatus = (id, role) => {
         const url_change = '';
-        if (role === 'C') {
-            url_change = url_api + '/security/changeStatusInvoiceCustomer/' + id;
-            console.log(url_change)
-        }
-        else {
-            url_change = url_api + '/security/changeStatusInvoiceResident/' + id;
-            console.log(url_change)
-        }
-        fetch(url_change, {
+        // if (role === 'C') {
+        //     url_change = url_api + '/security/changeStatusInvoiceCustomer/' + id;
+        //     console.log(url_change)
+        // }
+        // else {
+        //     url_change = url_api + '/security/changeStatusInvoiceResident/' + id;
+        //     console.log(url_change)
+        // }
+        fetch(url_api + "/security/changeStatusInvoiceCustomer/" + id, {
             method: 'PUT',
             header: {
                 "Access-Control-Allow-Origin": url_change,
@@ -77,13 +78,13 @@ function PaginationInvoice(props) {
 
                     {item.status ? (<a style={{ color: '#128207', fontWeight: 'bold' }}>Complete</a>)
                         :
-                        (<button style={{ width: '150px', fontWeight: 'bold', backgroundColor: '#CE1103', border: '0' }} onClick={() => { user === 'Customer' ? handleChangeStatus(item.id_C_Invoice, 'C') : handleChangeStatus(item.id_R_Invoice, 'R') }}> Not Complete</button>)}
+                        (<button className="status-complete" style={{ width: '150px', fontWeight: 'bold', backgroundColor: '#CE1103', border: '0' }} onClick={() => { user === 'Customer' ? handleChangeStatus(item.id_C_Invoice, 'C') : handleChangeStatus(item.id_R_Invoice, 'R') }}> Not Complete</button>)}
 
 
                 </td>
                 <td>
                     <form>
-                        <button style={{ border: 'none', backgroundColor: '#2DC98A', color: 'white', width: '55px', borderRadius: '2px' }}>Edit</button>
+                        <button className="save-edit" style={{ border: 'none', backgroundColor: '#2DC98A', color: 'white', width: '55px', borderRadius: '2px' }}>Edit</button>
                     </form>
                 </td>
             </tr>

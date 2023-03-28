@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { url_api } from "../../../API/api";
 import PopUpEditUser from './Popup/PopUpEditUser';
 import { toast } from "react-toastify";
+import '../Admin.css'
 const URL_RESIDENT = url_api + "/security/updateCustomer_Resident?idUser=";
 
 function PaginationUser(props) {
@@ -96,7 +97,7 @@ function PaginationUser(props) {
                 </td>
                 <td>
                     <form onSubmit={''}>
-                        <button onClick={() => { togglePopupCreateRes(); set(item.id) }} style={{ border: 'none', backgroundColor: '#2DC98A', color: 'white', width: '55px', borderRadius: '2px' }}>Edit</button>
+                        <button className="save-edit" onClick={() => { togglePopupCreateRes(); set(item.id) }} style={{ border: 'none', backgroundColor: '#2DC98A', color: 'white', width: '55px', borderRadius: '2px' }}>Edit</button>
 
                     </form>
                 </td>

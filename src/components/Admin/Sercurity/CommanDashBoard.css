@@ -1,3 +1,17 @@
+  button:focus {
+    box-shadow: #2DC98A 0 0 0 1.5px inset, rgba(45, 35, 66, .4) 0 2px 4px, rgba(45, 35, 66, .3) 0 7px 13px -3px, #2DC98A 0 -3px 0 inset;
+  }
+
+  button:hover {
+    box-shadow: rgba(45, 35, 66, .4) 0 4px 8px, rgba(45, 35, 66, .3) 0 7px 13px -3px, #2DC98A 0 -3px 0 inset;
+    transform: translateY(-2px);
+  }
+
+  button:active {
+    box-shadow: #2DC98A 0 3px 7px inset;
+    transform: translateY(2px);
+  }
+
   .filter-id {
     margin-left: 7%;
     margin-right: 80px;
@@ -21,11 +35,8 @@
   }
 
   .filter-id button {
-    height: 30.5px;
-    width: 80px;
-    border: 0.5px solid #8AA4B3;
-    background-color: #2DC98A;
-    color: #ffffff;
+    box-shadow: #2DC98A 0 0 0 1.5px inset, rgba(45, 35, 66, .4) 0 2px 4px, rgba(45, 35, 66, .3) 0 7px 13px -3px, #2DC98A 0 -3px 0 inset;
+    background-image: radial-gradient(100% 100% at 100% 0, #5aff91 0, #2DC98A 100%);
   }
 
   .nav-custom-sercurity {
@@ -61,7 +72,9 @@
   }
 
   .security-add-new button {
-    background-color: #008AD3 !important;
+    box-shadow: #1652F0 0 0 0 1.5px inset, rgba(45, 35, 66, .4) 0 2px 4px, rgba(45, 35, 66, .3) 0 7px 13px -3px, #1652F0 0 -3px 0 inset;
+    background-image: radial-gradient(100% 100% at 100% 0, #4172ee 0, #1652F0 100%);
+
   }
 
   input {
@@ -164,6 +177,9 @@
     margin-bottom: 5px;
     margin-top: 5px;
     margin-left: 30%;
+    box-shadow: #2DC98A 0 0 0 1.5px inset, rgba(45, 35, 66, .4) 0 2px 4px, rgba(45, 35, 66, .3) 0 7px 13px -3px, #2DC98A 0 -3px 0 inset;
+    background-image: radial-gradient(100% 100% at 100% 0, #5aff91 0, #2DC98A 100%);
+
   }
 
   /* ------------------------Popup-Slot------------------------ */

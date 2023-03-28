@@ -150,12 +150,12 @@ const Home = () => {
                         <Card.Footer className="card-footer">
                             <form onSubmit={handleSubmit}>
 
-                                <Link to={'/ZoneDetail/A'}>
+                                <Link style={{borderBottom:'0', textDecoration:'none'}} to={'/ZoneDetail/A'}>
 
-                                    <Button style={{ color: "#fff", width: '30.8%' }}  ><span>Details</span></Button>
+                                    <button className="button-home" style={{ color: "#fff", width: '30.8%' }}  ><span style={{borderBottom:'0', textDecoration:'none'}}>Details</span></button>
                                 </Link>
-                                <Link to={'/Reservation'}>
-                                    <Button style={{ color: "#fff" }} onClick={e => setZone(e.target.value)} value='A'><span>Make Reservation</span></Button>
+                                <Link style={{borderBottom:'0', textDecoration:'none'}} to={'/Reservation'}>
+                                    <Button className="button-home" style={{ color: "#fff" }} onClick={e => setZone(e.target.value)} value='A'><span style={{borderBottom:'0', textDecoration:'none'}}>Make Reservation</span></Button>
                                 </Link>
                             </form>
                         </Card.Footer>
@@ -181,12 +181,12 @@ const Home = () => {
 
                             </form>
 
-                            <Link to={'/ZoneDetail/B'}>
+                            <Link style={{borderBottom:'0', textDecoration:'none'}} to={'/ZoneDetail/B'}>
 
-                                <Button style={{ color: "#fff", width: '30.8%' }} onClick={() => setZone('B')} value="B"><span>Details</span></Button>
+                                <Button style={{ color: "#fff", width: '30.8%' }} onClick={() => setZone('B')} value="B"><span style={{borderBottom:'0', textDecoration:'none'}}>Details</span></Button>
                             </Link>
-                            <Link to={'/Reservation'}>
-                                <Button style={{ color: "#fff" }} onClick={e => setZone(e.target.value)} value='B'><span>Make Reservation</span></Button>
+                            <Link style={{borderBottom:'0', textDecoration:'none'}} to={'/Reservation'}>
+                                <Button style={{ color: "#fff" }} onClick={e => setZone(e.target.value)} value='B'><span style={{borderBottom:'0', textDecoration:'none'}}>Make Reservation</span></Button>
                             </Link>
                         </Card.Footer>
                     </Card>
@@ -210,12 +210,12 @@ const Home = () => {
                             <form onSubmit={handleSubmit}>
 
                             </form>
-                            <Link to={'/ZoneDetail/C'}>
+                            <Link style={{borderBottom:'0', textDecoration:'none'}} to={'/ZoneDetail/C'}>
 
-                                <Button style={{ color: "#fff", width: '30.8%' }} onClick={() => setZone('C')} value="C"><span>Details</span></Button>
+                                <Button style={{ color: "#fff", width: '30.8%' }} onClick={() => setZone('C')} value="C"><span style={{borderBottom:'0', textDecoration:'none'}}>Details</span></Button>
                             </Link>
-                            <Link to={'/Reservation'}>
-                                <Button style={{ color: "#fff" }} onClick={e => setZone(e.target.value)} value='C'><span>Make Reservation</span></Button>
+                            <Link style={{borderBottom:'0', textDecoration:'none'}} to={'/Reservation'}>
+                                <Button style={{ color: "#fff" }} onClick={e => setZone(e.target.value)} value='C'><span style={{borderBottom:'0', textDecoration:'none'}}>Make Reservation</span></Button>
                             </Link>
                         </Card.Footer>
                     </Card>
@@ -233,7 +233,7 @@ const Home = () => {
                             </span>
                         </div>
                         <div class="col-lg-6 img-gate-homepage">
-                            <button style={{ color: "#fff" }} type="submit"><span>Make Reservation</span></button>
+                            <button style={{ color: "#fff" }} type="submit"><span >Make Reservation</span></button>
                         </div>
                     </div>
 
