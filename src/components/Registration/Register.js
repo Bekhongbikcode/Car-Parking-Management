@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCheck, faTimes, faInfoCircle, faUser } from "@fortawesome/free-solid-svg-icons";
 import { json, Link, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
-import BackgroundCommon from "../Complement/BackgroundCommon";
+import BackgroundCommon from "../Complements/BackgroundCommon";
 import { Helmet, HelmetProvider } from 'react-helmet-async';
 
 import './Register.css';

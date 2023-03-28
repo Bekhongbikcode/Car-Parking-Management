@@ -6,9 +6,9 @@ import { HelmetProvider } from "react-helmet-async";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 //  import visa from "D:/WorkSpace/React_projects/SWP/ParkingManagement/public/assets/img/visa"
 import { faCheck, faTimes, faInfoCircle, faUser, faClock, faArrowRight, faCashRegister, } from "@fortawesome/free-solid-svg-icons";
-import Slider from "../Complement/Slider"
-import Header from "../Complement/Header";
-import Footer from "../Complement/Footer";
+import Slider from "../Complements/Slider"
+import Header from "../Complements/Header";
+import Footer from "../Complements/Footer";
 import ReservationDetail from "./ReservationDetail";
 import './Payment.css'
 import { url_api } from "../../API/api";

@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef, useCallback } from "react";
-import Slider from "../Complement/Slider"
-import Header from "../Complement/Header";
-import Footer from "../Complement/Footer";
+import Slider from "../Complements/Slider"
+import Header from "../Complements/Header";
+import Footer from "../Complements/Footer";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCalendarDay, faCar, faMoneyBill, faShield, faUserShield, faCreditCard } from "@fortawesome/free-solid-svg-icons";
 import { url_api } from "../../API/api";

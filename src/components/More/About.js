@@ -2,7 +2,7 @@ import M from 'materialize-css'
 import 'materialize-css/dist/css/materialize.min.css'
 import React, { useEffect } from 'react'
 import { Row, Col, CardTitle, Card } from 'react-materialize';
-import Header from '../Complement/Header';
+import Header from '../Complements/Header';
 import FooterMore from './FooterMore';
 import './More.css'
 import AOS from 'aos';

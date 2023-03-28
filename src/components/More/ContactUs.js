@@ -4,7 +4,7 @@ import React, { useEffect } from 'react'
 import FooterMore from './FooterMore';
 import './More.css'
 import { Slider, Caption, Slide, Row, Col, Icon, CardTitle, Card, Container } from 'react-materialize';
-import Header from '../Complement/Header';
+import Header from '../Complements/Header';
 import AOS from 'aos';
 import 'aos/dist/aos.css'
 

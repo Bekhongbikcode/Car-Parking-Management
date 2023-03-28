@@ -1,7 +1,7 @@
 import '../Admin.css'
 import './CommanDashBoard.css'
 import React, { useState, useEffect, useRef } from "react";
-import Pagination from '../../Complement/Pagination';
+import Pagination from '../../Complements/Pagination';
 import PaginationUser from './PaginationUser';
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";

@@ -5,9 +5,9 @@ import { HelmetProvider } from "react-helmet-async";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faClock } from "@fortawesome/free-solid-svg-icons";
 import { Carousel, Card, Stack, Button } from "react-bootstrap";
-import Header from "../Complement/Header";
-import Footer from "../Complement/Footer";
-import Slider from "../Complement/Slider";
+import Header from "../Complements/Header";
+import Footer from "../Complements/Footer";
+import Slider from "../Complements/Slider";
 import './Main.css'
 import PopUpWarning from './PopUp/PopUpWarning';
 import { url_api } from "../../API/api";
