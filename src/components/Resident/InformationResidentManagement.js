@@ -2,13 +2,12 @@ import React, { Component, useEffect, useState } from 'react';
 import { url_api } from '../../API/api';
 import AdminHeader from '../Admin/AdminPageHeader';
 import { toast } from "react-toastify";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCheck, faTimes, faInfoCircle, faCircleUser } from "@fortawesome/free-solid-svg-icons";
 import Calendar from 'react-calendar'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-
 
 const URL = url_api + "/user/findById?id="
-const URL_UPDATE = url_api+"/security/updateCustomer_Resident?idUser=";
+const URL_UPDATE = url_api + "/security/updateCustomer_Resident?idUser=";
 
 const USER_REGEX = /^[a-zA-Z][a-zA-Z0-9-_]{3,23}$/;
 const PWD_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%]).{8,30}/;
@@ -49,7 +48,8 @@ const InformationResidentManagement = () => {
     const [success, setSuccess] = useState(false);
 
     const [idUser, setIdUser] = useState(sessionStorage.getItem('id'));
-    const [nameUser, setNameUser] = useState(sessionStorage.getItem('fullname'));
+    const [nameUser, setNameUser] = useState('');
+
 
 
 
@@ -64,7 +64,7 @@ const InformationResidentManagement = () => {
             .catch(error => console.error(error));
     }, []);
 
-    
+
 
 
 
@@ -177,7 +177,7 @@ const InformationResidentManagement = () => {
         if (IsValidate()) {
             console.log(regObj)
 
-           
+
             fetch(URL_UPDATE + obj.id, {
                 method: 'PUT',
                 header: {
@@ -200,7 +200,7 @@ const InformationResidentManagement = () => {
         }
     }
 
-    
+
 
 
     return (
@@ -209,7 +209,7 @@ const InformationResidentManagement = () => {
                 <FontAwesomeIcon style={{ fontSize: '150px', float: 'left', marginRight: '30px' }} icon={faCircleUser}></FontAwesomeIcon>
                 <div>
                     <p style={{ fontSize: '50px', color: 'black', paddingTop: '10px' }}>
-                        {nameUser}
+                        {obj.fullname}
                     </p>
                     <div style={{ fontSize: '15px', color: 'black', width: '800px' }}>
                         As a user, you can perform website functions such as booking, payment, and you can also register to become a resident or a VIP customer.

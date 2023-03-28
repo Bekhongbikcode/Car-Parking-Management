@@ -1,13 +1,13 @@
 
 import React, { useState, useEffect, useRef, useCallback } from "react";
 
-import AdminHeader from '../Admin/AdminPageHeader';
-import PaginationHistoryInvoice from "./PanationResidentHistoryInvoice";
 import { url_api } from "../../API/api";
+import PanationResidentHistoryInvoice from "./PanationResidentHistoryInvoice";
+import PaginationCustomerHistoryInvoice from "./PanationResidentHistoryInvoice";
 
 
 
-const URL_HISTORY= url_api+"/expired/findAllInvoiceR/"
+const URL_HISTORY = url_api + "/expired/findAllInvoiceR/"
 
 
 const HistoryResidentInvoiceManagement = () => {
@@ -16,6 +16,8 @@ const HistoryResidentInvoiceManagement = () => {
     const [idNull, setIdNull] = useState(true);
     const [user, setUser] = useState('Resident');
     const [URLby, setURLby] = useState('');
+    const [role, setRole] = useState(sessionStorage.getItem('role'));
+    const [idUser, setIdUser] = useState(sessionStorage.getItem('id'));
 
     const handleSetBuilding = useCallback((item) => {
         setUser(item);
@@ -23,10 +25,10 @@ const HistoryResidentInvoiceManagement = () => {
 
 
 
-    
+
     useEffect(() => {
-        console.log(URL_HISTORY + 'user70');
-        fetch(URL_HISTORY + 'user70')
+        console.log(URL_HISTORY + idUser);
+        fetch(URL_HISTORY + idUser)
             .then(response => response.json())
             .then((data) => {
                 setObj(data);
@@ -40,7 +42,7 @@ const HistoryResidentInvoiceManagement = () => {
     const handleIdFilter = async (e) => {
 
         e.preventDefault();
-       
+
 
     }
 
@@ -65,17 +67,17 @@ const HistoryResidentInvoiceManagement = () => {
 
     return (
         <div className="admin-homepage-dashboard">
-        
-           
-            
+
+
+
             <table className="table table-striped">
                 <thead>
                     <tr>
                         <th>No.</th>
                         <th>Id Invoice</th>
                         <th>Id Payment</th>
+                        <th>Start Date</th>
                         <th>Type Of Payment</th>
-                        <th>Time</th>
                         <th>Total Of Money</th>
                         <th>Status</th>
                     </tr>
@@ -83,30 +85,30 @@ const HistoryResidentInvoiceManagement = () => {
                 </thead>
                 {idNull ?
                     (
-                        <PaginationHistoryInvoice data={obj}></PaginationHistoryInvoice>
+                        <PanationResidentHistoryInvoice data={obj}></PanationResidentHistoryInvoice>
                     )
                     : (
                         <tbody>
                             <tr >
                                 <td></td>
-                                <td>{obj.id_Payment}</td>
                                 <td>{obj.id_R_Invoice}</td>
-                                <td>{obj.typeOfPayment}</td>
+                                <td>{obj.id_Payment}</td>
                                 <td>{obj.time}</td>
-                                <td>{obj.total_Of_Money}</td>
-                                <td>{obj.status ? "Complete" : "Not Complete"}</td>
+                                <td>{obj.typeOfPayment}</td>
+                                <td>{obj.total_Of_Money} VND</td>
+                                <td>{obj.status}</td>
                                 <td>
-                                    <form>
-                                        <button style={{ border: 'none', backgroundColor: '#2DC98A', color: 'white', width: '55px', borderRadius: '2px' }}>Edit</button>
-                                    </form>
-                                </td>
-                            </tr>
+                                <form>
+                                    <button style={{ border: 'none', backgroundColor: '#2DC98A', color: 'white', width: '55px', borderRadius: '2px' }}>Edit</button>
+                                </form>
+                            </td>
+                        </tr>
                         </tbody>
 
 
                     )}
 
-            </table>
+        </table>
         </div>
     );
 }

@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { url_api } from "../../API/api";
 import { toast } from "react-toastify";
 
-function PaginationHistoryInvoice(props) {
+function PanationResidentHistoryInvoice(props) {
     const user = props.user;
     const [currentPage, setCurrentPage] = useState(1);
     const pageSize = props.pageSize || 10; // default to 10 if not provided
@@ -29,10 +29,10 @@ function PaginationHistoryInvoice(props) {
     };
 
     const handleChangeStatus = (id) => {
-        fetch(url_api + '/security/changeStatusInvoiceCustomer/' + id, {
+        fetch(url_api + '/security/changeStatusInvoiceResident/' + id, {
             method: 'PUT',
             header: {
-                "Access-Control-Allow-Origin": url_api + '/security/changeStatusInvoiceCustomer/' + id,
+                "Access-Control-Allow-Origin": url_api + '/security/changeStatusInvoiceResident/' + id,
                 "Accept": "*/*",
                 "Content-Type": "application/text",
                 "X-Requested-With": "XMLHttpRequest",
@@ -58,14 +58,14 @@ function PaginationHistoryInvoice(props) {
                 <td>{start + index + 1}</td>
                 <td>{item.id_R_Invoice}</td>
                 <td>{item.id_Payment}</td>
-                <td>{item.id_Booking}</td>
-                <td>{item.startDate}</td>
-                <td>{item.endDate}</td>
-                <td>{item.typeOfPayment}</td>
                 <td>{item.time}</td>
-                <td>{item.total_Of_Money} VND</td>
-                <td>{item.status }</td>
-               
+                <td>{item.typeOfPayment}</td>
+                
+                <td>{Number(item.total_Of_Money).toLocaleString(undefined, { minimumFractionDigits: 2 })} VND</td>
+                <td style={item.status ? { color: '#259645', fontWeight: 'bold' } : { color: '#E74032', fontWeight: 'bold' }}
+
+                >{item.status ? "Completed" : "Not Complete"}</td>
+
             </tr>
         ));
     };
@@ -79,4 +79,4 @@ function PaginationHistoryInvoice(props) {
     );
 }
 
-export default PaginationHistoryInvoice;
+export default PanationResidentHistoryInvoice;

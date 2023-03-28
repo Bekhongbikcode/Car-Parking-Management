@@ -75,7 +75,7 @@ const Header = (props) => {
                                 <Nav class="nav-item">
                                     <NavDropdown title={<FontAwesomeIcon icon={faUser}></FontAwesomeIcon>}>
                                         <NavDropdown.Item>
-                                            <Link to={'/CustomerPage'}>My profile</Link>
+                                            <Link to={role === 'C' ? '/CustomerPage' : '/ResidentPage'}>My profile</Link>
 
                                         </NavDropdown.Item>
                                         <NavDropdown.Item href="#action/3.2">Another action</NavDropdown.Item>
