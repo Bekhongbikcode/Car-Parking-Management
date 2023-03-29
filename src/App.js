@@ -42,6 +42,8 @@ import ErrorPage from './components/Error/ErrorPage';
 
 
 import About from './components/Complements/About';
+import AdminHub from './components/Admin/AdminHub';
+
 
 
 
@@ -92,6 +94,8 @@ function App() {
           <Route path='/Service' element={<Service></Service>}></Route>
           <Route path='*' element=<ErrorPage></ErrorPage> />
 
+
+          <Route path='/AdminHub' element={<AdminHub></AdminHub>}></Route>
       
           
 

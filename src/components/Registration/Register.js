@@ -214,7 +214,7 @@ const Register = () => {
                 <title>Register</title>
             </Helmet>
             <div className="container-register">
-                <BackgroundCommon className="background-register"></BackgroundCommon>
+                <BackgroundCommon style={{left:'800px'}}></BackgroundCommon>
                 <div className="register-form">
                     {success ? (
                         <section>

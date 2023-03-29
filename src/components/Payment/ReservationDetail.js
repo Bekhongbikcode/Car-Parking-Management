@@ -24,6 +24,7 @@ const ReservationDetail = () => {
     const [slot, setSlot] = useState('');
     const [shells, setShells] = useState([]);
     const [logined, setLogined] = useState(sessionStorage.getItem("username"))
+    console.log('aaaaaa: ' + logined)
 
     useEffect(() => {
         setStartDate(startDate);
@@ -110,7 +111,12 @@ const ReservationDetail = () => {
     }
 
     const handleSubmit = async (e) => {
+        
 
+        if ((logined === null || logined === '')) {
+            window.location.href = '/Login'
+        } else
+  
         if (logined != null || logined != '') {
             e.preventDefault();
             const id_Building = zone;
@@ -120,7 +126,12 @@ const ReservationDetail = () => {
             const idUser = sessionStorage.getItem("id");
             const obj = { idUser, startDate, endDate, startTime, endTime, id_Building, type_Of_Vehicle, id_C_Slot, fullname, email, phone }
             console.log(obj)
-            fetch(url_api + "/bookingCustomer/save", {
+            const now = new Date();
+            const hours = now.getHours();
+            const minutes = now.getMinutes();
+            const seconds = now.getSeconds();
+            const currentTime = `${hours}a${minutes}a${seconds}`;
+            fetch(url_api + "/bookingCustomer/save?time="+ currentTime, {
                 method: 'POST',
                 header: {
 
@@ -151,6 +162,8 @@ const ReservationDetail = () => {
             }).catch((err) => {
                 console.log(err.massage())
             });
+
+            
         }
         else window.location.href = '/login';
     }

@@ -7,16 +7,16 @@ import PopUpEditUser from './Popup/PopUpEditUser';
 import { faBuilding } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import AdminHeader from '../AdminPageHeader';
-import {url_api} from "../../../API/api";
+import { url_api } from "../../../API/api";
 
 
 
 
 // const URL_Find_All = 'https://corsproxy-pms.herokuapp.com/https://backend-heroku-pms.herokuapp.com/customer/findById?IdUser=';
-const URL_Find_All = url_api+"/MoreFeatureGet/findByIdResident?idResident=";
-const URL = url_api+"/security/ListAllResidentFromBuilding/";
-const URL_RESIDENT = url_api+"/security/updateCustomer_Resident?idUser=";
-const REGISTER_URL = url_api+"/security/createResident";
+const URL_Find_All = url_api + "/MoreFeatureGet/findByIdResident?idResident=";
+const URL = url_api + "/security/ListAllResidentFromBuilding/";
+const URL_RESIDENT = url_api + "/security/updateCustomer_Resident?idUser=";
+const REGISTER_URL = url_api + "/security/createResident";
 const USER_REGEX = /^[a-zA-Z][a-zA-Z0-9-_]{3,23}$/;
 const PWD_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%]).{8,30}/;
 const EMAIL_REGEX = /^[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[A-Za-z]+$/;
@@ -66,7 +66,7 @@ const ResidentManagement = () => {
 
     const [showPopupCreateRes, setShowPopupCreateRes] = useState(false);
     const [urlResident, setUrlResident] = useState(URL_RESIDENT)
-    
+
     const togglePopupCreateRes = () => {
 
         setShowPopupCreateRes(!showPopupCreateRes);
@@ -294,7 +294,7 @@ const ResidentManagement = () => {
                     <a class="nav-link" href="#"><FontAwesomeIcon style={{ marginRight: '10px' }} icon={faBuilding}></FontAwesomeIcon>Zone C</a>
                 </li>
             </ul>
-            <table className="table table-striped">
+            <table className="table ">
                 <thead>
                     <tr>
                         <th>No.</th>

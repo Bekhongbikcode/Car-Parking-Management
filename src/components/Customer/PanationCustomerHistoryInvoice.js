@@ -50,6 +50,25 @@ function PaginationCustomerHistoryInvoice(props) {
         });
     }
 
+    const handleCheckout =  (id) =>{
+
+        const now = new Date();
+        const hours = now.getHours();
+        const minutes = now.getMinutes();
+        const seconds = now.getSeconds();
+        const currentTime = `${hours}a${minutes}a${seconds}`;
+        console.log(url_api + "/checkout/checkoutCustomer/"+ id +"?time="+currentTime)
+        
+        fetch(url_api + "/checkout/checkoutCustomer/"+ id +"?time="+currentTime)
+        .then(res => res.text())
+        .then(resp => {
+            toast.success('Check out successfully!')
+        })
+        .catch(err => {
+            console.log(err)
+        })
+    }
+
     const renderListItems = () => {
         const start = (currentPage - 1) * pageSize;
         const end = start + pageSize;
@@ -66,6 +85,9 @@ function PaginationCustomerHistoryInvoice(props) {
                 <td style={item.status ? {color:'#259645', fontWeight:'bold'} : {color:'#E74032', fontWeight:'bold'}}
                 
                 >{item.status ? "Completed" : "Not Complete"}</td>
+                <td>
+                    <button onClick={()=>handleCheckout(item.id_C_Invoice)}>Check out</button>
+                </td>
                
             </tr>
         ));

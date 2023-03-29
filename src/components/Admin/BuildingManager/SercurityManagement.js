@@ -284,7 +284,7 @@ const SercurityManagement = () => {
                 <button type='submit'>Search</button>
             </form>
 
-            <table className="table table-striped">
+            <table className="table ">
                 <thead>
                     <tr>
                         <th>No.</th>

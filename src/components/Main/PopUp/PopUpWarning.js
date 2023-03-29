@@ -4,6 +4,7 @@ import { faWarning } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import '../Main.css'
 import {ExpiredInvoiceCustomerManagement} from '../../Customer/ExpiredInvoiceCustomerManagement'
+import { Link } from "react-router-dom";
 
 
 const PopUpWarning = ({ handleClose, show, data, role }) => {
@@ -34,7 +35,7 @@ const PopUpWarning = ({ handleClose, show, data, role }) => {
             <p>
               Please take this warning seriously and ensure that all outstanding payments are made as soon as possible to avoid any further complications.
             </p>
-          
+              <p style={{textAlign:'center'}}>Click: <Link to={role==='C' ? '/CustomerPage' : '/ResidentPage'}>Check invoice </Link>to payment your invoice on time.</p>          
             
           </div>
 

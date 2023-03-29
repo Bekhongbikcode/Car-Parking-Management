@@ -360,3 +360,11 @@ select {
   box-shadow: rgba(45, 35, 66, .4) 0 4px 8px, rgba(45, 35, 66, .3) 0 7px 13px -3px, #2DC98A 0 -3px 0 inset;
   transform: translateY(-2px);
 }
+
+.notice-infor{
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  margin: 0 auto;
+  background-color: white;
+  margin-top: 20px;
+  border-radius: 10px;
+}

@@ -27,7 +27,7 @@ const RevenueManagement = () => {
         <div className="admin-homepage-dashboard">
             <AdminHeader></AdminHeader>
 
-            <table className="table table-striped" style={{ marginTop: '50px' }}>
+            <table className="table " style={{ marginTop: '50px' }}>
                 <thead>
                     <tr>
                         <th>Building ID</th>

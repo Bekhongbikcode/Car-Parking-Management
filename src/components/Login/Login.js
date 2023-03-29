@@ -110,45 +110,6 @@ const Login = () => {
     }
 
 
-    const ProceedLoginusingAPI = (e) => {
-        e.preventDefault();
-
-        let inputobj = {
-            "username": username,
-            "password": password
-        };
-        fetch(LOGIN_URL, {
-            method: 'POST',
-            headers: { 'content-type': 'application/json' },
-            body: JSON.stringify(inputobj)
-        }).then((res) => {
-            return res.json();
-        }).then((resp) => {
-            console.log(resp)
-            if (Object.keys(resp).length === 0) {
-                toast.error('Login failed, invalid credentials');
-            } else {
-                toast.success('Success');
-                sessionStorage.setItem('username', username);
-                sessionStorage.setItem('jwttoken', resp.jwtToken);
-                usenavigate('/')
-            }
-            if (Object.keys(resp).length === 0) {
-                toast.error('Please Enter valid username');
-            } else {
-                if (resp.password === password) {
-                    toast.success('Success');
-                    sessionStorage.setItem('username', username);
-                    usenavigate('/')
-                } else {
-                    toast.error('Please Enter valid credentials');
-                }
-            }
-        }).catch((err) => {
-            toast.error('Login Failed due to :' + err.message);
-        });
-
-    }
     const validate = () => {
         let result = true;
         if (username === '' || username === null) {
@@ -162,51 +123,7 @@ const Login = () => {
         return result;
     }
 
-    const handleGoogle = () => {
-        // window.location.href = 'https://parking-management-system-deploy-production-d240.up.railway.app/oauth2/authorization/google?continue'
-        window.location.href = 'https://parking-management-system-deploy-production-d240.up.railway.app/loginGoogle'
-        setFlag(true);
-    }
 
-    // const handleGoogle = () => {
-    //     fetch('https://parking-management-system-deploy-production-d240.up.railway.app/loginGoogle')
-    //         .then(res => res.json())
-    //         .then(resp => {
-    //             setObj(resp)
-
-    //         })
-
-    // }
-
-    // useEffect(() => {
-    //     fetch('https://parking-management-system-deploy-production-d240.up.railway.app/loginGoogle?continue')
-    //         .then(res => res.json())
-    //         .then(resp => {
-    //             console.log(resp);
-    //             sessionStorage.setItem('username', resp.id);
-    //             sessionStorage.setItem('fullname', resp.fullname);
-    //             sessionStorage.setItem('email', resp.email);
-    //             sessionStorage.setItem('phone', resp.phone);
-    //             sessionStorage.setItem('id', resp.id);
-    //             console.log(resp);
-    //             window.location.href = '/'
-    //             // if (resp.message === 'Login Customer Successfully') {
-    //             //     sessionStorage.setItem('role', 'C');
-    //             //     toast.success(resp.message);
-    //             //     window.location.href = '/'
-    //             // } else
-    //             //     if (resp.message === 'Login Resident Successfully') {
-    //             //         console.log(resp);
-    //             //         toast.success(resp.message);
-    //             //         sessionStorage.setItem('role', 'R');
-    //             //         window.location.href = '/'
-    //             //     }
-    //             // usenavigate('/');
-
-    //         })
-
-
-    // }, [])
 
 
     return (
@@ -225,7 +142,7 @@ const Login = () => {
                         <BackgroundCommon></BackgroundCommon>
                         <h2>User Log in</h2>
                         <span style={{ marginBottom: "40px", display: "block" }}>Log in to your Eparking account.</span>
-                        <button onClick={() => { handleGoogle() }} className="google" style={{ marginBottom: "10px", backgroundColor:'white' }} type="submit"> <img style={{ width: "30px", position: "absolute", left: "20px", marginRight: "30px" }} src='./assets/img/Google_Logo.png' /> Login with Google</button>
+                        <button className="google" style={{ marginBottom: "10px", backgroundColor:'white' }} type="submit"> <img style={{ width: "30px", position: "absolute", left: "20px", marginRight: "30px" }} src='./assets/img/Google_Logo.png' /> Login with Google</button>
                         <button className="google" style={{ marginTop: "0px" }} type="submit"> <img style={{ width: "30px", position: "absolute", left: "20px", marginRight: "30px" }} src='./assets/img/facebook.png' /> Login with Facebook</button>
                         <br />
                         <div className="dash-or"><span>Or</span></div>
@@ -251,7 +168,7 @@ const Login = () => {
                         <form onSubmit={ProceedLogin}>
                             <input placeholder="User Name" style={{ marginTop: "30px" }} value={username} onChange={e => usernameupdate(e.target.value)} ></input>
                             <input placeholder="Password" type="password" value={password} onChange={e => passwordupdate(e.target.value)} ></input>
-                            <button style={{ color: "#fff" }} type="submit">Log In</button>
+                            <button className="loginbtn" style={{ color: "#fff" }} type="submit">Log In</button>
                             <Link to={'/Forgotten-pwd'} style={{ marginLeft: "-30px", color: "#2DC98A" }}>Forgotten your password?</Link>
                             <br />
                             <div className="anyaccount" ><span>Don’t have any account?</span></div>
@@ -260,9 +177,7 @@ const Login = () => {
                     </div>
                 </div>
 
-                {/* <PopUpLoginGG handleClose={togglePopupCreateRes} show={showPopupCreateRes} data={htmlContent} >
-
-                </PopUpLoginGG> */}
+                
 
             </div>
         </HelmetProvider>

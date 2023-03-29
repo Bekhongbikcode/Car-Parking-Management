@@ -70,7 +70,7 @@ const HistoryResidentInvoiceManagement = () => {
 
 
 
-            <table className="table table-striped">
+            <table className="table ">
                 <thead>
                     <tr>
                         <th>No.</th>

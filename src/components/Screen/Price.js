@@ -32,7 +32,7 @@ const Price = () => {
                 </tr>
             </table>
 
-            <table className="table" style={{ width: '40%', margin: '0 auto', marginTop: '50px', boxShadow: 'rgba(0, 0, 0, 0.14) 0px 3px 8px' }}>
+            <table className="table" style={{ width: '30%', marginLeft:'12%', marginTop: '48px', boxShadow: 'rgba(0, 0, 0, 0.14) 0px 3px 8px', float:'left' }}>
                 <thead style={{ width: '30%' }}>
                     <tr>
                         <th>Type of money</th>
@@ -105,6 +105,88 @@ const Price = () => {
                     <tr>
                         <th>bike_MONEY_BY_MONTH</th>
                         <td>{obj.bike_MONEY_BY_MONTH} VND / Month</td>
+
+                    </tr>
+
+
+                </tbody>
+
+
+            </table>
+
+            <table className="table" style={{ width: '30%', margin: '0 auto', marginTop: '50px', boxShadow: 'rgba(0, 0, 0, 0.14) 0px 3px 8px',  }}>
+                <thead style={{ width: '30%' }}>
+                    <tr>
+                        <th>Type of Fee</th>
+                        <th>Price</th>
+                    </tr>
+                </thead>
+                <tbody >
+                    <tr style={{ marginTop: '15px' }}>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th>car_MONEY_BY_HOUR</th>
+                        <td>{obj.car_MONEY_BY_HOUR*1.5} VND / Hour</td>
+
+                    </tr>
+
+                    <tr>
+                        <th>moto_MONEY_BY_HOUR</th>
+                        <td>{obj.moto_MONEY_BY_HOUR*1.5} VND / Hour</td>
+
+                    </tr>
+
+                    <tr>
+                        <th>bike_MONEY_BY_HOUR</th>
+                        <td>{obj.bike_MONEY_BY_HOUR*1.5} VND / Hour</td>
+
+                    </tr>
+
+                    <tr style={{ marginTop: '15px' }}>
+                        <td></td>
+                        <td></td>
+                    </tr>
+
+                    <tr>
+                        <th>car_MONEY_BY_DAY</th>
+                        <td>{obj.car_MONEY_BY_DAY*1.5} VND / Hour</td>
+
+                    </tr>
+
+                    <tr>
+                        <th>moto_MONEY_BY_DAY</th>
+                        <td>{obj.moto_MONEY_BY_DAY*1.5} VND / Hour</td>
+
+                    </tr>
+
+                    <tr>
+                        <th>bike_MONEY_BY_DAY</th>
+                        <td>{obj.bike_MONEY_BY_DAY*1.5} VND / Hour</td>
+
+                    </tr>
+
+                    <tr style={{ marginTop: '15px' }}>
+                        <td></td>
+                        <td></td>
+                    </tr>
+
+                    <tr>
+                        <th>car_MONEY_BY_MONTH</th>
+                        <td>{obj.car_MONEY_BY_MONTH*1.5} VND / Day</td>
+
+                    </tr>
+
+                    <tr>
+                        <th>moto_MONEY_BY_MONTH</th>
+                        <td>{obj.moto_MONEY_BY_MONTH*1.5} VND / Day</td>
+
+                    </tr>
+
+                    <tr>
+                        <th>bike_MONEY_BY_MONTH</th>
+                        <td>{obj.bike_MONEY_BY_MONTH*1.5} VND / Day</td>
 
                     </tr>
 

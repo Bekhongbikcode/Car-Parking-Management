@@ -69,7 +69,7 @@ const HistoryCustomerInvoiceManagement = () => {
 
 
 
-            <table className="table table-striped">
+            <table className="table ">
                 <thead>
                     <tr>
                         <th>No.</th>
@@ -81,6 +81,7 @@ const HistoryCustomerInvoiceManagement = () => {
                         <th>Type Of Payment</th>
                         <th>Total Of Money</th>
                         <th>Status</th>
+                        <th>Action</th>
                     </tr>
 
                 </thead>

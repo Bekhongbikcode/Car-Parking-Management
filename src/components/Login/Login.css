@@ -86,7 +86,7 @@ app-check {
 
 .container-background {
   position: absolute;
-  right: 0;
+  right: 200 !important;
   width: 500px;
   height: 100%;
   background-color: #2DC98A !important;
@@ -131,19 +131,6 @@ app-check {
   font-weight: 500;
 }
 
-.login-form button:focus {
-  box-shadow: #2DC98A 0 0 0 1.5px inset, rgba(45, 35, 66, .4) 0 2px 4px, rgba(45, 35, 66, .3) 0 7px 13px -3px, #2DC98A 0 -3px 0 inset;
-}
-
-.login-form button:hover {
-  box-shadow: rgba(45, 35, 66, .4) 0 4px 8px, rgba(45, 35, 66, .3) 0 7px 13px -3px, #2DC98A 0 -3px 0 inset;
-  transform: translateY(-2px);
-}
-
-.login-form button:active {
-  box-shadow: #2DC98A 0 3px 7px inset;
-  transform: translateY(2px);
-}
 
 .login-form>span {
   margin-bottom: 30px;
@@ -182,7 +169,7 @@ app-check {
   font-weight: 500;
 }
 
-.login-form .google {
+.login-form button {
   background-color: #2DC98A !important;
   width: 350px;
   height: 50px;
@@ -194,7 +181,7 @@ app-check {
   border: 1px solid #2DC98A !important;
 }
 
-.login-form>.google {
+/* .login-form>.google {
   position: "relative";
   background-color: #fff !important;
 }
@@ -207,7 +194,7 @@ app-check {
   background-color: #1F8A64;
   transition: 0.5s;
 
-}
+} */
 
 .anyaccount {
   position: relative;

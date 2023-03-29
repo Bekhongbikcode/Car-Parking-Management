@@ -1,4 +1,4 @@
-import '../Admin.css'
+
 import './CommanDashBoard.css'
 import React, { useState, useEffect, useRef } from "react";
 import Pagination from '../../Complements/Pagination';
@@ -9,19 +9,19 @@ import "react-toastify/dist/ReactToastify.css";
 import AdminHeader from '../AdminPageHeader';
 import { faBuilding } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {url_api} from "../../../API/api";
+import { url_api } from "../../../API/api";
 import PopUpEditUser from './Popup/PopUpEditUser';
 
-const URL_Find_All = url_api+"/MoreFeatureGet/findByIdCustomer?idCustomer=";
-const URL = url_api+"/security/ListAllCustomerFromBuilding/";
+const URL_Find_All = url_api + "/MoreFeatureGet/findByIdCustomer?idCustomer=";
+const URL = url_api + "/security/ListAllCustomerFromBuilding/";
 
-const REGISTER_URL = url_api+"/security/createCustomer";
+const REGISTER_URL = url_api + "/security/createCustomer";
 const USER_REGEX = /^[a-zA-Z][a-zA-Z0-9-_]{3,23}$/;
 const PWD_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%]).{8,30}/;
 const EMAIL_REGEX = /^[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[A-Za-z]+$/;
 const PHONE_REGEX = /^[0-9]{10,12}$/;
 const ROLE = 'C'
-const URL_CUSTOMER = url_api+"/security/updateCustomer_Resident?idUser=";
+const URL_CUSTOMER = url_api + "/security/updateCustomer_Resident?idUser=";
 
 const CustomerManagement = () => {
     const [customers, setCustomers] = useState([]);
@@ -244,7 +244,7 @@ const CustomerManagement = () => {
 
         }
         else {
-            fetch(  URL_Find_All + id)
+            fetch(URL_Find_All + id)
                 .then(response => response.json())
                 .then((data) => {
                     setIdNull(false);
@@ -305,7 +305,9 @@ const CustomerManagement = () => {
 
 
 
-            <table className="table table-striped">
+
+
+            <table className="table" >
                 <thead>
                     <tr>
                         <th>No.</th>
@@ -319,6 +321,7 @@ const CustomerManagement = () => {
                         <th>Action</th>
                     </tr>
                 </thead>
+
                 <tr className='security-add-new'>
                     <th></th>
                     <th><input onChange={(e) => setId(e.target.value)}></input></th>
@@ -340,7 +343,8 @@ const CustomerManagement = () => {
                         </form>
                     </th>
                 </tr>
-                {idNull ? (<PaginationUser data={customers} role = {'C'}></PaginationUser>)
+
+                {idNull ? (<PaginationUser data={customers} role={'C'}></PaginationUser>)
 
                     : (
                         <tbody><tr >
@@ -359,7 +363,7 @@ const CustomerManagement = () => {
                                 </form>
                             </td>
                         </tr>
-                        <PopUpEditUser handleClose={togglePopupCreateRes} show={showPopupCreateRes} url={URL_CUSTOMER}></PopUpEditUser>
+                            <PopUpEditUser handleClose={togglePopupCreateRes} show={showPopupCreateRes} url={URL_CUSTOMER}></PopUpEditUser>
                         </tbody>
                     )
                 }

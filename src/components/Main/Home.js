@@ -12,8 +12,8 @@ import './Main.css'
 import PopUpWarning from './PopUp/PopUpWarning';
 import { url_api } from "../../API/api";
 
-const URL_WARNING_C = url_api + '/expired/checkExpiredC/';
-const URL_WARNING_R = url_api + '/expired/checkExpiredR/';
+const URL_WARNING_C = url_api + '/checkLoginCustomerExpireInvoice';
+const URL_WARNING_R = url_api + '/checkLoginResidentExpireInvoice';
 
 const Home = () => {
     const reviews = [
@@ -25,7 +25,6 @@ const Home = () => {
     ];
 
     const [zone, setZone] = useState('A');
-
     const [username, setUsername] = useState(sessionStorage.getItem('username'));
     const [id, setId] = useState(sessionStorage.getItem('id'));
     const [role, setRole] = useState(sessionStorage.getItem('role'));
@@ -36,15 +35,18 @@ const Home = () => {
     const [open, setOpen] = useState(false);
 
 
-
-
-
     const togglePopupWarning = () => {
         setShowPopupWarning(!showPopupWarning);
 
     };
 
+    useEffect(() => {
+        if (role === 'C') {
+            set_URL_WARNING(URL_WARNING_C)
+        } else set_URL_WARNING(URL_WARNING_R)
+    }, [role])
 
+    console.log('urrl: ' + URL_WARNING)
 
     useEffect(() => {
         const currentDate = new Date(Date.now());
@@ -54,59 +56,72 @@ const Home = () => {
         const minutes = now.getMinutes();
         const seconds = now.getSeconds();
         const currentTime = `${hours}a${minutes}a${seconds}`;
+        const id_User = username;
+        const time = currentTime;
+        const repobj = { id_User, time }
+        console.log(repobj);
+
         if (role === 'C') {
-            set_URL_WARNING(URL_WARNING_C + id + '?time=' + currentTime);
-            console.log(URL_WARNING_C + id + '?time=' + currentTime)
-        } else if (role === 'R') {
-            set_URL_WARNING(URL_WARNING_R + id + '?time=' + currentTime);
-            console.log(URL_WARNING_R + id + '?time=' + currentTime)
+            fetch(URL_WARNING_C, {
+                method: "POST",
+                headers: {
+                    "Access-Control-Allow-Origin": URL_WARNING,
+                    Accept: "*/*",
+                    "Content-Type": "application/json",
+                    "X-Requested-With": "XMLHttpRequest",
+                    "Cache-Control": "no-cache",
+                },
+                body: JSON.stringify(repobj)
+            })
+                .then(res => res.text())
+                .then(resp => {
+                    console.log('tudeptrai: ' + resp)
+                    setObj(resp)
+    
+                })
+                .catch((err) => {
+                    console.error(err);
+                });
+            
+        } else {
+            fetch(URL_WARNING_R, {
+                method: "POST",
+                headers: {
+                    "Access-Control-Allow-Origin": URL_WARNING,
+                    Accept: "*/*",
+                    "Content-Type": "application/json",
+                    "X-Requested-With": "XMLHttpRequest",
+                    "Cache-Control": "no-cache",
+                },
+                body: JSON.stringify(repobj)
+            })
+                .then(res => res.text())
+                .then(resp => {
+                    console.log('tudeptrai: ' + resp)
+                    setObj(resp)
+    
+                })
+                .catch((err) => {
+                    console.error(err);
+                });
         }
 
-        fetch(URL_WARNING, {
-            method: "GET",
-            headers: {
-                "Access-Control-Allow-Origin": URL_WARNING,
-                Accept: "*/*",
-                "Content-Type": "application/json",
-                "X-Requested-With": "XMLHttpRequest",
-                "Cache-Control": "no-cache",
-            },
 
-        })
-            .then((res) => res.json())
-            .then((data) => {
-                
-                setObj(data);
-                console.log('data: ' + data)
-                setOpen(true)
-            })
-            .catch((err) => {
-                console.error(err);
-                
-            });
-
-        if (obj === undefined) setOpen(false)
-        else setOpen(true)
-
-    }, [URL_WARNING]);
-    console.log('data: ' + obj.id_user)
-
-
-
-    // useEffect(() => {
-    //     if (obj='' || obj === null)
-    //         togglePopupWarning();
         
-    // }, [obj])
+
+
+    }, [username]);
 
 
 
 
 
 
+    useEffect(() => {
+        if (obj === 'Have Expire')
+            togglePopupWarning();
 
-
-
+    }, [obj])
 
 
     useEffect(() => {
@@ -150,12 +165,12 @@ const Home = () => {
                         <Card.Footer className="card-footer">
                             <form onSubmit={handleSubmit}>
 
-                                <Link style={{borderBottom:'0', textDecoration:'none'}} to={'/ZoneDetail/A'}>
+                                <Link style={{ borderBottom: '0', textDecoration: 'none' }} to={'/ZoneDetail/A'}>
 
-                                    <button className="button-home" style={{ color: "#fff", width: '30.8%' }}  ><span style={{borderBottom:'0', textDecoration:'none'}}>Details</span></button>
+                                    <button className="button-home" style={{ color: "#fff", width: '30.8%' }}  ><span style={{ borderBottom: '0', textDecoration: 'none' }}>Details</span></button>
                                 </Link>
-                                <Link style={{borderBottom:'0', textDecoration:'none'}} to={'/Reservation'}>
-                                    <Button className="button-home" style={{ color: "#fff" }} onClick={e => setZone(e.target.value)} value='A'><span style={{borderBottom:'0', textDecoration:'none'}}>Make Reservation</span></Button>
+                                <Link style={{ borderBottom: '0', textDecoration: 'none' }} to={'/Reservation'}>
+                                    <Button className="button-home" style={{ color: "#fff", marginTop: '10px' }} onClick={e => setZone(e.target.value)} value='A'><span style={{ borderBottom: '0', textDecoration: 'none' }}>Make Reservation</span></Button>
                                 </Link>
                             </form>
                         </Card.Footer>
@@ -181,12 +196,12 @@ const Home = () => {
 
                             </form>
 
-                            <Link style={{borderBottom:'0', textDecoration:'none'}} to={'/ZoneDetail/B'}>
+                            <Link style={{ borderBottom: '0', textDecoration: 'none' }} to={'/ZoneDetail/B'}>
 
-                                <Button style={{ color: "#fff", width: '30.8%' }} onClick={() => setZone('B')} value="B"><span style={{borderBottom:'0', textDecoration:'none'}}>Details</span></Button>
+                                <Button style={{ color: "#fff", width: '30.8%' }} onClick={() => setZone('B')} value="B"><span style={{ borderBottom: '0', textDecoration: 'none' }}>Details</span></Button>
                             </Link>
-                            <Link style={{borderBottom:'0', textDecoration:'none'}} to={'/Reservation'}>
-                                <Button style={{ color: "#fff" }} onClick={e => setZone(e.target.value)} value='B'><span style={{borderBottom:'0', textDecoration:'none'}}>Make Reservation</span></Button>
+                            <Link style={{ borderBottom: '0', textDecoration: 'none' }} to={'/Reservation'}>
+                                <Button style={{ color: "#fff" }} onClick={e => setZone(e.target.value)} value='B'><span style={{ borderBottom: '0', textDecoration: 'none' }}>Make Reservation</span></Button>
                             </Link>
                         </Card.Footer>
                     </Card>
@@ -210,12 +225,12 @@ const Home = () => {
                             <form onSubmit={handleSubmit}>
 
                             </form>
-                            <Link style={{borderBottom:'0', textDecoration:'none'}} to={'/ZoneDetail/C'}>
+                            <Link style={{ borderBottom: '0', textDecoration: 'none' }} to={'/ZoneDetail/C'}>
 
-                                <Button style={{ color: "#fff", width: '30.8%' }} onClick={() => setZone('C')} value="C"><span style={{borderBottom:'0', textDecoration:'none'}}>Details</span></Button>
+                                <Button style={{ color: "#fff", width: '30.8%' }} onClick={() => setZone('C')} value="C"><span style={{ borderBottom: '0', textDecoration: 'none' }}>Details</span></Button>
                             </Link>
-                            <Link style={{borderBottom:'0', textDecoration:'none'}} to={'/Reservation'}>
-                                <Button style={{ color: "#fff" }} onClick={e => setZone(e.target.value)} value='C'><span style={{borderBottom:'0', textDecoration:'none'}}>Make Reservation</span></Button>
+                            <Link style={{ borderBottom: '0', textDecoration: 'none' }} to={'/Reservation'}>
+                                <Button style={{ color: "#fff" }} onClick={e => setZone(e.target.value)} value='C'><span style={{ borderBottom: '0', textDecoration: 'none' }}>Make Reservation</span></Button>
                             </Link>
                         </Card.Footer>
                     </Card>
@@ -312,7 +327,7 @@ const Home = () => {
                 </div>
             </form>
             <Footer></Footer>
-            <PopUpWarning handleClose={togglePopupWarning} show={showPopupWarning}>
+            <PopUpWarning handleClose={togglePopupWarning} show={showPopupWarning} role={role}>
             </PopUpWarning>
         </HelmetProvider>
     );

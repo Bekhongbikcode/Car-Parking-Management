@@ -5,7 +5,7 @@ class BackgroundCommon extends Component {
     return(
 
         <div className="container-background">
-            <img style={{ position: "absolute", zIndex: "10", marginLeft:'-200px', marginTop: "110px" }} src="./assets/img/man.png"></img>
+            <img style={{ position: "absolute", zIndex: "10", marginTop: "110px" }} src="./assets/img/man.png"></img>
         </div>
     )
 }

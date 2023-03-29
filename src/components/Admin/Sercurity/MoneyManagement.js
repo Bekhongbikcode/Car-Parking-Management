@@ -141,7 +141,7 @@ const MoneyManagement = () => {
     return (
         <div className="admin-homepage-dashboard">
             <AdminHeader>/</AdminHeader>
-            <table className="table table-striped" style={{ width: '60%', margin: '0 auto', marginTop: '50px' }}>
+            <table className="table " style={{ width: '60%', margin: '0 auto', marginTop: '50px' }}>
                 <thead>
                     <tr>
                         <th>Type of money</th>

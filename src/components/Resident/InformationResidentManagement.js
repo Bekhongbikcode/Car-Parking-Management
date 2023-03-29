@@ -217,7 +217,7 @@ const InformationResidentManagement = () => {
                 </div>
             </div>
             <div style={{width:'100%', }}>
-                <table className="table table-striped" style={{ width: '50%', marginLeft: '00%', marginTop: '50px'}}>
+                <table className="table " style={{ width: '50%', marginLeft: '00%', marginTop: '50px'}}>
                     <thead>
                         <tr>
                             <th>Information</th>

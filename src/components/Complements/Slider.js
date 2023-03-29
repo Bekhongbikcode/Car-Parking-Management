@@ -49,7 +49,7 @@ const Slider = () => {
                         <label>Start date *</label>
                         <br />
                         <div>
-                            <input type={'date'} style={{ width: '100%', position: 'relative' }} onChange={(e) => setStartDate(e.target.value)} ></input>
+                            <input type={'date'} min={ new Date().toISOString().split('T')[0] } style={{ width: '100%', position: 'relative' }} onChange={(e) => setStartDate(e.target.value)} ></input>
 
                         </div>
                     </div>
@@ -87,7 +87,7 @@ const Slider = () => {
                         <label>End date *</label>
                         <br />
                         <div>
-                            <input type={'date'} style={{ width: '100%', position: 'relative' }} onChange={(e) => setEndDate(e.target.value)}  ></input>
+                            <input type={'date'} min={ new Date().toISOString().split('T')[0] } style={{ width: '100%', position: 'relative' }} onChange={(e) => setEndDate(e.target.value)}  ></input>
 
                         </div>
                     </div>
@@ -122,7 +122,7 @@ const Slider = () => {
                     </div>
 
 
-                    <button style={{ color: "#fff" }} type="submit">Book now</button>
+                    <button className='booknow-btn' style={{ color: "#fff" }} type="submit">Book now</button>
 
                 </form>
 

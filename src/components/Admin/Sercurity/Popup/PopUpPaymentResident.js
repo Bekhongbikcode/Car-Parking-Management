@@ -12,19 +12,19 @@ const PopUpPaymentResident = ({ handleClose, show, data, idSearch, url }) => {
     const [flag, setFlag] = useState(false);
     const [invoice, setInvoice] = useState([]);
     console.log('--------------------------------------------------')
-    useEffect(() => {
-        fetch(url)
-            .then(response =>
-                response.json()
-            )
-            .then((data) => {
-                setInvoice(data);
-                console.log('data: ' + data)
-                console.log('fetch first')
-                setFlag(true)
-            })
-            .catch(error => console.error(error));
-    }, [])
+    // useEffect(() => {
+    //     fetch(url)
+    //         .then(response =>
+    //             response.json()
+    //         )
+    //         .then((data) => {
+    //             setInvoice(data);
+    //             console.log('data: ' + data)
+    //             console.log('fetch first')
+    //             setFlag(true)
+    //         })
+    //         .catch(error => console.error(error));
+    // }, [])
 
     useEffect(() => {
         const id_User = idSearch;
@@ -67,22 +67,22 @@ const PopUpPaymentResident = ({ handleClose, show, data, idSearch, url }) => {
                     <h3 style={{ textAlign: 'center' }}>Invoice information:</h3>
                     <div className="form-infor-slot" >
                         <span>Resident ID:</span>
-                        <i>{invoice.idUser}</i>
+                        <i>{data.idUser}</i>
                         <br />
                         <span>Payment ID:</span>
-                        <i>{invoice.id_Payment}</i>
+                        <i>{data.id_Payment}</i>
                         <br />
                         <span>Invoice ID:</span>
-                        <i>{invoice.id_R_Invoice}</i>
+                        <i>{data.id_R_Invoice}</i>
                         <br />
                         <span>Type of payment:</span>
-                        <i>{invoice.typeOfPayment}</i>
+                        <i>{data.typeOfPayment}</i>
                         <br />
                         <span>Date:</span>
-                        <i>{invoice.dateOfPayment}</i>
+                        <i>{data.dateOfPayment}</i>
                         <br />
                         <span>Total of money:</span>
-                        <i>{invoice.total_Of_Money}</i>
+                        <i>{data.total_Of_Money}</i>
                         <br />
                         
                         <br />

@@ -29,6 +29,7 @@ const Popup = ({ handleClose, show }) => {
   const [shells, setShells] = useState([]);
   const [flag, setFlag] = useState(false);
   const [invoice, setInvoice] = useState([]);
+  const [inforInvoice, setInforInvoice] = useState([]);
 
   const [showPopupCreateRes, setShowPopupCreateRes] = useState(false);
 
@@ -201,6 +202,20 @@ const Popup = ({ handleClose, show }) => {
 
   }
 
+  useEffect(() => {
+    fetch(URL_FIND_PAYMENT)
+        .then(response =>
+            response.json()
+        )
+        .then((data) => {
+            setInforInvoice(data);
+            console.log('data: ' + data)
+            console.log('fetch first')
+            setFlag(true)
+        })
+        .catch(error => console.error(error));
+}, [flag])
+
   
 
 
@@ -281,7 +296,7 @@ const Popup = ({ handleClose, show }) => {
         <form onSubmit={() => {handleResidentPayment(); togglePopupCreateRes()}} className="col-lg-6  class-input">
           <button style={{ color: "#fff", marginLeft: '48%', width: '60%' }} type="submit">Payment</button>
         </form>
-        <PopUpPaymentResident handleClose={togglePopupCreateRes} show={showPopupCreateRes} url={URL_FIND_PAYMENT} idSearch={idSearch}></PopUpPaymentResident>
+        <PopUpPaymentResident handleClose={togglePopupCreateRes} show={showPopupCreateRes} url={URL_FIND_PAYMENT} data={inforInvoice} idSearch={idSearch}></PopUpPaymentResident>
       </section>
     </div>
   );
