@@ -146,7 +146,7 @@ const InvoiceManagement = () => {
                         
                         <th>Total Of Money</th>
                         <th style={{textAlign:'center'}}>Status</th>
-                        <th >Action</th>
+                        
                     </tr>
 
                 </thead>

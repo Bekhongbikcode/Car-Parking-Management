@@ -79,7 +79,10 @@ const PaymentInformation = () => {
                 sessionStorage.setItem("idbooking", bookingInf.id_Booking);
                 sessionStorage.setItem("typePayment", type);
                 sessionStorage.setItem("idbuilding", bookingInf.id_Building);
-                window.location.href = '/Banking'
+
+                setTimeout(function () {
+                    window.location.href = '/Banking'
+                }, 800);
             }
             else window.location.href = '/login';
     }
@@ -131,6 +134,9 @@ const PaymentInformation = () => {
                 }).catch((err) => {
                     toast.error('Failed: ' + err.message);
                 });
+                setTimeout(function () {
+                    window.location.reload();
+                }, 800);
             }
             else window.location.href = '/Login';
     }

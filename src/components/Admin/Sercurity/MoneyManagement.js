@@ -129,6 +129,9 @@ const MoneyManagement = () => {
             }).catch((err) => {
                 toast.error('Failed: ' + err.message);
             });
+            setTimeout(function () {
+                window.location.reload();
+            }, 800);
         }
 
     }

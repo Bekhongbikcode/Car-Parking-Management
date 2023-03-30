@@ -191,7 +191,13 @@ const ResidentManagement = () => {
             }).catch((err) => {
                 toast.error('Failed: ' + err.message);
             });
+
+            // setTimeout(function(){
+            //     window.location.reload();
+            //   }, 3000);
         }
+
+        
 
     }
 

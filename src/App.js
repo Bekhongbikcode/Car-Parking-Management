@@ -43,6 +43,7 @@ import ErrorPage from './components/Error/ErrorPage';
 
 import About from './components/Complements/About';
 import AdminHub from './components/Admin/AdminHub';
+import TestDate from './components/Error/test';
 
 
 
@@ -96,6 +97,8 @@ function App() {
 
 
           <Route path='/AdminHub' element={<AdminHub></AdminHub>}></Route>
+
+          <Route path='/testDemo' element={<TestDate></TestDate>}></Route>
       
           
 

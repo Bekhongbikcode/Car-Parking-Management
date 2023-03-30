@@ -1,5 +1,6 @@
 import './Complement.css'
-import { useEffect, useState} from "react";
+import { useEffect, useState } from "react";
+import { toast } from 'react-toastify';
 
 
 const Slider = () => {
@@ -7,6 +8,9 @@ const Slider = () => {
     const [endDate, setEndDate] = useState();
     const [startTime, setStartTime] = useState('');
     const [endTime, setEndTime] = useState('');
+    const [error, setError] = useState('');
+    const [disabled, setDisabled] = useState(true);
+    const [success, setSuccess] = useState(false)
 
     useEffect(() => {
         setStartDate(startDate);
@@ -25,20 +29,107 @@ const Slider = () => {
         setEndTime(endTime);
     }, [endTime]);
 
+    useEffect(() => {
+        // Check if the StartDate is after the EndDate
+        if (startDate && endDate && new Date(startDate) > new Date(endDate)) {
+            console.log('Start date cannot be after end date.');
+            toast.error('Start date cannot be after end date.')
+            setSuccess(false)
+            setDisabled(true);
+        } else {
+            setError('');
+            setDisabled(false);
+            setSuccess(true)
+        }
+    }, [startDate, endDate]);
+
+
+    useEffect(() => {
+        // Check if the StartDate and EndDate are the same date
+        if (startDate && endDate && startDate === endDate) {
+            // Check if the StartTime is after the EndTime
+            if (startTime > endTime) {
+                console.log('Start time cannot be after end time.');
+                toast.error('Start time cannot be after end time.')
+                setDisabled(true);
+                setSuccess(false)
+            } else {
+                setError('');
+                setDisabled(false);
+                setSuccess(true)
+            }
+        } else {
+            setError('');
+            setDisabled(false);
+        }
+    }, [startDate, endDate, startTime, endTime]);
+
+    useEffect(() => {
+        // Check if the StartTime and EndTime are the same time
+        if (startTime && endTime && startTime === endTime) {
+            console.log('Start time and end time cannot be the same.');
+            toast.error('Start time and end time cannot be the same in one day.')
+            setDisabled(true);
+            setSuccess(false)
+        } else {
+            setError('');
+            setDisabled(false);
+            setSuccess(true)
+        }
+    }, [startTime, endTime]);
+
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        const regObj = { startDate, endDate, startTime, endTime }
-        sessionStorage.setItem("startDate", startDate);
+        if (success === true) {
+            const regObj = { startDate, endDate, startTime, endTime }
+            sessionStorage.setItem("startDate", startDate);
 
-        sessionStorage.setItem("endDate", endDate);
+            sessionStorage.setItem("endDate", endDate);
 
-        sessionStorage.setItem("startTime", startTime);
-        sessionStorage.setItem("endTime", endTime);
+            sessionStorage.setItem("startTime", startTime);
+            sessionStorage.setItem("endTime", endTime);
 
-        console.log(JSON.stringify(regObj));
-        window.location.href = '/Reservation'
+            console.log(JSON.stringify(regObj));
+            window.location.href = '/Reservation'
+        }
+        else toast.error('Invalid date or time, please check again!')
+
     }
+
+    // -----------------------------------------------------------------------------------------------------
+    useEffect(() => {
+        const now = new Date();
+        const hours = now.getHours();
+        const minutes = now.getMinutes();
+        const seconds = now.getSeconds();
+        const currentTime = `${hours}a${minutes}a${seconds}`;
+        const repObj = { startDate, startTime, endDate, endTime, currentTime }
+
+        console.log(startDate + ',' + startTime + ',' + endDate + ',' + endTime + ',' + currentTime)
+
+        // fetch('', {
+        //     method: "POST",
+        //     headers: {
+        //         "Access-Control-Allow-Origin": '',
+        //         Accept: "*/*",
+        //         "Content-Type": "application/json",
+        //         "X-Requested-With": "XMLHttpRequest",
+        //         "Cache-Control": "no-cache",
+        //     },
+        //     body: JSON.stringify(repObj)
+        // })
+        //     .then(res => res.text())
+        //     .then(resp => {
+        //         console.log('tudeptrai: ' + resp)
+        //     })
+        //     .catch((err) => {
+        //         console.error(err);
+        //     });
+
+    }, [startDate, startTime, endDate, endTime])
+
+    // -----------------------------------------------------------------------------------------------------
 
     return (
         <div className="background" style={{ marginTop: '65px' }}>
@@ -49,7 +140,7 @@ const Slider = () => {
                         <label>Start date *</label>
                         <br />
                         <div>
-                            <input type={'date'} min={ new Date().toISOString().split('T')[0] } style={{ width: '100%', position: 'relative' }} onChange={(e) => setStartDate(e.target.value)} ></input>
+                            <input type={'date'} min={new Date().toISOString().split('T')[0]} style={{ width: '100%', position: 'relative' }} onChange={(e) => setStartDate(e.target.value)} ></input>
 
                         </div>
                     </div>
@@ -87,7 +178,7 @@ const Slider = () => {
                         <label>End date *</label>
                         <br />
                         <div>
-                            <input type={'date'} min={ new Date().toISOString().split('T')[0] } style={{ width: '100%', position: 'relative' }} onChange={(e) => setEndDate(e.target.value)}  ></input>
+                            <input type={'date'} min={new Date().toISOString().split('T')[0]} style={{ width: '100%', position: 'relative' }} onChange={(e) => setEndDate(e.target.value)}  ></input>
 
                         </div>
                     </div>
@@ -95,7 +186,7 @@ const Slider = () => {
                         <label>End time *</label>
                         <br />
                         <select class="form-select" autoComplete="off" onChange={(e) => setEndTime(e.target.value)}>
-                        <option>00:00</option>
+                            <option>00:00</option>
                             <option>01:00</option>
                             <option>02:00</option>
                             <option>03:00</option>
@@ -129,8 +220,8 @@ const Slider = () => {
 
             </div>
             <div className="describe-system" >
-                <h1 style={{color:'white'}}>Booking Vehicle Parking Area</h1>
-                <p style={{color:'white', fontSize:'20px'}}>The system provide the easily service to book a slot for your vehicle in my parking area
+                <h1 style={{ color: 'white' }}>Booking Vehicle Parking Area</h1>
+                <p style={{ color: 'white', fontSize: '20px' }}>The system provide the easily service to book a slot for your vehicle in my parking area
                     and pay the monthly invoice if you is a resident.</p>
             </div>
         </div>

@@ -1,7 +1,7 @@
 import AdminFooter from "./AdminPageFooter";
 import AdminHeader from "./AdminPageHeader";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faSpaceShuttle, faUserShield, faSquareParking, faFileInvoiceDollar, faUsers, faPersonShelter, faMoneyBill1Wave, faBuildingUser, faMoneyBillWave } from "@fortawesome/free-solid-svg-icons";
+import { faSpaceShuttle, faUserShield, faSquareParking, faFileInvoiceDollar, faUsers, faPersonShelter, faMoneyBill1Wave, faBuildingUser, faMoneyBillWave, faFileArrowDown } from "@fortawesome/free-solid-svg-icons";
 import './Admin.css'
 import CustomerManagement from "./Sercurity/CustomerManagement";
 import { Link, useNavigate } from "react-router-dom";
@@ -15,6 +15,7 @@ import RevenueManagement from "./BuildingManager/RevenueManagement";
 import BuildingManagerManagement from "./HeadManager/BuildingManagerManagement";
 import RevenueAllManagement from "./HeadManager/RevenueAllBuilding";
 import MoneyManagement from "./Sercurity/MoneyManagement";
+import { url_api } from "../../API/api";
 
 const ManagerHomePage = () => {
     const [logined, setLogined] = useState(localStorage.getItem("username"));
@@ -53,11 +54,22 @@ const ManagerHomePage = () => {
         });
 
     })
+
+    const exportFile =() =>{
+        const now = new Date();
+        const hours = now.getHours();
+        const minutes = now.getMinutes();
+        const seconds = now.getSeconds();
+        const currentTime = `${hours}a${minutes}a${seconds}`;
+        window.open('https://tttm.up.railway.app/excel/export?time=' + currentTime)
+
+        window.location.reload()
+    }
     return (
         <div>
 
             <div className="admin-homepage-body" style={{ marginBottom: '150px' }}>
-                
+
                 <div class="nav admin-nav-custom flex-column ">
                     <div className="admin-nav-custom-title">
                         <p className='nav-link' style={{ fontSize: '25px', paddingTop: '20px', color: 'white' }} href="#"><FontAwesomeIcon style={{ paddingRight: '10px', paddingLeft: '6%' }} icon={faSpaceShuttle}></FontAwesomeIcon>Admin Page</p>
@@ -99,10 +111,13 @@ const ManagerHomePage = () => {
                             <a class="nav-link active" href="#"><FontAwesomeIcon style={{ paddingRight: '30px' }} icon={faBuildingUser}></FontAwesomeIcon>Building Manager</a>
                         </li>
                         <li tabindex="0" class="nav-item" onClick={() => handleItemClick('Revenue-all')}>
-                            <a class="nav-link active" href="#"><FontAwesomeIcon style={{ paddingRight: '30px' }} icon={faMoneyBill1Wave}></FontAwesomeIcon>Revenue all</a>
+                            <a class="nav-link active" href="#"><FontAwesomeIcon style={{ paddingRight: '30px' }} icon={faMoneyBill1Wave}></FontAwesomeIcon>Revenue All</a>
                         </li>
                         <li tabindex="0" class="nav-item" onClick={() => handleItemClick('Set-money')}>
                             <a class="nav-link active" href="#"><FontAwesomeIcon style={{ paddingRight: '30px' }} icon={faMoneyBillWave}></FontAwesomeIcon>Set Money</a>
+                        </li>
+                        <li tabindex="0" class="nav-item" onClick={() => exportFile()}>
+                            <a class="nav-link active" href="#"><FontAwesomeIcon style={{ paddingRight: '30px' }} icon={faFileArrowDown}></FontAwesomeIcon>Export Statistical</a>
                         </li>
                     </ul>
                 </div>
@@ -115,7 +130,7 @@ const ManagerHomePage = () => {
                                     : select === 'Revenue-building' ? <RevenueManagement></RevenueManagement>
                                         : select === 'Building-manager' ? <BuildingManagerManagement></BuildingManagerManagement>
                                             : select === 'Revenue-all' ? <RevenueAllManagement></RevenueAllManagement>
-                                                : <MoneyManagement></MoneyManagement>
+                                                : select === 'Set-money' && <MoneyManagement></MoneyManagement>
                 }
 
 

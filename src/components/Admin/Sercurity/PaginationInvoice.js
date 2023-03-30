@@ -59,6 +59,9 @@ function PaginationInvoice(props) {
         }).catch((err) => {
             toast.error('Failed: ' + err.message);
         });
+        setTimeout(function () {
+            window.location.reload();
+        }, 800);
     }
 
     const renderListItems = () => {
@@ -82,11 +85,7 @@ function PaginationInvoice(props) {
 
 
                 </td>
-                <td>
-                    <form>
-                        <button className="save-edit" style={{ border: 'none', backgroundColor: '#2DC98A', color: 'white', width: '55px', borderRadius: '2px' }}>Edit</button>
-                    </form>
-                </td>
+                
             </tr>
         ));
     };
