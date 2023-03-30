@@ -139,10 +139,12 @@ const Login = () => {
             </div> */}
 
                     <div className="login-form">
-                        <BackgroundCommon></BackgroundCommon>
+                        <div className="container-background" style={{marginTop:'-80px', height:'720px'}}>
+                            <img style={{ position: "absolute", zIndex: "10", marginTop: "110px" }} src="./assets/img/man.png"></img>
+                        </div>
                         <h2>User Log in</h2>
                         <span style={{ marginBottom: "40px", display: "block" }}>Log in to your Eparking account.</span>
-                        <button className="google" style={{ marginBottom: "10px", backgroundColor:'white' }} type="submit"> <img style={{ width: "30px", position: "absolute", left: "20px", marginRight: "30px" }} src='./assets/img/Google_Logo.png' /> Login with Google</button>
+                        <button className="google" style={{ marginBottom: "10px", backgroundColor: 'white' }} type="submit"> <img style={{ width: "30px", position: "absolute", left: "20px", marginRight: "30px" }} src='./assets/img/Google_Logo.png' /> Login with Google</button>
                         <button className="google" style={{ marginTop: "0px" }} type="submit"> <img style={{ width: "30px", position: "absolute", left: "20px", marginRight: "30px" }} src='./assets/img/facebook.png' /> Login with Facebook</button>
                         <br />
                         <div className="dash-or"><span>Or</span></div>
@@ -177,7 +179,7 @@ const Login = () => {
                     </div>
                 </div>
 
-                
+
 
             </div>
         </HelmetProvider>

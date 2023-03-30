@@ -214,7 +214,9 @@ const Register = () => {
                 <title>Register</title>
             </Helmet>
             <div className="container-register">
-                <BackgroundCommon style={{left:'800px'}}></BackgroundCommon>
+                <div className="container-background" style={{ marginTop: '-80px', marginLeft:'310px' }}>
+                    <img style={{ position: "absolute", zIndex: "10", marginTop: "185px" }} src="./assets/img/man.png"></img>
+                </div>
                 <div className="register-form">
                     {success ? (
                         <section>
@@ -317,7 +319,7 @@ const Register = () => {
 
                                 </div>
                                 {/* -------------------GENDER-------------------- */}
-                                <div className="input-gender col-sm-4 " style={{display:"flex"}}>
+                                <div className="input-gender col-sm-4 " style={{ display: "flex" }}>
 
                                     <input style={{ flex: "left", marginLeft: "-10px" }} type="radio" checked={txtGender === 'female'} onChange={e => setTxtGender(e.target.value)} name="gender" value="female" ></input>
                                     <label className="gender"><span>Female</span></label>
@@ -393,7 +395,7 @@ const Register = () => {
                         </section>
                     )}
                 </div>
-                
+
             </div>
             <div className="res-container-register">
                 <div className="register-form">

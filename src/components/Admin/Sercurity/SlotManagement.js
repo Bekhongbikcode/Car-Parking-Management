@@ -20,6 +20,14 @@ const URL_Infor_C_Slot = url_api + "/security/ResponseCustomerInfoSlot?id_Buildi
 const URL_INFOR = ''
 
 const SlotManagement = () => {
+    const now = new Date();
+    const hours = now.getHours();
+    const minutes = now.getMinutes();
+    const seconds = now.getSeconds();
+    const currentime = `${hours}:${minutes}:${seconds}`;
+
+    const currentDate = new Date(Date.now());
+    const formattedDate = currentDate.toISOString().substr(0, 10);
 
     const [building, setBuilding] = useState('A')
 
@@ -34,11 +42,33 @@ const SlotManagement = () => {
     const [showPopupInfor, setShowPopupInfor] = useState(false);
     const [showPopupCreateRes, setShowPopupCreateRes] = useState(false);
 
+    const [startDate, setStartDate] = useState(formattedDate);
+    const [endDate, setEndDate] = useState(formattedDate);
+    const [startTime, setStartTime] = useState(currentime);
+    const [endTime, setEndTime] = useState(currentime);
+
 
     const togglePopupCreateRes = () => {
 
         setShowPopupCreateRes(!showPopupCreateRes);
     };
+
+    useEffect(() => {
+        setStartDate(startDate);
+
+    }, [startDate]);
+
+    useEffect(() => {
+        setEndDate(endDate);
+    }, [endDate]);
+
+    useEffect(() => {
+        setStartTime(startTime);
+    }, [startTime]);
+
+    useEffect(() => {
+        setEndTime(endTime);
+    }, [endTime]);
 
     const togglePopupInfor = (id, role, url) => {
 
@@ -75,18 +105,56 @@ const SlotManagement = () => {
 
 
 
-    useEffect(() => {
-        setBuilding(building)
-    }, [building])
+    // useEffect(() => {
+    //     setBuilding(building)
+    //     console.log(URL + building)
+    // }, [building])
+
+    // useEffect(() => {
+    //     console.log(URL + building)
+    //     fetch(URL + building)
+    //         .then(response => response.json())
+    //         .then((data) => {
+    //             setShells(data)
+    //         })
+    //         .catch(error => console.error(error));
+    // }, [building])
 
     useEffect(() => {
-        fetch(URL + building)
+        // if (zone === 'A') {
+
+        const now = new Date();
+        const hours = now.getHours();
+        const minutes = now.getMinutes();
+        const seconds = now.getSeconds();
+        const time = `${hours}a${minutes}a${seconds}`;
+        const repObj = { startDate, startTime, endDate, endTime, time }
+
+        console.log(startDate + ',' + startTime + ',' + endDate + ',' + endTime + ',')
+        console.log(building)
+        fetch(url_api + "/present_slot/findAll/" + building,
+            {
+                method: "POST",
+                headers: {
+                    "Access-Control-Allow-Origin": '',
+                    Accept: "*/*",
+                    "Content-Type": "application/json",
+                    "X-Requested-With": "XMLHttpRequest",
+                    "Cache-Control": "no-cache",
+                },
+                body: JSON.stringify(repObj)
+            }
+        )
             .then(response => response.json())
             .then((data) => {
                 setShells(data)
+                console.log('data: ' + data)
             })
             .catch(error => console.error(error));
-    }, [building])
+
+
+
+    }, [building, startDate, startTime, endDate, endTime]);
 
     const residentSlot = shells.filter(slot => slot.id_slot.startsWith('R'));
     const customerSlot = shells.filter(slot => slot.id_slot.startsWith('C'));
@@ -127,6 +195,86 @@ const SlotManagement = () => {
                 </li>
             </ul>
 
+            <div className="row col-lg-6" style={{ float: 'left', marginRight: '-100px' }}>
+                <div className="col-lg-6  class-input">
+                    <label>Start date *</label>
+                    <br />
+                    <div>
+                        <input type={'date'} placeholder="User Name" style={{ width: '100%', position: 'relative' }} onChange={(e) => setStartDate(e.target.value)} value={startDate} ></input>
+
+                    </div>
+                </div>
+                <div className=" col-lg-6 class-input">
+                    <label>End date *</label>
+                    <br />
+                    <div>
+                        <input type={'date'} placeholder="User Name" style={{ width: '100%', position: 'relative' }} onChange={(e) => setEndDate(e.target.value)} value={endDate}  ></input>
+
+                    </div>
+                </div>
+                <div className="col-lg-6 class-input">
+                    <label>Start time *</label>
+                    <br />
+                    <select className="form-select" onChange={(e) => setStartTime(e.target.value)} value={startTime}>
+                        <option>00:00</option>
+                        <option>01:00</option>
+                        <option>02:00</option>
+                        <option>03:00</option>
+                        <option>04:00</option>
+                        <option>05:00</option>
+                        <option>06:00</option>
+                        <option>07:00</option>
+                        <option>08:00</option>
+                        <option>09:00</option>
+                        <option>10:00</option>
+                        <option>11:00</option>
+                        <option>12:00</option>
+                        <option>13:00</option>
+                        <option>14:00</option>
+                        <option>15:00</option>
+                        <option>16:00</option>
+                        <option>17:00</option>
+                        <option>18:00</option>
+                        <option>19:00</option>
+                        <option>20:00</option>
+                        <option>21:00</option>
+                        <option>22:00</option>
+                        <option>23:00</option>
+                    </select>
+                </div>
+
+                <div className=" col-lg-6 class-input">
+                    <label>End time *</label>
+                    <br />
+                    <select className="form-select" onChange={(e) => setEndTime(e.target.value)} value={endTime}>
+                        <option>00:00</option>
+                        <option>01:00</option>
+                        <option>02:00</option>
+                        <option>03:00</option>
+                        <option>04:00</option>
+                        <option>05:00</option>
+                        <option>06:00</option>
+                        <option>07:00</option>
+                        <option>08:00</option>
+                        <option>09:00</option>
+                        <option>10:00</option>
+                        <option>11:00</option>
+                        <option>12:00</option>
+                        <option>13:00</option>
+                        <option>14:00</option>
+                        <option>15:00</option>
+                        <option>16:00</option>
+                        <option>17:00</option>
+                        <option>18:00</option>
+                        <option>19:00</option>
+                        <option>20:00</option>
+                        <option>21:00</option>
+                        <option>22:00</option>
+                        <option>23:00</option>
+                    </select>
+                </div>
+            </div>
+
 
             <div class="table-responsive  align-items-center justify-content-center">
                 <div>Resident Area</div>
@@ -137,7 +285,7 @@ const SlotManagement = () => {
                                 <td
                                     onClick={shell.status_Slots === true ? () => togglePopupInfor(shell.id_slot, 'R', URL_Infor_R_Slot) : massageSlot}
                                     className="border" key={shell.id}
-                                    style={{ boxShadow: 'rgba(0, 0, 0, 0.14) 0px 3px 8px', backgroundColor: shell.status_Slots === true ? 'rgba(250, 104, 104, 0.874)' : 'white' }}
+                                    style={{ boxShadow: 'rgba(0, 0, 0, 0.14) 0px 3px 8px', backgroundColor: shell.status_Slots === true ? 'rgba(250, 104, 104, 0.874)' : 'white', cursor: 'pointer' }}
                                 >
                                     <FontAwesomeIcon style={{ fontSize: '16px', paddingRight: '30px' }} icon={faCarRear}></FontAwesomeIcon>
 
@@ -150,7 +298,7 @@ const SlotManagement = () => {
                                 <td
                                     onClick={shell.status_Slots === true ? () => togglePopupInfor(shell.id_slot, 'R', URL_Infor_R_Slot) : massageSlot}
                                     className="border" key={shell.id}
-                                    style={{ backgroundColor: shell.status_Slots === true ? 'rgba(250, 104, 104, 0.874)' : 'white' }}
+                                    style={{ backgroundColor: shell.status_Slots === true ? 'rgba(250, 104, 104, 0.874)' : 'white', cursor: 'pointer' }}
                                 >
                                     <FontAwesomeIcon style={{ fontSize: '16px', paddingRight: '30px' }} icon={faBicycle}></FontAwesomeIcon>
 
@@ -163,7 +311,7 @@ const SlotManagement = () => {
                                 <td
                                     onClick={shell.status_Slots === true ? () => togglePopupInfor(shell.id_slot, 'R', URL_Infor_R_Slot) : massageSlot}
                                     className="border" key={shell.id}
-                                    style={{ backgroundColor: shell.status_Slots === true ? 'rgba(250, 104, 104, 0.874)' : 'white' }}
+                                    style={{ backgroundColor: shell.status_Slots === true ? 'rgba(250, 104, 104, 0.874)' : 'white', cursor: 'pointer' }}
                                 >
                                     <FontAwesomeIcon style={{ fontSize: '16px', paddingRight: '30px' }} icon={faMotorcycle}></FontAwesomeIcon>
 
@@ -183,7 +331,7 @@ const SlotManagement = () => {
                                 <td
                                     onClick={shell.status_Slots === true ? (() => togglePopupInfor(shell.id_slot, 'C', URL_Infor_C_Slot)) : massageSlot}
                                     className="border" key={shell.id}
-                                    style={{ backgroundColor: shell.status_Slots === true ? 'rgba(250, 104, 104, 0.874)' : 'white' }}
+                                    style={{ backgroundColor: shell.status_Slots === true ? 'rgba(250, 104, 104, 0.874)' : 'white', cursor: 'pointer' }}
                                 >
                                     <FontAwesomeIcon style={{ fontSize: '16px', paddingRight: '30px' }} icon={faCarRear}></FontAwesomeIcon>
 
@@ -229,7 +377,7 @@ const SlotManagement = () => {
 
             </PopupInforSlot>
 
-            <button onClick={togglePopupCreateRes} style={{ width: '160px' }}>Create Resident</button>
+            <button onClick={togglePopupCreateRes} style={{ width: '260px', marginLeft: '55px', }}>Create Resident</button>
             <Popup handleClose={togglePopupCreateRes} show={showPopupCreateRes}>
 
             </Popup>

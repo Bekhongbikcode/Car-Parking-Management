@@ -28,54 +28,54 @@ const ReservationDetail = () => {
     const [error, setError] = useState('');
     const [disabled, setDisabled] = useState(true);
     const [success, setSuccess] = useState(false)
-    // useEffect(() => {
-    //         // Check if the StartDate is after the EndDate
-    //         if (startDate && endDate && new Date(startDate) > new Date(endDate)) {
-    //             console.log('Start date cannot be after end date.');
-    //             toast.error('Start date cannot be after end date.')
-    //             setSuccess(false)
-    //             setDisabled(true);
-    //         } else {
-    //             setError('');
-    //             setDisabled(false);
-    //             setSuccess(true)
-    //         }
-    //     }, [startDate, endDate]);
+    useEffect(() => {
+            // Check if the StartDate is after the EndDate
+            if (startDate && endDate && new Date(startDate) > new Date(endDate)) {
+                console.log('Start date cannot be after end date.');
+                toast.error('Start date cannot be after end date.')
+                setSuccess(false)
+                setDisabled(true);
+            } else {
+                setError('');
+                setDisabled(false);
+                setSuccess(true)
+            }
+        }, [startDate, endDate]);
 
 
-    //     useEffect(() => {
-    //         // Check if the StartDate and EndDate are the same date
-    //         if (startDate && endDate && startDate === endDate) {
-    //             // Check if the StartTime is after the EndTime
-    //             if (startTime > endTime) {
-    //                 console.log('Start time cannot be after end time.');
-    //                 toast.error('Start time cannot be after end time.')
-    //                 setDisabled(true);
-    //                 setSuccess(false)
-    //             } else {
-    //                 setError('');
-    //                 setDisabled(false);
-    //                 setSuccess(true)
-    //             }
-    //         } else {
-    //             setError('');
-    //             setDisabled(false);
-    //         }
-    //     }, [startDate, endDate, startTime, endTime]);
+        useEffect(() => {
+            // Check if the StartDate and EndDate are the same date
+            if (startDate && endDate && startDate === endDate) {
+                // Check if the StartTime is after the EndTime
+                if (startTime > endTime) {
+                    console.log('Start time cannot be after end time.');
+                    toast.error('Start time cannot be after end time.')
+                    setDisabled(true);
+                    setSuccess(false)
+                } else {
+                    setError('');
+                    setDisabled(false);
+                    setSuccess(true)
+                }
+            } else {
+                setError('');
+                setDisabled(false);
+            }
+        }, [startDate, endDate, startTime, endTime]);
 
-    //     useEffect(() => {
-    //         // Check if the StartTime and EndTime are the same time
-    //         if (startTime && endTime && startTime === endTime) {
-    //             console.log('Start time and end time cannot be the same.');
-    //             toast.error('Start time and end time cannot be the same in one day.')
-    //             setDisabled(true);
-    //             setSuccess(false)
-    //         } else {
-    //             setError('');
-    //             setDisabled(false);
-    //             setSuccess(true)
-    //         }
-    //     }, [startTime, endTime]);
+        useEffect(() => {
+            // Check if the StartTime and EndTime are the same time
+            if (startTime && endTime && startTime === endTime) {
+                console.log('Start time and end time cannot be the same.');
+                toast.error('Start time and end time cannot be the same in one day.')
+                setDisabled(true);
+                setSuccess(false)
+            } else {
+                setError('');
+                setDisabled(false);
+                setSuccess(true)
+            }
+        }, [startTime, endTime]);
 
 
 
@@ -97,7 +97,7 @@ const ReservationDetail = () => {
 
     useEffect(() => {
         setEndTime(endTime);
-    }, [endDate]);
+    }, [endTime]);
 
     useEffect(() => {
         setZone(zone);
@@ -129,16 +129,11 @@ const ReservationDetail = () => {
 
     }, [slot])
 
-// -----------------------------------------------------------------------------------------------------
-    useEffect(() =>{
-        const now = new Date();
-        const hours = now.getHours();
-        const minutes = now.getMinutes();
-        const seconds = now.getSeconds();
-        const currentTime = `${hours}a${minutes}a${seconds}`;
-        const repObj = {startDate, startTime, endDate, endTime, currentTime}
+    // -----------------------------------------------------------------------------------------------------
+    useEffect(() => {
+        const repObj = { startDate, startTime, endDate, endTime }
 
-        console.log(startDate +','+ startTime +','+ endDate +','+ endTime +','+ currentTime)
+        console.log(startDate + ',' + startTime + ',' + endDate + ',' + endTime + ',')
 
         // fetch('', {
         //     method: "POST",
@@ -158,22 +153,63 @@ const ReservationDetail = () => {
         //     .catch((err) => {
         //         console.error(err);
         //     });
-        
-    },[startDate,startTime,endDate,endTime])
 
-// -----------------------------------------------------------------------------------------------------
+    }, [startDate, startTime, endDate, endTime])
+
+
+
+    // -----------------------------------------------------------------------------------------------------
+
+
+    // fetch('', {
+    //     method: "POST",
+    //     headers: {
+    //         "Access-Control-Allow-Origin": '',
+    //         Accept: "*/*",
+    //         "Content-Type": "application/json",
+    //         "X-Requested-With": "XMLHttpRequest",
+    //         "Cache-Control": "no-cache",
+    //     },
+    //     body: JSON.stringify(repObj)
+    // })
+
+
 
     useEffect(() => {
         // if (zone === 'A') {
-        console.log(zone)
-        fetch(url_api + "/present_slot/findAll/" + zone)
-            .then(response => response.json())
-            .then((data) => {
-                setShells(data)
-                console.log(data)
-            })
-            .catch(error => console.error(error));
-    }, [zone]);
+        if (role === 'C') {
+            const now = new Date();
+            const hours = now.getHours();
+            const minutes = now.getMinutes();
+            const seconds = now.getSeconds();
+            const time = `${hours}a${minutes}a${seconds}`;
+            const repObj = { startDate, startTime, endDate, endTime, time }
+
+            console.log(startDate + ',' + startTime + ',' + endDate + ',' + endTime + ',')
+            console.log(zone)
+            fetch(url_api + "/present_slot/findAll/" + zone,
+                {
+                    method: "POST",
+                    headers: {
+                        "Access-Control-Allow-Origin": '',
+                        Accept: "*/*",
+                        "Content-Type": "application/json",
+                        "X-Requested-With": "XMLHttpRequest",
+                        "Cache-Control": "no-cache",
+                    },
+                    body: JSON.stringify(repObj)
+                }
+            )
+                .then(response => response.json())
+                .then((data) => {
+                    setShells(data)
+                    console.log(data)
+                })
+                .catch(error => console.error(error));
+
+        } return;
+
+    }, [zone, startDate, startTime, endDate, endTime]);
 
     const residentSlot = shells.filter(slot => slot.id_slot.startsWith('R'));
     const customerSlot = shells.filter(slot => slot.id_slot.startsWith('C'));
@@ -243,9 +279,11 @@ const ReservationDetail = () => {
                     const currentTime = `${hours}:${minutes}:${seconds}`;
                     sessionStorage.setItem("datebook", formattedDate);
                     sessionStorage.setItem("timebook", currentTime);
-                    window.location.href = '/PaymentInformation'
                     console.log(res);
                     toast.success('Booking Success');
+                    setTimeout(function () {
+                        window.location.href = '/PaymentInformation'
+                    }, 800);
 
                 }).catch((err) => {
                     console.log(err.massage())

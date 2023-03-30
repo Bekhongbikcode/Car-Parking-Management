@@ -1,6 +1,6 @@
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faSpaceShuttle, faHome, faSquareParking, faFileInvoiceDollar, faUsers, faPersonShelter, faSignOut, faBuildingUser, faMoneyBillWave } from "@fortawesome/free-solid-svg-icons";
+import { faSpaceShuttle, faHome, faSquareParking, faFileInvoiceDollar, faUsers, faPersonShelter, faSignOut, faBuildingUser, faMoneyBillWave, faLock } from "@fortawesome/free-solid-svg-icons";
 import { Link, useNavigate } from "react-router-dom";
 import React, { useState, useEffect, useRef } from "react";
 import InformationCustomerManagement from "./InformationCustomerManagement";
@@ -8,6 +8,7 @@ import HistoryCustomerInvoiceManagement from "./HistoryCustomerInvoiceManagement
 import ExpiredInvoiceCustomerManagement from "./ExpiredInvoiceCustomerManagement";
 import './Customer.css'
 import UserHeader from "../Complements/HeaderUser";
+import ChangePwdCustomer from "./ChangePwdCustomer";
 
 
 
@@ -17,7 +18,7 @@ const CustomerPage = () => {
     const usenavigate = useNavigate();
 
 
-    
+
 
     const [select, setSelect] = useState('Your-Information');
 
@@ -65,22 +66,23 @@ const CustomerPage = () => {
                         <li tabindex="0" class="nav-item " onClick={() => handleItemClick('Your-Information')}>
                             <a className="nav-link active " href="#"><FontAwesomeIcon style={{ paddingRight: '30px' }} icon={faUsers} />Your Information</a>
                         </li>
+                        <li tabindex="0" class="nav-item" onClick={() => handleItemClick('Chang-Pwd')}>
+                            <a className="nav-link active" href="#"><FontAwesomeIcon style={{ paddingRight: '30px' }} icon={faLock}></FontAwesomeIcon>Change password</a>
+                        </li>
                         <li tabindex="0" class="nav-item" onClick={() => handleItemClick('Your-Invoice-History')}>
                             <a className="nav-link active" href="#"><FontAwesomeIcon style={{ paddingRight: '30px' }} icon={faPersonShelter} />Your Invoice History</a>
                         </li>
                         <li tabindex="0" class="nav-item" onClick={() => handleItemClick('Expired-Invoices')}>
                             <a className="nav-link active" href="#"><FontAwesomeIcon style={{ paddingRight: '30px' }} icon={faFileInvoiceDollar} />Expired Invoices</a>
                         </li>
-                        <li tabindex="0" class="nav-item" onClick={() => handleItemClick('Slots')}>
-                            <a className="nav-link active" href="#"><FontAwesomeIcon style={{ paddingRight: '30px' }} icon={faSquareParking}></FontAwesomeIcon>Slots</a>
-                        </li>
+
                         <li tabindex="0" class="nav-item" >
                             <a className="nav-link active" href="/"><FontAwesomeIcon style={{ paddingRight: '30px' }} icon={faHome}></FontAwesomeIcon>Home Page</a>
                         </li>
                         <li tabindex="0" class="nav-item" onClick={logout}>
                             <a className="nav-link active" ><FontAwesomeIcon style={{ paddingRight: '30px' }} icon={faSignOut}></FontAwesomeIcon>Log out</a>
                         </li>
-                        
+
 
                     </ul>
 
@@ -88,7 +90,7 @@ const CustomerPage = () => {
                 {select === 'Your-Information' ? <InformationCustomerManagement></InformationCustomerManagement>
                     : select === 'Your-Invoice-History' ? <HistoryCustomerInvoiceManagement></HistoryCustomerInvoiceManagement>
                         : select === 'Expired-Invoices' ? <ExpiredInvoiceCustomerManagement></ExpiredInvoiceCustomerManagement>
-                            : <HistoryCustomerInvoiceManagement></HistoryCustomerInvoiceManagement>
+                            : <ChangePwdCustomer></ChangePwdCustomer>
 
                 }
 

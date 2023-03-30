@@ -64,7 +64,7 @@
   left: 715.5px;
 
   width: 500px;
-  height: 790px !important;
+  height: 870px !important;
   background-color: #2DC98A !important;
   z-index: 1;
 }
@@ -189,6 +189,7 @@
   top: 9%;
   left: 10%;
   background: linear-gradient(0deg, rgb(255, 255, 255), rgb(255, 255, 255)), rgb(255, 255, 255);
+  z-index: 2;
 
 }
 

@@ -11,6 +11,7 @@ const Slider = () => {
     const [error, setError] = useState('');
     const [disabled, setDisabled] = useState(true);
     const [success, setSuccess] = useState(false)
+    const [role, setRole] = useState(sessionStorage.getItem("role"));
 
     useEffect(() => {
         setStartDate(startDate);
@@ -81,32 +82,32 @@ const Slider = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        if (success === true) {
-            const regObj = { startDate, endDate, startTime, endTime }
-            sessionStorage.setItem("startDate", startDate);
+        if (role === 'C') {
+            if (success === true) {
+                const regObj = { startDate, endDate, startTime, endTime }
+                sessionStorage.setItem("startDate", startDate);
 
-            sessionStorage.setItem("endDate", endDate);
+                sessionStorage.setItem("endDate", endDate);
 
-            sessionStorage.setItem("startTime", startTime);
-            sessionStorage.setItem("endTime", endTime);
+                sessionStorage.setItem("startTime", startTime);
+                sessionStorage.setItem("endTime", endTime);
 
-            console.log(JSON.stringify(regObj));
-            window.location.href = '/Reservation'
-        }
-        else toast.error('Invalid date or time, please check again!')
+                console.log(JSON.stringify(regObj));
+                window.location.href = '/Reservation'
+            }
+            else toast.error('Invalid date or time, please check again!')
+
+        } else toast.error('You must Login with \'Customer\' role to book!');
+
 
     }
 
     // -----------------------------------------------------------------------------------------------------
     useEffect(() => {
-        const now = new Date();
-        const hours = now.getHours();
-        const minutes = now.getMinutes();
-        const seconds = now.getSeconds();
-        const currentTime = `${hours}a${minutes}a${seconds}`;
-        const repObj = { startDate, startTime, endDate, endTime, currentTime }
 
-        console.log(startDate + ',' + startTime + ',' + endDate + ',' + endTime + ',' + currentTime)
+        const repObj = { startDate, startTime, endDate, endTime }
+
+        console.log(startDate + ',' + startTime + ',' + endDate + ',' + endTime + ',')
 
         // fetch('', {
         //     method: "POST",

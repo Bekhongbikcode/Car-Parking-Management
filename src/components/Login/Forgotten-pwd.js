@@ -21,15 +21,15 @@ const ForgottenPwd = () => {
         sessionStorage.clear();
     }, []);
 
-    useEffect(()=>{
+    useEffect(() => {
         setResetUserName(resetUserName)
-    },[resetUserName])
+    }, [resetUserName])
 
     useEffect(() => {
         console.log(url_api + "/user/findById?id=" + resetUserName)
         fetch(url_api + "/user/findById?id=" + resetUserName)
             .then(response => {
-                response.json();   
+                response.json();
             }
             )
             .then((data) => {
@@ -37,7 +37,7 @@ const ForgottenPwd = () => {
                 console.log('data: ' + data.email)
                 console.log('fetch first')
                 flag === 200 && setEmail(data.email)
-                
+
 
             })
             .catch(error => console.error(error));
@@ -61,8 +61,12 @@ const ForgottenPwd = () => {
         })
             .then((res) => {
                 res.json();
+
                 toast.success('New password is sent to: ' + obj.email)
                 console.log(res);
+                setTimeout(function () {
+                    window.location.reload();
+                }, 1800);
             }).then((data) => toast.success('New password is sent to: ' + obj.email))
             .catch((err) => {
                 toast.error('Failed: ' + err.message);
@@ -70,7 +74,7 @@ const ForgottenPwd = () => {
 
     }
 
-    
+
 
 
     return (
@@ -79,9 +83,11 @@ const ForgottenPwd = () => {
                 <Helmet>
                     <title>Forgotten </title>
                 </Helmet>
-                {/* <BackgroundCommon></BackgroundCommon> */}
+                <div className="container-background" style={{ marginTop: '-80px', marginLeft: '310px' }}>
+                    <img style={{ position: "absolute", zIndex: "10", marginTop: "185px" }} src="./assets/img/man.png"></img>
+                </div>
                 <div className="login-form" style={{ marginTop: "200px" }}>
-                    
+
                     <h2 style={{}}>Password reset {email} </h2>
                     <span style={{ marginBottom: "40px", display: "block" }}>Please enter your user name below, and we will send you a link to your email to reset your password.</span>
 

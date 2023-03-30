@@ -3,7 +3,7 @@ import { url_api } from '../../API/api';
 import AdminHeader from '../Admin/AdminPageHeader';
 import { toast } from "react-toastify";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCheck, faTimes, faInfoCircle, faCircleUser } from "@fortawesome/free-solid-svg-icons";
+import { faCheck, faTimes, faInfoCircle, faCircleUser, faPen } from "@fortawesome/free-solid-svg-icons";
 import Calendar from 'react-calendar'
 
 const URL = url_api + "/user/findById?id="
@@ -49,6 +49,11 @@ const InformationResidentManagement = () => {
 
     const [idUser, setIdUser] = useState(sessionStorage.getItem('id'));
     const [nameUser, setNameUser] = useState('');
+
+    const [show, setShow] = useState(false)
+    const showEdit = () => {
+        setShow(!show)
+    }
 
 
 
@@ -197,6 +202,9 @@ const InformationResidentManagement = () => {
             }).catch((err) => {
                 toast.error('Failed: ' + err.message);
             });
+            setTimeout(function () {
+                window.location.reload()
+            }, 800);
         }
     }
 
@@ -216,13 +224,13 @@ const InformationResidentManagement = () => {
                     </div>
                 </div>
             </div>
-            <div style={{width:'100%', }}>
-                <table className="table " style={{ width: '50%', marginLeft: '00%', marginTop: '50px'}}>
+            <div style={{ width: '100%', }}>
+                <table className="table " style={{ width: '50%', marginLeft: '00%', marginTop: '50px' }}>
                     <thead>
                         <tr>
                             <th>Information</th>
                             <th>Detail</th>
-                            <th>Edit</th>
+                            <th style={{ cursor: 'pointer', width: '100px' }} > <button style={{ width: '130px' }} onClick={showEdit}> <FontAwesomeIcon icon={faPen}></FontAwesomeIcon> Edit Here</button></th>
                         </tr>
                     </thead>
                     <tbody>
@@ -236,44 +244,61 @@ const InformationResidentManagement = () => {
                         <tr>
                             <th>Full name</th>
                             <td>{obj.fullname} </td>
-                            <th>
-                                <input style={{ width: '80%', borderRadius: '0px' }} onChange={(e) => setFullName(e.target.value)} type={'text'} />
-                            </th>
+                            {show === true && (
+                                <th>
+                                    <input style={{ width: '100%', borderRadius: '0px' }} onChange={(e) => setFullName(e.target.value)} type={'text'} />
+                                </th>
+                            )}
+
                         </tr>
                         <tr>
                             <th>Password</th>
                             <td>********** </td>
-                            <th>
-                                <input style={{ width: '80%', borderRadius: '0px' }} type={'password'} />
-                            </th>
+                            {show === true && (
+
+                                <th>
+                                    <input style={{ width: '100%', borderRadius: '0px' }} type={'password'} onChange={(e) => setPwd(e.target.value)} />
+                                </th>
+                            )}
                         </tr>
                         <tr>
                             <th>Gender</th>
                             <td>{obj.gender ? "Female" : "Male"} </td>
-                            <th>
-                                <input style={{ width: '80%', borderRadius: '0px' }} type={'text'} />
-                            </th>
+                            {show === true && (
+                                <th>
+                                    <select style={{ width: '100%' }} type="select" onChange={e => setTxtGender(e.target.value)} >
+                                        <option value="female" className="gender">Female</option>
+                                        <option value="male" className="gender">Male</option>
+                                    </select>
+                                </th>
+                            )}
                         </tr>
                         <tr>
                             <th>Date of birth</th>
                             <td>{obj.dateofbirth} </td>
-                            <th>
-                                <input style={{ width: '80%', borderRadius: '0px' }} type={'date'} />
-                            </th>
+                            {show === true && (
+                                <th>
+                                    <input style={{ width: '100%', borderRadius: '0px' }} type={'date'} onChange={(e) => setBirthDay(e.target.value)} />
+                                </th>
+                            )}
                         </tr>
                         <tr>
                             <th>Email</th>
                             <td>{obj.email} </td>
-                            <th>
-                                <input style={{ width: '80%', borderRadius: '0px' }} type={'text'} />
-                            </th>
+                            {show === true && (
+                                <th>
+                                    <input style={{ width: '100%', borderRadius: '0px' }} type={'text'} onChange={(e) => setEmail(e.target.value)} />
+                                </th>
+                            )}
                         </tr>
                         <tr>
                             <th>Phone</th>
                             <td>{obj.phone} </td>
-                            <th>
-                                <input style={{ width: '80%', borderRadius: '0px' }} type={'text'} />
-                            </th>
+                            {show === true && (
+                                <th>
+                                    <input style={{ width: '100%', borderRadius: '0px' }} type={'text'} onChange={(e) => setPhone(e.target.value)} />
+                                </th>
+                            )}
                         </tr>
 
                     </tbody>
@@ -281,7 +306,9 @@ const InformationResidentManagement = () => {
                 </table>
                 <Calendar className={'Calendar'} />
             </div>
-            <button style={{marginTop:'200px', width:'15%',marginLeft:'30.5%'}} onClick={{handleSubmit}}>Save edit</button>
+            {show === true && (
+                <button style={{ marginTop: '200px', width: '130px', marginLeft: '35%' }} onClick={handleSubmit}>Save edit</button>
+            )}
 
         </div>
     );

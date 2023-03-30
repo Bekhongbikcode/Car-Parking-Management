@@ -33,9 +33,9 @@ const Header = (props) => {
                     <li class={activeLink === 1 ? 'header-active nav-item' : null} onClick={() => setActiveLink(1)}>
                         <Link to={'/'} > <a class="nav-link" href="#">Home</a></Link>
                     </li>
-                    <li class={activeLink === 2 ? 'header-active nav-item' : null} onClick={() => setActiveLink(2)}>
+                    {/* <li class={activeLink === 2 ? 'header-active nav-item' : null} onClick={() => setActiveLink(2)}>
                         <Link to={'/Reservation'}> <a class="nav-link" href="#">Reservation</a></Link>
-                    </li>
+                    </li> */}
                     <li class={activeLink === 3 ? 'header-active nav-item' : null} onClick={() => setActiveLink(3)}>
                         <Link to={'/Service'}> <a class="nav-link" href="#">Services</a></Link>
                     </li>

@@ -63,11 +63,25 @@ const CustomerManagement = () => {
     const [errMsg, setErrMsg] = useState('');
     const [success, setSuccess] = useState(false);
 
+    const [typeSearch, setTypeSearch] = useState('iduser')
+    const [valueSearch, setValueSearch] = useState('');
+
+
     const [showPopupCreateRes, setShowPopupCreateRes] = useState(false);
+
     const togglePopupCreateRes = () => {
 
         setShowPopupCreateRes(!showPopupCreateRes);
     };
+
+    useEffect(() => {
+        setTypeSearch(typeSearch)
+        setId(id)
+        console.log("type: " + typeSearch + ", value: " + id)
+
+        console.log('----------------------------------------------------------------------')
+        console.log(url_api + "/security/searchUser?typeOfSearch=" + typeSearch + "&value=" + id)
+    }, [typeSearch, id])
 
 
     useEffect(() => {
@@ -229,34 +243,36 @@ const CustomerManagement = () => {
 
     const handleIdFilter = async (e) => {
         e.preventDefault();
-        if (id === null || id === '') {
-            fetch(URL + building)
-                .then(response => response.json())
-                .then((data) => {
-                    setIdNull(true);
-                    setCustomers(data)
-                })
-                .catch((err) => {
-                    console.log(toast);
-                    toast.error('Failed: ' + err.message);
-                    localStorage.setItem("msg", 'Failed: ' + err.message)
-                });
+        // if (id === null || id === '') {
+        //     fetch(URL + building)
+        //         .then(response => response.json())
+        //         .then((data) => {
+        //             setIdNull(true);
+        //             setCustomers(data)
+        //         })
+        //         .catch((err) => {
+        //             console.log(toast);
+        //             toast.error('Failed: ' + err.message);
+        //             localStorage.setItem("msg", 'Failed: ' + err.message)
+        //         });
 
-        }
-        else {
-            fetch(URL_Find_All + id)
-                .then(response => response.json())
-                .then((data) => {
-                    setIdNull(false);
-                    setCustomers(data)
-                })
-                .catch((err) => {
-                    console.log(toast);
-                    toast.error('Failed: ' + err.message);
-                    localStorage.setItem("msg", 'Failed: ' + err.message)
-                    window.location.href = '/AdminHomePage'
-                });
-        }
+        // }
+        // else {
+        //     console.log('----------------------------------------------------------------------')
+        //     console.log(url_api + "/security/searchUser?typeOfSearch=" + typeSearch + "email&value=" + id)
+        //     fetch(url_api + "/security/searchUser?typeOfSearch=" + typeSearch + "email&value=" + id)
+        //         .then(response => response.json())
+        //         .then((data) => {
+        //             setIdNull(false);
+        //             setCustomers(data)
+        //         })
+        //         .catch((err) => {
+        //             console.log(toast);
+        //             toast.error('Failed: ' + err.message);
+        //             localStorage.setItem("msg", 'Failed: ' + err.message)
+        //             window.location.href = '/AdminHomePage'
+        //         });
+        // }
 
     }
 
@@ -288,7 +304,12 @@ const CustomerManagement = () => {
 
             <form className='filter-id justify-content-center' style={{ textAlign: 'left', marginTop: '30px', float: 'left' }} onSubmit={handleIdFilter}>
                 Filter by ID:
-                <input type="text" onChange={e => setId(e.target.value)} />
+                <select type="select" style={{ fontSize: '8px', height: '31px', width: '80px' }} >
+                    <option value="female" className="gender">iduser</option>
+                    <option value="male" className="gender">email</option>
+                    <option value="male" className="gender">phone</option>
+                </select>
+                <input style={{ width: '40%' }} type="text" onChange={e => setId(e.target.value)} />
                 <button type='submit'>Search</button>
             </form>
             <ul class="nav justify-content-center nav-custom nav-custom-sercurity">
