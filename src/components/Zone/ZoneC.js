@@ -9,7 +9,7 @@ function ZoneC() {
     const [shellsR, setShellsR] = useState([]);
 
     useEffect(() => {
-        fetch(url_api+'/present_slot/findAll/C')
+        fetch(url_api+'/present_slot/findAllSlot/C')
             .then(response => response.json())
             .then((data) => {
                 setShells(data)
@@ -50,13 +50,13 @@ function ZoneC() {
                     </p>
                     <p>
                         <h5>DESCRIPTION</h5>
-                        <span>P1 is the nearest zone to the terminal (100m distance).</span>
+                        <span>Zone C is the most recently built, providing a large area and a modern entry and security monitoring system with the latest technology. The slots are spacious and equipped with modern facilities.</span>
                         <br />
-                        <span>Maximum parking time: 4 hours</span>
+                        
                     </p>
                     <p>
                         <h5>SPECIFICATIONS</h5>
-                        <span>Maximum parking time: 4 hourss</span>
+                        <span>Maximum parking time: 1 month</span>
                     </p>
 
                     <p style={{ border: 'none' }}>

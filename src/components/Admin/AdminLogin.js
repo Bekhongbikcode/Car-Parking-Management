@@ -168,11 +168,9 @@ const AdminLogin = () => {
                     <title>Login</title>
                 </Helmet>
                 <div className="container-login">
-
-                    <BackgroundCommon></BackgroundCommon>
-                    {/* <div className="container-background">
-                <img style={{position:"absolute",zIndex:"10", marginLeft:"-200px", marginTop:"110px"}} src="man.png"></img>
-            </div> */}
+                    <div className="container-background" style={{ marginTop: '-80px', height: '720px', marginLeft:'300px' }}>
+                        <img style={{ position: "absolute", zIndex: "10", marginTop: "110px" }} src="./assets/img/man.png"></img>
+                    </div>
 
                     <div className="login-form">
                         <h2 style={{}}>Admin Log in</h2>

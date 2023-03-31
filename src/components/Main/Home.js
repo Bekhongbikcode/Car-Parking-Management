@@ -151,15 +151,15 @@ const Home = () => {
                     <Card className="card col-lg-4" style={{ marginLeft: '10%' }}>
                         <Card.Header className="card-header">
                             <div>
-                                <p style={{ display: 'block', margin: '0 auto', color: "#fff" }}>2.5$ / Day</p>
+                                <p style={{ display: 'block', margin: '0 auto', color: "#fff" }}>Low price</p>
                             </div>
                             <span>Zone A</span>
                         </Card.Header>
                         <Card.Body className="card-body">
-                            <span>Content</span>
+                            <span>Zone A is a new Zone, with have a lot slots for your vehicles.</span>
                             <div>
                                 <FontAwesomeIcon icon={faClock}></FontAwesomeIcon>
-                                <b style={{ marginLeft: '10px', fontSize: '12px' }}>Max, Duration: 4 hours</b>
+                                <b style={{ marginLeft: '10px', fontSize: '12px' }}>Max, Duration: 1 month</b>
                             </div>
                         </Card.Body>
                         <Card.Footer className="card-footer">
@@ -180,15 +180,15 @@ const Home = () => {
                     <Card className="card col-lg-4">
                         <Card.Header className="card-header">
                             <div>
-                                <p style={{ display: 'block', margin: '0 auto', color: "#fff" }}>2.5$ / Day</p>
+                                <p style={{ display: 'block', margin: '0 auto', color: "#fff" }}>Higher price</p>
                             </div>
                             <span>Zone B</span>
                         </Card.Header>
                         <Card.Body className="card-body">
-                            <span>Content</span>
+                            <span>Zone B is built with a larger capacity and many facilities </span>
                             <div>
                                 <FontAwesomeIcon icon={faClock}></FontAwesomeIcon>
-                                <b style={{ marginLeft: '10px', fontSize: '12px' }}>Max, Duration: 4 hours</b>
+                                <b style={{ marginLeft: '10px', fontSize: '12px' }}>Max, Duration: 1 months</b>
                             </div>
                         </Card.Body>
                         <Card.Footer className="card-footer">
@@ -210,15 +210,15 @@ const Home = () => {
                     <Card className="card col-lg-4">
                         <Card.Header className="card-header">
                             <div>
-                                <p style={{ display: 'block', margin: '0 auto', color: "#fff" }}>2.5$ / Day</p>
+                                <p style={{ display: 'block', margin: '0 auto', color: "#fff" }}>Highest price</p>
                             </div>
                             <span>Zone C</span>
                         </Card.Header>
                         <Card.Body className="card-body">
-                            <span>Content</span>
+                            <span>Zone C provides a more spacious parking area and more facilities</span>
                             <div>
                                 <FontAwesomeIcon icon={faClock}></FontAwesomeIcon>
-                                <b style={{ marginLeft: '10px', fontSize: '12px' }}>Max, Duration: 4 hours</b>
+                                <b style={{ marginLeft: '10px', fontSize: '12px' }}>Max, Duration: 1 month</b>
                             </div>
                         </Card.Body>
                         <Card.Footer className="card-footer">

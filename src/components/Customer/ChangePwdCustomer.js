@@ -30,10 +30,10 @@ const ChangePwdCustomer = () => {
             <div style={{ width: '40%', color: 'black', textAlign: '' }} className="notice-infor">
                 <div style={{ padding: '10%' }}>
                     <h3 style={{ color: 'red' }}>Change Password</h3>
-                    <label style={{ textAlign: 'left' }}>Old Password</label>
+                    {/* <label style={{ textAlign: 'left' }}>Old Password</label>
                     <br />
                     <input style={{ width: '100%', borderRadius: '5px' }} type={'password'}></input>
-                    <br />
+                    <br /> */}
                     <label>New Password</label>
                     <br />
                     <input style={{ width: '100%', borderRadius: '5px' }} type={'password'} onChange={(e) => setNewPwd(e.target.value)}></input>

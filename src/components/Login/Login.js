@@ -144,10 +144,10 @@ const Login = () => {
                         </div>
                         <h2>User Log in</h2>
                         <span style={{ marginBottom: "40px", display: "block" }}>Log in to your Eparking account.</span>
-                        <button className="google" style={{ marginBottom: "10px", backgroundColor: 'white' }} type="submit"> <img style={{ width: "30px", position: "absolute", left: "20px", marginRight: "30px" }} src='./assets/img/Google_Logo.png' /> Login with Google</button>
-                        <button className="google" style={{ marginTop: "0px" }} type="submit"> <img style={{ width: "30px", position: "absolute", left: "20px", marginRight: "30px" }} src='./assets/img/facebook.png' /> Login with Facebook</button>
+                        {/* <button className="google" style={{ marginBottom: "10px", backgroundColor: 'white' }} type="submit"> <img style={{ width: "30px", position: "absolute", left: "20px", marginRight: "30px" }} src='./assets/img/Google_Logo.png' /> Login with Google</button>
+                        <button className="google" style={{ marginTop: "0px" }} type="submit"> <img style={{ width: "30px", position: "absolute", left: "20px", marginRight: "30px" }} src='./assets/img/facebook.png' /> Login with Facebook</button> */}
                         <br />
-                        <div className="dash-or"><span>Or</span></div>
+                        <div className="dash-or"><span></span></div>
                         <form onSubmit={ProceedLogin}>
                             <input placeholder="User Name" style={{ marginTop: "30px" }} value={username} onChange={e => usernameupdate(e.target.value)} ></input>
                             <input placeholder="Password" type="password" value={password} onChange={e => passwordupdate(e.target.value)} ></input>

@@ -333,7 +333,7 @@ const ReservationDetail = () => {
                                 <label>Start date *</label>
                                 <br />
                                 <div>
-                                    <input type={'date'} placeholder="User Name" style={{ width: '100%', position: 'relative' }} onChange={(e) => setStartDate(e.target.value)} value={startDate} ></input>
+                                    <input type={'date'} min={new Date().toISOString().split('T')[0]} placeholder="User Name" style={{ width: '100%', position: 'relative' }} onChange={(e) => setStartDate(e.target.value)} value={startDate} ></input>
 
                                 </div>
                             </div>
@@ -341,7 +341,7 @@ const ReservationDetail = () => {
                                 <label>End date *</label>
                                 <br />
                                 <div>
-                                    <input type={'date'} placeholder="User Name" style={{ width: '100%', position: 'relative' }} onChange={(e) => setEndDate(e.target.value)} value={endDate}  ></input>
+                                    <input type={'date'} min={new Date().toISOString().split('T')[0]} placeholder="User Name" style={{ width: '100%', position: 'relative' }} onChange={(e) => setEndDate(e.target.value)} value={endDate}  ></input>
 
                                 </div>
                             </div>

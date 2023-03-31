@@ -13,7 +13,7 @@ const PopUpWarning = ({ handleClose, show, data, role }) => {
   return (
     <div className={showHideClassName}>
       <section className='popup-main popup-main-custom'>
-        <button className='close' onClick={handleClose}>
+        <button style={{backgroundClip:'white'}} className='close' onClick={handleClose}>
           &times;
         </button>
         <div className="home-warning">

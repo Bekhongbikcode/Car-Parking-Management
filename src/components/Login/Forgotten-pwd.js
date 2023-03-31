@@ -60,17 +60,23 @@ const ForgottenPwd = () => {
             body: JSON.stringify(regObj2)
         })
             .then((res) => {
-                res.json();
 
                 toast.success('New password is sent to: ' + obj.email)
                 console.log(res);
                 setTimeout(function () {
-                    window.location.reload();
+                    window.location.href = '/login';
                 }, 1800);
-            }).then((data) => toast.success('New password is sent to: ' + obj.email))
+            }).then((data) => {
+
+            })
             .catch((err) => {
                 toast.error('Failed: ' + err.message);
             });
+        toast.success('New password is sent to: ' + obj.email)
+    
+        setTimeout(function () {
+            window.location.href = '/login';
+        }, 1800);
 
     }
 

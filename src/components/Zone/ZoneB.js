@@ -9,7 +9,7 @@ function ZoneB() {
     const [shellsR, setShellsR] = useState([]);
 
     useEffect(() => {
-        fetch(url_api+'/present_slot/findAll/B')
+        fetch(url_api+'/present_slot/findAllSlot/B')
             .then(response => response.json())
             .then((data) => {
                 setShells(data)
@@ -47,13 +47,13 @@ function ZoneB() {
                         </Link></p>
                     <p>
                         <h5>DESCRIPTION</h5>
-                        <span>P1 is the nearest zone to the terminal (100m distance).</span>
+                        <span>Zone B was built in 2020, not only with a large capacity of over 30 slots for all vehicles but also located near the main gate, which is convenient for entering and exiting.</span>
                         <br />
-                        <span>Maximum parking time: 4 hours</span>
+
                     </p>
                     <p>
                         <h5>SPECIFICATIONS</h5>
-                        <span>Maximum parking time: 4 hourss</span>
+                        <span>Maximum parking time: 1 month</span>
                     </p>
 
                     <p style={{ border: 'none' }}>

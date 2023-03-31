@@ -18,7 +18,7 @@ function ZoneA() {
     const [shellsR, setShellsR] = useState([]);
 
     useEffect(() => {
-        fetch(url_api + '/present_slot/findAll/A')
+        fetch(url_api + '/present_slot/findAllSlot/A')
             .then(response => response.json())
             .then((data) => {
                 setShells(data)
@@ -42,7 +42,7 @@ function ZoneA() {
                         </Link></p>
                     <p>
                         <h5>DESCRIPTION</h5>
-                        <span>P1 is the nearest zone to the terminal (100m distance).</span>
+                        <span>Zone A was built since 2020, with a capacity of up to 30 slots for all customers' vehicles. This area is close to building A of the apartment complex, so moving around is quite convenient.</span>
                         <br />
                         <span>Maximum parking time: 4 hours</span>
                     </p>

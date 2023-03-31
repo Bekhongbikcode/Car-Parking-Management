@@ -181,7 +181,7 @@ app-check {
   border: 1px solid #2DC98A !important;
 }
 
-/* .login-form>.google {
+.login-form>.google {
   position: "relative";
   background-color: #fff !important;
 }
@@ -190,11 +190,11 @@ app-check {
   background-color: #f4f4f4 !important;
 }
 
-.login-form button:hover {
+/* .login-form button:hover {
   background-color: #1F8A64;
   transition: 0.5s;
 
-} */
+} */ 
 
 .anyaccount {
   position: relative;
